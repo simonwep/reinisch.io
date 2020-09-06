@@ -1,16 +1,16 @@
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 const path = require('path');
 
-const globalSCSS = path.resolve(__dirname, 'src/styles/_global.scss');
 const dist = path.resolve(__dirname, 'dist');
 const src = path.resolve(__dirname, 'src');
 
 module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
-    entry: './src/index.jsx',
+    entry: './src/index.js',
 
     output: {
         path: dist,
@@ -80,10 +80,7 @@ module.exports = {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: true,
-                            additionalData: '@import "src/styles/_variables.scss";',
-                            sassOptions: {
-                                includePaths: [globalSCSS]
-                            }
+                            additionalData: '@import "src/styles/_variables.scss";'
                         }
                     }
                 ]
@@ -103,6 +100,10 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.DefinePlugin({
+            'env.NODE_ENV': JSON.stringify('development')
+        }),
+
         new HtmlWebpackPlugin({
             template: 'public/index.html',
             inject: true

@@ -5,6 +5,7 @@
         "noImplicitAny": true,
         "skipLibCheck": true,
         "experimentalDecorators": true,
+        "resolveJsonModule": true,
         "moduleResolution": "node",
         "sourceMap": true,
         "lib": ["esnext", "dom"],

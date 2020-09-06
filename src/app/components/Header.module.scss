@@ -1,0 +1,21 @@
+.header {
+
+    > h1 {
+        @include font(200, 6em);
+        margin-bottom: 0.25em;
+
+        @include animate('1s ease-out') {
+            from {
+                opacity: 0;
+                transform: translateX(-2vw);
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.spinner {
+    @include font(200, 2.5em);
+}

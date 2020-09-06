@@ -3,15 +3,15 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 const path = require('path');
 
-const globalSCSS = path.resolve(__dirname, 'src/styles/_global.scss');
 const dist = path.resolve(__dirname, 'dist');
 const src = path.resolve(__dirname, 'src');
 
 module.exports = {
     mode: 'production',
-    entry: './src/index.jsx',
+    entry: './src/index.js',
 
     output: {
         path: dist,
@@ -63,10 +63,7 @@ module.exports = {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: true,
-                            additionalData: '@import "src/styles/_variables.scss";',
-                            sassOptions: {
-                                includePaths: [globalSCSS]
-                            }
+                            additionalData: '@import "src/styles/_variables.scss";'
                         }
                     }
                 ]
@@ -101,6 +98,10 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.DefinePlugin({
+            'env.NODE_ENV': JSON.stringify('production')
+        }),
+
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'public/index.html',

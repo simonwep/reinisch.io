@@ -1,8 +1,5 @@
-import {render, h} from 'preact';
-import App from './app/App';
-
 /* eslint-disable */
-if (process.env.NODE_ENV === 'development') {
+if (env.NODE_ENV === 'development') {
 
     // Inject react-hot-loader
     const runtime = require('react-refresh/runtime');
@@ -13,12 +10,12 @@ if (process.env.NODE_ENV === 'development') {
     }
 
     // See https://github.com/facebook/react/issues/16604#issuecomment-528663101
-    window.$RefreshReg$ = () => {
-    };
+    window.$RefreshReg$ = () => {};
     window.$RefreshSig$ = () => type => type;
-} else if (process.env.NODE_ENV === 'production') {
+    console.log('[APP] Development mode.');
+} else if (env.NODE_ENV === 'production') {
     // TODO: Add cool console log here
-    // PWA?
+    // TODO: PWA?
 }
 
-render(<App/>, document.getElementById('app'));
+require('./app');
