@@ -1,0 +1,46 @@
+.pageSection {
+    padding: 10vh 0;
+
+
+    &[data-visible] {
+
+        .header > h1 {
+            opacity: 1;
+
+            &:first-child{
+                clip-path: inset(0 0 0 0);
+            }
+
+            &:last-child{
+                clip-path: inset(0 0 0 100%);
+            }
+        }
+    }
+}
+
+.header {
+    position: relative;
+
+    > h1 {
+        @include font(400, 2em);
+        display: inline-block;
+        position: relative;
+        transition: all 0.75s;
+        padding: 0.2em 0.5em;
+        opacity: 0;
+
+        &:first-child {
+            background: var(--c-text);
+            color: var(--c-background);
+            clip-path: inset(0 100% 0 0);
+        }
+
+        &:last-child {
+            clip-path: inset(0 0 0 0);
+            background: var(--c-background);
+            color: var(--c-text);
+            position: absolute;
+            left: 0;
+        }
+    }
+}
