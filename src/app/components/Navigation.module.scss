@@ -1,0 +1,31 @@
+.navigation {
+    @include flex(row, center);
+    background: linear-gradient(to bottom, var(--c-background) 75%, transparent);
+    margin-top: 5vh;
+    position: sticky;
+    padding: 2.5em 0;
+    top: 0;
+}
+
+.wrapper {
+    position: relative;
+
+    > a {
+        @include font(400, 1.5em);
+        text-shadow: font-stroke(2, black);
+
+        &:not(:last-child) {
+            margin-right: 0.75em;
+        }
+    }
+
+    > div {
+        @include size(1px, 1.5px);
+        //transition: all 0.5s;
+        border-radius: 1em;
+        background: var(--c-text);
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+    }
+}
