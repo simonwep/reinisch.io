@@ -1,5 +1,7 @@
 @import '~sassyfication';
-@import 'global/fonts';
+@import 'utils/mixins';
+
+$font-family: 'Source Serif Pro';
 
 :root {
     --c-background: #000;

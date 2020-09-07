@@ -1,6 +1,7 @@
 @import '~normalize.css';
 @import './variables';
 @import './global/reset';
+@import './global/fonts';
 
 ::-webkit-scrollbar {
     width: 14px;
@@ -19,11 +20,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(black, 0.3);
+    background-color: var(--c-text);
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--c-background-secondary);
+    background-color: transparent;
 }
 
 ::-webkit-scrollbar-corner {
