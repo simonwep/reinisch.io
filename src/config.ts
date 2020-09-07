@@ -1,4 +1,6 @@
-export const config: {
+export type Config = {
     name: string;
     slogans: string[];
-} = require('../config/config.json');
+};
+
+export const config: Config = require('../config/config.json');
