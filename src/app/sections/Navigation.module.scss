@@ -3,6 +3,7 @@
     background: linear-gradient(to bottom, var(--c-background) 75%, transparent);
     margin-top: 5vh;
     position: sticky;
+    z-index: 1;
     padding: 2.5em 0;
     top: 0;
 }

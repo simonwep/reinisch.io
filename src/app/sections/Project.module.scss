@@ -1,10 +1,20 @@
 .projectCard {
+    @include flex(column);
     position: relative;
     padding: 1em;
+    transition: all 0.1s;
+    transform: perspective(500px) rotateX(calc(var(--rotation-y) * 10deg)) rotateY(calc(var(--rotation-x) * 10deg)) scale(1.025);
+    user-select: none;
+    cursor: pointer;
+
+    &:hover {
+        transition: all 0.05s;
+    }
 
     > article {
         @include font(400, 1.25em);
         line-height: 1.25em;
+        margin-bottom: auto;
     }
 
     > svg {
@@ -16,7 +26,7 @@
         position: absolute;
         fill: none;
         stroke: var(--c-text);
-        stroke-width: 3;
+        stroke-width: calc(var(--page-section-visibility) * 3px);
         opacity: var(--page-section-visibility);
         shape-rendering: crispEdges;
         stroke-dasharray: 500 500;
@@ -35,13 +45,9 @@
     @include flex(row, center, space-between);
     margin-bottom: 0.5em;
 
-    > a {
-        display: flex;
-
-        > svg {
-            @include size(2em);
-            fill: var(--c-text);
-        }
+    > svg {
+        @include size(2em);
+        fill: var(--c-text);
     }
 
     > h1 {
@@ -54,6 +60,7 @@
     margin-top: 1em;
 
     > span {
+        font-size: 13px;
         font-family: $font-family-tags;
         text-transform: uppercase;
         display: inline-block;
@@ -62,9 +69,6 @@
         padding: 0.25em 0.5em;
         opacity: var(--page-section-visibility);
         transition: all 1s;
-
-        &:not(:last-child) {
-            margin-right: 0.5em;
-        }
+        margin: 0.25em;
     }
 }
