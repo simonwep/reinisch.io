@@ -67,8 +67,8 @@
         background: var(--c-text);
         color: var(--c-background);
         padding: 0.25em 0.5em;
-        opacity: var(--page-section-visibility);
         transition: all 1s;
         margin: 0.25em;
+        opacity: calc(var(--page-section-visibility) / var(--offset));
     }
 }

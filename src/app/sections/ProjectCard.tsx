@@ -52,7 +52,9 @@ export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
 
             <div className={styles.tags}>
                 {project.tags.map((tag, index) =>
-                    <span key={index} style={`transition-delay: ${(index / project.tags.length) * 300}ms`}>{tag}</span>
+                    <span key={index} style={{'--offset': (index + 1) / project.tags.length}}>
+                        {tag}
+                    </span>
                 )}
             </div>
 
