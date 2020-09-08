@@ -1,3 +1,70 @@
-.project {
+.projectCard {
+    position: relative;
+    padding: 1em;
 
+    > article {
+        @include font(400, 1.25em);
+        line-height: 1.25em;
+    }
+
+    > svg {
+        pointer-events: none;
+        z-index: -1;
+        transition: all 1s;
+        top: 0;
+        left: 0;
+        position: absolute;
+        fill: none;
+        stroke: var(--c-text);
+        stroke-width: 3;
+        opacity: var(--page-section-visibility);
+        shape-rendering: crispEdges;
+        stroke-dasharray: 500 500;
+        stroke-dashoffset: calc((1 - var(--page-section-visibility)) * 500);
+    }
+
+    > article,
+    > svg,
+    > .header {
+        transition: all 1s;
+        opacity: var(--page-section-visibility);
+    }
+}
+
+.header {
+    @include flex(row, center, space-between);
+    margin-bottom: 0.5em;
+
+    > a {
+        display: flex;
+
+        > svg {
+            @include size(2em);
+            fill: var(--c-text);
+        }
+    }
+
+    > h1 {
+        @include font(600, 1.5em);
+        margin: 0;
+    }
+}
+
+.tags {
+    margin-top: 1em;
+
+    > span {
+        font-family: $font-family-tags;
+        text-transform: uppercase;
+        display: inline-block;
+        background: var(--c-text);
+        color: var(--c-background);
+        padding: 0.25em 0.5em;
+        opacity: var(--page-section-visibility);
+        transition: all 1s;
+
+        &:not(:last-child) {
+            margin-right: 0.5em;
+        }
+    }
 }

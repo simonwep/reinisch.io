@@ -1,11 +1,9 @@
 import {FunctionalComponent, h} from 'preact';
 import {useEffect, useRef, useState} from 'preact/hooks';
-import {cn} from '../../utils/preact-utils';
 import styles from './PageSection.module.scss';
 
 type Props = {
     intersectionRatioThreshold?: number;
-    className?: string;
     id?: string;
     title: string;
 }
@@ -26,9 +24,10 @@ export const PageSection: FunctionalComponent<Props> = props => {
     }, [element]);
 
     return (
-        <div className={cn(styles.pageSection, props.className)}
+        <div className={styles.pageSection}
              id={props.id}
              ref={element}
+             style={`--page-section-visibility: ${visible ? 1 : 0}`}
              data-visible={visible}>
 
             <div className={styles.header}>

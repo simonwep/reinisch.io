@@ -1,16 +1,16 @@
 import {FunctionalComponent, h} from 'preact';
-import {useEffect, useState} from 'preact/hooks';
+import {config} from '../../config';
 import {PageSection} from '../components/PageSection';
+import {ProjectCard} from './ProjectCard';
 import styles from './Projects.module.scss';
 
-export const Projects: FunctionalComponent = () => {
-    const [projects, setProjects] = useState([]);
-
-    return (
-        <PageSection className={styles.projects}
-                     title="Projects"
-                     id="projects">
-
-        </PageSection>
-    );
-};
+export const Projects: FunctionalComponent = () => (
+    <PageSection title="Projects"
+                 id="projects">
+        <div className={styles.projects}>
+            {config.projects.map((value, index) =>
+                <ProjectCard project={value} key={index}/>
+            )}
+        </div>
+    </PageSection>
+);
