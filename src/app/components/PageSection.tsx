@@ -1,34 +1,32 @@
 import {FunctionalComponent, h} from 'preact';
 import {useEffect, useRef, useState} from 'preact/hooks';
+import {rx} from '../rx';
 import styles from './PageSection.module.scss';
 
 type Props = {
-    intersectionRatioThreshold?: number;
     id?: string;
     title: string;
 }
 
 export const PageSection: FunctionalComponent<Props> = props => {
-    const [visible, setVisible] = useState(false);
+    const [visibility, setVisibility] = useState(0);
     const element = useRef<HTMLDivElement>();
-    const threshold = props.intersectionRatioThreshold || 0.5;
 
-    // Detect whenever the section becomes visible
     useEffect(() => {
-        const intersectionObserver = new IntersectionObserver(entries => {
-            return setVisible(entries.some(entry => entry.intersectionRatio >= threshold));
-        }, {threshold});
+        const subscription = rx.scrollProgress
+            .subscribe(([step, subStep]) => {
+                setVisibility(step + subStep);
+            });
 
-        intersectionObserver.observe(element.current);
-        return () => intersectionObserver.disconnect();
-    }, [element]);
+        return () => subscription.unsubscribe();
+    }, []);
 
     return (
         <div className={styles.pageSection}
              id={props.id}
              ref={element}
-             style={`--page-section-visibility: ${visible ? 1 : 0}`}
-             data-visible={visible}>
+             style={`--page-section-visibility: ${visibility}`}
+             data-visible={visibility === 1}>
 
             <div className={styles.header}>
                 <h1>{props.title}</h1>

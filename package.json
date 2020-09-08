@@ -55,7 +55,8 @@
         "webpack-dev-server": "^3.11.0"
     },
     "dependencies": {
+        "normalize.css": "^8.0.1",
         "preact": "^10.4.8",
-        "normalize.css": "^8.0.1"
+        "rxjs": "^6.6.3"
     }
 }

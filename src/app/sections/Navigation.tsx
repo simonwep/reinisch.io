@@ -1,6 +1,7 @@
 import {createRef, FunctionalComponent, h} from 'preact';
 import {useEffect} from 'preact/hooks';
 import {clamp} from '../../utils/math';
+import {rx} from '../rx';
 import styles from './Navigation.module.scss';
 
 const links = [
@@ -58,12 +59,14 @@ export const Navigation: FunctionalComponent = () => {
             barStyle.width = `${cer.width}px`;
             barStyle.left = `${cer.left - per.left}px`;
         }
+
+        rx.scrollProgress.next([pure, subStep]);
     };
 
     useEffect(() => {
         updateBar();
-        window.addEventListener('scroll', updateBar);
-        return () => window.removeEventListener('scroll', updateBar);
+        const scollSubscription = rx.windowScroll.subscribe(updateBar);
+        return () => scollSubscription.unsubscribe();
     });
 
     const scrollTo = (selector: string) => (evt: MouseEvent) => {

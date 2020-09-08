@@ -2,6 +2,7 @@ import {FunctionalComponent, h} from 'preact';
 import {useEffect, useRef, useState} from 'preact/hooks';
 import {Project} from '../../config';
 import {clamp} from '../../utils/math';
+import {rx} from '../rx';
 import styles from './Project.module.scss';
 
 type Props = {
@@ -13,11 +14,15 @@ export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
     const [rotation, setRotation] = useState<[number, number]>([0, 0]);
     const element = useRef<HTMLDivElement>();
 
+    const updateSize = () => setSize([
+        element.current.offsetWidth,
+        element.current.offsetHeight
+    ]);
+
     useEffect(() => {
-        setSize([
-            element.current.offsetWidth,
-            element.current.offsetHeight
-        ]);
+        updateSize();
+        const subscription = rx.windowResize.subscribe(updateSize);
+        return () => subscription.unsubscribe();
     }, []);
 
     const open = () => window.open(project.link, '__blank', 'noopener,noreferrer');
@@ -60,7 +65,7 @@ export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
 
             <svg xmlns="http://www.w3.org/2000/svg"
                  viewBox={`0 0 ${size[0]} ${size[1]}`}>
-                <rect width="100%" height="100%" pathLength="500"/>
+                <rect width="100%" height="100%" pathLength="1000"/>
             </svg>
         </div>
     );

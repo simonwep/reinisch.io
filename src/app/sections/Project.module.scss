@@ -3,12 +3,13 @@
     position: relative;
     padding: 1em;
     transition: all 0.1s;
-    transform: perspective(500px) rotateX(calc(var(--rotation-y) * 10deg)) rotateY(calc(var(--rotation-x) * 10deg)) scale(1.025);
+    transform: perspective(500px) rotateX(calc(var(--rotation-y) * 10deg)) rotateY(calc(var(--rotation-x) * 10deg));
     user-select: none;
     cursor: pointer;
 
     &:hover {
         transition: all 0.05s;
+        transform: perspective(500px) rotateX(calc(var(--rotation-y) * 10deg)) rotateY(calc(var(--rotation-x) * 10deg)) scale(1.025)
     }
 
     > article {
@@ -20,7 +21,6 @@
     > svg {
         pointer-events: none;
         z-index: -1;
-        transition: all 1s;
         top: 0;
         left: 0;
         position: absolute;
@@ -28,9 +28,11 @@
         stroke: var(--c-text);
         stroke-width: calc(var(--page-section-visibility) * 3px);
         opacity: var(--page-section-visibility);
-        shape-rendering: crispEdges;
-        stroke-dasharray: 500 500;
-        stroke-dashoffset: calc((1 - var(--page-section-visibility)) * 500);
+
+        rect {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: calc((1 - var(--page-section-visibility)) * 1000);
+        }
     }
 
     > article,
@@ -60,14 +62,13 @@
     margin-top: 1em;
 
     > span {
-        font-size: 13px;
+        @include font(600, 13px);
         font-family: $font-family-tags;
         text-transform: uppercase;
         display: inline-block;
         background: var(--c-text);
         color: var(--c-background);
         padding: 0.25em 0.5em;
-        transition: all 1s;
         margin: 0.25em;
         opacity: calc(var(--page-section-visibility) / var(--offset));
     }
