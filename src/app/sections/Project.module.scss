@@ -30,6 +30,7 @@
         opacity: var(--page-section-visibility);
 
         rect {
+            transition: all 0.3s;
             stroke-dasharray: 1000;
             stroke-dashoffset: calc((1 - var(--page-section-visibility)) * 1000);
         }
@@ -63,6 +64,7 @@
 
     > span {
         @include font(600, 13px);
+        transition: all 0.3s;
         font-family: $font-family-tags;
         text-transform: uppercase;
         display: inline-block;

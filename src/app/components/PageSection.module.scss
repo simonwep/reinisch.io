@@ -1,4 +1,5 @@
 .pageSection {
+    @include width(50%, 70rem, 120rem);
     padding: 10vh 0;
 }
 

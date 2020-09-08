@@ -1,4 +1,5 @@
 .header {
+    @include width(50%, 70rem, 120rem);
 
     > h1 {
         @include font(200, 6em);

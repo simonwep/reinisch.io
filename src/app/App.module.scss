@@ -1,6 +1,5 @@
 .app {
-    @include width(50%, 70em, 120em);
-    @include flex(column);
+    @include flex(column, center);
     font-family: $font-family;
     height: 100%;
     overflow: visible;

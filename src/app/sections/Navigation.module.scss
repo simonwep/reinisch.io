@@ -1,15 +1,17 @@
 .navigation {
-    @include flex(row, center);
     background: linear-gradient(to bottom, var(--c-background) 75%, transparent);
     margin-top: 5vh;
     position: sticky;
     z-index: 1;
-    padding: 2.5em 0;
+    padding: 2.5em 0 3.5em;
     top: 0;
+    width: 100%;
 }
 
 .wrapper {
+    @include width(50%, 70rem, 120rem);
     position: relative;
+    margin: 0 auto;
 
     > a {
         @include font(400, 1.5em);
