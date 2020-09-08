@@ -25,8 +25,7 @@ export const PageSection: FunctionalComponent<Props> = props => {
         <div className={styles.pageSection}
              id={props.id}
              ref={element}
-             style={`--page-section-visibility: ${visibility}`}
-             data-visible={visibility === 1}>
+             style={`--page-section-visibility: ${visibility}`}>
 
             <div className={styles.header}>
                 <a href={`#${props.id}`}>#</a>

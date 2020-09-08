@@ -2,7 +2,6 @@
     @include flex(column, center);
     font-family: $font-family;
     height: 100%;
-    overflow: visible;
     color: var(--c-text);
     margin: auto;
     padding-top: 12.5vh;

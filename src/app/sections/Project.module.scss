@@ -3,19 +3,19 @@
     color: var(--c-text);
     position: relative;
     padding: 1em;
-    transition: all 0.1s;
-    transform: perspective(500px) rotateX(calc(var(--rotation-y) * 10deg)) rotateY(calc(var(--rotation-x) * 10deg));
+    transition: all 0.5s;
+    transform: perspective(500px) scale(calc(0.9 + 0.1 * var(--page-section-visibility)));
     user-select: none;
     cursor: pointer;
 
     &:hover {
-        transition: all 0.05s;
+        transition: transform 0.1s;
         transform: perspective(500px) rotateX(calc(var(--rotation-y) * 10deg)) rotateY(calc(var(--rotation-x) * 10deg)) scale(1.025)
     }
 
     > article {
         @include font(400, 1.25em);
-        line-height: 1.25em;
+        line-height: 1.35em;
         margin-bottom: auto;
     }
 
@@ -27,11 +27,10 @@
         position: absolute;
         fill: none;
         stroke: var(--c-text);
-        stroke-width: calc(var(--page-section-visibility) * 3px);
+        stroke-width: 3px;
         opacity: var(--page-section-visibility);
 
         rect {
-            transition: all 0.3s;
             stroke-dasharray: 1000;
             stroke-dashoffset: calc((1 - var(--page-section-visibility)) * 1000);
         }
@@ -40,7 +39,6 @@
     > article,
     > svg,
     > .header {
-        transition: all 1s;
         opacity: var(--page-section-visibility);
     }
 }
@@ -65,7 +63,6 @@
 
     > span {
         @include font(600, 13px);
-        transition: all 0.3s;
         font-family: $font-family-tags;
         text-transform: uppercase;
         display: inline-block;
