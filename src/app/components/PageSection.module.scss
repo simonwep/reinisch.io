@@ -4,17 +4,33 @@
 }
 
 .header {
+    @include font(400, 2em);
     position: relative;
 
+    &:hover > a {
+        transform: none;
+        opacity: 1;
+    }
+
+    > a {
+        @include position(0, auto, 0, -1em);
+        position: absolute;
+        margin: auto;
+        height: 1.1em;
+        transition: all 0.3s;
+        transform: translateX(0.5vw);
+        opacity: 0;
+    }
+
     > h1 {
-        @include font(400, 2em);
+        font-size: 1em;
         display: inline-block;
         position: relative;
         transition: all 0.75s;
         padding: 0.2em 0.5em;
         opacity: var(--page-section-visibility);
 
-        &:first-child {
+        &:not(:first-child) {
             background: var(--c-text);
             color: var(--c-background);
             clip-path: inset(0 calc(100% - var(--page-section-visibility) * 100%) 0 0);

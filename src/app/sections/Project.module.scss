@@ -1,5 +1,6 @@
 .projectCard {
     @include flex(column);
+    color: var(--c-text);
     position: relative;
     padding: 1em;
     transition: all 0.1s;

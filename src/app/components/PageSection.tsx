@@ -29,6 +29,7 @@ export const PageSection: FunctionalComponent<Props> = props => {
              data-visible={visibility === 1}>
 
             <div className={styles.header}>
+                <a href={`#${props.id}`}>#</a>
                 <h1>{props.title}</h1>
                 <h1>{props.title}</h1>
             </div>
