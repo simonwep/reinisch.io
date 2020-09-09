@@ -51,8 +51,10 @@ export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
 
             {/* I'd LOVE to do this with svg and stroke-[dasharray|dashoffset] but the support is both crappy and the implementation is different */}
             <div className={styles.border}>
-                <div/><div/>
-                <div/><div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
             </div>
         </div>
     );

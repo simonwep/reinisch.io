@@ -1,5 +1,6 @@
 import styles from './App.module.scss';
 import {h} from 'preact';
+import {Archive} from './sections/Archive';
 import {Header} from './sections/Header';
 import {Navigation} from './sections/Navigation';
 import {Projects} from './sections/Projects';
@@ -9,5 +10,6 @@ export default () => (
         <Header/>
         <Navigation/>
         <Projects/>
+        <Archive/>
     </div>
 );

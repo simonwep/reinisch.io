@@ -6,7 +6,8 @@ import styles from './Navigation.module.scss';
 
 const links = [
     ['Home', '#home'],
-    ['Projects', '#projects']
+    ['Projects', '#projects'],
+    ['Archive', '#archive']
 ];
 
 export const Navigation: FunctionalComponent = () => {
