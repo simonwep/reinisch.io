@@ -1,5 +1,5 @@
-import {config} from '../../config';
-import {LettersSpinner} from '../components/LettersSpinner';
+import {config} from '@config';
+import {LettersSpinner} from '@components/LettersSpinner';
 import {FunctionalComponent, h} from 'preact';
 import styles from './Header.module.scss';
 

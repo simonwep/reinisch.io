@@ -1,6 +1,6 @@
 import {FunctionalComponent, h} from 'preact';
-import {config} from '../../config';
-import {PageSection} from '../components/PageSection';
+import {config} from '@config';
+import {PageSection} from '@components/PageSection';
 import {ProjectCard} from './ProjectCard';
 import styles from './Projects.module.scss';
 

@@ -30,7 +30,7 @@
     },
     "rules": {
         "@typescript-eslint/restrict-template-expressions": "off",
-        "@typescript-eslint/explicit-module-boundary-types":"off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",
         "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/unbound-method": "off",
@@ -41,7 +41,7 @@
         "react/prop-types": "off",
         "react/display-name": "off",
         "react/jsx-indent": [2, 4, {"checkAttributes": true, "indentLogicalExpressions": true}],
-        "no-unused-vars": "off",
+        "no-unused-vars": ["error", {"varsIgnorePattern": "^h$"}],
         "indent": "off",
         "camelcase": "off",
         "no-void": "off"

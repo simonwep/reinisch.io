@@ -1,6 +1,6 @@
 import {createRef, FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
-import {clamp} from '../../utils/math';
+import {clamp} from '@utils/math';
 import {rx} from '../rx';
 import styles from './Navigation.module.scss';
 

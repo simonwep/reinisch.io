@@ -1,6 +1,6 @@
 import {FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
-import {cn} from '../../utils/preact-utils';
+import {cn} from '@utils/preact-utils';
 import styles from './LettersSpinner.module.scss';
 
 type Props = {

@@ -46,7 +46,10 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.js', '.scss'],
         alias: {
             'react': 'preact/compat',
-            'react-dom': 'preact/compat'
+            'react-dom': 'preact/compat',
+            '@components': path.resolve('./src/app/components'),
+            '@utils': path.resolve('./src/utils'),
+            '@config': path.resolve('./src/config.ts')
         }
     },
 
