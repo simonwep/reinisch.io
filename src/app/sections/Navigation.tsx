@@ -1,5 +1,5 @@
 import {createRef, FunctionalComponent, h} from 'preact';
-import {useEffect} from 'preact/hooks';
+import {useEffect, useState} from 'preact/hooks';
 import {clamp} from '../../utils/math';
 import {rx} from '../rx';
 import styles from './Navigation.module.scss';
@@ -10,6 +10,7 @@ const links = [
 ];
 
 export const Navigation: FunctionalComponent = () => {
+    const [visibility, setVisibility] = useState(0);
     const navItems: Array<HTMLAnchorElement | null> = [];
     const bar = createRef();
 
@@ -39,25 +40,28 @@ export const Navigation: FunctionalComponent = () => {
         const pure = clamp(Math.floor(index), 0, navItems.length - 1);
         const subStep = Math.max(index % 1, 0);
 
-        // Current element and next item
-        const cel = navItems[pure] as HTMLElement;
-        const nel = navItems[pure + 1];
+        if (bar.current) {
 
-        const barStyle = (bar.current as HTMLElement).style;
-        const per = (cel.parentElement as HTMLElement).getBoundingClientRect();
-        const cer = cel.getBoundingClientRect();
+            // Current element and next item
+            const cel = navItems[pure] as HTMLElement;
+            const nel = navItems[pure + 1];
 
-        // Bar width and offset
-        if (nel) {
-            const ner = nel.getBoundingClientRect();
-            const barWidth = cer.width + (ner.width - cer.width) * subStep;
-            const barOffset = cer.left + (ner.left - cer.left) * subStep;
+            const barStyle = bar.current.style;
+            const per = (cel.parentElement as HTMLElement).getBoundingClientRect();
+            const cer = cel.getBoundingClientRect();
 
-            barStyle.width = `${barWidth}px`;
-            barStyle.left = `${barOffset - per.left}px`;
-        } else {
-            barStyle.width = `${cer.width}px`;
-            barStyle.left = `${cer.left - per.left}px`;
+            // Bar width and offset
+            if (nel) {
+                const ner = nel.getBoundingClientRect();
+                const barWidth = cer.width + (ner.width - cer.width) * subStep;
+                const barOffset = cer.left + (ner.left - cer.left) * subStep;
+
+                barStyle.width = `${barWidth}px`;
+                barStyle.left = `${barOffset - per.left}px`;
+            } else {
+                barStyle.width = `${cer.width}px`;
+                barStyle.left = `${cer.left - per.left}px`;
+            }
         }
 
         rx.scrollProgress.next([pure, subStep]);
@@ -66,7 +70,14 @@ export const Navigation: FunctionalComponent = () => {
     useEffect(() => {
         updateBar();
         const scollSubscription = rx.windowScroll.subscribe(updateBar);
-        return () => scollSubscription.unsubscribe();
+        const scrollProgressSubscription = rx.scrollProgress.subscribe(([step, subStep]) => {
+            setVisibility(step + subStep);
+        });
+
+        return () => {
+            scrollProgressSubscription.unsubscribe();
+            scollSubscription.unsubscribe();
+        };
     });
 
     const scrollTo = (selector: string) => (evt: MouseEvent) => {
@@ -75,7 +86,8 @@ export const Navigation: FunctionalComponent = () => {
     };
 
     return (
-        <div className={styles.navigation}>
+        <div className={styles.navigation}
+             style={{'--page-section-visibility': clamp(visibility, 0, 1)}}>
             <div className={styles.wrapper}>
                 {links.map(([txt, query]) => (
                     <a href={`#${query}`}
@@ -84,6 +96,15 @@ export const Navigation: FunctionalComponent = () => {
                        ref={instance => navItems.push(instance)}>{txt}</a>
                 ))}
                 <div ref={bar}/>
+            </div>
+
+            <div className={styles.scrollHint}>
+                {[...'START SCROLLING'].map((value, index, array) =>
+                    <span key={index}
+                          style={{animationDelay: `${index / array.length}s`}}>
+                        {value}
+                    </span>
+                )}
             </div>
         </div>
     );

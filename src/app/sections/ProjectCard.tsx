@@ -1,8 +1,7 @@
 import {FunctionalComponent, h} from 'preact';
-import {useEffect, useRef, useState} from 'preact/hooks';
+import {useRef, useState} from 'preact/hooks';
 import {Project} from '../../config';
 import {clamp} from '../../utils/math';
-import {rx} from '../rx';
 import styles from './ProjectCard.module.scss';
 
 type Props = {

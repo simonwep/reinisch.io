@@ -1,4 +1,5 @@
 .navigation {
+    @include flex(column, center, center);
     background: linear-gradient(to bottom, var(--c-background) 75%, transparent);
     margin-top: 5vh;
     position: sticky;
@@ -30,5 +31,35 @@
         position: absolute;
         bottom: 0;
         z-index: -1;
+    }
+}
+
+.scrollHint {
+    position: absolute;
+    margin-top: 3em;
+    bottom: -10vh;
+    background: var(--c-background);
+    padding: 0.5em 1.5em;
+    opacity: calc(1 - var(--page-section-visibility) * 2);
+
+    > span {
+        opacity: 0.25;
+        margin: 0 0.15em;
+
+        @include animate('4s infinite') {
+            50% {
+                opacity: 1;
+            }
+        }
+    }
+
+    &::after {
+        @include position(auto, 0, -10px, 0);
+        @include pseudo();
+        @include size(6px);
+        transform: rotate(45deg);
+        border: 2px solid transparent;
+        border-color: transparent var(--c-text) var(--c-text) transparent;
+        margin: auto;
     }
 }
