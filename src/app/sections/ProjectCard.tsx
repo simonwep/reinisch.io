@@ -3,27 +3,15 @@ import {useEffect, useRef, useState} from 'preact/hooks';
 import {Project} from '../../config';
 import {clamp} from '../../utils/math';
 import {rx} from '../rx';
-import styles from './Project.module.scss';
+import styles from './ProjectCard.module.scss';
 
 type Props = {
     project: Project;
 };
 
 export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
-    const [size, setSize] = useState<[number, number]>([0, 0]);
     const [rotation, setRotation] = useState<[number, number]>([0, 0]);
     const element = useRef<HTMLDivElement>();
-
-    const updateSize = () => setSize([
-        element.current.offsetWidth,
-        element.current.offsetHeight
-    ]);
-
-    useEffect(() => {
-        updateSize();
-        const subscription = rx.windowResize.subscribe(updateSize);
-        return () => subscription.unsubscribe();
-    }, []);
 
     const open = () => window.open(project.link, '__blank', 'noopener,noreferrer');
     const mouseLeave = () => setRotation([0, 0]);
@@ -52,8 +40,7 @@ export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
                 </svg>
             </div>
 
-
-            <article>{project.description}</article>
+            <article className={styles.description}>{project.description}</article>
 
             <div className={styles.tags}>
                 {project.tags.map((tag, index) =>
@@ -63,10 +50,11 @@ export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
                 )}
             </div>
 
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 viewBox={`0 0 ${size[0]} ${size[1]}`}>
-                <rect width="100%" height="100%" pathLength="1000"/>
-            </svg>
+            {/* I'd LOVE to do this with svg and stroke-[dasharray|dashoffset] but the support is both crappy and the implementation is different */}
+            <div className={styles.border}>
+                <div/><div/>
+                <div/><div/>
+            </div>
         </div>
     );
 };

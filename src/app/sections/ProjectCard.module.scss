@@ -1,0 +1,97 @@
+.projectCard {
+    @include flex(column);
+    color: var(--c-text);
+    position: relative;
+    padding: 1em;
+    transition: all 0.5s;
+    transform: perspective(500px) scale(calc(0.9 + 0.1 * var(--page-section-visibility)));
+    user-select: none;
+    cursor: pointer;
+
+    &:hover {
+        transition: transform 0.1s;
+        transform: perspective(500px) rotateX(calc(var(--rotation-y) * 10deg)) rotateY(calc(var(--rotation-x) * 10deg)) scale(1.025)
+    }
+
+    .description,
+    .border,
+    .header {
+        opacity: var(--page-section-visibility);
+    }
+}
+
+.description {
+    @include font(400, 1.25em);
+    line-height: 1.35em;
+    margin-bottom: auto;
+}
+
+.border {
+    @include position(0, 0, 0, 0);
+    position: absolute;
+
+    > div {
+        position: absolute;
+        background: var(--c-text);
+        $thickness: 1.5px;
+
+        &:nth-child(1) {
+            @include size(100%, $thickness);
+            transform-origin: right center;
+            transform: scaleX(var(--page-section-visibility));
+            bottom: 0;
+        }
+
+        &:nth-child(2) {
+            @include size(100%, $thickness);
+            transform-origin: left center;
+            transform: scaleX(var(--page-section-visibility));
+            top: 0;
+        }
+
+        &:nth-child(3) {
+            @include size($thickness, 100%);
+            transform-origin: top center;
+            transform: scaleY(var(--page-section-visibility));
+            left: 0;
+        }
+
+        &:nth-child(4) {
+            @include size($thickness, 100%);
+            transform-origin: bottom center;
+            transform: scaleY(var(--page-section-visibility));
+            right: 0;
+        }
+    }
+}
+
+.header {
+    @include flex(row, center, space-between);
+    margin-bottom: 0.5em;
+
+    > svg {
+        @include size(2em);
+        fill: var(--c-text);
+    }
+
+    > h1 {
+        @include font(600, 1.5em);
+        margin: 0;
+    }
+}
+
+.tags {
+    margin-top: 1em;
+
+    > span {
+        @include font(600, 13px);
+        font-family: $font-family-tags;
+        text-transform: uppercase;
+        display: inline-block;
+        background: var(--c-text);
+        color: var(--c-background);
+        padding: 0.25em 0.5em;
+        margin: 0.25em;
+        opacity: calc(var(--page-section-visibility) / var(--offset));
+    }
+}
