@@ -10,7 +10,8 @@ if (env.NODE_ENV === 'development') {
     }
 
     // See https://github.com/facebook/react/issues/16604#issuecomment-528663101
-    window.$RefreshReg$ = () => {};
+    window.$RefreshReg$ = () => {
+    };
     window.$RefreshSig$ = () => type => type;
     console.log('[APP] Development mode.');
 } else if (env.NODE_ENV === 'production') {

@@ -23,6 +23,7 @@ export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
 
     return (
         <div className={styles.projectCard}
+             data-cursor-focus={true}
              ref={element}
              onClick={open}
              onMouseLeave={mouseLeave}

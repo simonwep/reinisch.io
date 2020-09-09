@@ -4,30 +4,7 @@
 @import './global/fonts';
 
 ::-webkit-scrollbar {
-    width: 14px;
-
-    @include mq-phones {
-        display: none;
-        width: 10px;
-    }
-}
-
-::-webkit-scrollbar-thumb,
-::-webkit-scrollbar-track {
-    background-clip: padding-box;
-    border: 4px solid transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: var(--c-text);
-}
-
-::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-
-::-webkit-scrollbar-corner {
-    background: transparent
+    display: none;
 }
 
 * {

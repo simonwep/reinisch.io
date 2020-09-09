@@ -92,6 +92,7 @@ export const Navigation: FunctionalComponent = () => {
             <div className={styles.wrapper}>
                 {links.map(([txt, query]) => (
                     <a href={`#${query}`}
+                       data-cursor-focus={true}
                        onClick={scrollTo(query)}
                        key={query}
                        ref={instance => navItems.push(instance)}>{txt}</a>
