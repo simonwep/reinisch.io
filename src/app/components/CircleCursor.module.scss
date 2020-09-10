@@ -1,43 +1,43 @@
 .circle {
-    @include size(14px);
-    transition: background 0.15s, box-shadow 0.15s, opacity 0.3s;
-    opacity: 0;
+    @include flex(row, center, center);
     pointer-events: none;
     position: fixed;
+    z-index: 100;
     top: 0;
     left: 0;
-    border-radius: 100%;
-    border: 2px solid var(--c-text);
-    z-index: 100;
     transform: translate3d(
             calc(var(--pos-x) * 1px - 50%),
             calc(var(--pos-y) * 1px - 50%),
             0
     );
 
-    &::before {
-        @include pseudo();
-        @include size(14px);
-        left: 50%;
-        top: 50%;
-        border: 2px solid var(--c-text);
-        transform: translate(-50%, -50%) scale(0);
-        transition: all 0.3s;
-        border-radius: 100%;
-        opacity: 0;
+    &[data-visible] > div {
+        opacity: 1;
     }
 
-    &[data-focused] {
-        @include size(10px);
-        background: var(--c-text);
+    &[data-focused] > div {
+        &:first-child {
+            @include size(8px);
+            background: var(--c-text);
+        }
 
-        &::before {
-            transform: translate(-50%, -50%);
+        &:last-child {
+            transform: none;
             opacity: 1;
         }
     }
 
-    &[data-visible] {
-        opacity: 1;
+    > div {
+        @include size(16px);
+        transition: all 0.3s;
+        border: 2px solid var(--c-text);
+        border-radius: 100%;
+        position: absolute;
+        opacity: 0;
+
+        &:last-child {
+            transform: scale(0.5);
+            opacity: 0;
+        }
     }
 }

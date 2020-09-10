@@ -53,6 +53,9 @@ export const CircleCursor: FunctionalComponent = () => {
              style={{
                  '--pos-x': cursor.x,
                  '--pos-y': cursor.y
-             }}/>
+             }}>
+            <div/>
+            <div/>
+        </div>
     );
 };
