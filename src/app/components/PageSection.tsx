@@ -30,11 +30,22 @@ export const PageSection: FunctionalComponent<Props> = props => {
              ref={element}
              style={`--page-section-visibility: ${visibility}`}>
 
-            <div className={styles.header}>
-                <a href={`#${props.id}`}>#</a>
+            {props.index > 0 ? <div className={styles.divider}>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+            </div> : ''}
+
+            <a className={styles.header}
+               data-cursor-focus={true}
+               href={`#${props.id}`}>
+                <p>#</p>
                 <h1>{props.title}</h1>
                 <h1>{props.title}</h1>
-            </div>
+            </a>
 
             <h1 className={styles.backgroundHeader}>
                 <p>{props.title}</p>

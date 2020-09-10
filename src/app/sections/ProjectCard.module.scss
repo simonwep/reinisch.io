@@ -10,7 +10,7 @@
 
     &:hover {
         transition: transform 0.1s;
-        transform: perspective(500px) rotateX(calc(var(--rotation-y) * 10deg)) rotateY(calc(var(--rotation-x) * 10deg)) scale(1.025)
+        transform: perspective(500px) rotateX(calc(var(--rotation-y) * 10deg)) rotateY(calc(var(--rotation-x) * 10deg)) scale(1.05)
     }
 
     .description,

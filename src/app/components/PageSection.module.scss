@@ -1,19 +1,67 @@
 .pageSection {
-    @include width(50%, 70rem, 120rem);
     position: relative;
-    padding: 15vh 0;
+    padding: 20vh 0 5vh;
+}
+
+$divsize: 25px;
+.divider {
+    @include size($divsize);
+    position: relative;
+    margin: 0 auto 15vh auto;
+    transition: all 0.3s;
+    transform-style: preserve-3d;
+    --rot: calc(var(--page-section-visibility) * 360deg);
+    transform: perspective(250px) rotateY(var(--rot)) rotateX(var(--rot));
+
+    > div {
+        @include position(0, 0, 0, 0);
+        transition: all 0.3s;
+        position: absolute;
+        opacity: 0.75;
+
+        @for $i from 1 through 6 {
+            &:nth-child(#{$i}) {
+                $p: ($i / 6);
+                background: rgb($p * 255, $p * 255, $p * 255);
+            }
+        }
+
+        &:nth-child(1) {
+            transform: rotateX(90deg) translateZ($divsize / 2);
+        }
+
+        &:nth-child(2) {
+            transform: rotateX(-90deg) translateZ($divsize / 2);
+        }
+
+        &:nth-child(3) {
+            transform: rotateY(-90deg) translateZ($divsize / 2);
+        }
+
+        &:nth-child(4) {
+            transform: rotateY(90deg) translateZ($divsize / 2);
+        }
+
+        &:nth-child(5) {
+            transform: translateZ($divsize / 2);
+        }
+
+        &:nth-child(6) {
+            transform: translateZ($divsize / -2);
+        }
+    }
 }
 
 .header {
     @include font(400, 2em);
     position: relative;
 
-    &:hover > a {
+    &:hover > p {
         transform: none;
         opacity: 1;
     }
 
-    > a {
+    > p {
         @include position(0, auto, 0, -1em);
         position: absolute;
         margin: auto;
