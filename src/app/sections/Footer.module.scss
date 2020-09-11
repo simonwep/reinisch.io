@@ -1,0 +1,34 @@
+.footer {
+    @include flex(row, center);
+    width: 100%;
+}
+
+.face {
+    @include size(8em);
+    border-radius: 100%;
+}
+
+.text {
+    @include flex(column);
+    margin-left: 3em;
+    margin-right: auto;
+
+    > h1 {
+        @include font(200, 2em);
+        margin-top: 0;
+    }
+
+    > p {
+        @include font(300, 1em);
+    }
+}
+
+.links {
+    > a {
+        margin-left: 0.5em;
+
+        > svg {
+            fill: var(--c-text);
+        }
+    }
+}

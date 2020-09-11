@@ -5,6 +5,7 @@ import styles from './App.module.scss';
 import {h} from 'preact';
 import {rx} from './rx';
 import {Archive} from './sections/Archive';
+import {Footer} from './sections/Footer';
 import {Header} from './sections/Header';
 import {Navigation} from './sections/Navigation';
 import {Projects} from './sections/Projects';
@@ -38,6 +39,7 @@ export default () => {
                 <div className={styles.left}>
                     <Projects/>
                     <Archive/>
+                    <Footer/>
                 </div>
             </div>
         </div>

@@ -6,8 +6,8 @@ import styles from './PageSection.module.scss';
 
 type Props = {
     index: number;
-    title: string;
-    intro: string;
+    title?: string;
+    intro?: string;
     id?: string;
 }
 
@@ -47,11 +47,8 @@ export const PageSection: FunctionalComponent<Props> = props => {
                 <h1>{props.title}</h1>
             </a>
 
-            <h1 className={styles.backgroundHeader}>
-                <p>{props.title}</p>
-            </h1>
-
-            <h3 className={styles.intro}>{props.intro}</h3>
+            {props.title && <h1 className={styles.backgroundHeader}><p>{props.title}</p></h1>}
+            {props.intro && <h3 className={styles.intro}>{props.intro}</h3>}
 
             {props.children}
         </div>
