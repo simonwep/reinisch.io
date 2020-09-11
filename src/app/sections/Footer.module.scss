@@ -1,5 +1,7 @@
 .footer {
     @include flex(row, center);
+    transform: translateY(calc((1 - var(--page-section-visibility)) * 10vh)) scale(calc(0.9 + var(--page-section-visibility) * 0.1));
+    opacity: var(--page-section-visibility);
     width: 100%;
 }
 
@@ -24,10 +26,14 @@
 }
 
 .links {
+    margin-top: 1vh;
+    margin-bottom: auto;
+
     > a {
-        margin-left: 0.5em;
+        margin-left: 0.75em;
 
         > svg {
+            @include size(2em);
             fill: var(--c-text);
         }
     }
