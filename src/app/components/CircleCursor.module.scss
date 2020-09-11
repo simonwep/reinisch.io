@@ -11,6 +11,16 @@
             0
     );
 
+    &[data-pressed] {
+        &:not([data-focused]) > div:first-child {
+            transform: scale(1.25);
+        }
+
+        &[data-focused] > div:last-child {
+            transform: scale(1.25);
+        }
+    }
+
     &[data-visible] > div {
         opacity: 1;
     }

@@ -1,53 +1,68 @@
 import {FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
-import {fromEvent} from 'rxjs';
+import {fromEvent, merge} from 'rxjs';
 import styles from './CircleCursor.module.scss';
 
 type Cursor = {
     x: number;
     y: number;
+    pressed: boolean;
     visible: boolean;
     focus: boolean;
 }
 
+const mouseEvents = merge<MouseEvent>(
+    fromEvent<MouseEvent>(document, 'mouseup'),
+    fromEvent<MouseEvent>(document, 'mousedown'),
+    fromEvent<MouseEvent>(document, 'mousemove'),
+    fromEvent<MouseEvent>(document, 'mouseleave')
+);
+
 export const CircleCursor: FunctionalComponent = () => {
     const [cursor, setCursor] = useState<Cursor>({
-        x: 0,
-        y: 0,
+        x: 0, y: 0,
+        pressed: false,
         visible: false,
         focus: false
     });
 
     useEffect(() => {
-        const move = fromEvent<MouseEvent>(document, 'mousemove')
-            .subscribe(event => {
-                const elements = event.composedPath();
+        const subscription = mouseEvents.subscribe(ev => {
+            switch (ev.type) {
+                case 'mouseup': {
+                    setCursor({...cursor, pressed: false});
+                    break;
+                }
+                case 'mousedown': {
+                    setCursor({...cursor, pressed: true});
+                    break;
+                }
+                case 'mousemove': {
+                    setCursor({
+                        x: ev.clientX,
+                        y: ev.clientY,
+                        visible: true,
+                        pressed: cursor.pressed,
+                        focus: ev.composedPath().some(
+                            el => el instanceof HTMLElement &&
+                                el.getAttribute('data-cursor-focus')
+                        )
+                    });
+                    break;
+                }
+                case 'mouseleave': {
+                    setCursor({...cursor, visible: false});
+                    break;
+                }
+            }
+        });
 
-                setCursor({
-                    x: event.clientX,
-                    y: event.clientY,
-                    visible: true,
-                    focus: elements.some(el => {
-                        return el instanceof HTMLElement ? el.getAttribute('data-cursor-focus') : false;
-                    })
-                });
-            });
-
-        const enter = fromEvent<MouseEvent>(document, 'mousenter')
-            .subscribe(() => setCursor({...cursor, visible: true}));
-
-        const leave = fromEvent<MouseEvent>(document, 'mouseleave')
-            .subscribe(() => setCursor({...cursor, visible: false}));
-
-        return () => {
-            move.unsubscribe();
-            enter.unsubscribe();
-            leave.unsubscribe();
-        };
+        return () => subscription.unsubscribe();
     });
 
     return (
         <div className={styles.circle}
+             data-pressed={cursor.pressed}
              data-visible={cursor.visible}
              data-focused={cursor.focus}
              style={{
