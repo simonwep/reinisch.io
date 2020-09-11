@@ -1,10 +1,51 @@
 .app {
     @include flex(column, center);
+    position: relative;
     font-family: $font-family;
-    height: 100%;
     color: var(--c-text);
     margin: auto;
     padding-top: 12.5vh;
-    padding-bottom: 100vh;
     cursor: none;
+}
+
+.sections {
+    @include flex(row, stretch, center);
+    height: 100%;
+    z-index: 1;
+}
+
+.pageIndex {
+    position: relative;
+    border-radius: 2px;
+    background: linear-gradient(to bottom, transparent, var(--c-text) 0.25%, transparent 10%);
+    flex-shrink: 0;
+    margin-right: 5vw;
+    width: 2px;
+
+    > div {
+        @include size(15px, 35px);
+        position: absolute;
+        left: 50%;
+        top: calc(var(--progress) * 2em + 0.5em);
+        transform: translate3d(-50%, 0, 0);
+        background: var(--c-background);
+        border: 2px solid var(--c-text);
+        border-radius: 1em;
+
+        &::before {
+            @include position(0, 0, 0, 0);
+            @include pseudo();
+            @include size(3px, 8px);
+            background: var(--c-text);
+            border-radius: 10px;
+            margin: 4px auto;
+        }
+    }
+}
+
+.left {
+    @include width(50%, 70rem, 120rem);
+    @include flex(column, center);
+    margin-right: 5vw;
+    flex-shrink: 1;
 }
