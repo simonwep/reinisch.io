@@ -1,4 +1,4 @@
-import {HashLink} from '@components/HashLink';
+import {Link} from '@components/Link';
 import {createRef, FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {clamp} from '@utils/math';
@@ -99,12 +99,12 @@ export const Navigation: FunctionalComponent = () => {
         <div className={styles.navigation}
              style={{'--page-section-visibility': clamp(visibility, 0, 1)}}>
             <div className={styles.wrapper}>
-                {links.map(([txt, query]) => (
-                    <HashLink id={query}
-                              key={query}
-                              ref={instance => navItems.push(instance)}>
+                {links.map(([txt, id]) => (
+                    <Link href={`#${id}`}
+                          key={id}
+                          ref={instance => navItems.push(instance)}>
                         {txt}
-                    </HashLink>
+                    </Link>
                 ))}
                 <div ref={bar}/>
             </div>

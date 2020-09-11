@@ -1,4 +1,4 @@
-import {HashLink} from '@components/HashLink';
+import {Link} from '@components/Link';
 import {clamp} from '@utils/math';
 import {Fragment, FunctionalComponent, h} from 'preact';
 import {useEffect, useRef, useState} from 'preact/hooks';
@@ -41,12 +41,12 @@ export const PageSection: FunctionalComponent<Props> = props => {
             </div> : ''}
 
             {props.title && <Fragment>
-                <HashLink className={styles.header}
-                          id={props.id}>
+                <Link className={styles.header}
+                      href={`#${props.id}`}>
                     <p>#</p>
                     <h1>{props.title}</h1>
                     <h1>{props.title}</h1>
-                </HashLink>
+                </Link>
 
                 <h1 className={styles.backgroundHeader}><p>{props.title}</p></h1>
             </Fragment>}
