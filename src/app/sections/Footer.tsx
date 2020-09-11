@@ -4,13 +4,13 @@ import face from './images/face.png';
 import styles from './Footer.module.scss';
 
 export const Footer: FunctionalComponent = () => (
-    <PageSection index={2}>
+    <PageSection id="footer" index={2}>
         <div className={styles.footer}>
             <img src={face} alt="" className={styles.face}/>
 
             <div className={styles.text}>
                 <h1>Simon Reinisch</h1>
-                <p>Frontend Developer <a href="https://www.weclapp.com/en/">@weclapp</a></p>
+                <p>Frontend Developer <a href="https://www.weclapp.com/en/" data-cursor-focus={true}>@weclapp</a></p>
             </div>
 
             <div className={styles.links}>

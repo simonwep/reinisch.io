@@ -1,3 +1,4 @@
+import {HashLink} from '@components/HashLink';
 import {createRef, FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {clamp} from '@utils/math';
@@ -5,9 +6,9 @@ import {rx} from '../rx';
 import styles from './Navigation.module.scss';
 
 const links = [
-    ['Home', '#home'],
-    ['Projects', '#projects'],
-    ['Archive', '#archive']
+    ['Home', 'home'],
+    ['Projects', 'projects'],
+    ['Archive', 'archive']
 ];
 
 export const Navigation: FunctionalComponent = () => {
@@ -17,7 +18,7 @@ export const Navigation: FunctionalComponent = () => {
 
     const updateBar = () => {
         const refRects = links
-            .map(v => (document.querySelector(v[1]) as HTMLElement).getBoundingClientRect());
+            .map(v => (document.getElementById(v[1]) as HTMLElement).getBoundingClientRect());
 
         /**
          * Calculate current scroll position based on element position.
@@ -81,21 +82,16 @@ export const Navigation: FunctionalComponent = () => {
         };
     });
 
-    const scrollTo = (selector: string) => (evt: MouseEvent) => {
-        document.querySelector(selector)?.scrollIntoView({behavior: 'smooth'});
-        evt.preventDefault();
-    };
-
     return (
         <div className={styles.navigation}
              style={{'--page-section-visibility': clamp(visibility, 0, 1)}}>
             <div className={styles.wrapper}>
                 {links.map(([txt, query]) => (
-                    <a href={`#${query}`}
-                       data-cursor-focus={true}
-                       onClick={scrollTo(query)}
-                       key={query}
-                       ref={instance => navItems.push(instance)}>{txt}</a>
+                    <HashLink id={query}
+                              key={query}
+                              ref={instance => navItems.push(instance)}>
+                        {txt}
+                    </HashLink>
                 ))}
                 <div ref={bar}/>
             </div>
