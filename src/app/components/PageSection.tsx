@@ -1,6 +1,6 @@
 import {HashLink} from '@components/HashLink';
 import {clamp} from '@utils/math';
-import {FunctionalComponent, h} from 'preact';
+import {Fragment, FunctionalComponent, h} from 'preact';
 import {useEffect, useRef, useState} from 'preact/hooks';
 import {rx} from '../rx';
 import styles from './PageSection.module.scss';
@@ -40,14 +40,17 @@ export const PageSection: FunctionalComponent<Props> = props => {
                 <div/>
             </div> : ''}
 
-            <HashLink className={styles.header}
-                      id={props.id}>
-                <p>#</p>
-                <h1>{props.title}</h1>
-                <h1>{props.title}</h1>
-            </HashLink>
+            {props.title && <Fragment>
+                <HashLink className={styles.header}
+                          id={props.id}>
+                    <p>#</p>
+                    <h1>{props.title}</h1>
+                    <h1>{props.title}</h1>
+                </HashLink>
 
-            {props.title && <h1 className={styles.backgroundHeader}><p>{props.title}</p></h1>}
+                <h1 className={styles.backgroundHeader}><p>{props.title}</p></h1>
+            </Fragment>}
+
             {props.intro && <h3 className={styles.intro}>{props.intro}</h3>}
 
             {props.children}

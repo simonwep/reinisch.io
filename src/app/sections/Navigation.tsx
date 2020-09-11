@@ -8,7 +8,8 @@ import styles from './Navigation.module.scss';
 const links = [
     ['Home', 'home'],
     ['Projects', 'projects'],
-    ['Archive', 'archive']
+    ['Archive', 'archive'],
+    ['Links', 'links']
 ];
 
 export const Navigation: FunctionalComponent = () => {
@@ -28,12 +29,24 @@ export const Navigation: FunctionalComponent = () => {
          */
         let index = -1;
         let lastTop = 0;
+        const {scrollTop, scrollHeight} = document.documentElement;
         for (const rect of refRects) {
             if (rect.top <= 0) {
                 index++;
-                lastTop = rect.top + window.scrollY;
+                lastTop = rect.top + scrollTop;
             } else {
-                index += (window.scrollY - lastTop) / (window.scrollY + rect.top - lastTop);
+
+                // Element will never be on top so use the bottom value as reference
+                if (rect.top + scrollTop > (scrollHeight - window.innerHeight)) {
+
+                    // Distance until the elements bottom touches the bottom of the page
+                    index += 1 - (rect.bottom - window.innerHeight) / rect.height;
+                } else {
+
+                    // Distance until the element touches the top of the page
+                    index += (scrollTop - lastTop) / (scrollTop + rect.top - lastTop);
+                }
+
                 break;
             }
         }
