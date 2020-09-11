@@ -48,8 +48,8 @@ module.exports = {
             'react': 'preact/compat',
             'react-dom': 'preact/compat',
             '@components': path.resolve('./src/app/components'),
-            '@utils': path.resolve('./src/utils'),
-            '@config': path.resolve('./src/config.ts')
+            '@config': path.resolve('./src/config.ts'),
+            '@utils': path.resolve('./src/utils')
         }
     },
 
