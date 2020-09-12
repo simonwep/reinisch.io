@@ -25,7 +25,7 @@ export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
 
     useEffect(() => {
         if (transition) {
-            const timeout = setTimeout(() => setTransition(false), 200);
+            const timeout = setTimeout(() => setTransition(false), 150);
             return () => clearTimeout(timeout);
         }
     }, [transition]);
@@ -39,7 +39,8 @@ export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
              onMouseLeave={mouseLeave}
              onMouseMove={mouseMove}
              style={{
-                 '--transition': transition ? 'all 200ms' : 'none',
+                 '--base-transition': transition ? 'none' : 'all 0.5s',
+                 '--hover-transition': transition ? 'all 100ms' : 'none',
                  '--rotation-x': rotation[0],
                  '--rotation-y': rotation[1]
              }}>
