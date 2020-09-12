@@ -32,15 +32,12 @@ export default () => {
 
             {/* Actual content split up into sections */}
             <div className={styles.sections}>
-                <div className={styles.pageIndex}
-                     style={{'--progress': progress}}>
+                <div className={styles.pageIndex} style={{'--progress': progress}}>
                     <div/>
                 </div>
-                <div className={styles.left}>
-                    <Projects/>
-                    <Archive/>
-                    <Footer/>
-                </div>
+                <Projects/>
+                <Archive/>
+                <Footer/>
             </div>
         </div>
     );

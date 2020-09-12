@@ -9,17 +9,20 @@
 }
 
 .sections {
-    @include flex(row, stretch, center);
+    @include width(50%, 70rem, 120rem);
+    @include flex(column, center);
+    position: relative;
     height: 100%;
     z-index: 1;
 }
 
 .pageIndex {
-    position: relative;
+    height: 100%;
+    position: absolute;
     border-radius: 2px;
     background: linear-gradient(to bottom, transparent, var(--c-text) 0.25%, transparent 10%);
     flex-shrink: 0;
-    margin-right: 5vw;
+    left: -40px;
     width: 2px;
 
     > div {
@@ -43,9 +46,3 @@
     }
 }
 
-.left {
-    @include width(50%, 70rem, 120rem);
-    @include flex(column, center);
-    margin-right: 5vw;
-    flex-shrink: 1;
-}
