@@ -1,5 +1,5 @@
 import {FunctionalComponent, h} from 'preact';
-import {useRef, useState} from 'preact/hooks';
+import {useEffect, useRef, useState} from 'preact/hooks';
 import {Project} from '@config';
 import {clamp} from '@utils/math';
 import styles from './ProjectCard.module.scss';
@@ -10,10 +10,12 @@ type Props = {
 
 export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
     const [rotation, setRotation] = useState<[number, number]>([0, 0]);
+    const [transition, setTransition] = useState<boolean>(false);
     const element = useRef<HTMLDivElement>();
 
     const open = () => window.open(project.link, '__blank', 'noopener,noreferrer');
     const mouseLeave = () => setRotation([0, 0]);
+    const mouseEnter = () => setTransition(true);
     const mouseMove = (evt: MouseEvent) => {
         const tr = (element.current).getBoundingClientRect();
         const px = clamp((evt.clientX - tr.left) / tr.width - 0.5, -0.5, 0.5);
@@ -21,14 +23,23 @@ export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
         setRotation([px, py]);
     };
 
+    useEffect(() => {
+        if (transition) {
+            const timeout = setTimeout(() => setTransition(false), 200);
+            return () => clearTimeout(timeout);
+        }
+    }, [transition]);
+
     return (
         <div className={styles.projectCard}
              data-cursor-focus={true}
              ref={element}
              onClick={open}
+             onMouseEnter={mouseEnter}
              onMouseLeave={mouseLeave}
              onMouseMove={mouseMove}
              style={{
+                 '--transition': transition ? 'all 200ms' : 'none',
                  '--rotation-x': rotation[0],
                  '--rotation-y': rotation[1]
              }}>
