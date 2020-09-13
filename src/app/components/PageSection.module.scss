@@ -1,14 +1,23 @@
 .pageSection {
     position: relative;
-    padding: 20vh 0 5vh;
+    padding: 17.5vh 0 17.5vh;
     width: 100%;
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:last-child {
+        padding-bottom: 5vh;
+    }
 }
 
 $divsize: 25px;
 .divider {
+    @include position(0, 0, auto, 0);
     @include size($divsize);
-    position: relative;
-    margin: 0 auto 15vh auto;
+    position: absolute;
+    margin: 0 auto;
     transition: all 0.3s;
     transform-style: preserve-3d;
     --rot: calc(var(--page-section-visibility) * 360deg);
@@ -109,12 +118,12 @@ $divsize: 25px;
     @include flex(row, center, center);
     text-transform: uppercase;
     font-family: $font-family-tags;
-    opacity: calc(var(--page-section-visibility) * 0.25);
+    opacity: calc(var(--page-section-visibility) * 0.05);
     margin: auto;
     position: absolute;
     z-index: -1;
 
     > p {
-        transform: scale(calc(0.75 + 0.25 * var(--page-section-visibility))) rotate(-45deg);
+        transform: scale(calc(0.75 + 0.25 * var(--page-section-visibility))) rotate(-20deg);
     }
 }

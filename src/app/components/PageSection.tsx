@@ -1,7 +1,7 @@
 import {Link} from '@components/Link';
 import {clamp} from '@utils/math';
 import {Fragment, FunctionalComponent, h} from 'preact';
-import {useEffect, useRef, useState} from 'preact/hooks';
+import {useEffect, useLayoutEffect, useRef, useState} from 'preact/hooks';
 import {rx} from '../rx';
 import styles from './PageSection.module.scss';
 
@@ -14,7 +14,17 @@ type Props = {
 
 export const PageSection: FunctionalComponent<Props> = props => {
     const [visibility, setVisibility] = useState(0);
+    const [bgHeaderFs, setBgHeaderFs] = useState(1);
     const element = useRef<HTMLDivElement>();
+
+    useLayoutEffect(() => {
+        const height = element.current?.getBoundingClientRect().height;
+
+        if (height) {
+            setBgHeaderFs(height / 10);
+        }
+
+    }, []);
 
     useEffect(() => {
         const subscription = rx.scrollProgress
@@ -48,7 +58,10 @@ export const PageSection: FunctionalComponent<Props> = props => {
                     <h1>{props.title}</h1>
                 </Link>
 
-                <h1 className={styles.backgroundHeader}><p>{props.title}</p></h1>
+                <h1 className={styles.backgroundHeader}
+                    style={{fontSize: `${bgHeaderFs}px`}}>
+                    <p>{props.title}</p>
+                </h1>
             </Fragment>}
 
             {props.intro && <h3 className={styles.intro}>{props.intro}</h3>}
