@@ -11,11 +11,14 @@ const src = path.resolve(__dirname, 'src');
 
 module.exports = {
     mode: 'production',
-    entry: './src/index.js',
+    entry: {
+        'sw': './src/sw.ts',
+        'js/main': './src/index.js',
+    },
 
     output: {
         path: dist,
-        filename: 'js/[chunkhash].js',
+        filename: '[name].js',
         publicPath: '/'
     },
 

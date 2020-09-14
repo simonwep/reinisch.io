@@ -10,7 +10,10 @@ const src = path.resolve(__dirname, 'src');
 module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
-    entry: './src/index.js',
+    entry: {
+        'sw': './src/sw.ts',
+        'js/main': './src/index.js',
+    },
 
     output: {
         path: dist,
@@ -105,6 +108,10 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'env.NODE_ENV': JSON.stringify('development')
+        }),
+
+        new ServiceWorkerWebpackPlugin({
+            entry: path.join(__dirname, 'src/sw.js'),
         }),
 
         new HtmlWebpackPlugin({

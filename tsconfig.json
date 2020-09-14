@@ -8,7 +8,7 @@
         "resolveJsonModule": true,
         "moduleResolution": "node",
         "sourceMap": true,
-        "lib": ["esnext", "dom"],
+        "lib": ["esnext", "dom", "webworker"],
         "module": "ESNext",
         "target": "ES2019",
         "jsx": "react",

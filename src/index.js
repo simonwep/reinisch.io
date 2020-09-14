@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+const logStyled = s => console.log(`%c${s}`, 'background: black;color: white;padding: 0.25em 0.5em;border-radius: 0.25em;');
+
 /* eslint-disable */
 if (env.NODE_ENV === 'development') {
 
@@ -10,13 +13,18 @@ if (env.NODE_ENV === 'development') {
     }
 
     // See https://github.com/facebook/react/issues/16604#issuecomment-528663101
-    window.$RefreshReg$ = () => {
-    };
+    window.$RefreshReg$ = () => {};
     window.$RefreshSig$ = () => type => type;
-    console.log('[APP] Development mode.');
+    logStyled('[APP] Development mode.');
 } else if (env.NODE_ENV === 'production') {
-    // TODO: Add cool console log here
-    // TODO: PWA?
+    logStyled('[APP] Production mode.');
 }
+
+// Register service worker
+navigator.serviceWorker.register('/sw.js').then(() => {
+    logStyled('[APP] Service worker registered.');
+}).catch(err => {
+    logStyled('[APP] Failed to install service worker.', err);
+});
 
 require('./app');
