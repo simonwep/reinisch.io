@@ -30,13 +30,13 @@ self.addEventListener('fetch', ev => {
         const cache = await caches.open(CACHE_NAME);
         const cachedResponse = await cache.match(ev.request);
 
-        // Found cached response
+        // Return cached response
         if (cachedResponse) {
-            ev.waitUntil(cache.add(ev.request));
             return cachedResponse;
         }
 
-        // Not cached yet
-        return fetch(ev.request);
+        const response = await fetch(ev.request);
+        await cache.put(ev.request, response);
+        return response;
     }));
 });
