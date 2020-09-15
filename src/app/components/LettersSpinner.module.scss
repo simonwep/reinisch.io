@@ -16,6 +16,10 @@
         opacity: 0;
     }
 
+    &[data-hidden] {
+        visibility: hidden;
+    }
+
     &[data-fadeout] > span {
         @include animate('0.5s forwards') {
             from {

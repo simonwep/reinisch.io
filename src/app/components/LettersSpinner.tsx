@@ -32,6 +32,7 @@ export const LettersSpinner: FunctionalComponent<Props> = props => {
                 {props.words.map((value, index) => (
                     <p key={index}
                        className={styles.word}
+                       data-hidden={Math.abs(index - currentWord) > 1}
                        data-fadein={index === currentWord}
                        data-fadeout={index !== currentWord}>
                         {[...value].map((c, i) =>
