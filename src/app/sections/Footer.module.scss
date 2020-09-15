@@ -5,9 +5,16 @@
     width: 100%;
 }
 
-.face {
+.faceWrapper {
+    @include flex(row, center, center);
     @include size(8em);
     border-radius: 100%;
+    background: var(--c-text);
+
+    > img {
+        @include size(calc(8em - 6px));
+        border-radius: 100%;
+    }
 }
 
 .text {

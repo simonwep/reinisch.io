@@ -3,13 +3,18 @@
 @import './global/reset';
 @import './global/fonts';
 
-::-webkit-scrollbar {
-    display: none;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+:root {
+    --c-background: #070708;
+    --c-text: #fff;
 }
