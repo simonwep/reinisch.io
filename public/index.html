@@ -51,8 +51,72 @@
     <link rel="manifest" href="/manifest.json">
 
     <title>Simon Reinisch</title>
+
+    <style>
+        body, html {
+            background: black;
+        }
+    </style>
 </head>
 <body>
+
+<!-- Noscript fallback -->
+<noscript>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: monospace, Monaco, "Courier New", "Lucida Console";
+        }
+
+        body div {
+            display: flex;
+            position: relative;
+        }
+
+        p {
+            padding: 1em 1.5em;
+        }
+
+        p:first-child {
+            color: white;
+        }
+
+        p:last-child {
+            animation: spinning 4s ease-in-out infinite;
+            background: white;
+            color: black;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        @keyframes spinning {
+            0% {
+                clip-path: inset(0 100% 0 0);
+            }
+            50% {
+                clip-path: inset(0 0 0 0);
+            }
+            100% {
+                clip-path: inset(0 0 0 100%);
+            }
+        }
+    </style>
+
+    <div>
+        <p>Please enable JavaScript to view this page.</p>
+        <p>Please enable JavaScript to view this page.</p>
+    </div>
+</noscript>
 
 <!-- Application -->
 <div id="app"></div>
