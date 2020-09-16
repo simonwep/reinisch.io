@@ -18,12 +18,14 @@
     position: relative;
     margin: 0 auto;
 
-    > a {
-        @include font(400, 1.5em);
-        text-shadow: font-stroke(2, black);
+    .links {
+        > a {
+            @include font(400, 1.5em);
+            text-shadow: font-stroke(2, black);
 
-        &:not(:last-child) {
-            margin-right: 1.5em;
+            &:not(:last-child) {
+                margin-right: 1.5em;
+            }
         }
     }
 
@@ -77,22 +79,23 @@
     }
 
     .wrapper {
-        @include flex(column, flex-end);
-        clip-path: inset(0 0 calc(100% - 30px - 0.75em) 0);
+        @include flex(column, flex-end, flex-start);
+        @include size(100%);
         transition: all 0.5s;
-        width: auto;
         padding: 0.75em;
-        background: var(--c-background);
         position: fixed;
         right: 0;
         top: 0;
 
-        $height: 30px;
+        $height: 40px;
+        $padding: 8px;
         $line-height: 2px;
 
         .burger {
             @include flex(column, stretch, space-between);
-            @include size(34px, $height);
+            @include size(44px, $height);
+            background: var(--c-background);
+            padding: $padding;
 
             > div {
                 @include size(100%, $line-height);
@@ -102,10 +105,10 @@
         }
 
         &[data-open] {
-            clip-path: inset(0 0 0 0);
+            backdrop-filter: brightness(0.35);
 
             .burger {
-                $ty: $height / 2 - $line-height / 2;
+                $ty: $height / 2 - $line-height / 2 - $padding;
 
                 > div:nth-child(2) {
                     opacity: 0;
@@ -120,15 +123,50 @@
                     transform: translateY(-$ty) rotate(-45deg);
                 }
             }
+
+            .links > a {
+                transform: none;
+                opacity: 1;
+
+                $items: 5;
+                @for $i from 1 through $items {
+                    &:nth-child(#{$i}) {
+                        transition-delay: #{($i / $items) * 0.3s};
+                    }
+                }
+            }
         }
 
-        > a {
-            @include font(200, 2em);
-            margin-right: 0 !important;
-            text-shadow: none;
+        .links {
+            @include flex(column);
 
-            &:not(:last-child) {
-                margin-top: 0.5em;
+            > a {
+                @include font(200, 1.5em);
+                position: relative;
+                transition: transform 0.5s, opacity 0.5s, clip-path 0s 0s;
+                width: 60vw;
+                padding: 0.75em 1em;
+                background: var(--c-background);
+                text-shadow: none;
+                margin: 0.25em 0 !important;
+                transform: translateX(calc(100% + 1em));
+                transition-delay: 0s;
+                opacity: 0;
+
+                &::before {
+                    @include pseudo();
+                    @include size(2px, 100%);
+                    @include position(0, auto, 0, 0);
+                    background: var(--c-text);
+                    transform-origin: top center;
+                }
+
+                $items: 5;
+                @for $i from 1 through $items {
+                    &:nth-child(#{$i})::before {
+                        clip-path: inset(0 0 calc((#{$i} - var(--progress)) * 100%) 0);
+                    }
+                }
             }
         }
 

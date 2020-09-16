@@ -2,6 +2,7 @@ import {Link} from '@components/Link';
 import {createRef, FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {clamp} from '@utils/math';
+import {fromEvent} from 'rxjs';
 import {rx} from '../rx';
 import styles from './Navigation.module.scss';
 
@@ -93,9 +94,12 @@ export const Navigation: FunctionalComponent = () => {
             setVisibility(step + subStep);
         });
 
+        const closeBurger = navOpen ? fromEvent(window, 'click').subscribe(() => setNavOpen(false)) : null;
+
         return () => {
             scrollProgressSubscription.unsubscribe();
             scollSubscription.unsubscribe();
+            closeBurger?.unsubscribe();
         };
     });
 
@@ -112,13 +116,17 @@ export const Navigation: FunctionalComponent = () => {
                     <div/>
                 </div>
 
-                {links.map(([txt, id]) => (
-                    <Link href={`#${id}`}
-                          key={id}
-                          ref={instance => navItems.push(instance)}>
-                        {txt}
-                    </Link>
-                ))}
+                <div className={styles.links}
+                     style={{'--progress': visibility}}>
+                    {links.map(([txt, id]) => (
+                        <Link href={`#${id}`}
+                              key={id}
+                              ref={instance => navItems.push(instance)}>
+                            {txt}
+                        </Link>
+                    ))}
+                </div>
+
                 <div className={styles.scrollBar} ref={bar}/>
             </div>
 
