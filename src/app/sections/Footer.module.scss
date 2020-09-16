@@ -45,3 +45,18 @@
         }
     }
 }
+
+@include mq-phones {
+    .footer {
+        @include flex(column, center);
+        text-align: center;
+    }
+
+    .text {
+        margin: 1vh 0;
+    }
+
+    .links {
+        margin-top: 0.5vh;
+    }
+}

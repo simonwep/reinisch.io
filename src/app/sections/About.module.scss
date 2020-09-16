@@ -21,3 +21,9 @@
         }
     }
 }
+
+@include mq-phones {
+    .about {
+        font-size: 1.3em;
+    }
+}

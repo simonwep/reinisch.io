@@ -51,3 +51,9 @@
         }
     }
 }
+
+@include mq-phones{
+    .circle {
+        display: none;
+    }
+}

@@ -14,6 +14,7 @@ const links = [
 ];
 
 export const Navigation: FunctionalComponent = () => {
+    const [navOpen, setNavOpen] = useState(false);
     const [visibility, setVisibility] = useState(0);
     const navItems: Array<HTMLAnchorElement | null> = [];
     const bar = createRef();
@@ -101,7 +102,16 @@ export const Navigation: FunctionalComponent = () => {
     return (
         <div className={styles.navigation}
              style={{'--page-section-visibility': clamp(visibility, 0, 1)}}>
-            <div className={styles.wrapper}>
+
+            <div className={styles.wrapper}
+                 data-open={navOpen}>
+                <div className={styles.burger}
+                     onClick={() => setNavOpen(!navOpen)}>
+                    <div/>
+                    <div/>
+                    <div/>
+                </div>
+
                 {links.map(([txt, id]) => (
                     <Link href={`#${id}`}
                           key={id}
@@ -109,7 +119,7 @@ export const Navigation: FunctionalComponent = () => {
                         {txt}
                     </Link>
                 ))}
-                <div ref={bar}/>
+                <div className={styles.scrollBar} ref={bar}/>
             </div>
 
             <div className={styles.scrollHint}>

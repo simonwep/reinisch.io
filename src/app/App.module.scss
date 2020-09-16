@@ -10,7 +10,7 @@
 }
 
 .sections {
-    @include width(50%, 70rem, 120rem);
+    @include width(var(--page-width), var(--page-width-min), var(--page-width-max));
     @include flex(column, center);
     position: relative;
     height: 100%;
@@ -47,3 +47,8 @@
     }
 }
 
+@include mq-phones {
+    .pageIndex {
+        display: none;
+    }
+}

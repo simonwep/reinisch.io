@@ -27,7 +27,7 @@
             "createdAt": "2020-05-08T15:10:28Z"
         },
         {
-            "title": "Graceful-ws",
+            "title": "Graceful-WS",
             "description": "A graceful websocket wrapper with connection re-establishment capabilities.",
             "tags": ["ts", "websocket", "library"],
             "link": "https://github.com/Simonwep/graceful-ws"
@@ -41,7 +41,7 @@
         {
             "title": "Sassyfication",
             "description": "A sassy sass library to speed up your css workflow.",
-            "tags": ["ts", "json", "binary", "serialization"],
+            "tags": ["SCSS", "CSS", "styles "],
             "link": "https://github.com/Simonwep/sassyfication"
         },
         {

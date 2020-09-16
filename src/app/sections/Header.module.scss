@@ -1,5 +1,5 @@
 .header {
-    @include width(50%, 70rem, 120rem);
+    @include width(var(--page-width), var(--page-width-min), var(--page-width-max));
 
     > h1 {
         @include font(200, 6em);
@@ -19,4 +19,19 @@
 
 .spinner {
     @include font(200, 2.5em);
+}
+
+@include mq-phones {
+    .header {
+        font-size: 13px;
+
+        > h1 {
+            font-size: 5em;
+            margin-left: -2px;
+        }
+    }
+
+    .spinner {
+        font-size: 2.25em;
+    }
 }

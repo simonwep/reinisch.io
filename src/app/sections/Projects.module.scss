@@ -3,3 +3,10 @@
     grid-gap: 2em;
     grid-template-columns: 1fr 1fr 1fr;
 }
+
+@include mq-phones {
+    .projects {
+        grid-gap: 1vh;
+        grid-template-columns: 1fr;
+    }
+}

@@ -113,7 +113,7 @@ $divsize: 25px;
 }
 
 .backgroundHeader {
-    @include font(200, 11em);
+    @include font(200, var(--font-size));
     @include position(15vh, 0, 0, 0);
     @include flex(row, center, center);
     text-transform: uppercase;
@@ -125,5 +125,11 @@ $divsize: 25px;
 
     > p {
         transform: scale(calc(0.75 + 0.25 * var(--page-section-visibility))) rotate(-20deg);
+    }
+}
+
+@include mq-phones {
+    .backgroundHeader {
+        display: none;
     }
 }
