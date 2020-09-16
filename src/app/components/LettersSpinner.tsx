@@ -17,13 +17,13 @@ export const LettersSpinner: FunctionalComponent<Props> = props => {
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            const next = currentWord + 1;
-            setCurrentWord(next >= props.words.length ? 0 : next);
+            setCurrentWord((currentWord + 1) % props.words.length);
         }, interval);
 
         return () => clearTimeout(timeout);
     }, [currentWord]);
 
+    const fadeOutIndex = (currentWord ? currentWord : props.words.length) - 1;
     return (
         <div className={cn(styles.lettersSpinner, props.className)}>
             <span className={styles.placeholder}>{invisiblePlaceholder}</span>
@@ -32,9 +32,8 @@ export const LettersSpinner: FunctionalComponent<Props> = props => {
                 {props.words.map((value, index) => (
                     <p key={index}
                        className={styles.word}
-                       data-hidden={Math.abs(index - currentWord) > 1}
                        data-fadein={index === currentWord}
-                       data-fadeout={index !== currentWord}>
+                       data-fadeout={index === fadeOutIndex}>
                         {[...value].map((c, i) =>
                             <span key={i}
                                   style={{
