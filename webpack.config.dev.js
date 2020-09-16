@@ -63,7 +63,7 @@ module.exports = {
                 loader: 'svg-inline-loader'
             },
             {
-                test: /\.(png|jpe?g|gif|eot|ttf|woff|woff2)$/i,
+                test: /\.(png|jpe?g|webp|gif|eot|ttf|woff|woff2)$/i,
                 loader: 'file-loader'
             },
             {
@@ -108,10 +108,6 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'env.NODE_ENV': JSON.stringify('development')
-        }),
-
-        new ServiceWorkerWebpackPlugin({
-            entry: path.join(__dirname, 'src/sw.js'),
         }),
 
         new HtmlWebpackPlugin({

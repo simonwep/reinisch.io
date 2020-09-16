@@ -15,13 +15,13 @@ if (env.NODE_ENV === 'development') {
     // See https://github.com/facebook/react/issues/16604#issuecomment-528663101
     window.$RefreshReg$ = () => {};
     window.$RefreshSig$ = () => type => type;
-    logStyled('[APP] Development mode.');
+    logStyled('[APP] Development mode 🔧');
 } else if (env.NODE_ENV === 'production') {
-    logStyled('[APP] Production mode.');
+    logStyled('[APP] Production mode 🎉');
 }
 
 // Register service worker
-navigator.serviceWorker.register('/sw.js').then(() => {
+navigator.serviceWorker?.register('/sw.js').then(() => {
     logStyled('[APP] Service worker registered.');
 }).catch(err => {
     logStyled('[APP] Failed to install service worker.', err);
