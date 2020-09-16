@@ -58,13 +58,13 @@ export const PageSection: FunctionalComponent<Props> = props => {
                     <h1>{props.title}</h1>
                 </Link>
 
-                <h1 className={styles.backgroundHeader}
-                    style={{fontSize: `${bgHeaderFs}px`}}>
+                <div className={styles.backgroundHeader}
+                     style={{'--font-size': `${bgHeaderFs}px`}}>
                     <p>{props.title}</p>
-                </h1>
+                </div>
             </Fragment>}
 
-            {props.intro && <h3 className={styles.intro}>{props.intro}</h3>}
+            {props.intro && <h2 className={styles.intro}>{props.intro}</h2>}
 
             {props.children}
         </div>
