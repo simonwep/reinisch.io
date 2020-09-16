@@ -11,6 +11,10 @@
         transition: var(--hover-transition);
         transform: perspective(500px) rotateX(calc(var(--rotation-y) * 10deg)) rotateY(calc(var(--rotation-x) * 10deg)) scale(1.05);
         filter: brightness(calc(0.98 + var(--rotation-y) * 0.4));
+
+        .openIndicator {
+            --scale: 1;
+        }
     }
 
     .description,
@@ -93,5 +97,35 @@
         padding: 0.25em 0.5em;
         margin: 0.25em;
         opacity: calc(var(--page-section-visibility) / var(--offset));
+    }
+}
+
+.openIndicator {
+    @include position(0, 0, 0, 0);
+    position: absolute;
+    margin: 5px;
+    --scale: 0;
+
+    $width: 1.5px;
+    $height: 1vmin;
+
+    > div {
+        @include size($width, $height);
+        transition: all 0.5s;
+        position: absolute;
+        background: var(--c-text);
+        top: 0;
+        right: 0;
+
+        &:first-child {
+            transform-origin: top center;
+            transform: scaleY(var(--scale));
+        }
+
+        &:last-child {
+            @include size($height, $width);
+            transform-origin: right center;
+            transform: scaleX(var(--scale));
+        }
     }
 }

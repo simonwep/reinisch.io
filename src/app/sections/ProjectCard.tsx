@@ -69,6 +69,11 @@ export const ProjectCard: FunctionalComponent<Props> = ({project}) => {
                 <div/>
                 <div/>
             </div>
+
+            <div className={styles.openIndicator}>
+                <div/>
+                <div/>
+            </div>
         </div>
     );
 };
