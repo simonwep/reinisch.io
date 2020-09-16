@@ -52,7 +52,7 @@ module.exports = {
             {
                 test: /\.(scss|sass|css)$/,
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: {
@@ -60,7 +60,7 @@ module.exports = {
                             importLoaders: 1,
                             modules: {
                                 auto: true,
-                                localIdentName: '[local]__[name]'
+                                localIdentName: '[hash:base64:5]'
                             }
                         }
                     },
