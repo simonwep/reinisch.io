@@ -5,9 +5,11 @@ import face from './images/face.png';
 import styles from './Footer.module.scss';
 
 export const Footer: FunctionalComponent = () => (
-    <PageSection id="links" index={2}>
+    <PageSection id="links" index={3}>
         <div className={styles.footer}>
-            <img src={face} alt="" className={styles.face}/>
+            <div className={styles.faceWrapper}>
+                <img src={face} alt=""/>
+            </div>
 
             <div className={styles.text}>
                 <h1>Simon Reinisch</h1>

@@ -1,0 +1,23 @@
+.about {
+    @include font(300, 1.6em);
+    position: relative;
+    opacity: var(--page-section-visibility);
+    transform: scale(calc(var(--page-section-visibility) * 0.05 + 0.95)) translateY(calc(10vh - var(--page-section-visibility) * 10vh));
+
+    > article {
+        line-height: 1.5;
+
+        > p {
+            margin: 1em 0;
+        }
+
+        br {
+            line-height: 3em;
+        }
+
+        a {
+            display: inline-block;
+            font-weight: 400;
+        }
+    }
+}

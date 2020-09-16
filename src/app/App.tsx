@@ -4,6 +4,7 @@ import {useEffect, useState} from 'preact/hooks';
 import styles from './App.module.scss';
 import {h} from 'preact';
 import {rx} from './rx';
+import {About} from './sections/About';
 import {Archive} from './sections/Archive';
 import {Footer} from './sections/Footer';
 import {Header} from './sections/Header';
@@ -37,6 +38,7 @@ export default () => {
                 </div>
                 <Projects/>
                 <Archive/>
+                <About/>
                 <Footer/>
             </div>
         </div>
