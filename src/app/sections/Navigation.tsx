@@ -9,6 +9,7 @@ const links = [
     ['Home', 'home'],
     ['Projects', 'projects'],
     ['Archive', 'archive'],
+    ['About', 'about'],
     ['Links', 'links']
 ];
 
@@ -25,22 +26,24 @@ export const Navigation: FunctionalComponent = () => {
          * Calculate current scroll position based on element position.
          * And element counts as fully "visible" (or a 1) if the top position
          * is at the very top of the screen or above. Anything else is partially
-         * visible and based on the top-distance to the next element
+         * visible and based on the top-distance to the next element.
          */
         let index = -1;
         let lastTop = 0;
+        let lastBottom = 0;
         const {scrollTop, scrollHeight} = document.documentElement;
         for (const rect of refRects) {
             if (rect.top <= 0) {
                 index++;
                 lastTop = rect.top + scrollTop;
+                lastBottom = window.innerHeight - (rect.bottom + -rect.top);
             } else {
 
                 // Element will never be on top so use the bottom value as reference
-                if (rect.top + scrollTop > (scrollHeight - window.innerHeight)) {
+                if ((rect.top + scrollTop) > (scrollHeight - window.innerHeight)) {
 
                     // Distance until the elements bottom touches the bottom of the page
-                    index += 1 - (rect.bottom - window.innerHeight) / rect.height;
+                    index += 1 - (rect.bottom - window.innerHeight) / (rect.height - lastBottom);
                 } else {
 
                     // Distance until the element touches the top of the page
