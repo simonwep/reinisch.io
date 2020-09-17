@@ -28,7 +28,7 @@
     }
 }
 
-@include mq-phones {
+@include mq-desktop {
     .pageIndex {
         display: none;
     }

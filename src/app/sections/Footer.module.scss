@@ -33,11 +33,11 @@
 }
 
 .links {
-    margin-top: 1vh;
-    margin-bottom: auto;
+    margin: 1vh 0 auto 3em;
 
     > a {
-        margin-left: 0.75em;
+        display: inline-block;
+        margin: 0.35em;
 
         > svg {
             @include size(2em);
@@ -63,5 +63,6 @@
 
     .links {
         margin-top: 1vh;
+        margin-left: 0;
     }
 }

@@ -23,10 +23,22 @@
     --page-width-max: 120rem;
 }
 
-@include mq-phones {
+@include mq-desktop {
     :root {
         --page-width: 90vw;
         --page-width-min: unset;
         --page-width-max: unset;
+    }
+}
+
+@include mq-tablets {
+    :root {
+        --page-width: 90vw;
+    }
+}
+
+@include mq-phones {
+    :root {
+        --page-width: 90vw;
     }
 }

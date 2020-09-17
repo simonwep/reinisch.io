@@ -129,7 +129,8 @@ $divsize: 25px;
 }
 
 @include mq-phones {
-    .backgroundHeader {
+    .backgroundHeader,
+    .header > p {
         display: none;
     }
 }

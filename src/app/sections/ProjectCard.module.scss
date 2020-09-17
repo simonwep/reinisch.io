@@ -132,6 +132,8 @@
 
 @include mq-phones {
     .projectCard {
-        pointer-events: none;
+        transform: none !important;
+        transition: none !important;
+        filter: none !important;
     }
 }

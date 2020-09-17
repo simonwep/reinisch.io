@@ -52,7 +52,7 @@
     }
 }
 
-@include mq-phones{
+@include mq-tablets{
     .circle {
         display: none;
     }
