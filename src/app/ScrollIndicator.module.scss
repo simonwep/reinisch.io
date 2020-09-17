@@ -1,0 +1,35 @@
+.pageIndex {
+    height: 100%;
+    position: absolute;
+    border-radius: 2px;
+    background: linear-gradient(to bottom, transparent, var(--c-text) 0.25%, transparent 10%);
+    flex-shrink: 0;
+    left: -40px;
+    width: 2px;
+
+    > div {
+        @include size(15px, 35px);
+        position: absolute;
+        left: 50%;
+        top: calc(var(--progress) * 2em + 0.5em);
+        transform: translate3d(-50%, 0, 0);
+        background: var(--c-background);
+        border: 2px solid var(--c-text);
+        border-radius: 1em;
+
+        &::before {
+            @include position(0, 0, 0, 0);
+            @include pseudo();
+            @include size(3px, 8px);
+            background: var(--c-text);
+            border-radius: 10px;
+            margin: 4px auto;
+        }
+    }
+}
+
+@include mq-phones {
+    .pageIndex {
+        display: none;
+    }
+}

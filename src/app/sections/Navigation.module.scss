@@ -46,6 +46,7 @@
     background: var(--c-background);
     padding: 0.5em 1.5em;
     opacity: calc(1 - var(--page-section-visibility) * 2);
+    transform: translateY(calc(-1 * var(--page-section-visibility) * 5vh));
 
     > span {
         opacity: 0.25;
@@ -71,29 +72,31 @@
 
 @include mq-phones {
     .scrollHint {
-        display: none;
+        bottom: 40vh;
     }
 
     .navigation {
-        position: unset;
+        pointer-events: none;
+        position: absolute;
+        height: 100vh;
     }
 
     .wrapper {
         @include flex(column, flex-end, flex-start);
         @include size(100%);
         transition: all 0.5s;
-        padding: 0.75em;
         position: fixed;
         right: 0;
         top: 0;
 
-        $height: 40px;
-        $padding: 8px;
+        $height: 48px;
+        $padding: 14px;
         $line-height: 2px;
 
         .burger {
             @include flex(column, stretch, space-between);
-            @include size(44px, $height);
+            @include size($height + 2px, $height);
+            pointer-events: all;
             background: var(--c-background);
             padding: $padding;
 
@@ -105,6 +108,7 @@
         }
 
         &[data-open] {
+            pointer-events: all;
             backdrop-filter: brightness(0.35);
 
             .burger {

@@ -23,7 +23,6 @@ export const PageSection: FunctionalComponent<Props> = props => {
         if (height) {
             setBgHeaderFs(height / 10);
         }
-
     }, []);
 
     useEffect(() => {

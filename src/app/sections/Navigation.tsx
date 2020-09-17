@@ -85,23 +85,19 @@ export const Navigation: FunctionalComponent = () => {
         }
 
         rx.scrollProgress.next([pure, subStep]);
+        setVisibility(pure + subStep);
     };
+
+    useEffect(() => {
+        const closeBurger = navOpen ? fromEvent(window, 'click').subscribe(() => setNavOpen(false)) : null;
+        return () => closeBurger?.unsubscribe();
+    }, [navOpen]);
 
     useEffect(() => {
         updateBar();
         const scollSubscription = rx.windowScroll.subscribe(updateBar);
-        const scrollProgressSubscription = rx.scrollProgress.subscribe(([step, subStep]) => {
-            setVisibility(step + subStep);
-        });
-
-        const closeBurger = navOpen ? fromEvent(window, 'click').subscribe(() => setNavOpen(false)) : null;
-
-        return () => {
-            scrollProgressSubscription.unsubscribe();
-            scollSubscription.unsubscribe();
-            closeBurger?.unsubscribe();
-        };
-    });
+        return () => scollSubscription.unsubscribe();
+    }, [updateBar]);
 
     return (
         <div className={styles.navigation}
