@@ -1,12 +1,20 @@
 .navigation {
     @include flex(column, center, center);
-    background: linear-gradient(to bottom, var(--c-background) 75%, transparent);
     margin-top: 5vh;
     position: sticky;
     z-index: 2;
-    padding: 2.5em 0 3.5em;
+    padding: 2em 0;
     top: 0;
     width: 100%;
+
+    &::before {
+        @include position(-1px, 0, 0, 0);
+        @include pseudo();
+        background: var(--c-background);
+        opacity: calc(var(--page-section-visibility) * 1.1);
+        clip-path: inset(0 0 calc((-1 * var(--page-section-visibility) + 1.1) * 100%) 0);
+        z-index: -1;
+    }
 }
 
 .burger {

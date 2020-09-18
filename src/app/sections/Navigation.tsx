@@ -18,7 +18,7 @@ export const Navigation: FunctionalComponent = () => {
     const [navOpen, setNavOpen] = useState(false);
     const [visibility, setVisibility] = useState(0);
     const navItems: Array<HTMLAnchorElement | null> = [];
-    const bar = createRef();
+    const bar = createRef<HTMLDivElement>();
 
     const updateBar = () => {
         const refRects = links

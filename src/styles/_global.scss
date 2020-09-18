@@ -20,7 +20,14 @@
 
     --page-width: 80%;
     --page-width-min: 60rem;
-    --page-width-max: 120rem;
+    --page-width-max: 75rem;
+}
+
+@media all and (min-width: 2000px) {
+    :root {
+        --page-width: 80%;
+        --page-width-max: 85rem;
+    }
 }
 
 @include mq-desktop {
