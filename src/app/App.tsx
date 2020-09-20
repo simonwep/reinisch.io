@@ -3,7 +3,6 @@ import styles from './App.module.scss';
 import {h} from 'preact';
 import {ScrollIndicator} from './ScrollIndicator';
 import {About} from './sections/About';
-import {Archive} from './sections/Archive';
 import {Footer} from './sections/Footer';
 import {Header} from './sections/Header';
 import {Navigation} from './sections/Navigation';
@@ -21,7 +20,6 @@ export default () => (
         <div className={styles.sections}>
             <ScrollIndicator/>
             <Projects/>
-            <Archive/>
             <About/>
             <Footer/>
         </div>

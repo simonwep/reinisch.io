@@ -87,31 +87,5 @@
             "tags": ["java", "http", "framework"],
             "link": "https://github.com/Simonwep/java-express"
         }
-    ],
-    "archive": [
-        {
-            "title": "Bavary",
-            "description": "An experimental language to parse stuff.",
-            "tags": ["ts", "library", "ast", "syntax"],
-            "link": "https://github.com/Simonwep/bavary"
-        },
-        {
-            "title": "Presentr",
-            "description": "Minimalistic presentation library used for high school.",
-            "tags": ["js", "library", "presentation"],
-            "link": "https://github.com/Simonwep/presentr"
-        },
-        {
-            "title": "vue-cloudfront",
-            "description": "Cloudstorage app focused on design and performance.",
-            "tags": ["vue", "pwa", "cloud", "storage"],
-            "link": "https://github.com/ovanta/vue-cloudfront"
-        },
-        {
-            "title": "vue-blogfront",
-            "description": "Blogging app - build on the same basis as vue-cloudfront.",
-            "tags": ["vue", "pwa", "blog", "graphql"],
-            "link": "https://github.com/ambrest/vue-blogfront"
-        }
     ]
 }
