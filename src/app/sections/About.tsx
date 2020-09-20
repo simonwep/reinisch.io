@@ -3,7 +3,22 @@ import {PageSection} from '@components/PageSection';
 import {FunctionalComponent, h} from 'preact';
 import styles from './About.module.scss';
 
+const emailLinkUrl = 'NDM2LDM4OCw0MjAsNDMyLDQ2NCw0NDQsMjMyLDM5Niw0NDQsNDQwLDQ2NCwzODgsMzk2LDQ2NCwyNTYsNDU2LDQwNCw0MjAsNDQwLDQyMCw0NjAsMzk2LDQxNiwxODQsNDIwLDQ0NA==';
 export const About: FunctionalComponent = () => {
+
+    // I don't want my email getting detected by webscraper so I'm obfuscating the whole mailto stuff
+    const openMailToLink = () => {
+        const link = document.createElement('a');
+        document.body.appendChild(link);
+        link.href = atob(emailLinkUrl)
+            .split(',')
+            .map(v => String.fromCharCode(Number(v) >> 2))
+            .join('');
+
+        link.click();
+        document.body.removeChild(link);
+    };
+
     return (
         <PageSection id="about"
                      title="About me"
@@ -12,7 +27,7 @@ export const About: FunctionalComponent = () => {
                 <article>
                     <p>Hi! My name is Simon.</p>
                     <p>
-                        My journey began in 2015 - at this time I discovered java which led me into building my first libraries
+                        My journey began in 2015 — at this time I discovered java which led me into building my first libraries
                         and a framework which ended up being <Link href="https://github.com/Simonwep/java-express">Java Express</Link>.
                         I was amazed by how much traction it gained and that people cared about what you&apos;ve build.
                         One could say that this was my first contact with open-source in general.
@@ -28,14 +43,24 @@ export const About: FunctionalComponent = () => {
                     <p>
                         After we had figured that our startup didn&apos;t quite succeed, I switched to <Link href="https://preactjs.com/">Preact</Link> and
                         started working on
-                        more in-depth and sophisticated projects such as a new <Link href="https://github.com/Simonwep/bavary">programming language</Link>, a
-                        <Link href="https://github.com/dot-cafe/beam.cafe">file-sharing
-                            app</Link> and <Link href="https://github.com/Simonwep?tab=repositories">much more</Link>.
+                        more in-depth and sophisticated projects such as a <Link href="https://github.com/Simonwep/bavary">new programming
+                            language</Link>, a <Link href="https://github.com/dot-cafe/beam.cafe">file-sharing
+                                app</Link> and <Link href="https://github.com/Simonwep?tab=repositories">much more</Link>.
+                        I also startet working with <Link href="https://www.docker.com/">Docker</Link> and <Link href="https://www.rust-lang.org/">Rust</Link>
+                        in the context of <Link href="https://webassembly.org/">WebAssembly</Link>.
+                    </p>
+                    <p>
+                        Currently I&apos;m working, together with <Link href="https://github.com/NateSeymour">Nathan S.</Link>,
+                        on <Link href="https://github.com/openvpn-access">OpenVPN Access</Link> — a free and open source alternative
+                        to the proprietary openvpn-access to manage vpn-users at scale.
                     </p>
                     <p>
                         At this time, since 2020 I&apos;m working at <Link href="https://www.weclapp.com/en/">weclapp</Link> as a frontend developer.
                         And when I code privately, I&apos;ll probably be working on things which can be found
                         on <Link href="https://github.com/Simonwep">GitHub/Simonwep</Link>.
+                    </p>
+                    <p>
+                        Questions? You can reach out to me over <a data-cursor-focus={true} onClick={openMailToLink}>e&#8203;m&#8203;a&#8203;i&#8203;l</a> :)
                     </p>
                 </article>
             </div>
