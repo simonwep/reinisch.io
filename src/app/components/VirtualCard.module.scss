@@ -1,0 +1,23 @@
+.virtualCard {
+    @include flex(column);
+    background: var(--c-background);
+    color: var(--c-text);
+    position: relative;
+    padding: 1em;
+    transition: all 0.5s;
+    transform: perspective(500px) scale(calc(0.9 + 0.1 * var(--page-section-visibility)));
+
+    &:hover {
+        transition: var(--hover-transition);
+        transform: perspective(500px) rotateX(calc(var(--rotation-y) * 10deg)) rotateY(calc(var(--rotation-x) * 10deg)) scale(1.05);
+        filter: brightness(calc(0.98 + var(--rotation-y) * 0.4));
+    }
+}
+
+@include mq-phones {
+    .virtualCard {
+        transform: none !important;
+        transition: none !important;
+        filter: none !important;
+    }
+}
