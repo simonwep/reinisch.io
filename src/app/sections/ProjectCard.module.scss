@@ -4,12 +4,6 @@
     &:hover .openIndicator {
         --scale: 1;
     }
-
-    .description,
-    .border,
-    .header {
-        opacity: var(--page-section-visibility);
-    }
 }
 
 .description {

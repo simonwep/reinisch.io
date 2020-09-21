@@ -27,6 +27,7 @@
 
         .play > path {
             stroke-dashoffset: 0;
+            stroke-width: 1.75;
             opacity: 1;
             transform: none;
         }
@@ -67,7 +68,7 @@
     z-index: 1;
 
     > path {
-        stroke-width: 2;
+        stroke-width: 0;
         stroke-linecap: round;
         stroke: var(--c-text);
         stroke-dasharray: 100 100;
@@ -86,5 +87,11 @@
         &:nth-child(3) {
             transform: translate(0.25em, 0.35em);
         }
+    }
+}
+
+@include mq-phones {
+    .presentation {
+        @include height(50vh, 25em, 25em);
     }
 }

@@ -88,6 +88,10 @@
         pointer-events: none;
         position: absolute;
         height: 100vh;
+
+        &::before {
+            display: none;
+        }
     }
 
     .wrapper {
