@@ -101,7 +101,7 @@ export const Navigation: FunctionalComponent = () => {
 
     return (
         <div className={styles.navigation}
-             style={{'--page-section-visibility': clamp(visibility, 0, 1)}}>
+             style={{'--psv': clamp(visibility, 0, 1)}}>
 
             <div className={styles.wrapper}
                  data-open={navOpen}>

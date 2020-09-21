@@ -1,7 +1,8 @@
 import {Link} from '@components/Link';
+import {PageSectionBackground} from '@components/PageSectionBackground';
 import {clamp} from '@utils/math';
 import {Fragment, FunctionalComponent, h} from 'preact';
-import {useEffect, useLayoutEffect, useRef, useState} from 'preact/hooks';
+import {useEffect, useState} from 'preact/hooks';
 import {JSXInternal} from 'preact/src/jsx';
 import {rx} from '../rx';
 import styles from './PageSection.module.scss';
@@ -15,16 +16,6 @@ type Props = {
 
 export const PageSection: FunctionalComponent<Props> = props => {
     const [visibility, setVisibility] = useState(0);
-    const [bgHeaderFs, setBgHeaderFs] = useState(1);
-    const element = useRef<HTMLDivElement>();
-
-    useLayoutEffect(() => {
-        const {width, height} = element.current?.getBoundingClientRect() || {};
-
-        if (width && height) {
-            setBgHeaderFs(Math.min(width, height) * 0.11);
-        }
-    }, []);
 
     useEffect(() => {
         const subscription = rx.scrollProgress
@@ -36,11 +27,7 @@ export const PageSection: FunctionalComponent<Props> = props => {
     }, []);
 
     return (
-        <div className={styles.pageSection}
-             id={props.id}
-             ref={element}
-             style={`--page-section-visibility: ${visibility}`}>
-
+        <div className={styles.pageSection} id={props.id} style={`--psv: ${visibility}`}>
             {props.index > 0 ? <div className={styles.divider}>
                 <div/>
                 <div/>
@@ -58,10 +45,7 @@ export const PageSection: FunctionalComponent<Props> = props => {
                     <h1>{props.title}</h1>
                 </Link>
 
-                <div className={styles.backgroundHeader}
-                     style={{'--font-size': `${bgHeaderFs}px`}}>
-                    <p>{props.title}</p>
-                </div>
+                <PageSectionBackground index={props.index} title={props.title}/>
             </Fragment>}
 
             {props.intro && <h2 className={styles.intro}>{props.intro}</h2>}

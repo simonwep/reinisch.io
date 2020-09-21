@@ -1,7 +1,7 @@
 .footer {
     @include flex(row, center);
-    transform: translateY(calc((1 - var(--page-section-visibility)) * 10vh)) scale(calc(0.9 + var(--page-section-visibility) * 0.1));
-    opacity: var(--page-section-visibility);
+    transform: translateY(calc((1 - var(--psv)) * 10vh)) scale(calc(0.9 + var(--psv) * 0.1));
+    opacity: var(--psv);
     width: 100%;
 }
 

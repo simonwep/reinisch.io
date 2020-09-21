@@ -9,15 +9,19 @@ export const ScrollIndicator: FunctionalComponent = () => {
 
     useEffect(() => {
         const subscription = rx.scrollProgress
-            .subscribe(([, subStep]) => {
-                setProgress(clamp(subStep, 0, 2));
+            .subscribe(([step, subStep]) => {
+                setProgress(clamp(step + subStep, 0, 2));
             });
 
         return () => subscription.unsubscribe();
     });
 
     return (
-        <div className={styles.pageIndex} style={{'--progress': progress}}>
+        <div className={styles.pageIndex}
+             style={{
+                 '--progress': progress,
+                 '--fadeout': Math.max(0, (progress - 0.5) / 0.5)
+             }}>
             <div/>
         </div>
     );

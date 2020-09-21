@@ -17,10 +17,14 @@
 :root {
     --c-background: #070708;
     --c-text: #fff;
+    --c-text-accent: #bebebe;
 
     --page-width: 80%;
     --page-width-min: 60rem;
     --page-width-max: 75rem;
+
+    /* Tell the IDE that such a variable exists */
+    --psv: 0;
 }
 
 @media all and (min-width: 2000px) {

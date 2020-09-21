@@ -24,28 +24,28 @@
         &:nth-child(1) {
             @include size(100%, $thickness);
             transform-origin: right center;
-            transform: scaleX(var(--page-section-visibility));
+            transform: scaleX(var(--psv));
             bottom: 0;
         }
 
         &:nth-child(2) {
             @include size(100%, $thickness);
             transform-origin: left center;
-            transform: scaleX(var(--page-section-visibility));
+            transform: scaleX(var(--psv));
             top: 0;
         }
 
         &:nth-child(3) {
             @include size($thickness, 100%);
             transform-origin: top center;
-            transform: scaleY(var(--page-section-visibility));
+            transform: scaleY(var(--psv));
             left: 0;
         }
 
         &:nth-child(4) {
             @include size($thickness, 100%);
             transform-origin: bottom center;
-            transform: scaleY(var(--page-section-visibility));
+            transform: scaleY(var(--psv));
             right: 0;
         }
     }
@@ -78,7 +78,7 @@
         color: var(--c-background);
         padding: 0.25em 0.5em;
         margin: 0.25em;
-        opacity: calc(var(--page-section-visibility) / var(--offset));
+        opacity: calc(var(--psv) / var(--offset));
     }
 }
 

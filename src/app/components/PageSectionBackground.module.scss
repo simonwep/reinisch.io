@@ -1,0 +1,18 @@
+.pageSectionBackground {
+    @include font(200, var(--font-size));
+    @include position(15vh, 0, 0, 0);
+    @include flex(row, center, center);
+    text-transform: uppercase;
+    font-family: $font-family-tags;
+    margin: auto;
+    position: absolute;
+    z-index: -1;
+    opacity: calc(var(--psv) * 0.05);
+    transform: translateY(calc(var(--offset) * -10vh));
+
+    > p {
+        transform: scale(calc(0.75 + 0.25 * var(--psv))) rotate(-20deg);
+        border: 5px solid var(--c-text);
+        padding: 0 0.225em;
+    }
+}

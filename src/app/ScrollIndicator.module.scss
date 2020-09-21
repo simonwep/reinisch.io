@@ -6,6 +6,8 @@
     flex-shrink: 0;
     left: -40px;
     width: 2px;
+    transform: translateX(calc(var(--fadeout) * -0.5em));
+    opacity: calc(1 - var(--fadeout));
 
     > div {
         @include size(15px, 35px);
