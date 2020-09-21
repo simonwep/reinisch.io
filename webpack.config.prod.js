@@ -1,3 +1,4 @@
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -88,6 +89,7 @@ module.exports = {
             minChunks: 3
         },
         minimizer: [
+            new CssMinimizerPlugin(),
             new TerserPlugin({
                 extractComments: false,
                 parallel: true,
