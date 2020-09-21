@@ -3,7 +3,6 @@
     background: var(--c-background);
     color: var(--c-text);
     position: relative;
-    padding: 1em;
     transition: all 0.5s;
     transform: perspective(500px) scale(calc(0.9 + 0.1 * var(--page-section-visibility)));
 

@@ -106,7 +106,7 @@ $divsize: 25px;
 }
 
 .intro {
-    @include font(400, 1.5em);
+    @include font(300, 1.5em);
     opacity: var(--page-section-visibility);
     margin-bottom: 1em;
     line-height: 1.35;

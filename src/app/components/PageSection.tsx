@@ -2,13 +2,14 @@ import {Link} from '@components/Link';
 import {clamp} from '@utils/math';
 import {Fragment, FunctionalComponent, h} from 'preact';
 import {useEffect, useLayoutEffect, useRef, useState} from 'preact/hooks';
+import {JSXInternal} from 'preact/src/jsx';
 import {rx} from '../rx';
 import styles from './PageSection.module.scss';
 
 type Props = {
     index: number;
     title?: string;
-    intro?: string;
+    intro?: string | JSXInternal.Element;
     id: string;
 }
 
@@ -18,10 +19,10 @@ export const PageSection: FunctionalComponent<Props> = props => {
     const element = useRef<HTMLDivElement>();
 
     useLayoutEffect(() => {
-        const height = element.current?.getBoundingClientRect().height;
+        const {width, height} = element.current?.getBoundingClientRect() || {};
 
-        if (height) {
-            setBgHeaderFs(height / 10);
+        if (width && height) {
+            setBgHeaderFs(Math.min(width, height) * 0.11);
         }
     }, []);
 

@@ -1,0 +1,90 @@
+.presentation {
+    @include flex(row, center, center);
+    @include height(50vh, 35em, 45em);
+    position: relative;
+    border-radius: 0.25em;
+    overflow: hidden;
+    margin-bottom: 5vh;
+
+    > img {
+        @include size(100%);
+        object-fit: cover;
+    }
+
+    &::after {
+        @include position(0, 0, 0, 0);
+        @include pseudo();
+        background: var(--c-background);
+        pointer-events: none;
+        transition: all 0.5s;
+        opacity: 0;
+    }
+
+    &:hover {
+        &::after {
+            opacity: 0.25;
+        }
+
+        .play > path {
+            stroke-dashoffset: 0;
+            opacity: 1;
+            transform: none;
+        }
+    }
+}
+
+.content {
+    @include position(0, 0, 0, 0);
+    @include flex(column);
+    padding: 1.5em;
+    position: absolute;
+
+    header {
+        @include flex(row, flex-start, space-between);
+
+        > h1 {
+            @include font(300, 4em);
+            margin: 0;
+        }
+
+        > p {
+            @include font(400, 1.5em);
+        }
+    }
+
+    > article {
+        @include font(400, 2em);
+        margin-top: auto;
+    }
+}
+
+.play {
+    @include size(3em);
+    overflow: visible;
+    position: absolute;
+    margin: auto;
+    pointer-events: none;
+    z-index: 1;
+
+    > path {
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke: var(--c-text);
+        stroke-dasharray: 100 100;
+        stroke-dashoffset: 100;
+        opacity: 0;
+        transition: all 0.5s;
+
+        &:nth-child(1) {
+            transform: translateX(-0.25em);
+        }
+
+        &:nth-child(2) {
+            transform: translate(0.25em, -0.35em);
+        }
+
+        &:nth-child(3) {
+            transform: translate(0.25em, 0.35em);
+        }
+    }
+}

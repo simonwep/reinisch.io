@@ -6,6 +6,7 @@ import styles from './VirtualCard.module.scss';
 
 type Props = {
     className?: string;
+    intensity?: number;
     link?: string;
 };
 
@@ -42,8 +43,8 @@ export const VirtualCard: FunctionalComponent<Props> = props => {
              style={{
                  '--base-transition': transition ? 'none' : 'all 0.5s',
                  '--hover-transition': transition ? 'all 100ms' : 'none',
-                 '--rotation-x': rotation[0],
-                 '--rotation-y': rotation[1]
+                 '--rotation-x': rotation[0] * (props.intensity || 1),
+                 '--rotation-y': rotation[1] * (props.intensity || 1)
              }}>
             {props.children}
         </div>

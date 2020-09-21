@@ -6,6 +6,7 @@ import {About} from './sections/About';
 import {Footer} from './sections/Footer';
 import {Header} from './sections/Header';
 import {Navigation} from './sections/Navigation';
+import {Presentations} from './sections/Presentations';
 import {Projects} from './sections/Projects';
 
 export default () => (
@@ -20,6 +21,7 @@ export default () => (
         <div className={styles.sections}>
             <ScrollIndicator/>
             <Projects/>
+            <Presentations/>
             <About/>
             <Footer/>
         </div>

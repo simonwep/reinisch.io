@@ -22,7 +22,7 @@ export const About: FunctionalComponent = () => {
     return (
         <PageSection id="about"
                      title="About me"
-                     index={1}>
+                     index={2}>
             <div className={styles.about}>
                 <article>
                     <p>Hi! My name is Simon.</p>
