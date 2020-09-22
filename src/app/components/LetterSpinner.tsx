@@ -1,7 +1,7 @@
 import {FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {cn} from '@utils/preact-utils';
-import styles from './LettersSpinner.module.scss';
+import styles from './LetterSpinner.module.scss';
 
 type Props = {
     words: Array<string>;
@@ -10,10 +10,10 @@ type Props = {
     speed?: number;
 };
 
-export const LettersSpinner: FunctionalComponent<Props> = props => {
+export const LetterSpinner: FunctionalComponent<Props> = props => {
     const [currentWord, setCurrentWord] = useState(0);
     const invisiblePlaceholder = props.words.reduce((pv, cv) => cv.length > pv.length ? cv : pv, '');
-    const {interval = 1500, speed = 300} = props;
+    const {interval = 1800, speed = 400} = props;
 
     useEffect(() => {
         const timeout = setTimeout(() => {

@@ -46,8 +46,8 @@ export const About: FunctionalComponent = () => {
                         more in-depth and sophisticated projects such as a <Link href="https://github.com/Simonwep/bavary">new programming
                             language</Link>, a <Link href="https://github.com/dot-cafe/beam.cafe">file-sharing
                                 app</Link> and <Link href="https://github.com/Simonwep?tab=repositories">much more</Link>.
-                        I also startet working with <Link href="https://www.docker.com/">Docker</Link> and <Link href="https://www.rust-lang.org/">Rust</Link>
-                        in the context of <Link href="https://webassembly.org/">WebAssembly</Link>.
+                        I also startet working with <Link href="https://www.docker.com/">Docker</Link> and <Link href="https://www.rust-lang.org/">Rust</Link>in
+                        the context of <Link href="https://webassembly.org/">WebAssembly</Link>.
                     </p>
                     <p>
                         Currently I&apos;m working, together with <Link href="https://github.com/NateSeymour">Nathan S.</Link>,
