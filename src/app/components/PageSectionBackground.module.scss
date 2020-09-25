@@ -11,7 +11,7 @@
     transform: translateY(calc(var(--offset) * -10vh));
 
     > p {
-        transform: scale(calc(0.75 + 0.25 * var(--psv))) rotate(-20deg);
+        transform: scale(calc(0.8 + 0.2 * var(--psv))) rotate(calc(-5deg - 15deg * var(--psv)));
         border: 5px solid var(--c-text);
         padding: 0 0.225em;
     }

@@ -24,14 +24,20 @@ export const About: FunctionalComponent = () => {
                      title="About me"
                      index={2}>
             <div className={styles.about}>
+                <p>Hi! My name is Simon, and I&apos;m a Frontend developer from Marburg / Germany who loves working things out in great detail.</p>
+
                 <article>
-                    <p>Hi! My name is Simon.</p>
+                    <span>2015</span>
                     <p>
                         My journey began in 2015 — at this time I discovered java which led me into building my first libraries
                         and a framework which ended up being <Link href="https://github.com/Simonwep/java-express">Java Express</Link>.
                         I was amazed by how much traction it gained and that people cared about what you&apos;ve build.
                         One could say that this was my first contact with open-source in general.
                     </p>
+                </article>
+
+                <article>
+                    <span>2016</span>
                     <p>
                         I wanted to build user interfaces, back then the only reasonable solution was JavaFX which quickly made
                         me switch into HTML and CSS, where I created
@@ -40,6 +46,10 @@ export const About: FunctionalComponent = () => {
                         During my time at the startup, I worked on <Link href="https://github.com/ovanta/vue-cloudfront">Vue
                             Cloudfront</Link> and <Link href="https://github.com/ambrest/vue-blogfront">Vue Blogfront</Link>.
                     </p>
+                </article>
+
+                <article>
+                    <span>2018</span>
                     <p>
                         After we had figured that our startup didn&apos;t quite succeed, I switched to <Link href="https://preactjs.com/">Preact</Link> and
                         started working on
@@ -49,6 +59,10 @@ export const About: FunctionalComponent = () => {
                         I also startet working with <Link href="https://www.docker.com/">Docker</Link> and <Link href="https://www.rust-lang.org/">Rust</Link>in
                         the context of <Link href="https://webassembly.org/">WebAssembly</Link>.
                     </p>
+                </article>
+
+                <article>
+                    <span>2020</span>
                     <p>
                         Currently I&apos;m working, together with <Link href="https://github.com/NateSeymour">Nathan S.</Link>,
                         on <Link href="https://github.com/openvpn-access">OpenVPN Access</Link> — a free and open source alternative
@@ -59,10 +73,9 @@ export const About: FunctionalComponent = () => {
                         And when I code privately, I&apos;ll probably be working on things which can be found
                         on <Link href="https://github.com/Simonwep">GitHub/Simonwep</Link>.
                     </p>
-                    <p>
-                        Questions? You can reach out to me over <a data-cursor-focus={true} onClick={openMailToLink}>e&#8203;m&#8203;a&#8203;i&#8203;l</a> :)
-                    </p>
                 </article>
+
+                <p>Questions? You can reach out to me over <a data-cursor-focus={true} onClick={openMailToLink}>e&#8203;m&#8203;a&#8203;i&#8203;l</a> :)</p>
             </div>
         </PageSection>
     );

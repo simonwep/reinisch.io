@@ -18,46 +18,68 @@ $divsize: 25px;
     @include size($divsize);
     position: absolute;
     margin: 0 auto;
-    transition: all 0.3s;
-    transform-style: preserve-3d;
-    --rot: calc(var(--psv) * 360deg);
-    transform: perspective(250px) rotateY(var(--rot)) rotateX(var(--rot));
 
-    > div {
-        @include position(0, 0, 0, 0);
-        transition: all 0.3s;
-        position: absolute;
-        opacity: 0.75;
+    &:active .cube > div {
+        --side-rotation: 45deg;
+    }
+
+    &:hover .cube > div {
+        --side-distance: 1.25;
 
         @for $i from 1 through 6 {
             &:nth-child(#{$i}) {
                 $p: ($i / 6);
-                background: rgb($p * 255, $p * 255, $p * 255);
+                background: hsl($p * 360, 50%, 50%);
             }
         }
+    }
 
-        &:nth-child(1) {
-            transform: rotateX(90deg) translateZ($divsize / 2);
-        }
+    .cube {
+        @include position(0, 0, 0, 0);
+        position: absolute;
+        transition: all 0.3s;
+        transform-style: preserve-3d;
+        transform: perspective(250px) rotateY(var(--rot)) rotateX(var(--rot));
+        --rot: calc(var(--psv) * 360deg);
+        --side-distance: 0.5;
+        --side-rotation: 0deg;
 
-        &:nth-child(2) {
-            transform: rotateX(-90deg) translateZ($divsize / 2);
-        }
+        > div {
+            @include position(0, 0, 0, 0);
+            transition: all 0.3s;
+            position: absolute;
+            opacity: 0.75;
 
-        &:nth-child(3) {
-            transform: rotateY(-90deg) translateZ($divsize / 2);
-        }
+            @for $i from 1 through 6 {
+                &:nth-child(#{$i}) {
+                    $p: ($i / 6);
+                    background: rgb($p * 255, $p * 255, $p * 255);
+                }
+            }
 
-        &:nth-child(4) {
-            transform: rotateY(90deg) translateZ($divsize / 2);
-        }
+            &:nth-child(1) {
+                transform: rotateY(var(--side-rotation)) rotateX(90deg) translateZ(calc(#{$divsize} * var(--side-distance)));
+            }
 
-        &:nth-child(5) {
-            transform: translateZ($divsize / 2);
-        }
+            &:nth-child(2) {
+                transform: rotateY(var(--side-rotation)) rotateX(-90deg) translateZ(calc(#{$divsize} * var(--side-distance)));
+            }
 
-        &:nth-child(6) {
-            transform: translateZ($divsize / -2);
+            &:nth-child(3) {
+                transform: rotateX(var(--side-rotation)) rotateY(-90deg) translateZ(calc(#{$divsize} * var(--side-distance)));
+            }
+
+            &:nth-child(4) {
+                transform: rotateX(var(--side-rotation)) rotateY(90deg) translateZ(calc(#{$divsize} * var(--side-distance)));
+            }
+
+            &:nth-child(5) {
+                transform: rotateZ(var(--side-rotation)) translateZ(calc(#{$divsize} * var(--side-distance)));
+            }
+
+            &:nth-child(6) {
+                transform: rotateZ(var(--side-rotation)) translateZ(calc(#{$divsize} * var(--side-distance) * -1));
+            }
         }
     }
 }
@@ -110,7 +132,7 @@ $divsize: 25px;
     @include font(300, 1.5em);
     opacity: var(--psv);
     margin-bottom: 1em;
-    line-height: 1.35;
+    line-height: 1.5;
 }
 
 @include mq-phones {

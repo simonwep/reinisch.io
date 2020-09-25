@@ -28,13 +28,15 @@ export const PageSection: FunctionalComponent<Props> = props => {
 
     return (
         <div className={styles.pageSection} id={props.id} style={`--psv: ${visibility}`}>
-            {props.index > 0 ? <div className={styles.divider}>
-                <div/>
-                <div/>
-                <div/>
-                <div/>
-                <div/>
-                <div/>
+            {props.index > 0 ? <div className={styles.divider} data-cursor-focus={true}>
+                <div className={styles.cube}>
+                    <div/>
+                    <div/>
+                    <div/>
+                    <div/>
+                    <div/>
+                    <div/>
+                </div>
             </div> : ''}
 
             {props.title && <Fragment>
