@@ -15,6 +15,7 @@
 .border {
     @include position(0, 0, 0, 0);
     position: absolute;
+    z-index: -1;
 
     > div {
         position: absolute;
@@ -55,9 +56,13 @@
     @include flex(row, center, space-between);
     margin-bottom: 0.5em;
 
-    > svg {
-        @include size(2em);
-        fill: var(--c-text);
+    > a  {
+        display: flex;
+
+        > svg {
+            @include size(2em);
+            fill: var(--c-text);
+        }
     }
 
     > h1 {
@@ -85,6 +90,7 @@
 .openIndicator {
     @include position(0, 0, 0, 0);
     position: absolute;
+    z-index: -1;
     margin: 5px;
     --scale: 0;
 

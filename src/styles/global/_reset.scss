@@ -11,6 +11,14 @@ a {
     outline: none;
 }
 
+input,
+button {
+    border: none;
+    outline: none;
+    background: inherit;
+    border-radius: 0;
+}
+
 html,
 body {
     @include size(100%);

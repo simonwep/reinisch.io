@@ -34,7 +34,7 @@ export const VirtualCard: FunctionalComponent<Props> = props => {
 
     return (
         <div className={cn(styles.virtualCard, props.className)}
-             data-cursor-focus={true}
+             data-cursor-focus={!!props.link}
              ref={element}
              onClick={props.link ? open : undefined}
              onMouseEnter={mouseEnter}

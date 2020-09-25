@@ -4,6 +4,55 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.filters {
+    transition: all 0.3s;
+    opacity: var(--psv);
+    height: 0;
+
+    &[data-visible] {
+        margin-bottom: 1em;
+        height: 2em;
+    }
+
+    > button {
+        @include font(600, 1em);
+        height: 100%;
+        position: relative;
+        --mode: 1;
+
+        > span {
+            text-transform: uppercase;
+            font-size: 1em;
+            display: inline-block;
+            position: relative;
+            padding: 0.35em 1.25em;
+            transition: all 0.5s;
+
+            &:first-child {
+                background: var(--c-text);
+                color: var(--c-background);
+                clip-path: inset(0 calc(100% - var(--mode) * 100%) 0 0);
+            }
+
+            &:last-child {
+                clip-path: inset(0 0 0 calc(var(--mode) * 100%));
+                background: var(--c-background);
+                color: var(--c-text);
+                position: absolute;
+                left: 0;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-right: 0.5em;
+        }
+
+        &:hover {
+            --mode: 0;
+        }
+    }
+}
+
 @include mq-desktop {
     .projects {
         grid-gap: 1vh;
