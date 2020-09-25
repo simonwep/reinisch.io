@@ -12,7 +12,7 @@ module.exports = {
     devtool: 'inline-source-map',
     entry: {
         'sw': './src/sw.ts',
-        'js/main': './src/index.js',
+        'js/main': './src/index.js'
     },
 
     output: {
@@ -60,11 +60,11 @@ module.exports = {
         rules: [
             {
                 test: /\.svg$/,
-                loader: 'svg-inline-loader'
+                use: 'svg-inline-loader'
             },
             {
                 test: /\.(png|jpe?g|webp|gif|eot|ttf|woff|woff2)$/i,
-                loader: 'file-loader'
+                use: 'file-loader'
             },
             {
                 test: /\.(scss|sass|css)$/,
@@ -101,7 +101,7 @@ module.exports = {
 
     optimization: {
         splitChunks: {
-            minChunks: 3
+            chunks: 'all'
         }
     },
 

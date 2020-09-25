@@ -14,7 +14,7 @@ module.exports = {
     mode: 'production',
     entry: {
         'sw': './src/sw.ts',
-        'js/main': './src/index.js',
+        'js/main': './src/index.js'
     },
 
     output: {
@@ -38,7 +38,7 @@ module.exports = {
         rules: [
             {
                 test: /\.svg$/,
-                loader: [
+                use: [
                     'svg-inline-loader',
                     'svgo-loader'
                 ]
@@ -84,9 +84,8 @@ module.exports = {
     },
 
     optimization: {
-        minimize: true,
         splitChunks: {
-            minChunks: 3
+            chunks: 'all'
         },
         minimizer: [
             new CssMinimizerPlugin(),
