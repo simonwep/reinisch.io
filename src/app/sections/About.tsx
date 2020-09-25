@@ -44,7 +44,7 @@ export const About: FunctionalComponent = () => {
                         both <Link href="https://github.com/Simonwep/selection">SelectionJS</Link> and <Link href="https://github.com/Simonwep/pickr">Pickr</Link>.
                         Shortly after I continued with vue and participated in a startup where I&apos;ve build websites for clients all around the world.
                         During my time at the startup, I worked on <Link href="https://github.com/ovanta/vue-cloudfront">Vue
-                            Cloudfront</Link> and <Link href="https://github.com/ambrest/vue-blogfront">Vue Blogfront</Link>.
+                        Cloudfront</Link> and <Link href="https://github.com/ambrest/vue-blogfront">Vue Blogfront</Link>.
                     </p>
                 </article>
 
@@ -54,8 +54,8 @@ export const About: FunctionalComponent = () => {
                         After we had figured that our startup didn&apos;t quite succeed, I switched to <Link href="https://preactjs.com/">Preact</Link> and
                         started working on
                         more in-depth and sophisticated projects such as a <Link href="https://github.com/Simonwep/bavary">new programming
-                            language</Link>, a <Link href="https://github.com/dot-cafe/beam.cafe">file-sharing
-                                app</Link> and <Link href="https://github.com/Simonwep?tab=repositories">much more</Link>.
+                        language</Link>, a <Link href="https://github.com/dot-cafe/beam.cafe">file-sharing
+                        app</Link> and <Link href="https://github.com/Simonwep?tab=repositories">much more</Link>.
                         I also startet working with <Link href="https://www.docker.com/">Docker</Link> and <Link href="https://www.rust-lang.org/">Rust</Link>in
                         the context of <Link href="https://webassembly.org/">WebAssembly</Link>.
                     </p>

@@ -132,7 +132,7 @@ $divsize: 25px;
     @include font(300, 1.5em);
     opacity: var(--psv);
     margin-bottom: 1em;
-    line-height: 1.5;
+    line-height: 1.35;
 }
 
 @include mq-phones {

@@ -40,7 +40,7 @@
     padding: 1.5em;
     position: absolute;
 
-    header {
+    > header {
         @include flex(row, flex-start, space-between);
 
         > h1 {
@@ -50,6 +50,7 @@
 
         > p {
             @include font(400, 1.5em);
+            flex-shrink: 0;
         }
     }
 
@@ -92,6 +93,26 @@
 
 @include mq-phones {
     .presentation {
-        @include height(50vh, 25em, 25em);
+        @include height(35vh, 17em, 25em);
+    }
+
+    .content {
+        > header {
+            flex-direction: column-reverse;
+
+            > h1 {
+                font-size: 2em;
+                margin-top: 0.25em;
+            }
+
+            > p {
+                font-size: 1.25em;
+            }
+        }
+
+        > article {
+            font-size: 1.35em;
+            line-height: 1.3;
+        }
     }
 }

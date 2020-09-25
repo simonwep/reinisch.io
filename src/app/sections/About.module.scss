@@ -3,14 +3,14 @@
     position: relative;
     opacity: var(--psv);
     transform: translateY(calc(10vh - var(--psv) * 10vh));
-    line-height: 1.5;
+    line-height: 1.35;
 
     p:not(:last-child) {
         padding-bottom: 0.5em;
     }
 
     br {
-        line-height: 3em;
+        line-height: 3;
     }
 
     a {
@@ -46,10 +46,6 @@
     }
 }
 
-.timeline {
-
-}
-
 .divider {
     @include flex(row, center);
 
@@ -71,5 +67,9 @@
 @include mq-phones {
     .about {
         font-size: 1.3em;
+
+        article > span {
+            display: none;
+        }
     }
 }
