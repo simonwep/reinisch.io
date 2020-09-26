@@ -1,0 +1,29 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup SSH Keys and known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          eval `ssh-agent -s`
+          echo "IdentityFile ~/.ssh/server_key" >> ~/.ssh/config
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/server_key
+          chmod 400 ~/.ssh/server_key
+          ssh-keyscan reinisch.io >> ~/.ssh/known_hosts
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build files
+        run: rsync -rv --delete ./dist/ ubuntu@reinisch.io:/home/ubuntu/www/home
