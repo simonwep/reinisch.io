@@ -19,13 +19,6 @@ export const Link = forwardRef<HTMLAnchorElement, RenderableProps<Props>>((props
         e.preventDefault();
     };
 
-    if (env.NODE_ENV === 'development') {
-        /* eslint-disable no-console */
-        if (!props.children && !props.label) {
-            console.warn(`Link should have a label associated with it. Link: ${props.href}`);
-        }
-    }
-
     return (
         <a className={cn(props.className, styles.link)}
            data-cursor-focus={true}
@@ -33,6 +26,7 @@ export const Link = forwardRef<HTMLAnchorElement, RenderableProps<Props>>((props
            target="_blank"
            ref={ref}
            href={props.href}
+           aria-label={props.label}
            onClick={props.href.startsWith('#') ? handleHashLink : undefined}>
             {props.label && <p className={styles.visibleHidden}>{props.label}</p>}
             {props.children}
