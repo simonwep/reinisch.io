@@ -12,7 +12,8 @@
         "lint:ts": "eslint src/**/*.{js,ts,tsx}",
         "lint:ts:fix": "eslint src/**/*.{js,ts,tsx} --fix",
         "lint:types": "tsc --project tsconfig.json --noEmit",
-        "lint:fix": "npm run lint:ts:fix && npm run lint:types"
+        "lint:fix": "npm run lint:ts:fix && npm run lint:types",
+        "lint": "npm run lint:ts && npm run lint:types"
     },
     "devDependencies": {
         "@babel/core": "^7.11.6",
