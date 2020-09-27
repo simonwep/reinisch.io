@@ -1,0 +1,49 @@
+noscript {
+    @include size(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace, Monaco, "Courier New", "Lucida Console";
+    position: fixed;
+    cursor: auto;
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        cursor: auto;
+    }
+
+    div {
+        display: flex;
+        position: relative;
+    }
+
+    p {
+        padding: 1em 1.5em;
+
+        &:first-child {
+            color: white;
+        }
+
+        &:last-child {
+            background: white;
+            color: black;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            @include animate('4s ease-in-out infinite') {
+                0% {
+                    clip-path: inset(0 100% 0 0);
+                }
+                50% {
+                    clip-path: inset(0 0 0 0);
+                }
+                100% {
+                    clip-path: inset(0 0 0 100%);
+                }
+            }
+        }
+    }
+}
