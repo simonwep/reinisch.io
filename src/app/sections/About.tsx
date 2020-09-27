@@ -29,16 +29,16 @@ export const About: FunctionalComponent = () => {
                     <span>2015</span>
                     <p>
                         My journey began in 2015 — at this time I discovered java which led me into building my first libraries
-                        and a framework which ended up being <Link href="https://github.com/Simonwep/java-express">Java Express</Link>.
+                        and a framework: <Link href="https://github.com/Simonwep/java-express">Java Express</Link>.
                         I was amazed by how much traction it gained and that people cared about what you&apos;ve build.
-                        One could say that this was my first contact with open-source in general.
+                        One could say that this was my first contact with open-source software and being a maintainer for a public project.
                     </p>
                 </article>
 
                 <article>
                     <span>2016</span>
                     <p>
-                        I wanted to build user interfaces, back then the only reasonable solution was JavaFX which quickly made
+                        I also wanted to build user interfaces, back then the only reasonable solution was JavaFX which quickly made
                         me switch into HTML and CSS, where I created
                         both <Link href="https://github.com/Simonwep/selection">SelectionJS</Link> and <Link href="https://github.com/Simonwep/pickr">Pickr</Link>.
                         Shortly after I continued with vue and participated in a startup where I&apos;ve build websites for clients all around the world.
@@ -55,7 +55,8 @@ export const About: FunctionalComponent = () => {
                         more in-depth and sophisticated projects such as a <Link href="https://github.com/Simonwep/bavary">new programming
                             language</Link>, a <Link href="https://github.com/dot-cafe/beam.cafe">file-sharing
                                 app</Link> and <Link href="https://github.com/Simonwep?tab=repositories">much more</Link>.
-                        I also startet working with <Link href="https://www.docker.com/">Docker</Link> and <Link href="https://www.rust-lang.org/">Rust</Link>in
+                        I also started working
+                        with <Link href="https://www.docker.com/">Docker</Link> and <Link href="https://www.rust-lang.org/">Rust</Link> in
                         the context of <Link href="https://webassembly.org/">WebAssembly</Link>.
                     </p>
                 </article>
@@ -63,12 +64,12 @@ export const About: FunctionalComponent = () => {
                 <article>
                     <span>2020</span>
                     <p>
-                        Currently I&apos;m working, together with <Link href="https://github.com/NateSeymour">Nathan S.</Link>,
-                        on <Link href="https://github.com/openvpn-access">OpenVPN Access</Link> — a free and open source alternative
+                        The most recent project which I, together with <Link href="https://github.com/NateSeymour">Nathan S.</Link>,
+                        worked on is <Link href="https://github.com/openvpn-access">OpenVPN Access</Link> — a free and open source alternative
                         to the proprietary openvpn-access to manage vpn-users at scale.
                     </p>
                     <p>
-                        At this time, since 2020 I&apos;m working at <Link href="https://www.weclapp.com/en/">weclapp</Link> as a frontend developer.
+                        At this time, since 2020, I&apos;m working at <Link href="https://www.weclapp.com/en/">weclapp</Link> as a frontend developer.
                         And when I code privately, I&apos;ll probably be working on things which can be found
                         on <Link href="https://github.com/Simonwep">GitHub/Simonwep</Link>.
                     </p>
