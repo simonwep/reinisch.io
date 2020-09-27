@@ -9,7 +9,7 @@
 
 .description {
     @include font(400, 1.25em);
-    line-height: 1.35;
+    line-height: 1.5;
     margin-bottom: auto;
 }
 
@@ -125,5 +125,9 @@
         transition: none !important;
         filter: none !important;
         font-size: 0.85em;
+    }
+
+    .description {
+        line-height: 1.35;
     }
 }

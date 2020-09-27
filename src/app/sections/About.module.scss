@@ -3,7 +3,7 @@
     position: relative;
     opacity: var(--vis-in);
     transform: translateY(calc(10vh - var(--vis-in) * 10vh));
-    line-height: 1.35;
+    line-height: 1.5;
 
     p:not(:last-child) {
         padding-bottom: 0.5em;
@@ -66,6 +66,7 @@
 
 @include mq-phones {
     .about {
+        line-height: 1.35;
         font-size: 1.3em;
 
         article > span {

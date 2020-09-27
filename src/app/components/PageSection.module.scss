@@ -134,7 +134,7 @@ $divsize: 25px;
     @include font(300, 1.5em);
     opacity: var(--vis-in);
     margin-bottom: 1em;
-    line-height: 1.35;
+    line-height: 1.5;
 }
 
 @include mq-phones {
@@ -143,7 +143,8 @@ $divsize: 25px;
     }
 
     .intro {
-        font-size: 1.25em
+        font-size: 1.25em;
+        line-height: 1.35;
     }
 
     .backgroundHeader,
