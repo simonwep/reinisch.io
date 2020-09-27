@@ -76,7 +76,7 @@
     margin-top: 1em;
 
     > span {
-        @include font(600, 13px);
+        @include font(600, 0.8em);
         font-family: $font-family-tags;
         text-transform: uppercase;
         display: inline-block;
@@ -124,5 +124,6 @@
         transform: none !important;
         transition: none !important;
         filter: none !important;
+        font-size: 0.85em;
     }
 }

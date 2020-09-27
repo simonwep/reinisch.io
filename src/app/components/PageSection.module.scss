@@ -138,6 +138,14 @@ $divsize: 25px;
 }
 
 @include mq-phones {
+    .header {
+        font-size: 1.5em;
+    }
+
+    .intro {
+        font-size: 1.25em
+    }
+
     .backgroundHeader,
     .header > p {
         display: none;
