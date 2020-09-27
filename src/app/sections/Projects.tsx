@@ -15,10 +15,9 @@ export const Projects: FunctionalComponent = () => {
     const addTag = (tag: string) => !tags.includes(tag) && setTags([...tags, tag]);
 
     return (
-        <PageSection title="Projects"
-                     intro="Projects, experiments, libraries and applications I maintain, worked on, or used in the past which are representive of what I currently know and work with."
-                     id="projects"
-                     index={0}>
+        <PageSection id="projects"
+                     title="Projects"
+                     intro="Projects, experiments, libraries and applications I maintain, worked on, or used in the past which are representive of what I currently know and work with.">
 
             <div className={styles.filters} data-visible={!!tags.length}>
                 {tags.map((value, index) =>

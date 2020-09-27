@@ -21,8 +21,7 @@ export const About: FunctionalComponent = () => {
 
     return (
         <PageSection id="about"
-                     title="About me"
-                     index={2}>
+                     title="About me">
             <div className={styles.about}>
                 <p>Hi! My name is Simon, and I&apos;m a Frontend developer from Marburg / Germany who loves working things out in great detail.</p>
 

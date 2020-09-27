@@ -11,8 +11,8 @@
         @include position(-1px, 0, 0, 0);
         @include pseudo();
         background: var(--c-background);
-        opacity: calc(var(--psv) * 1.1);
-        clip-path: inset(0 0 calc((-1 * var(--psv) + 1.1) * 100%) 0);
+        opacity: calc(var(--vis-in) * 1.1);
+        clip-path: inset(0 0 calc((-1 * var(--vis-in) + 1.1) * 100%) 0);
         z-index: -1;
     }
 }
@@ -53,8 +53,8 @@
     bottom: -10vh;
     background: var(--c-background);
     padding: 0.5em 1.5em;
-    opacity: calc(1 - var(--psv) * 2);
-    transform: translateY(calc(-1 * var(--psv) * 5vh));
+    opacity: calc(1 - var(--vis-in) * 2);
+    transform: translateY(calc(-1 * var(--vis-in) * 5vh));
 
     > span {
         opacity: 0.25;

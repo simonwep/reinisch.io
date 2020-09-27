@@ -6,7 +6,7 @@
 
 .filters {
     transition: all 0.3s;
-    opacity: var(--psv);
+    opacity: var(--vis-in);
     height: 0;
 
     &[data-visible] {

@@ -3,10 +3,10 @@ import {createRef, FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {clamp} from '@utils/math';
 import {fromEvent} from 'rxjs';
-import {rx} from '../rx';
+import {scp} from '../rx';
 import styles from './Navigation.module.scss';
 
-const links = [
+export const navigationlinks = [
     ['Home', 'home'],
     ['Projects', 'projects'],
     ['Presentations', 'presentations'],
@@ -20,51 +20,12 @@ export const Navigation: FunctionalComponent = () => {
     const navItems: Array<HTMLAnchorElement | null> = [];
     const bar = createRef<HTMLDivElement>();
 
-    const updateBar = () => {
-        const refRects = links
-            .map(v => (document.getElementById(v[1]) as HTMLElement).getBoundingClientRect());
-
-        /**
-         * Calculate current scroll position based on element position.
-         * And element counts as fully "visible" (or a 1) if the top position
-         * is at the very top of the screen or above. Anything else is partially
-         * visible and based on the top-distance to the next element.
-         */
-        let index = -1;
-        let lastTop = 0;
-        let lastBottom = 0;
-        const {scrollTop, scrollHeight} = document.documentElement;
-        for (const rect of refRects) {
-            if (rect.top <= 0) {
-                index++;
-                lastTop = rect.top + scrollTop;
-                lastBottom = window.innerHeight - (rect.bottom + -rect.top);
-            } else {
-
-                // Element will never be on top so use the bottom value as reference
-                if ((rect.top + scrollTop) > (scrollHeight - window.innerHeight)) {
-
-                    // Distance until the elements bottom touches the bottom of the page
-                    index += 1 - (rect.bottom - window.innerHeight) / (rect.height - lastBottom);
-                } else {
-
-                    // Distance until the element touches the top of the page
-                    index += (scrollTop - lastTop) / (scrollTop + rect.top - lastTop);
-                }
-
-                break;
-            }
-        }
-
-        // Full page index and visibility index for the next one
-        const pure = clamp(Math.floor(index), 0, navItems.length - 1);
-        const subStep = Math.max(index % 1, 0);
-
+    const updateBar = ([full, sub]: [number, number]) => {
         if (bar.current) {
 
             // Current element and next item
-            const cel = navItems[pure] as HTMLElement;
-            const nel = navItems[pure + 1];
+            const cel = navItems[full] as HTMLElement;
+            const nel = navItems[full + 1];
 
             const barStyle = bar.current.style;
             const per = (cel.parentElement as HTMLElement).getBoundingClientRect();
@@ -73,8 +34,8 @@ export const Navigation: FunctionalComponent = () => {
             // Bar width and offset
             if (nel) {
                 const ner = nel.getBoundingClientRect();
-                const barWidth = cer.width + (ner.width - cer.width) * subStep;
-                const barOffset = cer.left + (ner.left - cer.left) * subStep;
+                const barWidth = cer.width + (ner.width - cer.width) * sub;
+                const barOffset = cer.left + (ner.left - cer.left) * sub;
 
                 barStyle.width = `${barWidth}px`;
                 barStyle.left = `${barOffset - per.left}px`;
@@ -84,8 +45,7 @@ export const Navigation: FunctionalComponent = () => {
             }
         }
 
-        rx.scrollProgress.next([pure, subStep]);
-        setVisibility(pure + subStep);
+        setVisibility(full + sub);
     };
 
     useEffect(() => {
@@ -94,14 +54,15 @@ export const Navigation: FunctionalComponent = () => {
     }, [navOpen]);
 
     useEffect(() => {
-        updateBar();
-        const scollSubscription = rx.windowScroll.subscribe(updateBar);
+        const scollSubscription = scp.subscribe(updateBar);
         return () => scollSubscription.unsubscribe();
-    }, [updateBar]);
+    }, [bar]);
+
+    useEffect(()=> updateBar([0, 0]), []);
 
     return (
         <div className={styles.navigation}
-             style={{'--psv': clamp(visibility, 0, 1)}}>
+             style={{'--vis-in': clamp(visibility, 0, 1)}}>
 
             <div className={styles.wrapper}
                  data-open={navOpen}>
@@ -114,7 +75,7 @@ export const Navigation: FunctionalComponent = () => {
 
                 <div className={styles.links}
                      style={{'--progress': visibility}}>
-                    {links.map(([txt, id]) => (
+                    {navigationlinks.map(([txt, id]) => (
                         <Link href={`#${id}`}
                               key={id}
                               ref={instance => navItems.push(instance)}>

@@ -3,8 +3,10 @@
     padding: 17.5vh 0 17.5vh;
     width: 100%;
 
-    &:first-child {
-        padding-top: 0;
+    &:nth-child(2) {
+        .divider {
+            display: none;
+        }
     }
 
     &:last-child {
@@ -40,7 +42,7 @@ $divsize: 25px;
         transition: all 0.3s;
         transform-style: preserve-3d;
         transform: perspective(250px) rotateY(var(--rot)) rotateX(var(--rot));
-        --rot: calc(var(--psv) * 360deg);
+        --rot: calc(var(--vis-in) * 360deg);
         --side-distance: 0.5;
         --side-rotation: 0deg;
 
@@ -109,17 +111,17 @@ $divsize: 25px;
         display: inline-block;
         position: relative;
         padding: 0.2em 0.5em;
-        opacity: var(--psv);
+        opacity: var(--vis-in);
 
         &:nth-child(2) {
             background: var(--c-text);
             color: var(--c-background);
-            clip-path: inset(0 calc(100% - var(--psv) * 100%) 0 0);
+            clip-path: inset(0 calc(100% - var(--vis-in) * 100%) 0 0);
             border-bottom: 4px solid var(--c-text-accent);
         }
 
         &:last-child {
-            clip-path: inset(0 0 0 calc(var(--psv) * 100%));
+            clip-path: inset(0 0 0 calc(var(--vis-in) * 100%));
             background: var(--c-background);
             color: var(--c-text);
             position: absolute;
@@ -130,7 +132,7 @@ $divsize: 25px;
 
 .intro {
     @include font(300, 1.5em);
-    opacity: var(--psv);
+    opacity: var(--vis-in);
     margin-bottom: 1em;
     line-height: 1.35;
 }

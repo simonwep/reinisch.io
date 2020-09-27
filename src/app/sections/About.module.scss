@@ -1,8 +1,8 @@
 .about {
     @include font(300, 1.6em);
     position: relative;
-    opacity: var(--psv);
-    transform: translateY(calc(10vh - var(--psv) * 10vh));
+    opacity: var(--vis-in);
+    transform: translateY(calc(10vh - var(--vis-in) * 10vh));
     line-height: 1.35;
 
     p:not(:last-child) {
@@ -37,7 +37,7 @@
                 @include pseudo();
                 @include size(2px, calc(100% - 0.75em));
                 transform-origin: bottom center;
-                transform: scaleY(var(--psv));
+                transform: scaleY(var(--vis-in));
                 background: var(--c-text);
                 display: block;
                 bottom: 0;

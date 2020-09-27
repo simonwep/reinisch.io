@@ -7,15 +7,14 @@ export const Presentations: FunctionalComponent = () => {
 
     return (
         <PageSection id="presentations"
+                     title="Presentations"
                      intro={
                          <Fragment>
                              Best two out of four presentations I&apos;ve created during high-school in Germany (Abitur).
                              Both made using Vue / Preact in combination
                              with <Link href="https://github.com/Simonwep/presentr">Presentr</Link> and <Link href="https://github.com/Simonwep/sassyfication">Sassyfication</Link>.
                          </Fragment>
-                     }
-                     title="Presentations"
-                     index={1}>
+                     }>
 
             <Presentation link="/p/pilecki"
                           title="Witold Pilecki"

@@ -25,7 +25,9 @@
     --page-width-max: 75rem;
 
     /* Tell the IDE that such a variable exists */
-    --psv: 0;
+    --vis: 0; // vis-in/out combined from 0 to 2
+    --vis-in: 0; // Element enters viewport
+    --vis-out: 0; // User scrolls beyond element
 }
 
 @media all and (min-width: 2000px) {

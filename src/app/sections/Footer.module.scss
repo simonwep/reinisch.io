@@ -1,7 +1,7 @@
 .footer {
     @include flex(row, center);
-    transform: translateY(calc((1 - var(--psv)) * 10vh)) scale(calc(0.9 + var(--psv) * 0.1));
-    opacity: var(--psv);
+    transform: translateY(calc((1 - var(--vis-in)) * 10vh)) scale(calc(0.9 + var(--vis-in) * 0.1));
+    opacity: var(--vis-in);
     width: 100%;
 }
 
