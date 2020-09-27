@@ -53,6 +53,12 @@
     }
 }
 
+.bottomText {
+    @include font(300, 1.5em);
+    margin-top: 1.5em;
+    text-align: right;
+}
+
 @include mq-desktop {
     .projects {
         grid-gap: 1vh;

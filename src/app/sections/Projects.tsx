@@ -1,3 +1,4 @@
+import {Link} from '@components/Link';
 import {Template} from '@components/Template';
 import {FunctionalComponent, h} from 'preact';
 import {config} from '@config';
@@ -38,6 +39,8 @@ export const Projects: FunctionalComponent = () => {
                         </Template>
                     )}
             </div>
+
+            <p className={styles.bottomText}>...and of course <Link href="https://github.com/Simonwep/reinisch.io">reinisch.io itself</Link>.</p>
         </PageSection>
     );
 };
