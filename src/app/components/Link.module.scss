@@ -4,14 +4,14 @@
     overflow: visible;
 
     &:focus .visibleHidden {
-        @include size(auto);
+        visibility: visible;
         clip-path: unset;
     }
 }
 
 .visibleHidden {
-    @include size(0);
-    @include position(150%, -2px, auto, auto);
+    @include size(auto);
+    @include position(150%, 0, auto, auto);
     @include font(600, 1em);
     clip-path: inset(100% 0 0 0);
     position: absolute;
@@ -19,6 +19,7 @@
     color: var(--c-background);
     background: var(--c-text);
     padding: 0.35em 0.5em;
+    visibility: hidden;
 }
 
 @include mq-phones {
