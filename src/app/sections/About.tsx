@@ -23,40 +23,40 @@ export const About: FunctionalComponent = () => {
         <PageSection id="about"
                      title="About me">
             <div className={styles.about}>
-                <p>Hi! My name is Simon, and I&apos;m a Frontend developer from Marburg / Germany who loves working things out in great detail.</p>
+                <p>Hi! My name is Simon, and I&apos;m a Frontend Developer from Marburg / Germany who displays passion through perfectionism.</p>
 
                 <article>
                     <span>2015</span>
                     <p>
-                        My journey began in 2015 — at this time I discovered java which led me into building my first libraries
+                        My journey began in 2015 — at this time I discovered Java, which led me to build my first libraries
                         and a framework: <Link href="https://github.com/Simonwep/java-express">Java Express</Link>.
-                        I was amazed by how much traction it gained and that people cared about what you&apos;ve build.
-                        One could say that this was my first contact with open-source software and being a maintainer for a public project.
+                        I was amazed at how much traction it gained, and that people cared about what I had built.
+                        You could say that this was my first contact with open-source software, and it was my first time being a maintainer for a public
+                        project.
                     </p>
                 </article>
 
                 <article>
                     <span>2016</span>
                     <p>
-                        I also wanted to build user interfaces, back then the only reasonable solution was JavaFX which quickly made
-                        me switch into HTML and CSS, where I created
+                        I also wanted to build user interfaces, but back then the only reasonable solution was JavaFX, and that quickly made
+                        me switch to HTML and CSS, where I created
                         both <Link href="https://github.com/Simonwep/selection">SelectionJS</Link> and <Link href="https://github.com/Simonwep/pickr">Pickr</Link>.
-                        Shortly after I continued with vue and participated in a startup where I&apos;ve build websites for clients all around the world.
-                        During my time at the startup, I worked on <Link href="https://github.com/ovanta/vue-cloudfront">Vue
+                        Shortly after, I continued with VueJS and participated in a startup where I built websites for clients all around the world.
+                        During my time at that startup, I worked on <Link href="https://github.com/ovanta/vue-cloudfront">Vue
                             Cloudfront</Link> and <Link href="https://github.com/ambrest/vue-blogfront">Vue Blogfront</Link>.
                     </p>
                 </article>
 
                 <article>
-                    <span>2018</span>
+                    <span>2019</span>
                     <p>
-                        After we had figured that our startup didn&apos;t quite succeed, I switched to <Link href="https://preactjs.com/">Preact</Link> and
-                        started working on
-                        more in-depth and sophisticated projects such as a <Link href="https://github.com/Simonwep/bavary">new programming
+                        After realizing that our startup wouldn’t quite make it off the ground, I switched to <Link href="https://preactjs.com/">Preact</Link>,
+                        and started working on more technical projects, such as a <Link href="https://github.com/Simonwep/bavary">new programming
                             language</Link>, a <Link href="https://github.com/dot-cafe/beam.cafe">file-sharing
-                                app</Link> and <Link href="https://github.com/Simonwep?tab=repositories">much more</Link>.
-                        I also started working
-                        with <Link href="https://www.docker.com/">Docker</Link> and <Link href="https://www.rust-lang.org/">Rust</Link> in
+                                app</Link>, and <Link href="https://github.com/Simonwep?tab=repositories">much more</Link>.
+                        Next to freelancing I also started working
+                        with <Link href="https://www.docker.com/">Docker</Link>, and <Link href="https://www.rust-lang.org/">Rust</Link> in
                         the context of <Link href="https://webassembly.org/">WebAssembly</Link>.
                     </p>
                 </article>
@@ -64,13 +64,13 @@ export const About: FunctionalComponent = () => {
                 <article>
                     <span>2020</span>
                     <p>
-                        The most recent project which I, together with <Link href="https://github.com/NateSeymour">Nathan S.</Link>,
-                        worked on is <Link href="https://github.com/openvpn-access">OpenVPN Access</Link> — a free and open source alternative
-                        to the proprietary openvpn-access to manage vpn-users at scale.
+                        The most recent project that I, together with <Link href="https://github.com/NateSeymour">Nathan S.</Link>,
+                        have been working on is <Link href="https://github.com/openvpn-access">OpenVPN Access</Link> — a free and open source alternative
+                        to the proprietary OpenVPN Access Server to facilitate the management of VPN users at scale.
                     </p>
                     <p>
-                        At this time, since 2020, I&apos;m working at <Link href="https://www.weclapp.com/en/">weclapp</Link> as a frontend developer.
-                        And when I code privately, I&apos;ll probably be working on things which can be found
+                        Right now, I work as a Frontend Developer at <Link href="https://www.weclapp.com/en/">weclapp</Link>.
+                        And when I code privately, I&apos;ll probably be working on things that can be found
                         on <Link href="https://github.com/Simonwep">GitHub/Simonwep</Link>.
                     </p>
                 </article>
