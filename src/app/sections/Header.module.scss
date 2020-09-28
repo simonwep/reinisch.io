@@ -1,5 +1,6 @@
 .header {
     @include width(var(--page-width), var(--page-width-min), var(--page-width-max));
+    padding-top: 12.5vh;
     z-index: 1;
 
     > h1 {

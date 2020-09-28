@@ -16,6 +16,7 @@ export const Projects: FunctionalComponent = () => {
 
     return (
         <PageSection id="projects"
+                     index={0}
                      title="Projects"
                      intro="Projects, experiments, libraries and applications I maintain, worked on, or used in the past which are representive of what I currently know and work with.">
 

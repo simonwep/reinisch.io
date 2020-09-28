@@ -6,7 +6,7 @@ import {fromEvent} from 'rxjs';
 import {scp} from '../rx';
 import styles from './Navigation.module.scss';
 
-export const navigationlinks = [
+const navigationlinks = [
     ['Home', 'home'],
     ['Projects', 'projects'],
     ['Presentations', 'presentations'],
@@ -14,51 +14,93 @@ export const navigationlinks = [
     ['Links', 'links']
 ];
 
+// I don't know how most of this works anymore.
+const updateScrollProgress = () => {
+    const doc = document.documentElement;
+    let index = 0;
+
+    for (const [, id] of navigationlinks.slice(1)) {
+        const element = document.getElementById(id) as HTMLElement;
+        const rect = element.getBoundingClientRect();
+
+        if (rect.top <= 0) {
+            index++;
+            continue;
+        }
+
+        const base = doc.scrollTop + rect.top;
+        let raw = 1 - (rect.top / window.innerHeight);
+
+        // Some elements might not start at the very top, take that into account
+        if (base > 0 && base < window.innerHeight) {
+            raw = (base - rect.top) / (window.innerHeight - base);
+        }
+
+        // Check if element will never be on top (for example a footer)
+        if ((base + window.innerHeight) > doc.scrollHeight) {
+            raw = 1 - (doc.scrollHeight - window.innerHeight - doc.scrollTop) / rect.height;
+        }
+
+        if (raw >= 0 && (raw <= 1 || index === navigationlinks.length - 2)) {
+            index += Math.min(raw, 1);
+            break;
+        }
+    }
+
+    scp.next([Math.floor(index), index % 1]);
+};
+
 export const Navigation: FunctionalComponent = () => {
     const [navOpen, setNavOpen] = useState(false);
     const [visibility, setVisibility] = useState(0);
     const navItems: Array<HTMLAnchorElement | null> = [];
     const bar = createRef<HTMLDivElement>();
 
-    const updateBar = ([full, sub]: [number, number]) => {
-        if (bar.current) {
-
-            // Current element and next item
-            const cel = navItems[full] as HTMLElement;
-            const nel = navItems[full + 1];
-
-            const barStyle = bar.current.style;
-            const per = (cel.parentElement as HTMLElement).getBoundingClientRect();
-            const cer = cel.getBoundingClientRect();
-
-            // Bar width and offset
-            if (nel) {
-                const ner = nel.getBoundingClientRect();
-                const barWidth = cer.width + (ner.width - cer.width) * sub;
-                const barOffset = cer.left + (ner.left - cer.left) * sub;
-
-                barStyle.width = `${barWidth}px`;
-                barStyle.left = `${barOffset - per.left}px`;
-            } else {
-                barStyle.width = `${cer.width}px`;
-                barStyle.left = `${cer.left - per.left}px`;
-            }
-        }
-
-        setVisibility(full + sub);
-    };
-
     useEffect(() => {
         const closeBurger = navOpen ? fromEvent(window, 'click').subscribe(() => setNavOpen(false)) : null;
         return () => closeBurger?.unsubscribe();
     }, [navOpen]);
 
+
     useEffect(() => {
-        const scollSubscription = scp.subscribe(updateBar);
-        return () => scollSubscription.unsubscribe();
+        const scrollSubscription = fromEvent(window, 'scroll').subscribe(updateScrollProgress);
+        const scpSubscription = scp.subscribe(([full, sub]) => {
+            if (bar.current) {
+
+                // Current element and next item
+                const cel = navItems[full] as HTMLElement;
+                const nel = navItems[full + 1];
+
+                const barStyle = bar.current.style;
+                const per = (cel.parentElement as HTMLElement).getBoundingClientRect();
+                const cer = cel.getBoundingClientRect();
+
+                // Bar width and offset
+                if (nel) {
+                    const ner = nel.getBoundingClientRect();
+                    const barWidth = cer.width + (ner.width - cer.width) * sub;
+                    const barOffset = cer.left + (ner.left - cer.left) * sub;
+
+                    barStyle.width = `${barWidth}px`;
+                    barStyle.left = `${barOffset - per.left}px`;
+                } else {
+                    barStyle.width = `${cer.width}px`;
+                    barStyle.left = `${cer.left - per.left}px`;
+                }
+            }
+
+            setVisibility(full + sub);
+        });
+
+
+        return () => {
+            scrollSubscription.unsubscribe();
+            scpSubscription.unsubscribe();
+        };
     }, [bar]);
 
-    useEffect(() => updateBar([0, 0]), []);
+    // Initialize
+    useEffect(updateScrollProgress, []);
 
     return (
         <div className={styles.navigation}
