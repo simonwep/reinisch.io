@@ -25,3 +25,12 @@ body {
     scrollbar-width: none;
     background: var(--c-background);
 }
+
+/* Safari isn't really sure which element should be used to display a scroll bar */
+html {
+    overflow: auto;
+}
+
+body {
+    position: absolute;
+}
