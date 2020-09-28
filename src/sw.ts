@@ -32,11 +32,11 @@ self.addEventListener('fetch', ev => {
 
         // Return cached response
         if (cachedResponse) {
-            return cachedResponse;
+            return cachedResponse.clone();
         }
 
         const response = await fetch(ev.request);
-        await cache.put(ev.request, response);
+        await cache.put(ev.request, response.clone());
         return response;
     }));
 });
