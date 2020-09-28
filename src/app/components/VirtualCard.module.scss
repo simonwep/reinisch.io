@@ -16,8 +16,12 @@
 
 @include mq-phones {
     .virtualCard {
-        transform: none !important;
-        transition: none !important;
-        filter: none !important;
+        transform: none;
+        transition: none;
+        filter: none;
+
+        &:hover {
+            transition: none;
+        }
     }
 }

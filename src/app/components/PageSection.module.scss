@@ -138,6 +138,11 @@ $divsize: 25px;
 }
 
 @include mq-phones {
+    .divider .cube,
+    .divider .cube > div {
+        transition: none;
+    }
+
     .header {
         font-size: 1.5em;
     }

@@ -16,32 +16,37 @@ const navigationlinks = [
 
 // I don't know how most of this works anymore.
 const updateScrollProgress = () => {
-    const doc = document.documentElement;
+    const {scrollHeight, scrollTop} = document.scrollingElement || document.documentElement;
+    const {innerHeight} = window;
     let index = 0;
 
     for (const [, id] of navigationlinks.slice(1)) {
-        const element = document.getElementById(id) as HTMLElement;
-        const rect = element.getBoundingClientRect();
+        const rect = (document.getElementById(id) as HTMLElement).getBoundingClientRect();
 
         if (rect.top <= 0) {
             index++;
             continue;
         }
 
-        const base = doc.scrollTop + rect.top;
-        let raw = 1 - (rect.top / window.innerHeight);
+        const base = scrollTop + rect.top;
+        let raw = 1 - (rect.top / innerHeight);
 
         // Some elements might not start at the very top, take that into account
-        if (base > 0 && base < window.innerHeight) {
-            raw = (base - rect.top) / (window.innerHeight - base);
+        if (base > 0 && base < innerHeight) {
+            raw = (base - rect.top) / (innerHeight - base);
         }
 
         // Check if element will never be on top (for example a footer)
-        if ((base + window.innerHeight) > doc.scrollHeight) {
-            raw = 1 - (doc.scrollHeight - window.innerHeight - doc.scrollTop) / rect.height;
+        if ((base + innerHeight) > scrollHeight) {
+            raw = 1 - (scrollHeight - innerHeight - scrollTop) / rect.height;
         }
 
-        if (raw >= 0 && (raw <= 1 || index === navigationlinks.length - 2)) {
+        if (raw >= 1) {
+            index++;
+            continue;
+        }
+
+        if (raw >= 0) {
             index += Math.min(raw, 1);
             break;
         }
@@ -91,7 +96,6 @@ export const Navigation: FunctionalComponent = () => {
 
             setVisibility(full + sub);
         });
-
 
         return () => {
             scrollSubscription.unsubscribe();
