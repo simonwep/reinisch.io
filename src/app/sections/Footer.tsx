@@ -10,7 +10,7 @@ export const Footer: FunctionalComponent = () => (
     <PageSection id="links" index={3}>
         <div className={styles.footer}>
             <div className={styles.faceWrapper}>
-                <Picture images={[faceWebp, faceJpg]}/>
+                <Picture images={[faceWebp, faceJpg]} alt="Portray"/>
             </div>
 
             <div className={styles.text}>
