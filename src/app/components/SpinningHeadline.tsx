@@ -1,7 +1,7 @@
 import {FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {cn} from '@utils/preact-utils';
-import styles from './LetterSpinner.module.scss';
+import styles from './SpinningHeadline.module.scss';
 
 type Props = {
     words: Array<string>;
@@ -10,7 +10,7 @@ type Props = {
     speed?: number;
 };
 
-export const LetterSpinner: FunctionalComponent<Props> = props => {
+export const SpinningHeadline: FunctionalComponent<Props> = props => {
     const [currentWord, setCurrentWord] = useState(0);
     const invisiblePlaceholder = props.words.reduce((pv, cv) => cv.length > pv.length ? cv : pv, '');
     const {interval = 1800, speed = 400} = props;
@@ -25,7 +25,7 @@ export const LetterSpinner: FunctionalComponent<Props> = props => {
 
     const fadeOutIndex = (currentWord ? currentWord : props.words.length) - 1;
     return (
-        <div className={cn(styles.lettersSpinner, props.className)}>
+        <div className={cn(styles.spinningHeadline, props.className)}>
             <span className={styles.placeholder}>{invisiblePlaceholder}</span>
 
             <div className={styles.words}>

@@ -1,5 +1,4 @@
-import {CircleCursor} from '@components/CircleCursor';
-import styles from './App.module.scss';
+import {Cursor} from '@components/Cursor';
 import {h} from 'preact';
 import {ScrollIndicator} from './ScrollIndicator';
 import {About} from './sections/About';
@@ -8,10 +7,11 @@ import {Header} from './sections/Header';
 import {Navigation} from './sections/Navigation';
 import {Presentations} from './sections/Presentations';
 import {Projects} from './sections/Projects';
+import styles from './App.module.scss';
 
 export default () => (
     <div className={styles.app}>
-        <CircleCursor/>
+        <Cursor/>
 
         {/* Header and navigation */}
         <Header/>

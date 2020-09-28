@@ -4,11 +4,9 @@ import {FunctionalComponent, h} from 'preact';
 import {Project} from '@config';
 import styles from './ProjectCard.module.scss';
 
-// TODO: Apparently 'tag' in (tag: string) is never used...
-/* eslint-disable no-unused-vars */
 type Props = {
     project: Project;
-    addTag: (tag: string) => void;
+    addTag: (/* eslint-disable no-unused-vars */ tag: string) => void;
 };
 
 export const ProjectCard: FunctionalComponent<Props> = ({project, addTag}) => (

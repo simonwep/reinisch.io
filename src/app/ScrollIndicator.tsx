@@ -9,8 +9,8 @@ export const ScrollIndicator: FunctionalComponent = () => {
 
     useEffect(() => {
         const subscription = scp.subscribe(([full, sub]) => {
-                setProgress(clamp(full + sub, 0, 2));
-            });
+            setProgress(clamp(full + sub, 0, 2));
+        });
 
         return () => subscription.unsubscribe();
     });

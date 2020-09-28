@@ -1,9 +1,9 @@
 import {FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {fromEvent, merge} from 'rxjs';
-import styles from './CircleCursor.module.scss';
+import styles from './Cursor.module.scss';
 
-type Cursor = {
+type State = {
     x: number;
     y: number;
     pressed: boolean;
@@ -18,8 +18,8 @@ const mouseEvents = merge<MouseEvent>(
     fromEvent<MouseEvent>(document, 'mouseleave')
 );
 
-export const CircleCursor: FunctionalComponent = () => {
-    const [cursor, setCursor] = useState<Cursor>({
+export const Cursor: FunctionalComponent = () => {
+    const [cursor, setCursor] = useState<State>({
         x: 0, y: 0,
         pressed: false,
         visible: false,

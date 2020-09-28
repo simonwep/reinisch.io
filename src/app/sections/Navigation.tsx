@@ -58,7 +58,7 @@ export const Navigation: FunctionalComponent = () => {
         return () => scollSubscription.unsubscribe();
     }, [bar]);
 
-    useEffect(()=> updateBar([0, 0]), []);
+    useEffect(() => updateBar([0, 0]), []);
 
     return (
         <div className={styles.navigation}
