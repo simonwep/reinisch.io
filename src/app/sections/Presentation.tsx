@@ -1,3 +1,4 @@
+import {Picture} from '@components/Picture';
 import {VirtualCard} from '@components/VirtualCard';
 import {FunctionalComponent, h} from 'preact';
 import styles from './Presentation.module.scss';
@@ -14,7 +15,7 @@ export const Presentation: FunctionalComponent<Props> = props => (
     <VirtualCard intensity={0.25}
                  link={props.link}
                  className={styles.presentation}>
-        <img srcSet={props.images.map(src => `${src} 1x`).join(',')} alt=""/>
+        <Picture images={props.images}/>
 
         <svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" className={styles.play}>
             <path d="M0,0 L0,30" pathLength="100"/>

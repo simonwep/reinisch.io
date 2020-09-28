@@ -1,5 +1,6 @@
 import {Link} from '@components/Link';
 import {PageSection} from '@components/PageSection';
+import {Picture} from '@components/Picture';
 import {FunctionalComponent, h} from 'preact';
 import styles from './Footer.module.scss';
 import faceJpg from './images/face.jpg';
@@ -9,11 +10,7 @@ export const Footer: FunctionalComponent = () => (
     <PageSection id="links" index={3}>
         <div className={styles.footer}>
             <div className={styles.faceWrapper}>
-                <img srcSet={
-                    [faceWebp, faceJpg]
-                        .map(src => `${src} 1x`)
-                        .join(',')
-                } alt=""/>
+                <Picture images={[faceWebp, faceJpg]}/>
             </div>
 
             <div className={styles.text}>

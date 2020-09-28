@@ -11,7 +11,7 @@
     border-radius: 100%;
     background: var(--c-text);
 
-    > img {
+    > picture {
         @include size(calc(8em - 6px));
         border-radius: 100%;
     }
