@@ -3,7 +3,7 @@
 declare let self: ServiceWorkerGlobalScope;
 export {};
 
-const CACHE_NAME = 'cache-v1';
+const CACHE_NAME = `cache-${env.BUILD_TIME}`;
 self.addEventListener('install', event => {
 
     // Ensure that the service worker gets updated immediately for all (active) clients
@@ -11,10 +11,14 @@ self.addEventListener('install', event => {
         await self.skipWaiting();
         await self.clients.claim();
     });
+});
+
+self.addEventListener('activate', event => {
 
     // Clear caches
-    void caches.keys().then(
-        cacheNames => Promise.all(cacheNames.map(name => caches.delete(name)))
+    event.waitUntil(
+        caches.keys()
+            .then(names => Promise.all(names.map(name => caches.delete(name))))
     );
 });
 

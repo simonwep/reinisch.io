@@ -6,5 +6,6 @@ declare module '*.jpg';
 declare module '*.webp';
 
 declare let env: {
-    NODE_ENV: 'production' | 'development'
+    NODE_ENV: 'production' | 'development';
+    BUILD_TIME: number;
 };

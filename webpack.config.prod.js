@@ -14,12 +14,12 @@ module.exports = {
     mode: 'production',
     entry: {
         'sw': './src/sw.ts',
-        'js/main': './src/index.js'
+        'bundle': './src/index.js'
     },
 
     output: {
         path: dist,
-        filename: '[name].js',
+        filename: data => data.chunk.name === 'sw' ? '[name].js' : 'js/[name].[contenthash:6].js',
         publicPath: '/'
     },
 
@@ -84,9 +84,6 @@ module.exports = {
     },
 
     optimization: {
-        splitChunks: {
-            chunks: 'all'
-        },
         minimizer: [
             new CssMinimizerPlugin(),
             new TerserPlugin({
@@ -106,7 +103,10 @@ module.exports = {
 
     plugins: [
         new webpack.DefinePlugin({
-            'env.NODE_ENV': JSON.stringify('production')
+            'env': {
+                'NODE_ENV': JSON.stringify('production'),
+                'BUILD_TIME': JSON.stringify(Date.now())
+            }
         }),
 
         new HtmlWebpackPlugin({
@@ -126,7 +126,7 @@ module.exports = {
 
         new MiniCssExtractPlugin({
             chunkFilename: 'css/bundle.[chunkhash].css',
-            filename: 'css/bundle.css'
+            filename: 'css/bundle.[contenthash:6].css'
         }),
 
         new CopyPlugin({
