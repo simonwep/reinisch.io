@@ -17,6 +17,7 @@ if (env.NODE_ENV === 'development') {
     window.$RefreshSig$ = () => type => type;
     logStyled('[APP] Development mode 🔧');
 } else if (env.NODE_ENV === 'production') {
+    logStyled(`[APP] Build from ${new Date(env.BUILD_TIME).toLocaleString()}`);
     logStyled('[APP] Production mode 🎉');
 }
 
@@ -28,3 +29,31 @@ navigator.serviceWorker?.register('/sw.js').then(() => {
 });
 
 require('./app');
+
+window.addEventListener('keydown', async ev => {
+    if (ev.code === 'KeyN') {
+        const el = document.documentElement;
+
+        if (el.scrollTop) {
+            await new Promise(resolve => {
+                el.style.transition = 'all 0.5s';
+                el.style.opacity = '0';
+                setTimeout(resolve, 500);
+            }).then(() => new Promise(resolve => {
+                el.scroll(0, 0);
+                el.style.opacity = null;
+                setTimeout(resolve, 500);
+            })).then(() => {
+                el.style.transition = null;
+            });
+        }
+
+        requestAnimationFrame(function next() {
+            el.scroll(0, el.scrollTop + 2);
+
+            if (el.scrollTop + window.innerHeight < el.scrollHeight) {
+                requestAnimationFrame(next);
+            }
+        });
+    }
+});
