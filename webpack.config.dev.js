@@ -107,7 +107,10 @@ module.exports = {
 
     plugins: [
         new webpack.DefinePlugin({
-            'env.NODE_ENV': JSON.stringify('development')
+            'env': {
+                'NODE_ENV': JSON.stringify('development'),
+                'BUILD_TIME': JSON.stringify(Date.now())
+            }
         }),
 
         new HtmlWebpackPlugin({

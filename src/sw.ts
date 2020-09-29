@@ -26,7 +26,7 @@ self.addEventListener('fetch', ev => {
 
     // Let the browser to its own thing for non-get requests
     if (ev.request.method !== 'GET' ||
-        process.env.NODE_ENV === 'development') {
+        env.NODE_ENV === 'development') {
         return;
     }
 
