@@ -30,6 +30,7 @@ module.exports = {
             'react-dom': 'preact/compat',
             '@components': path.resolve('./src/app/components'),
             '@config': path.resolve('./src/config.ts'),
+            '@hooks': path.resolve('./src/hooks'),
             '@utils': path.resolve('./src/utils')
         }
     },

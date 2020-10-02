@@ -18,6 +18,7 @@
         "paths": {
             "@components/*": ["./src/app/components/*"],
             "@utils/*": ["./src/utils/*"],
+            "@hooks/*": ["./src/hooks/*"],
             "@config": ["./src/config.ts"]
         }
     },

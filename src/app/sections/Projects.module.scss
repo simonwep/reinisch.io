@@ -59,6 +59,15 @@
     text-align: right;
 }
 
+.loadMoreBtn {
+    background: var(--c-text);
+    color: var(--c-background);
+    text-transform: uppercase;
+    padding: 1em 0;
+    margin-top: 0.5em;
+    width: 100%;
+}
+
 @include mq-desktop {
     .projects {
         grid-gap: 1vh;
