@@ -3,10 +3,8 @@
     padding: 17.5vh 0 17.5vh;
     width: 100%;
 
-    &:nth-child(2) {
-        .divider {
-            display: none;
-        }
+    &:first-child .divider {
+        display: none;
     }
 
     &:last-child {
@@ -147,13 +145,13 @@ $divsize: 25px;
         font-size: 1.5em;
     }
 
+    .header > p {
+        display: none;
+    }
+
     .intro {
         font-size: 1.25em;
         line-height: 1.35;
     }
 
-    .backgroundHeader,
-    .header > p {
-        display: none;
-    }
 }

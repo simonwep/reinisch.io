@@ -16,7 +16,7 @@ export const ScrollIndicator: FunctionalComponent = () => {
     });
 
     return (
-        <div className={styles.pageIndex}
+        <div className={styles.scrollIndicator}
              style={{
                  '--progress': progress,
                  '--fadeout': Math.max(0, (progress - 0.5) / 0.5)

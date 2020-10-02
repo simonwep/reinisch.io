@@ -51,9 +51,3 @@
         }
     }
 }
-
-@include mq-tablets {
-    .circle {
-        display: none;
-    }
-}

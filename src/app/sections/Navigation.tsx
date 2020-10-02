@@ -66,7 +66,6 @@ export const Navigation: FunctionalComponent = () => {
         return () => closeBurger?.unsubscribe();
     }, [navOpen]);
 
-
     useEffect(() => {
         const scrollSubscription = fromEvent(window, 'scroll').subscribe(updateScrollProgress);
         const scpSubscription = scp.subscribe(([full, sub]) => {

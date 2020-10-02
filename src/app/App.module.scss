@@ -8,10 +8,14 @@
     user-select: none;
 }
 
-.sections {
+.content {
     @include width(var(--page-width), var(--page-width-min), var(--page-width-max));
     @include flex(column, center);
     position: relative;
     height: 100%;
     z-index: 1;
+}
+
+.sections {
+    @include flex(column, center);
 }
