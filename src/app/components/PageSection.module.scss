@@ -3,8 +3,13 @@
     padding: 17.5vh 0 17.5vh;
     width: 100%;
 
-    &:first-child .divider {
-        display: none;
+    &:first-child {
+        padding-top: 0;
+        margin-top: 17.5vh;
+
+        .divider {
+            display: none;
+        }
     }
 
     &:last-child {
