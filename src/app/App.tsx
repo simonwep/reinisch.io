@@ -30,7 +30,7 @@ export default () => {
             {/* Actual content split up into sections */}
             <div className={styles.content}>
                 {media !== 'phones' && <ScrollIndicator/>}
-                <div className={styles.sections}>
+                <div className={styles.sections} role="main">
                     <Projects/>
                     <Presentations/>
                     <About/>

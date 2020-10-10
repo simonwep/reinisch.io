@@ -8,6 +8,7 @@ import {scp} from '../rx';
 import styles from './PageSection.module.scss';
 
 type Props = {
+    'aria-label'?: string;
     title?: string;
     intro?: string | JSXInternal.Element;
     index: number;
@@ -27,6 +28,7 @@ export const PageSection: FunctionalComponent<Props> = props => {
 
     return (
         <div className={styles.pageSection}
+             aria-label={props['aria-label']}
              id={props.id}
              style={{
                  '--vis': visibility,

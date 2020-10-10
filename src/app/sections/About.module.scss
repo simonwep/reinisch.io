@@ -23,7 +23,7 @@
         margin: 1em 0 1em -2em;
         padding-left: 2em;
 
-        > span {
+        > h1 {
             @include position(0.35em, auto, 0, 0);
             @include font(300, 24px);
             height: 100%;
@@ -69,7 +69,7 @@
         line-height: 1.35;
         font-size: 1.3em;
 
-        article > span {
+        article > h1 {
             display: none;
         }
     }

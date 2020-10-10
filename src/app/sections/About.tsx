@@ -25,7 +25,7 @@ export const About: FunctionalComponent = () => {
                 <p>Hi! My name is Simon, and I&apos;m a Frontend Developer from Marburg / Germany who displays passion through perfectionism.</p>
 
                 <article>
-                    <span>2015</span>
+                    <h1>2015</h1>
                     <p>
                         My journey began in 2015 — at this time I discovered Java, which led me to build my first libraries
                         and a framework: <Link href="https://github.com/Simonwep/java-express">Java Express</Link>.
@@ -36,7 +36,7 @@ export const About: FunctionalComponent = () => {
                 </article>
 
                 <article>
-                    <span>2016</span>
+                    <h1>2016</h1>
                     <p>
                         I also wanted to build user interfaces, but back then the only reasonable solution was JavaFX, and that quickly made
                         me switch to HTML and CSS, where I created
@@ -48,7 +48,7 @@ export const About: FunctionalComponent = () => {
                 </article>
 
                 <article>
-                    <span>2019</span>
+                    <h1>2019</h1>
                     <p>
                         After realizing that our startup wouldn’t quite make it off the ground, I switched to <Link href="https://preactjs.com/">Preact</Link>,
                         and started working on more technical projects, such as a <Link href="https://github.com/Simonwep/bavary">new programming
@@ -61,7 +61,7 @@ export const About: FunctionalComponent = () => {
                 </article>
 
                 <article>
-                    <span>2020</span>
+                    <h1>2020</h1>
                     <p>
                         The most recent project that I, together with <Link href="https://github.com/NateSeymour">Nathan S.</Link>,
                         have been working on is <Link href="https://github.com/openvpn-access">OpenVPN Access</Link> — a free and open source alternative

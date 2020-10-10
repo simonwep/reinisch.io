@@ -107,7 +107,9 @@ export const Navigation: FunctionalComponent = () => {
 
     return (
         <div className={styles.navigation}
-             style={{'--vis-in': clamp(visibility, 0, 1)}}>
+             style={{'--vis-in': clamp(visibility, 0, 1)}}
+             role="navigation"
+             aria-label="Main navigation">
 
             <div className={styles.wrapper}
                  data-open={navOpen}>
