@@ -26,7 +26,8 @@
         }
     },
     "globals": {
-        "env": true
+        "env": true,
+        "BeforeInstallPromptEvent": true
     },
     "rules": {
         "@typescript-eslint/restrict-template-expressions": "off",

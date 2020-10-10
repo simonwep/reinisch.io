@@ -1,4 +1,5 @@
 import {Cursor} from '@components/Cursor';
+import {PWAInstallPrompt} from '@components/PWAInstallPrompt';
 import {useMedia} from '@hooks/useMedia';
 import {h} from 'preact';
 import {ScrollIndicator} from './ScrollIndicator';
@@ -15,7 +16,12 @@ export default () => {
 
     return (
         <div className={styles.app}>
+
+            {/* Custom desktop-cursor */}
             {media !== 'tablets' && media !== 'phones' && <Cursor/>}
+
+            {/* Custom PWA Install prompt */}
+            <PWAInstallPrompt/>
 
             {/* Header and navigation */}
             <Header/>
