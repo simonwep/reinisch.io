@@ -1,4 +1,5 @@
 import {Cursor} from '@components/Cursor';
+import {LoadingScreen} from '@components/LoadingScreen';
 import {PWAInstallPrompt} from '@components/PWAInstallPrompt';
 import {useMedia} from '@hooks/useMedia';
 import {h} from 'preact';
@@ -22,6 +23,9 @@ export default () => {
 
             {/* Custom PWA Install prompt */}
             <PWAInstallPrompt/>
+
+            {/* Loading screen for slow devices */}
+            <LoadingScreen/>
 
             {/* Header and navigation */}
             <Header/>
