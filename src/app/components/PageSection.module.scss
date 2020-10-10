@@ -141,6 +141,10 @@ $divsize: 25px;
 }
 
 @include mq-phones {
+    .pageSection:last-child {
+        padding-bottom: 10vh;
+    }
+
     .divider .cube,
     .divider .cube > div {
         transition: none;
@@ -158,5 +162,4 @@ $divsize: 25px;
         font-size: 1.25em;
         line-height: 1.35;
     }
-
 }
