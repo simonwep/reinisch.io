@@ -13,13 +13,14 @@ import {Projects} from './sections/Projects';
 import styles from './App.module.scss';
 
 export default () => {
+    const touchDevice = 'ontouchstart' in window;
     const media = useMedia();
 
     return (
         <div className={styles.app}>
 
             {/* Custom desktop-cursor */}
-            {media !== 'tablets' && media !== 'phones' && <Cursor/>}
+            {((media !== 'tablets' && media !== 'phones') || !touchDevice) && <Cursor/>}
 
             {/* Custom PWA Install prompt */}
             <PWAInstallPrompt/>

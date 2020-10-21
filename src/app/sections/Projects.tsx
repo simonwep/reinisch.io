@@ -46,7 +46,8 @@ export const Projects: FunctionalComponent = () => {
             {
                 media === 'phones' && limit < config.projects.length &&
                     <button className={styles.loadMoreBtn}
-                            onClick={() => setLimit(limit + 5)}>
+                            onClick={() => setLimit(limit + 5)}
+                            data-cursor-focus={true}>
                         Load more ({config.projects.length - limit})
                     </button>
             }
