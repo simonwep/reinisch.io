@@ -90,7 +90,6 @@ module.exports = {
             new TerserPlugin({
                 extractComments: false,
                 parallel: true,
-                sourceMap: true,
                 terserOptions: {
                     toplevel: true,
                     mangle: true,
