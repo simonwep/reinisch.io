@@ -39,6 +39,12 @@
             "link": "https://github.com/Simonwep/nason"
         },
         {
+            "title": "Li18nt",
+            "description": "Opinionated, small linter for i18n locale files. Prettifies, validates and finds duplicates.",
+            "tags": ["ts", "json", "linting", "cli"],
+            "link": "https://github.com/Simonwep/li18nt"
+        },
+        {
             "title": "Sassyfication",
             "description": "A sassy sass library to speed up your css workflow.",
             "tags": ["SCSS", "CSS", "styles "],
