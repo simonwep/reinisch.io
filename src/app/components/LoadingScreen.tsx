@@ -1,11 +1,14 @@
-import {FunctionalComponent, h} from 'preact';
+import {Fragment, FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {fromEvent} from 'rxjs';
 import styles from './LoadingScreen.module.scss';
 
 export const LoadingScreen: FunctionalComponent = () => {
-    const [progress, setProgress] = useState(0);
+    if (env.NODE_ENV === 'development') {
+        return <Fragment/>;
+    }
 
+    const [progress, setProgress] = useState(0);
     useEffect(() => {
         const subscription = fromEvent(window, 'load')
             .subscribe(() => setProgress(1));
