@@ -41,3 +41,9 @@ interface BeforeInstallPromptEvent extends Event {
      */
     prompt(): Promise<void>;
 }
+
+declare namespace JSXInternal {
+    interface HTMLAttributes {
+        style: Record<string, string>
+    }
+}
