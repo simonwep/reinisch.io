@@ -5,7 +5,9 @@ export type MediaDevice = 'large-desktop' | 'desktop' | 'tablets' | 'phones';
 
 const getMediaDevice = (): MediaDevice => {
     const root = document.documentElement;
-    return getComputedStyle(root).getPropertyValue('--media') as MediaDevice;
+    return getComputedStyle(root)
+        .getPropertyValue('--media')
+        .trim() as MediaDevice;
 };
 
 /**
