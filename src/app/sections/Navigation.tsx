@@ -9,6 +9,7 @@ import styles from './Navigation.module.scss';
 const navigationlinks = [
     ['Home', 'home'],
     ['Projects', 'projects'],
+    ['Archive', 'archive'],
     ['Presentations', 'presentations'],
     ['About', 'about'],
     ['Links', 'links']

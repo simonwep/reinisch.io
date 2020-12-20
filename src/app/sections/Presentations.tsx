@@ -5,7 +5,7 @@ import {Presentation} from './Presentation';
 
 export const Presentations: FunctionalComponent = () => (
     <PageSection id="presentations"
-                 index={1}
+                 index={2}
                  title="Presentations"
                  intro={
                      <Fragment>

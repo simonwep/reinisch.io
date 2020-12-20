@@ -9,7 +9,10 @@ export type Project = {
 export type Config = {
     name: string;
     slogans: string[];
-    projects: Project[];
+    projects: {
+        current: Project[];
+        legacy: Project[];
+    };
 };
 
 export const config: Config = require('../config/config.json');

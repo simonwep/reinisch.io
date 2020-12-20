@@ -7,9 +7,10 @@ import {ScrollIndicator} from './ScrollIndicator';
 import {About} from './sections/About';
 import {Footer} from './sections/Footer';
 import {Header} from './sections/Header';
+import {Archive} from './sections/Archive';
 import {Navigation} from './sections/Navigation';
 import {Presentations} from './sections/Presentations';
-import {Projects} from './sections/Projects';
+import {ActiveProjects} from './sections/ActiveProjects';
 import styles from './App.module.scss';
 
 export default () => {
@@ -36,7 +37,8 @@ export default () => {
             <div className={styles.content}>
                 {media !== 'phones' && <ScrollIndicator/>}
                 <div className={styles.sections} role="main">
-                    <Projects/>
+                    <ActiveProjects/>
+                    <Archive/>
                     <Presentations/>
                     <About/>
                     <Footer/>
