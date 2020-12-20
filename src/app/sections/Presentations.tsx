@@ -1,11 +1,10 @@
 import {Link} from '@components/Link';
-import {Fragment, FunctionalComponent, h} from 'preact';
 import {PageSection} from '@components/PageSection';
+import {Fragment, FunctionalComponent, h} from 'preact';
 import {Presentation} from './Presentation';
 
 export const Presentations: FunctionalComponent = () => (
     <PageSection id="presentations"
-                 index={2}
                  title="Presentations"
                  intro={
                      <Fragment>

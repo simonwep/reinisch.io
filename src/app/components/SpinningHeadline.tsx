@@ -1,6 +1,6 @@
+import {cn} from '@utils/preact-utils';
 import {FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
-import {cn} from '@utils/preact-utils';
 import styles from './SpinningHeadline.module.scss';
 
 type Props = {

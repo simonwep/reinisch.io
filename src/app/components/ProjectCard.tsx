@@ -1,7 +1,7 @@
 import {Link} from '@components/Link';
 import {VirtualCard} from '@components/VirtualCard';
-import {FunctionalComponent, h} from 'preact';
 import {Project} from '@config';
+import {FunctionalComponent, h} from 'preact';
 import styles from './ProjectCard.module.scss';
 
 type Props = {

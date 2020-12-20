@@ -5,7 +5,7 @@ import {FunctionalComponent, h} from 'preact';
 
 export const Archive: FunctionalComponent = () => {
     return (
-        <PageSection id="archive" index={1} title="Archive"
+        <PageSection id="archive" title="Archive"
                      intro="Things I once worked on. They're not up-to-date, may not work anymore but represent an important part of my journey.">
             <Projects projects={config.projects.legacy}/>
         </PageSection>

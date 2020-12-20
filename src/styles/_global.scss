@@ -39,7 +39,7 @@
 
 @include mq-large-desktop {
     :root {
-        --media:large-desktop;
+        --media: large-desktop;
     }
 }
 
@@ -48,20 +48,20 @@
         --page-width: 90vw;
         --page-width-min: unset;
         --page-width-max: unset;
-        --media:desktop;
+        --media: desktop;
     }
 }
 
 @include mq-tablets {
     :root {
         --page-width: 90vw;
-        --media:tablets;
+        --media: tablets;
     }
 }
 
 @include mq-phones {
     :root {
         --page-width: 90vw;
-        --media:phones;
+        --media: phones;
     }
 }
