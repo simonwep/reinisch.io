@@ -8,14 +8,15 @@ import styles from './Projects.module.scss';
 
 type Props = {
     projects: Project[];
+    mobileLimitBase?: number;
 }
 
 export const Projects: FunctionalComponent<Props> = props => {
-    const {projects} = props;
+    const {projects, mobileLimitBase = 5} = props;
 
     const media = useMedia();
     const [tags, setTags] = useState<string[]>([]);
-    const [limit, setLimit] = useState<number>(5);
+    const [limit, setLimit] = useState<number>(mobileLimitBase);
 
     const removeTag = (tag: string) => tags.includes(tag) && setTags(tags.filter(v => v !== tag));
     const addTag = (tag: string) => !tags.includes(tag) && setTags([...tags, tag]);
