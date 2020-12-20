@@ -24,13 +24,15 @@ export const ProjectCard: FunctionalComponent<Props> = ({project, addTag}) => (
         <article className={styles.description}>{project.description}</article>
 
         <div className={styles.tags}>
-            {project.tags.map((tag, index) =>
-                <span key={index}
-                      data-cursor-focus={true}
-                      style={{'--offset': (index + 1) / project.tags.length}}
-                      onClick={addTag.bind(null, tag)}>
-                    {tag}
-                </span>
+            {project.tags
+                .sort((a, b) => a.localeCompare(b))
+                .map((tag, index) =>
+                    <span key={index}
+                          data-cursor-focus={true}
+                          style={{'--offset': (index + 1) / project.tags.length}}
+                          onClick={addTag.bind(null, tag)}>
+                        {tag}
+                    </span>
             )}
         </div>
 
