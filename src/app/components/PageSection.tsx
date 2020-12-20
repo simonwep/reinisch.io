@@ -8,8 +8,8 @@ import {scp} from '../rx';
 import styles from './PageSection.module.scss';
 
 type Props = {
-    'aria-label'?: string;
-    title?: string;
+    title: string;
+    hideTitle?: boolean;
     intro?: string | JSXInternal.Element;
     index: number;
     id: string;
@@ -28,7 +28,7 @@ export const PageSection: FunctionalComponent<Props> = props => {
 
     return (
         <div className={styles.pageSection}
-             aria-label={props['aria-label']}
+             aria-label={props.title}
              id={props.id}
              style={{
                  '--vis': visibility,
@@ -46,7 +46,7 @@ export const PageSection: FunctionalComponent<Props> = props => {
                 </div>
             </div>
 
-            {props.title && <Fragment>
+            {!props.hideTitle && <Fragment>
                 <Link className={styles.header}
                       href={`#${props.id}`}>
                     <p>#</p>
