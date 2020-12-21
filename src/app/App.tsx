@@ -2,7 +2,7 @@ import {Cursor} from '@components/Cursor';
 import {LoadingScreen} from '@components/LoadingScreen';
 import {PWAInstallPrompt} from '@components/PWAInstallPrompt';
 import {useMedia} from '@hooks/useMedia';
-import {sectionsContainer} from '@hooks/useSections';
+import {sections} from '@store/sections';
 import {calculateScrollProgress} from '@utils/scroll-progress';
 import {h} from 'preact';
 import {useEffect} from 'preact/hooks';
@@ -27,7 +27,7 @@ export default () => {
             .subscribe(() => {
                 scp.next(
                     calculateScrollProgress(
-                        sectionsContainer.value
+                        sections.store.getState()
                             .slice(1)
                             .map(v => v.id)
                     )

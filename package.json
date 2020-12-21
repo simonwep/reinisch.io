@@ -57,6 +57,8 @@
         "webpack-dev-server": "^3.11.0"
     },
     "dependencies": {
+        "effector": "^21.7.5",
+        "effector-react": "^21.2.1",
         "normalize.css": "^8.0.1",
         "preact": "10.5.5",
         "rxjs": "^6.6.3"

@@ -7,7 +7,7 @@ import faceJpg from './images/face.jpg';
 import faceWebp from './images/face.webp';
 
 export const Footer: FunctionalComponent = () => (
-    <PageSection id="links" title="Footer" hideTitle={true}>
+    <PageSection id="links" title="Footer" hideNavigationItem={true} hideTitle={true}>
         <div className={styles.footer}>
             <div className={styles.faceWrapper}>
                 <Picture images={[faceWebp, faceJpg]} alt="Portray"/>

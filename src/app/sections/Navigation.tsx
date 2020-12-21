@@ -1,6 +1,7 @@
 import {Link} from '@components/Link';
-import {Section, sectionsContainer} from '@hooks/useSections';
+import {sections} from '@store/sections';
 import {clamp} from '@utils/math';
+import {useStore} from 'effector-react';
 import {createRef, FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {fromEvent} from 'rxjs';
@@ -8,9 +9,9 @@ import {scp} from '../rx';
 import styles from './Navigation.module.scss';
 
 export const Navigation: FunctionalComponent = () => {
-    const [pageSections, setPageSections] = useState<Section[]>([]);
     const [visibility, setVisibility] = useState(0);
     const [navOpen, setNavOpen] = useState(false);
+    const pageSections = useStore(sections.store);
     const navItems: Array<HTMLAnchorElement | null> = [];
     const bar = createRef<HTMLDivElement>();
 
@@ -60,12 +61,6 @@ export const Navigation: FunctionalComponent = () => {
         return () => subscription.unsubscribe();
     }, [bar.current, navItems]);
 
-    useEffect(() => {
-        const subscription = sectionsContainer
-            .subscribe(v => setPageSections(v.filter(v => !v.hideNavItem)));
-        return () => subscription.unsubscribe();
-    }, []);
-
     return (
         <div className={styles.navigation}
              style={{'--vis-in': clamp(visibility, 0, 1)}}
@@ -83,13 +78,15 @@ export const Navigation: FunctionalComponent = () => {
 
                 <div className={styles.links}
                      style={{'--progress': visibility}}>
-                    {pageSections.map(section => (
-                        <Link href={`#${section.id}`}
-                              key={section.id}
-                              ref={instance => navItems.push(instance)}>
-                            {section.title}
-                        </Link>
-                    ))}
+                    {pageSections
+                        .filter(v => !v.hideNavigationItem)
+                        .map(section => (
+                            <Link href={`#${section.id}`}
+                                  key={section.id}
+                                  ref={instance => navItems.push(instance)}>
+                                {section.title}
+                            </Link>
+                        ))}
                 </div>
 
                 <div className={styles.scrollBar} ref={bar}/>

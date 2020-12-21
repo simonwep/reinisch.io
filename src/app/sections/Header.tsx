@@ -1,11 +1,14 @@
 import {SpinningHeadline} from '@components/SpinningHeadline';
 import {config} from '@config';
-import {sections} from '@hooks/useSections';
+import {sections} from '@store/sections';
 import {FunctionalComponent, h} from 'preact';
+import {useEffect} from 'preact/hooks';
 import styles from './Header.module.scss';
 
 export const Header: FunctionalComponent = () => {
-    sections.next({id: 'home', title: 'Home'});
+    useEffect(() => {
+        sections.sync({id: 'home', title: 'Home'});
+    }, []);
 
     return (
         <header className={styles.header} id="home">

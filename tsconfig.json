@@ -19,7 +19,8 @@
             "@components/*": ["./src/app/components/*"],
             "@utils/*": ["./src/utils/*"],
             "@hooks/*": ["./src/hooks/*"],
-            "@config": ["./src/config.ts"]
+            "@config": ["./src/config.ts"],
+            "@store/*": ["./src/store/*"]
         }
     },
     "include": [

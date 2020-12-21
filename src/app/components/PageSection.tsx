@@ -1,6 +1,6 @@
 import {Link} from '@components/Link';
 import {PageSectionBackground} from '@components/PageSectionBackground';
-import {sections, sectionsContainer} from '@hooks/useSections';
+import {sections} from '@store/sections';
 import {clamp} from '@utils/math';
 import {Fragment, FunctionalComponent, h} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
@@ -11,7 +11,7 @@ import styles from './PageSection.module.scss';
 type Props = {
     title: string;
     hideTitle?: boolean;
-    hideNavItem?: boolean;
+    hideNavigationItem?: boolean;
     intro?: string | JSXInternal.Element;
     id: string;
 };
@@ -20,13 +20,16 @@ export const PageSection: FunctionalComponent<Props> = props => {
     const [visibility, setVisibility] = useState(0);
 
     useEffect(() => {
-        sections.next({
+        sections.sync({
             id: props.id,
-            title: props.title
+            title: props.title,
+            hideNavigationItem: props.hideNavigationItem
         });
 
         const subscription = scp.subscribe(([step, subStep]) => {
-            const index = sectionsContainer.value.findIndex(v => v.id === props.id) - 1;
+            const index = sections.store.getState()
+                .findIndex(v => v.id === props.id) - 1;
+
             setVisibility(clamp(step - index + subStep, 0, 2));
         });
 

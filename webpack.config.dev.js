@@ -53,7 +53,8 @@ module.exports = {
             '@components': path.resolve('./src/app/components'),
             '@config': path.resolve('./src/config.ts'),
             '@hooks': path.resolve('./src/hooks'),
-            '@utils': path.resolve('./src/utils')
+            '@utils': path.resolve('./src/utils'),
+            '@store': path.resolve('./src/store')
         }
     },
 
