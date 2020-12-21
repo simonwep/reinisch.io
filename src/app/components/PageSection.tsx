@@ -11,6 +11,7 @@ import styles from './PageSection.module.scss';
 type Props = {
     title: string;
     hideTitle?: boolean;
+    hideNavItem?: boolean;
     intro?: string | JSXInternal.Element;
     id: string;
 };

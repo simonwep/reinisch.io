@@ -61,7 +61,8 @@ export const Navigation: FunctionalComponent = () => {
     }, [bar.current, navItems]);
 
     useEffect(() => {
-        const subscription = sectionsContainer.subscribe(setPageSections);
+        const subscription = sectionsContainer
+            .subscribe(v => setPageSections(v.filter(v => !v.hideNavItem)));
         return () => subscription.unsubscribe();
     }, []);
 

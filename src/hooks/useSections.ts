@@ -1,6 +1,7 @@
 import {BehaviorSubject, Subject} from 'rxjs';
 
 export interface Section {
+    hideNavItem?: boolean;
     title: string;
     id: string;
 }
