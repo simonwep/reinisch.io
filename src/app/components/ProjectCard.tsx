@@ -33,7 +33,7 @@ export const ProjectCard: FunctionalComponent<Props> = ({project, addTag}) => (
                           onClick={addTag.bind(null, tag)}>
                         {tag}
                     </span>
-            )}
+                )}
         </div>
 
         {/* I'd LOVE to do this with svg and stroke-[dasharray|dashoffset] but the support is both crappy and the implementation is different */}

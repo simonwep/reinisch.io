@@ -1,0 +1,11 @@
+.skills {
+    display: grid;
+    grid-gap: 2.5vw;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@include mq-phones {
+    .skills {
+        grid-template-columns: 1fr;
+    }
+}

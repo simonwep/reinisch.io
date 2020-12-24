@@ -17,6 +17,7 @@ import {Footer} from './sections/Footer';
 import {Header} from './sections/Header';
 import {Navigation} from './sections/Navigation';
 import {Presentations} from './sections/Presentations';
+import {Skills} from './sections/Skills';
 
 export default () => {
     const touchDevice = 'ontouchstart' in window;
@@ -58,6 +59,7 @@ export default () => {
                 <div className={styles.sections} role="main">
                     <ActiveProjects/>
                     <Archive/>
+                    <Skills/>
                     <Presentations/>
                     <About/>
                     <Footer/>

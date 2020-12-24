@@ -1,0 +1,53 @@
+$spin-duration: 0.75s;
+
+.skillCard {
+    background: var(--c-background);
+    border: 2px solid var(--c-text);
+    padding: 1.5em 2em;
+
+}
+
+.front {
+    @include flex(column, center, center);
+
+    > h1 {
+        font-weight: 100;
+    }
+
+    > article {
+        @include font(300, 1.2em);
+        line-height: 1.5;
+        text-align: center;
+    }
+}
+
+.back {
+    @include flex(column);
+    width: 100%;
+
+    > header {
+        @include flex(row, center, space-between);
+
+        > h3 {
+            font-weight: 400;
+        }
+
+        > div {
+            width: 1.5em;
+            fill: white;
+        }
+    }
+
+    > article {
+        margin-top: 1em;
+        line-height: 1.4;
+        font-size: 1.25em;
+        font-weight: 300;
+    }
+}
+
+.icon {
+    fill: white;
+    width: 40%;
+    margin: 3em 0;
+}
