@@ -8,7 +8,7 @@ export type Project = {
 
 export type Config = {
     name: string;
-    slogans: string[];
+    tags: Record<string, string>;
     projects: {
         current: Project[];
         legacy: Project[];

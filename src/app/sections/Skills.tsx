@@ -1,6 +1,7 @@
 import {Link} from '@components/Link';
 import {PageSection} from '@components/PageSection';
 import {SkillCard} from '@components/SkillCard';
+import {config} from '@config';
 import {FunctionalComponent, h} from 'preact';
 import styles from './Skills.module.scss';
 
@@ -57,8 +58,7 @@ const skills = [
             <div>
                 I have experience with <Link href="https://webassembly.org">webassembly</Link> (e.g. <Link href="https://github.com/Simonwep/conway">conway</Link>),
                 <Link href="https://web.dev/progressive-web-apps/"> PWAs</Link>, <Link href="https://web.dev/workers-overview/">WebWorkers</Link> (or
-                multi-threaded web-apps) and
-                <Link href="https://web.dev/tags/service-worker/"> Service workers</Link>.
+                multi-threaded web-apps) and <Link href="https://web.dev/tags/service-worker/"> Service workers</Link>.
             </div>
         )
     }
@@ -75,6 +75,12 @@ export const Skills: FunctionalComponent = () => {
                     }}>
                         <SkillCard {...value}/>
                     </div>
+                ))}
+            </div>
+
+            <div className={styles.tags}>
+                {Object.entries(config.tags).map(v => (
+                    <Link key={v[1]} href={v[1]}>{v[0]}</Link>
                 ))}
             </div>
         </PageSection>

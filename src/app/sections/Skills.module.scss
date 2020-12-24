@@ -4,7 +4,31 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-@include mq-phones {
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.25em;
+    margin-top: 1em;
+
+    > a {
+        padding: 0.5em 1em;
+        background: var(--c-text);
+        color: var(--c-background);
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 0.25em;
+        flex-grow: 1;
+    }
+}
+
+@include mq-desktop {
+    .skills {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@include mq-tablets {
     .skills {
         grid-template-columns: 1fr;
     }

@@ -5,10 +5,12 @@ $spin-duration: 0.75s;
     border: 2px solid var(--c-text);
     padding: 1.5em 2em;
     height: 100%;
+    width: 100%;
 }
 
 .front {
     @include flex(column, center, center);
+    width: 100%;
 
     > h1 {
         font-weight: 100;
