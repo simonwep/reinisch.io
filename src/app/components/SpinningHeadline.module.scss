@@ -14,6 +14,13 @@
         display: inline-block;
         white-space: pre;
         opacity: 0;
+
+        > svg {
+            @include size(1.4ch);
+            margin-left: 0.45ch;
+            margin-bottom: -0.15ch;
+            fill: white;
+        }
     }
 
     &[data-fadeout] > span {
