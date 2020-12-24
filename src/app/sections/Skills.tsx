@@ -69,7 +69,13 @@ export const Skills: FunctionalComponent = () => {
         <PageSection title="Skills" id="skills"
                      intro="Tap a card to learn more about it!">
             <div className={styles.skills}>
-                {skills.map(value => <SkillCard key={value.name} {...value}/>)}
+                {skills.map((value, index) => (
+                    <div key={value.name} style={{
+                        '--open-color': `hsl(${(index / skills.length) * 190 + 90}, 25%, 75%)`
+                    }}>
+                        <SkillCard {...value}/>
+                    </div>
+                ))}
             </div>
         </PageSection>
     );
