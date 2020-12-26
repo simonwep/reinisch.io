@@ -22,7 +22,7 @@ export const Navigation: FunctionalComponent = () => {
             const cel = navItems[offset];
             const nel = navItems[offset + 1];
 
-            if (!cel || !nel) {
+            if (!cel) {
                 return;
             }
 
