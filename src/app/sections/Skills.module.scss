@@ -2,13 +2,20 @@
     display: grid;
     grid-gap: 2.5vw;
     grid-template-columns: 1fr 1fr 1fr;
+
+    > div {
+        transform: scale(calc(var(--vis-in) * 0.05 + 0.95));
+        opacity: var(--vis-in);
+    }
 }
 
 .tags {
     display: flex;
     flex-wrap: wrap;
     margin: -0.25em;
-    margin-top: 1em;
+    margin-top: 1.5em;
+    opacity: var(--vis-in);
+    transform: translateY(calc((1 - var(--vis-in)) * 5vh));
 
     > a {
         padding: 0.5em 1em;
@@ -17,6 +24,7 @@
         font-weight: 600;
         text-align: center;
         text-transform: uppercase;
+        transform: scale(calc(var(--vis-in) * 0.25 + 0.75));
         margin: 0.25em;
         flex-grow: 1;
     }
