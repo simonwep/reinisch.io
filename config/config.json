@@ -1,27 +1,5 @@
 {
     "name": "Simon Reinisch",
-    "tags": {
-        "typescript": "https://www.typescriptlang.org/",
-        "preact": "https://preactjs.com/",
-        "react": "https://reactjs.org/",
-        "vue": "https://vuejs.org/",
-        "angular": "https://angular.io/",
-        "mobx": "https://mobx.js.org/",
-        "redux": "https://redux.js.org/",
-        "effector": "https://effector.dev/",
-        "webpack": "https://webpack.js.org/",
-        "rollup": "https://rollupjs.org/guide/en/",
-        "eslint": "https://eslint.org/",
-        "docker": "https://www.docker.com/",
-        "wasm": "https://webassembly.org/",
-        "scss": "https://sass-lang.com/",
-        "rust": "https://www.rust-lang.org/",
-        "pwa": "https://web.dev/tags/progressive-web-apps/",
-        "express": "http://expressjs.com/",
-        "jest": "https://jestjs.io/",
-        "mocha": "https://mochajs.org/",
-        "prisma": "https://www.prisma.io/"
-    },
     "projects": {
         "current": [
             {

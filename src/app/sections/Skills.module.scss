@@ -17,16 +17,26 @@
     opacity: var(--vis-in);
     transform: translateY(calc((1 - var(--vis-in)) * 5vh));
 
-    > a {
-        padding: 0.5em 1em;
-        background: var(--c-text);
-        color: var(--c-background);
-        font-weight: 600;
-        text-align: center;
-        text-transform: uppercase;
-        transform: scale(calc(var(--vis-in) * 0.25 + 0.75));
+    > span {
         margin: 0.25em;
         flex-grow: 1;
+        background: var(--c-text);
+        text-align: center;
+        text-transform: uppercase;
+
+        &[data-highlight] > a {
+            background: var(--accent);
+        }
+
+        > a {
+            display: inline-block;
+            font-weight: 600;
+            padding: 0.5em 1em;
+            color: var(--c-background);
+            transition: all 0.3s;
+            width: 100%;
+            transform: scale(calc(var(--vis-in) * 0.25 + 0.75));
+        }
     }
 }
 

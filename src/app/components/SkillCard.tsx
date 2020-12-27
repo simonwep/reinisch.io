@@ -8,11 +8,13 @@ type Props = {
     summary: string;
     icon: JSXInternal.Element;
     content: JSXInternal.Element;
+    onFlip?: (/* eslint-disable no-unused-vars */open: boolean) => void;
 }
 
 export const SkillCard: FunctionalComponent<Props> = props => {
     return (
         <Card className={styles.skillCard}
+              onFlip={props.onFlip}
               front={
                   <div className={styles.front}>
                       <h1>{props.name}</h1>

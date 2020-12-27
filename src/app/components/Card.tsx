@@ -8,13 +8,22 @@ type Props = {
     front: JSXInternal.Element;
     back: JSXInternal.Element;
     className?: string;
+    onFlip?: (/* eslint-disable no-unused-vars */open: boolean) => void;
 }
 
 export const Card: FunctionalComponent<Props> = props => {
     const [open, setOpen] = useState<boolean | null>(null);
 
+    const cardClick = () => {
+        if (!open) {
+            setOpen(true);
+            props.onFlip?.(true);
+        }
+    };
+
     const close = (e: MouseEvent) => {
         setOpen(false);
+        props.onFlip?.(false);
         e.preventDefault();
         e.stopPropagation();
     };
@@ -23,7 +32,7 @@ export const Card: FunctionalComponent<Props> = props => {
         <div className={cn(props.className, styles.card)}
              data-cursor-focus={!open}
              data-state={typeof open === 'boolean' ? open ? 'open' : 'close' : undefined}
-             onClick={() => !open && setOpen(true)}>
+             onClick={cardClick}>
 
             {/* Front */}
             <div className={styles.front}>
