@@ -86,17 +86,32 @@ module.exports = {
     },
 
     optimization: {
+        moduleIds: 'deterministic',
+        runtimeChunk: 'single',
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all'
+                }
+            }
+        },
         minimizer: [
-            new CssMinimizerPlugin(),
+            new CssMinimizerPlugin({
+                minimizerOptions: {
+                    preset: ['default', {
+                        discardComments: {removeAll: true}
+                    }]
+                }
+            }),
             new TerserPlugin({
                 extractComments: false,
                 parallel: true,
                 terserOptions: {
                     toplevel: true,
                     mangle: true,
-                    output: {
-                        comments: /^!/
-                    }
+                    output: {comments: false}
                 }
             })
         ]
@@ -136,7 +151,6 @@ module.exports = {
             ]
         }),
 
-        // new BundleAnalyzerPlugin(),
         new CleanWebpackPlugin()
     ]
 };
