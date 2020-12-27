@@ -1,4 +1,3 @@
-import {Template} from '@components/Template';
 import {Project} from '@config';
 import {useMedia} from '@hooks/useMedia';
 import {Fragment, FunctionalComponent, h} from 'preact';
@@ -37,10 +36,9 @@ export const Projects: FunctionalComponent<Props> = props => {
             <div className={styles.projects}>
                 {projects
                     .slice(0, media === 'phones' ? limit : projects.length)
+                    .filter(value => !tags.length || value.tags.some(tag => tags.includes(tag)))
                     .map((value, index) =>
-                        <Template key={index} if={!tags.length || value.tags.some(tag => tags.includes(tag))}>
-                            <ProjectCard project={value} addTag={addTag}/>
-                        </Template>
+                        <ProjectCard key={index} project={value} addTag={addTag}/>
                     )}
             </div>
 
