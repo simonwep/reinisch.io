@@ -1,5 +1,4 @@
 import {Link} from '@components/Link';
-import {PageSectionBackground} from '@components/PageSectionBackground';
 import {sections} from '@store/sections';
 import {clamp} from '@utils/math';
 import {Fragment, FunctionalComponent, h} from 'preact';
@@ -64,7 +63,9 @@ export const PageSection: FunctionalComponent<Props> = props => {
                     <h1>{props.title}</h1>
                 </Link>
 
-                <PageSectionBackground title={props.title}/>
+                <div className={styles.pageSectionBackground}>
+                    <p>{props.title}</p>
+                </div>
             </Fragment>}
 
             {props.intro && <h2 className={styles.intro}>{props.intro}</h2>}

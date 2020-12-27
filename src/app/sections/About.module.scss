@@ -64,7 +64,7 @@
     }
 }
 
-@include mq-phones {
+@media all and (max-width: 1100px) {
     .about {
         line-height: 1.35;
         font-size: 1.3em;

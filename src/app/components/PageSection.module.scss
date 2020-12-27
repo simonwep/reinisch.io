@@ -12,6 +12,25 @@
     }
 }
 
+.pageSectionBackground {
+    @include font(200, 10vmin);
+    @include position(15vh, 0, 0, 0);
+    @include flex(row, center, center);
+    text-transform: uppercase;
+    font-family: $font-family-tags;
+    margin: auto;
+    position: absolute;
+    z-index: -1;
+    opacity: calc(var(--vis-in) * 0.05);
+    transform: translateY(calc(var(--vis-out) * -20vh));
+
+    > p {
+        transform: scale(calc(0.8 + 0.2 * var(--vis-in))) rotate(calc(-5deg - 15deg * var(--vis-in)));
+        border: 5px solid var(--c-text);
+        padding: 0 0.225em;
+    }
+}
+
 $divsize: 25px;
 .divider {
     @include position(0, 0, auto, 0);
