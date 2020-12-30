@@ -5,6 +5,7 @@ import styles from './Link.module.scss';
 
 type Props = {
     className?: string;
+    style?: string | Record<string, string | number>;
     label?: string;
     href: string;
 };
@@ -22,6 +23,7 @@ export const Link = forwardRef<HTMLAnchorElement, RenderableProps<Props>>((props
     return (
         <a className={cn(props.className, styles.link)}
            data-cursor-focus={true}
+           style={props.style}
            rel="noopener noreferrer"
            target="_blank"
            ref={ref}

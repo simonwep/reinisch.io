@@ -191,13 +191,6 @@
                     @include position(0, 0, 0, auto);
                     clip-path: var(--clip);
                 }
-
-                $items: 5;
-                @for $i from 1 through $items {
-                    &:nth-child(#{$i}) {
-                        --clip: inset(0 0 calc((#{$i} - var(--progress)) * 100%) 0);
-                    }
-                }
             }
         }
 

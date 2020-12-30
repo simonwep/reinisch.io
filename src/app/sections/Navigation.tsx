@@ -80,10 +80,11 @@ export const Navigation: FunctionalComponent = () => {
                      style={{'--progress': visibility}}>
                     {pageSections
                         .filter(v => !v.hideNavigationItem)
-                        .map(section => (
+                        .map((section, index) => (
                             <Link href={`#${section.id}`}
                                   key={section.id}
-                                  ref={instance => navItems.push(instance)}>
+                                  ref={instance => navItems.push(instance)}
+                                  style={{'--clip': `inset(0 0 calc((${index + 1} - var(--progress)) * 100%) 0)`}}>
                                 {section.title}
                             </Link>
                         ))}
