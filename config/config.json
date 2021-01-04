@@ -70,6 +70,12 @@
                 "description": "HTTP Framework based on expressjs with the same easy-to-use API.",
                 "tags": ["java", "http", "framework"],
                 "link": "https://github.com/Simonwep/java-express"
+            },
+            {
+                "title": "Presentr",
+                "description": "Simple, tiny, presentation framework I made and used during high school.",
+                "tags": ["js", "presentation", "framework"],
+                "link": "https://github.com/Simonwep/presentr"
             }
         ],
         "legacy": [
