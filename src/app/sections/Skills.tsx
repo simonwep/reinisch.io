@@ -22,7 +22,8 @@ const skills: Array<Skill> = [
             'webpack': 'https://webpack.js.org/',
             'rollup': 'https://rollupjs.org/guide/en/',
             'eslint': 'https://eslint.org/',
-            'docker': 'https://www.docker.com/'
+            'docker': 'https://www.docker.com/',
+            'vite': 'https://vitejs.dev/'
         },
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -51,7 +52,7 @@ const skills: Array<Skill> = [
             'typescript': 'https://www.typescriptlang.org/',
             'preact': 'https://preactjs.com/',
             'react': 'https://reactjs.org/',
-            'vue': 'https://vuejs.org/',
+            'vue (v2 & v3)': 'https://vuejs.org/',
             'angular': 'https://angular.io/',
             'mobx': 'https://mobx.js.org/',
             'redux': 'https://redux.js.org/',
@@ -61,7 +62,8 @@ const skills: Array<Skill> = [
             'express': 'http://expressjs.com/',
             'jest': 'https://jestjs.io/',
             'mocha': 'https://mochajs.org/',
-            'prisma': 'https://www.prisma.io/'
+            'prisma': 'https://www.prisma.io/',
+            'redis': 'https://redis.io/'
         },
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
