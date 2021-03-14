@@ -86,17 +86,6 @@ module.exports = {
     },
 
     optimization: {
-        moduleIds: 'deterministic',
-        runtimeChunk: 'single',
-        splitChunks: {
-            cacheGroups: {
-                vendor: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendor',
-                    chunks: 'all'
-                }
-            }
-        },
         minimizer: [
             new CssMinimizerPlugin({
                 minimizerOptions: {

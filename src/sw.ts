@@ -4,43 +4,65 @@ declare let self: ServiceWorkerGlobalScope;
 export {};
 
 const CACHE_NAME = `cache-${env.BUILD_TIME}`;
+const PRECACHE_URLS = ['/index.html', './'];
+
 self.addEventListener('install', event => {
 
     // Ensure that the service worker gets updated immediately for all (active) clients
-    event.waitUntil(async () => {
+    event.waitUntil((async () => {
+        const cache = await caches.open(CACHE_NAME);
+        await cache.addAll(PRECACHE_URLS);
         await self.skipWaiting();
-        await self.clients.claim();
-    });
+    })());
 });
 
 self.addEventListener('activate', event => {
+    event.waitUntil((async () => {
 
-    // Clear caches
-    event.waitUntil(
-        caches.keys()
-            .then(names => Promise.all(names.map(name => caches.delete(name))))
-    );
+        // Clear caches
+        await caches.keys()
+            .then(names =>
+                Promise.all(
+                    names
+                        .filter(name => name !== CACHE_NAME) // Keep current cache
+                        .map(name => caches.delete(name))
+                )
+            );
+
+        // Claim clients
+        await self.clients.claim();
+    })());
 });
 
 self.addEventListener('fetch', ev => {
 
-    // Let the browser to its own thing for non-get requests
-    if (ev.request.method !== 'GET' ||
-        env.NODE_ENV === 'development') {
+    // Let the browser to its own thing for non-get requests or
+    // the request is cross-origin, ignore that as well.
+    if (
+        ev.request.method !== 'GET' ||
+        !ev.request.url.startsWith(self.location.origin) ||
+        env.NODE_ENV === 'development'
+    ) {
         return;
     }
 
-    ev.respondWith(Promise.resolve().then(async () => {
-        const cache = await caches.open(CACHE_NAME);
-        const cachedResponse = await cache.match(ev.request);
+    ev.respondWith(
+        Promise.resolve().then(async () => {
+            const cache = await caches.open(CACHE_NAME);
+            const cachedResponse = await cache.match(ev.request);
 
-        // Return cached response
-        if (cachedResponse) {
-            return cachedResponse.clone();
-        }
+            // Return cached response
+            if (cachedResponse) {
+                return cachedResponse.clone();
+            }
 
-        const response = await fetch(ev.request);
-        await cache.put(ev.request, response.clone());
-        return response;
-    }));
+            // TODO: Failed to fetch error?
+            return fetch(ev.request).then(async res => {
+                await cache.put(ev.request, res.clone());
+                return res;
+            }).catch(() => {
+                return fetch('/');
+            });
+        })
+    );
 });
