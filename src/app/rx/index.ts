@@ -6,3 +6,6 @@ import {BehaviorSubject} from 'rxjs';
  * the second one is the visibilty of the next section.
  */
 export const scp = new BehaviorSubject<[number, number]>([0, 0]);
+
+export const pageLoaded = new BehaviorSubject<boolean>(false);
+window.addEventListener('load', () => pageLoaded.next(true));
