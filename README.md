@@ -9,9 +9,6 @@
 <br/>
 
 <p align="center">
-  <a href="https://github.com/Simonwep/reinisch.io?query=workflow%3ADeploy"><img
-     alt="CD Status"
-     src="https://github.com/Simonwep/reinisch.io/workflows/Deploy/badge.svg"/></a>
   <a href="https://github.com/Simonwep/reinisch.io/actions?query=workflow%3ACI"><img
      alt="CI Status"
      src="https://github.com/Simonwep/reinisch.io/workflows/CI/badge.svg"/></a>
