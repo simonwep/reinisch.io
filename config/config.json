@@ -11,16 +11,14 @@
             {
                 "title": "Selection",
                 "description": "Powerful, visual element-selection engine.\n Select elements like on your desktop!",
-                "tags": ["js", "ui", "ux", "library"],
-                "link": "https://github.com/Simonwep/selection",
-                "createdAt": "2018-04-21T15:37:08Z"
+                "tags": ["ts", "ui", "ux", "library"],
+                "link": "https://github.com/Simonwep/selection"
             },
             {
                 "title": "Nanopop",
                 "description": "Minimalistic, high performant positioning engine for maximum control.",
                 "tags": ["ts", "popper", "engine"],
-                "link": "https://github.com/Simonwep/nanopop",
-                "createdAt": "2020-05-08T15:10:28Z"
+                "link": "https://github.com/Simonwep/nanopop"
             },
             {
                 "title": "Graceful-WS",
@@ -43,15 +41,20 @@
             {
                 "title": "Sassyfication",
                 "description": "A sassy sass library to speed up your css workflow.",
-                "tags": ["SCSS", "CSS", "styles "],
+                "tags": ["scss", "css", "styles"],
                 "link": "https://github.com/Simonwep/sassyfication"
+            },
+            {
+                "title": "Spectrum",
+                "description": "A web-based audio spectrum analyzer.",
+                "tags": ["pwa", "ts"],
+                "link": "https://github.com/Simonwep/spectrum"
             },
             {
                 "title": "OpenVPN Pihole",
                 "description": "OpenVPN and Pihole wrapped up in a docker-compose setup.",
                 "tags": ["docker", "openvpn", "pihole"],
-                "link": "https://github.com/Simonwep/openvpn-pihole",
-                "createdAt": "2020-08-29T13:46:02Z"
+                "link": "https://github.com/Simonwep/openvpn-pihole"
             },
             {
                 "title": "Beam.Cafe",
