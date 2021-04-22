@@ -1,5 +1,5 @@
 import {cn} from '@utils/preact-utils';
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {JSXInternal} from 'preact/src/jsx';
 import styles from './SpinningHeadline.module.scss';

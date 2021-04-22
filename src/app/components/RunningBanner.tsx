@@ -1,5 +1,5 @@
 import {cn} from '@utils/preact-utils';
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import styles from './RunningBanner.module.scss';
 
 interface Props {

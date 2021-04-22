@@ -1,10 +1,11 @@
 // eslint-disable @typescript-eslint/no-misused-promises
 // See https://github.com/Microsoft/TypeScript/issues/11781
-declare let self: ServiceWorkerGlobalScope;
-export {};
+declare let self: ServiceWorkerGlobalScope & {
+    __WB_MANIFEST: {revision: string; url: string;}[];
+};
 
 const CACHE_NAME = `cache-${env.BUILD_TIME}`;
-const PRECACHE_URLS = ['/index.html', './'];
+const PRECACHE_URLS = self.__WB_MANIFEST.map(v => v.url);
 
 self.addEventListener('install', event => {
 
@@ -66,3 +67,5 @@ self.addEventListener('fetch', ev => {
         })
     );
 });
+
+export {};

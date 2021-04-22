@@ -3,7 +3,7 @@ import {RunningBanner} from '@components/RunningBanner';
 import {sections} from '@store/sections';
 import {clamp} from '@utils/math';
 import {useStore} from 'effector-react';
-import {createRef, FunctionalComponent, h} from 'preact';
+import {createRef, FunctionalComponent} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {fromEvent} from 'rxjs';
 import {scp} from '../rx';

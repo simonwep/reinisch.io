@@ -1,6 +1,6 @@
 import {clamp} from '@utils/math';
 import {cn} from '@utils/preact-utils';
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import {useEffect, useRef, useState} from 'preact/hooks';
 import styles from './VirtualCard.module.scss';
 

@@ -3,7 +3,7 @@ import {PageSection} from '@components/PageSection';
 import {Projects} from '@components/Projects';
 import styles from '@components/Projects.module.scss';
 import {config} from '@config';
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 
 export const ActiveProjects: FunctionalComponent = () => (
     <PageSection id="projects"

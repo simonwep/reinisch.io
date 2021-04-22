@@ -1,3 +1,5 @@
+import rawConfig from '../config/config.json';
+
 export type Project = {
     title: string;
     description: string;
@@ -14,4 +16,4 @@ export type Config = {
     };
 };
 
-export const config: Config = require('../config/config.json');
+export const config = rawConfig as Config;

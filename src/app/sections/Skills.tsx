@@ -1,7 +1,7 @@
 import {Link} from '@components/Link';
 import {PageSection} from '@components/PageSection';
 import {SkillCard} from '@components/SkillCard';
-import {Fragment, FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import {useState} from 'preact/hooks';
 import {JSXInternal} from 'preact/src/jsx';
 import styles from './Skills.module.scss';
@@ -128,13 +128,13 @@ export const Skills: FunctionalComponent = () => {
                     const style = {'--accent': colors[skillIndex]};
                     const highlight = openCards[skillIndex];
 
-                    return <Fragment key={skillIndex}>
+                    return <>
                         {Object.entries(value.tags).map((v, tagIndex) => (
                             <span key={tagIndex} data-highlight={highlight} style={style}>
                                 <Link key={v[1]} href={v[1]}>{v[0]}</Link>
                             </span>
                         ))}
-                    </Fragment>;
+                    </>;
                 })}
             </div>
         </PageSection>

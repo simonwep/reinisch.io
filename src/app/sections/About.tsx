@@ -1,6 +1,6 @@
 import {Link} from '@components/Link';
 import {PageSection} from '@components/PageSection';
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import styles from './About.module.scss';
 
 const emailLinkUrl = 'NDM2LDM4OCw0MjAsNDMyLDQ2NCw0NDQsMjMyLDM5Niw0NDQsNDQwLDQ2NCwzODgsMzk2LDQ2NCwyNTYsNDU2LDQwNCw0MjAsNDQwLDQyMCw0NjAsMzk2LDQxNiwxODQsNDIwLDQ0NA==';

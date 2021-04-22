@@ -1,5 +1,5 @@
 import {cn} from '@utils/preact-utils';
-import {h, RenderableProps} from 'preact';
+import {RenderableProps} from 'preact';
 import {forwardRef} from 'preact/compat';
 import styles from './Link.module.scss';
 

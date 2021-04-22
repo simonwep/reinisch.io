@@ -1,5 +1,5 @@
 import {clamp} from '@utils/math';
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {scp} from './rx';
 import styles from './ScrollIndicator.module.scss';

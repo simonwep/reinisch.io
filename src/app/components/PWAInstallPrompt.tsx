@@ -1,6 +1,6 @@
 import {useMedia} from '@hooks/useMedia';
 import {uid} from '@utils/uid';
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {fromEvent} from 'rxjs';
 import styles from './PWAInstallPrompt.module.scss';

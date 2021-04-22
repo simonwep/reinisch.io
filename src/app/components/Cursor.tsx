@@ -1,4 +1,4 @@
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {fromEvent, merge} from 'rxjs';
 import styles from './Cursor.module.scss';

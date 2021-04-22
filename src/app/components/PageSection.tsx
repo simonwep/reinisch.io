@@ -1,7 +1,7 @@
 import {Link} from '@components/Link';
 import {sections} from '@store/sections';
 import {clamp} from '@utils/math';
-import {Fragment, FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {JSXInternal} from 'preact/src/jsx';
 import {scp} from '../rx';
@@ -55,7 +55,7 @@ export const PageSection: FunctionalComponent<Props> = props => {
                 </div>
             </div>
 
-            {!props.hideTitle && <Fragment>
+            {!props.hideTitle && <>
                 <Link className={styles.header}
                       href={`#${props.id}`}>
                     <p>#</p>
@@ -66,7 +66,7 @@ export const PageSection: FunctionalComponent<Props> = props => {
                 <div className={styles.pageSectionBackground}>
                     <p>{props.title}</p>
                 </div>
-            </Fragment>}
+            </>}
 
             {props.intro && <h2 className={styles.intro}>{props.intro}</h2>}
 

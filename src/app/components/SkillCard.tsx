@@ -1,5 +1,5 @@
 import {Card} from '@components/Card';
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import {JSXInternal} from 'preact/src/jsx';
 import styles from './SkillCard.module.scss';
 

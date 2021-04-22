@@ -1,7 +1,7 @@
 import {Slogan, SpinningHeadline} from '@components/SpinningHeadline';
 import {config} from '@config';
 import {sections} from '@store/sections';
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import {useEffect} from 'preact/hooks';
 import styles from './Header.module.scss';
 

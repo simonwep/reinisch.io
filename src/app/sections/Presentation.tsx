@@ -1,6 +1,6 @@
 import {Picture} from '@components/Picture';
 import {VirtualCard} from '@components/VirtualCard';
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import styles from './Presentation.module.scss';
 
 type Props = {

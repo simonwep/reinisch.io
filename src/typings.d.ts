@@ -1,4 +1,6 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable */
+import JSX = preact.JSX
+
 declare module '*.scss';
 declare module '*.svg';
 declare module '*.png';

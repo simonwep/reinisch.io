@@ -4,7 +4,6 @@ import {PWAInstallPrompt} from '@components/PWAInstallPrompt';
 import {useMedia} from '@hooks/useMedia';
 import {sections} from '@store/sections';
 import {calculateScrollProgress} from '@utils/scroll-progress';
-import {h} from 'preact';
 import {useEffect} from 'preact/hooks';
 import {fromEvent} from 'rxjs';
 import styles from './App.module.scss';

@@ -1,7 +1,7 @@
 import {Link} from '@components/Link';
 import {PageSection} from '@components/PageSection';
 import {Picture} from '@components/Picture';
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import styles from './Footer.module.scss';
 import faceJpg from './images/face.jpg';
 import faceWebp from './images/face.webp';

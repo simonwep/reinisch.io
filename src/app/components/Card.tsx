@@ -1,5 +1,5 @@
 import {cn} from '@utils/preact-utils';
-import {FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import {useState} from 'preact/hooks';
 import {JSXInternal} from 'preact/src/jsx';
 import styles from './Card.module.scss';

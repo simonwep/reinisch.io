@@ -1,6 +1,6 @@
 import {Project} from '@config';
 import {useMedia} from '@hooks/useMedia';
-import {Fragment, FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import {useState} from 'preact/hooks';
 import {ProjectCard} from './ProjectCard';
 import styles from './Projects.module.scss';
@@ -21,7 +21,7 @@ export const Projects: FunctionalComponent<Props> = props => {
     const addTag = (tag: string) => !tags.includes(tag) && setTags([...tags, tag]);
 
     return (
-        <Fragment>
+        <>
             <div className={styles.filters} data-visible={!!tags.length}>
                 {tags.map((value, index) =>
                     <button key={index}
@@ -50,6 +50,6 @@ export const Projects: FunctionalComponent<Props> = props => {
                         Load more ({projects.length - limit})
                     </button>
             }
-        </Fragment>
+        </>
     );
 };

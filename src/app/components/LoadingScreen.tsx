@@ -1,11 +1,11 @@
-import {Fragment, FunctionalComponent, h} from 'preact';
+import {FunctionalComponent} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import {pageLoaded} from '../rx';
 import styles from './LoadingScreen.module.scss';
 
 export const LoadingScreen: FunctionalComponent = () => {
     if (env.NODE_ENV === 'development') {
-        return <Fragment/>;
+        return <></>;
     }
 
     const [progress, setProgress] = useState(0);
