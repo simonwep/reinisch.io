@@ -1,4 +1,5 @@
 import {Link} from '@components/Link';
+import {RunningBanner} from '@components/RunningBanner';
 import {sections} from '@store/sections';
 import {clamp} from '@utils/math';
 import {useStore} from 'effector-react';
@@ -93,14 +94,7 @@ export const Navigation: FunctionalComponent = () => {
                 <div className={styles.scrollBar} ref={bar}/>
             </div>
 
-            <div className={styles.scrollHint}>
-                {[...'START SCROLLING'].map((value, index, array) =>
-                    <span key={index}
-                          style={{animationDelay: `${index / array.length}s`}}>
-                        {value}
-                    </span>
-                )}
-            </div>
+            <RunningBanner text="START SCROLLING" className={styles.banner}/>
         </div>
     );
 };

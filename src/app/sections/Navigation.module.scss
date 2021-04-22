@@ -47,25 +47,10 @@
     }
 }
 
-.scrollHint {
+.banner {
     position: absolute;
     margin-top: 3em;
     bottom: -10vh;
-    background: var(--c-background);
-    padding: 0.5em 1.5em;
-    opacity: calc(1 - var(--vis-in) * 2);
-    transform: translateY(calc(-1 * var(--vis-in) * 5vh));
-
-    > span {
-        opacity: 0.25;
-        margin: 0 0.15em;
-
-        @include animate('4s infinite') {
-            50% {
-                opacity: 1;
-            }
-        }
-    }
 
     &::after {
         @include position(auto, 0, -10px, 0);
@@ -194,7 +179,7 @@
             }
         }
 
-        .scrollBar {
+        .banner {
             display: none;
         }
     }

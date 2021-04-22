@@ -1,0 +1,18 @@
+@keyframes pulse {
+    50% {
+        opacity: 1;
+    }
+}
+
+.runningBanner {
+    background: var(--c-background);
+    padding: 0.5em 1.5em;
+    opacity: calc(1 - var(--vis-in) * 2);
+    transform: translateY(calc(-1 * var(--vis-in) * 5vh));
+
+    > span {
+        animation: pulse infinite 4s calc((var(--items) - var(--index)) * -0.1s);
+        opacity: 0.25;
+        margin: 0 0.15em;
+    }
+}
