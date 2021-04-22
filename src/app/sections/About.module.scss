@@ -22,6 +22,11 @@
         position: relative;
         margin: 1em 0 1em -2em;
         padding-left: 2em;
+        color: var(--c-text-accent);
+
+        b, a {
+            color: white;
+        }
 
         > h1 {
             @include position(0.35em, auto, 0, 0);
