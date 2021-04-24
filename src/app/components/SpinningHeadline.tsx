@@ -1,3 +1,4 @@
+import {media} from '@utils/media';
 import {cn} from '@utils/preact-utils';
 import {FunctionalComponent} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
@@ -38,22 +39,26 @@ export const SpinningHeadline: FunctionalComponent<Props> = props => {
         <div className={cn(styles.spinningHeadline, props.className)}>
             <span className={styles.placeholder} style={{width: `${maxLength}ch`}}/>
 
-            <div className={styles.words}>
+            <div>
                 {props.slogans.map(({text, icon}, index) => (
                     <p key={index}
                        className={styles.word}
                        data-fadein={index === currentWord}
                        data-fadeout={index === fadeOutIndex}>
 
-                        {[...text].map((c, i) =>
-                            <span key={i} style={{
-                                animationDelay: index === currentWord ? `${(i / text.length) * speed}ms` : 'unset'
-                            }}>{c}</span>
-                        )}
+                        {
+                            media.reducedMotion ? <span>{text} {icon}</span> : <>
+                                {[...text].map((c, i) =>
+                                    <span key={i} style={{
+                                        animationDelay: index === currentWord ? `${(i / text.length) * speed}ms` : 'unset'
+                                    }}>{c}</span>
+                                )}
 
-                        {icon && <span style={{
-                            animationDelay: index === currentWord ? `${speed}ms` : 'unset'
-                        }}>{icon}</span>}
+                                {icon && <span style={{
+                                    animationDelay: index === currentWord ? `${speed}ms` : 'unset'
+                                }}>{icon}</span>}
+                            </>
+                        }
                     </p>
                 ))}
             </div>

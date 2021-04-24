@@ -5,14 +5,12 @@ export type MediaDevice = 'large-desktop' | 'desktop' | 'tablets' | 'phones';
 
 const getMediaDevice = (): MediaDevice => {
     const root = document.documentElement;
+
     return getComputedStyle(root)
         .getPropertyValue('--media')
         .trim() as MediaDevice;
 };
 
-/**
- * Keeps track of the current media-query applied to the page - script-wise.
- */
 export const useMedia = (): MediaDevice => {
     const [media, setMedia] = useState<MediaDevice>(getMediaDevice());
 

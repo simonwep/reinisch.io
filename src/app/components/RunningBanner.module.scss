@@ -9,10 +9,17 @@
     padding: 0.5em 1.5em;
     opacity: calc(1 - var(--vis-in) * 2);
     transform: translateY(calc(-1 * var(--vis-in) * 5vh));
+    letter-spacing: 0.5rem;
 
     > span {
         animation: pulse infinite 4s calc((var(--items) - var(--index)) * -0.1s);
         opacity: 0.25;
-        margin: 0 0.15em;
+    }
+
+    @media (prefers-reduced-motion) {
+        > span {
+            animation: pulse infinite 4s;
+            opacity: 0.5;
+        }
     }
 }

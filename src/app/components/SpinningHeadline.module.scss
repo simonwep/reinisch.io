@@ -46,4 +46,28 @@
             }
         }
     }
+
+    @media (prefers-reduced-motion) {
+        &[data-fadeout] > span {
+            @include animate('0.5s forwards') {
+                from {
+                    opacity: 1;
+                }
+                to {
+                    opacity: 0;
+                }
+            }
+        }
+
+        &[data-fadein] > span {
+            @include animate('0.5s forwards') {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+        }
+    }
 }

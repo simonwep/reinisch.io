@@ -16,6 +16,10 @@
                 opacity: 1;
             }
         }
+
+        @media (prefers-reduced-motion) {
+            animation: none;
+        }
     }
 }
 
