@@ -39,6 +39,7 @@
     @include flex(column);
     padding: 1.5em;
     position: absolute;
+    color: var(--c-text);
 
     > header {
         @include flex(row, flex-start, space-between);

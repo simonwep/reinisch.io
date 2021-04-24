@@ -101,7 +101,8 @@ const skills: Array<Skill> = [
     }
 ];
 
-const colors = skills.map((_, index) => `hsl(${(index / skills.length) * 190 + 90}, 25%, 75%)`);
+const colors = skills.map((_, index) => `hsl(${(index / skills.length) * 190 + 90}, 50%, 70%)`);
+
 export const Skills: FunctionalComponent = () => {
     const [openCards, setOpenCards] = useState<Array<boolean>>(new Array(skills.length).fill(false));
 
@@ -131,7 +132,10 @@ export const Skills: FunctionalComponent = () => {
                     return <>
                         {Object.entries(value.tags).map((v, tagIndex) => (
                             <span key={tagIndex} data-highlight={highlight} style={style}>
-                                <Link key={v[1]} href={v[1]}>{v[0]}</Link>
+                                <Link key={v[1]} href={v[1]}>
+                                    <p>{v[0]}</p>
+                                    <p>{v[0]}</p>
+                                </Link>
                             </span>
                         ))}
                     </>;

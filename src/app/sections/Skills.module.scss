@@ -23,19 +23,36 @@
         background: var(--c-text);
         text-align: center;
         text-transform: uppercase;
+        border: 2px solid var(--c-text);
+        transition: all 0.3s;
 
-        &[data-highlight] > a {
-            background: var(--accent);
+        &[data-highlight] {
+            background: transparent;
+            border-color: var(--accent);
+
+            > a {
+                color: var(--accent);
+                font-weight: 600;
+            }
         }
 
         > a {
-            display: inline-block;
-            font-weight: 600;
+            @include flex(row, center, center);
             padding: 0.5em 1em;
+            font-weight: 400;
             color: var(--c-background);
             transition: all 0.3s;
             width: 100%;
             transform: scale(calc(var(--vis-in) * 0.25 + 0.75));
+
+            > p:first-child {
+                position: absolute;
+            }
+
+            > p:last-child {
+                visibility: hidden;
+                font-weight: 600;
+            }
         }
     }
 }

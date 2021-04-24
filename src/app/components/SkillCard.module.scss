@@ -1,8 +1,6 @@
 $spin-duration: 0.75s;
 
 .skillCard {
-    background: var(--c-background);
-    border: 2px solid var(--c-text);
     padding: 1.5em 2em;
     height: 100%;
     width: 100%;
@@ -37,7 +35,7 @@ $spin-duration: 0.75s;
 
         > div {
             width: 1.5em;
-            fill: white;
+            fill: var(--c-text);
         }
     }
 
@@ -50,7 +48,7 @@ $spin-duration: 0.75s;
 }
 
 .icon {
-    fill: white;
+    fill: var(--c-text);
     width: 40%;
     margin: 3em 0;
 }
