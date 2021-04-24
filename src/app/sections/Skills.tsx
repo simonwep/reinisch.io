@@ -54,13 +54,19 @@ const skills: Array<Skill> = [
             'react': 'https://reactjs.org/',
             'vue (v2 & v3)': 'https://vuejs.org/',
             'angular': 'https://angular.io/',
+            'lit-element': 'https://lit-element.polymer-project.org/guide',
             'mobx': 'https://mobx.js.org/',
             'redux': 'https://redux.js.org/',
             'effector': 'https://effector.dev/',
             'scss': 'https://sass-lang.com/',
+            'sql': 'https://en.wikipedia.org/wiki/SQL',
+            'mongodb': 'https://www.mongodb.com/',
+            'graphql': 'https://graphql.org/',
             'rust': 'https://www.rust-lang.org/',
+            'rxjs': 'https://rxjs.dev/',
             'express': 'http://expressjs.com/',
             'jest': 'https://jestjs.io/',
+            'cypress': 'https://www.cypress.com/',
             'mocha': 'https://mochajs.org/',
             'prisma': 'https://www.prisma.io/',
             'redis': 'https://redis.io/'
@@ -75,7 +81,10 @@ const skills: Array<Skill> = [
                 A frontend build with <Link href="https://vuejs.org/">Vue</Link>, <Link href="https://preactjs.com/">(P)react</Link> or
                 <Link href="https://angular.io/"> Angular</Link>, and state-management being done in <Link href="https://vuex.vuejs.org/">Vuex</Link>,
                 <Link href="https://effector.dev/"> Effector</Link>, <Link href="https://mobx.js.org/README.html"> MobX</Link>, <Link href="https://redux.js.org/">Redux</Link> or
-                using <Link href="https://angular.io/guide/architecture-services">services</Link> - I worked with all of that.
+                using <Link href="https://angular.io/guide/architecture-services">services</Link>.
+                That coupled with a <Link href="https://en.wikipedia.org/wiki/SQL">SQL</Link> or <Link href="https://en.wikipedia.org/wiki/NoSQL">NoSQL</Link> database and a
+                <Link href="https://en.wikipedia.org/wiki/Representational_state_transfer"> RESTful</Link> / <Link href="https://www.graphql.com/">GraphQL</Link> API - I have
+                worked with all of that.
             </div>
         )
     },
@@ -96,6 +105,8 @@ const skills: Array<Skill> = [
                 I have experience with <Link href="https://webassembly.org">webassembly</Link> (e.g. <Link href="https://github.com/Simonwep/conway">conway</Link>),
                 <Link href="https://web.dev/progressive-web-apps/"> PWAs</Link>, <Link href="https://web.dev/workers-overview/">WebWorkers</Link> (or
                 multi-threaded web-apps) and <Link href="https://web.dev/tags/service-worker/"> Service workers</Link>.
+                I&apos;m also interested on the next-gen web with things like <Link href="https://ishoudinireadyyet.com/">CSS Houdini</Link> and
+                the <Link href="https://tc39.es/">TC39</Link> committee.
             </div>
         )
     }
@@ -115,7 +126,7 @@ export const Skills: FunctionalComponent = () => {
 
     return (
         <PageSection title="Skills" id="skills"
-                     intro="Tap a card to learn more about it!">
+                     intro="Tap a card to learn more about it :)">
             <div className={styles.skills}>
                 {skills.map((value, index) => (
                     <div key={value.name} style={{'--open-color': colors[index]}}>

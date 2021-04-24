@@ -32,14 +32,14 @@
 
             > a {
                 color: var(--accent);
-                font-weight: 600;
+                font-weight: 400;
             }
         }
 
         > a {
             @include flex(row, center, center);
             padding: 0.5em 1em;
-            font-weight: 400;
+            font-weight: 600;
             color: var(--c-background);
             transition: all 0.3s;
             width: 100%;
