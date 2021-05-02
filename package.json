@@ -2,7 +2,7 @@
     "name": "reinisch.io",
     "private": true,
     "version": "0.0.0",
-    "description": "Simon Reinischs personal homepage",
+    "description": "Simon Reinisch's portfolio",
     "main": "src/index.jsx",
     "author": "Simon Reinisch <trash@reinisch.io>",
     "license": "MIT",
@@ -14,24 +14,23 @@
     },
     "devDependencies": {
         "@preact/preset-vite": "^2.1.0",
-        "@types/react": "^17.0.2",
-        "@typescript-eslint/eslint-plugin": "^4.16.1",
-        "@typescript-eslint/parser": "^4.16.1",
-        "cross-env": "^7.0.3",
-        "eslint": "^7.21.0",
+        "@types/react": "^17.0.4",
+        "@typescript-eslint/eslint-plugin": "^4.22.0",
+        "@typescript-eslint/parser": "^4.22.0",
+        "eslint": "^7.25.0",
         "eslint-config-simon": "^2.1.0",
-        "eslint-plugin-react": "^7.22.0",
-        "sass": "^1.32.11",
+        "eslint-plugin-react": "^7.23.2",
+        "sass": "^1.32.12",
         "sassyfication": "^1.0.3",
-        "typescript": "^4.2.2",
-        "vite": "^2.2.1",
-        "vite-plugin-pwa": "^0.7.2"
+        "typescript": "^4.2.4",
+        "vite": "^2.2.3",
+        "vite-plugin-pwa": "^0.7.3"
     },
     "dependencies": {
-        "effector": "^21.8.4",
-        "effector-react": "^21.2.1",
+        "effector": "^21.8.11",
+        "effector-react": "^21.3.2",
         "normalize.css": "^8.0.1",
-        "preact": "10.5.12",
-        "rxjs": "^6.6.6"
+        "preact": "10.5.13",
+        "rxjs": "^7.0.0"
     }
 }
