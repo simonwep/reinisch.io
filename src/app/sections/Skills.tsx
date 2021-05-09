@@ -90,7 +90,7 @@ const skills: Array<Skill> = [
     },
     {
         name: 'Cutting Edge',
-        summary: 'Cutting edge technologie and previews.',
+        summary: 'Cutting edge technology and previews.',
         tags: {
             'wasm': 'https://webassembly.org/',
             'pwa': 'https://web.dev/tags/progressive-web-apps/'
