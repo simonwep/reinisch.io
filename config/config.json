@@ -21,7 +21,7 @@
                 "link": "https://github.com/Simonwep/nanopop"
             },
             {
-                "title": "Graceful-WS",
+                "title": "Graceful WebSockets",
                 "description": "A graceful websocket wrapper with connection re-establishment capabilities.",
                 "tags": ["ts", "websocket", "library"],
                 "link": "https://github.com/Simonwep/graceful-ws"
@@ -63,25 +63,13 @@
                 "link": "https://github.com/dot-cafe/beam.cafe"
             },
             {
-                "title": "OpenVPN Access",
-                "description": "Free, open-source alternative to OpenVPN's access service.",
-                "tags": ["openvpn", "docker", "app", "pwa"],
-                "link": "https://github.com/openvpn-access/openvpn-access"
-            },
-            {
                 "title": "Java Express",
                 "description": "HTTP Framework based on expressjs with the same easy-to-use API.",
                 "tags": ["java", "http", "framework"],
                 "link": "https://github.com/Simonwep/java-express"
-            },
-            {
-                "title": "Presentr",
-                "description": "Simple, tiny, presentation framework I made and used during high school.",
-                "tags": ["js", "presentation", "framework"],
-                "link": "https://github.com/Simonwep/presentr"
             }
         ],
-        "legacy": [
+        "archive": [
             {
                 "title": "Conway",
                 "description": "Supercharged version of conways game of life build with wasm and web-workers.",
@@ -117,6 +105,18 @@
                 "description": "Interactive demo of the ECMAScript Internationalization API.",
                 "tags": ["preact", "ui", "demo", "app", "pwa"],
                 "link": "https://github.com/Simonwep/intl-demo"
+            },
+            {
+                "title": "OpenVPN Access",
+                "description": "Free, open-source alternative to OpenVPN's access service.",
+                "tags": ["openvpn", "docker", "app", "pwa"],
+                "link": "https://github.com/openvpn-access/openvpn-access"
+            },
+            {
+                "title": "Presentr",
+                "description": "Simple, tiny, presentation framework I made and used during high school.",
+                "tags": ["js", "presentation", "framework"],
+                "link": "https://github.com/Simonwep/presentr"
             }
         ]
     }
