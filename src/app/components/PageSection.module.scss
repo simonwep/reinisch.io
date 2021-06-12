@@ -47,8 +47,7 @@ $divsize: 25px;
 
         @for $i from 1 through 6 {
             &:nth-child(#{$i}) {
-                $p: ($i / 6);
-                background: hsl($p * 360, 50%, 50%);
+                background: hsl(math.div($i, 6) * 360, 50%, 50%);
             }
         }
     }
@@ -71,7 +70,7 @@ $divsize: 25px;
 
             @for $i from 1 through 6 {
                 &:nth-child(#{$i}) {
-                    $p: ($i / 6);
+                    $p: math.div($i, 6);
                     background: rgb($p * 255, $p * 255, $p * 255);
                 }
             }

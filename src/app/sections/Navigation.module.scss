@@ -115,7 +115,7 @@
             }
 
             .burger {
-                $ty: $height / 2 - $line-height / 2 - $padding;
+                $ty: math.div($height, 2) -  math.div($line-height, 2) - $padding;
 
                 > div:nth-child(2) {
                     opacity: 0;
@@ -138,7 +138,7 @@
                 $items: 5;
                 @for $i from 1 through $items {
                     &:nth-child(#{$items - $i}) {
-                        transition-delay: #{($i / $items) * 0.3s};
+                        transition-delay: #{math.div($i, $items) * 0.3s};
                     }
                 }
             }
