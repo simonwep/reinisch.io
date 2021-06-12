@@ -1,6 +1,7 @@
 import {Link} from '@components/Link';
 import {PageSection} from '@components/PageSection';
 import {SkillCard} from '@components/SkillCard';
+import {track} from '@utils/ackee';
 import {FunctionalComponent} from 'preact';
 import {useState} from 'preact/hooks';
 import {JSXInternal} from 'preact/src/jsx';
@@ -122,6 +123,8 @@ export const Skills: FunctionalComponent = () => {
             ...openCards.slice(0, index), open,
             ...openCards.slice(index + 1)
         ]);
+
+        track.general.skillFlipped();
     };
 
     return (

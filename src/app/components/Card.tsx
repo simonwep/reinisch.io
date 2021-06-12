@@ -8,7 +8,7 @@ type Props = {
     front: JSXInternal.Element;
     back: JSXInternal.Element;
     className?: string;
-    onFlip?: (/* eslint-disable no-unused-vars */open: boolean) => void;
+    onFlip?: (open: boolean) => void;
 }
 
 export const Card: FunctionalComponent<Props> = props => {

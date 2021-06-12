@@ -6,7 +6,7 @@ import styles from './ProjectCard.module.scss';
 
 type Props = {
     project: Project;
-    addTag: (/* eslint-disable no-unused-vars */ tag: string) => void;
+    addTag: (tag: string) => void;
 };
 
 export const ProjectCard: FunctionalComponent<Props> = ({project, addTag}) => (
