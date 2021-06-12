@@ -1,3 +1,4 @@
+import '@utils/ackee';
 import {render} from 'preact';
 import {registerSW} from 'virtual:pwa-register';
 import App from './app/App';
