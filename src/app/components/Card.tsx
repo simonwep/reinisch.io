@@ -12,7 +12,8 @@ type Props = {
 }
 
 export const Card: FunctionalComponent<Props> = props => {
-    const [open, setOpen] = useState<boolean | null>(null);
+    const [open, setOpen] = useState<boolean>(false);
+    const [pulse, setPulse] = useState<boolean>(false);
 
     const cardClick = () => {
         if (!open) {
@@ -28,11 +29,21 @@ export const Card: FunctionalComponent<Props> = props => {
         e.stopPropagation();
     };
 
+    const showPulse = () => setPulse(open);
+    const hidePulse = (e: AnimationEvent) => {
+        setPulse(false);
+        e.stopPropagation();
+    };
+
     return (
         <div className={cn(props.className, styles.card)}
              data-cursor-focus={!open}
-             data-state={typeof open === 'boolean' ? open ? 'open' : 'close' : undefined}
-             onClick={cardClick}>
+             data-state={open ? 'open' : 'close'}
+             onClick={cardClick}
+             onAnimationEnd={showPulse}>
+
+            {pulse && <div className={styles.pulse}
+                           onAnimationEnd={hidePulse}/>}
 
             {/* Front */}
             <div className={styles.front}>

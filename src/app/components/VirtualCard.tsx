@@ -19,7 +19,7 @@ export const VirtualCard: FunctionalComponent<Props> = props => {
     const mouseLeave = () => setRotation([0, 0]);
     const mouseEnter = () => setTransition(true);
     const mouseMove = (evt: MouseEvent) => {
-        const tr = (element.current).getBoundingClientRect();
+        const tr = (element.current as HTMLElement).getBoundingClientRect();
         const px = clamp((evt.clientX - tr.left) / tr.width - 0.5, -0.5, 0.5);
         const py = clamp(0.5 - (evt.clientY - tr.top) / tr.height, -0.5, 0.5);
         setRotation([px, py]);
