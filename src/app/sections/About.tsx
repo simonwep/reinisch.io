@@ -66,11 +66,17 @@ export const About: FunctionalComponent = () => {
                         The most recent project that I, together with <Link href="https://github.com/NateSeymour">Nathan S.</Link>,
                         have been working on is <Link href="https://github.com/openvpn-access">OpenVPN Access</Link> — a free and open source alternative
                         to the proprietary OpenVPN Access Server to facilitate the management of VPN users at scale.
+                        Besides that I started working as a Frontend Developer at <Link href="https://www.weclapp.com/en/">weclapp</Link>.
                     </p>
+                </article>
+
+                <article>
+                    <h1>2021</h1>
                     <p>
-                        Right now, I work as a Frontend Developer at <Link href="https://www.weclapp.com/en/">weclapp</Link>.
-                        And when I code privately, I&apos;ll probably be working on things that can be found
-                        on <Link href="https://github.com/Simonwep">GitHub/Simonwep</Link>.
+                        I&apos;m currently part of a team responsible for the migration of a large application written using
+                        <Link href="https://www.oracle.com/java/technologies/javaserverfaces.html">Java Server Faces</Link> to a modern tech stack
+                        including <Link href="https://v3.vuejs.org/">Vue3</Link>.
+                        This includes the evaluation of technologies to facilitate the transition and team-building.
                     </p>
                 </article>
 

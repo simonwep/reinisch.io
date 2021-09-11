@@ -9,8 +9,8 @@
                 "link": "https://github.com/Simonwep/pickr"
             },
             {
-                "title": "Selection",
-                "description": "Powerful, visual element-selection engine.\n Select elements like on your desktop!",
+                "title": "Viselect (prev. SelectionJS)",
+                "description": "Powerful, visual element-selection engine.\n Select elements just like on your desktop!",
                 "tags": ["ts", "ui", "ux", "library"],
                 "link": "https://github.com/Simonwep/selection"
             },

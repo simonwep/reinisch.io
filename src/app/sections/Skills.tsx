@@ -54,6 +54,7 @@ const skills: Array<Skill> = [
             'preact': 'https://preactjs.com/',
             'react': 'https://reactjs.org/',
             'vue (v2 & v3)': 'https://vuejs.org/',
+            'storybook': 'https://storybook.js.org/',
             'angular': 'https://angular.io/',
             'lit-element': 'https://lit-element.polymer-project.org/guide',
             'mobx': 'https://mobx.js.org/',
@@ -65,7 +66,7 @@ const skills: Array<Skill> = [
             'graphql': 'https://graphql.org/',
             'rust': 'https://www.rust-lang.org/',
             'rxjs': 'https://rxjs.dev/',
-            'express': 'http://expressjs.com/',
+            'express': 'https://expressjs.com/',
             'jest': 'https://jestjs.io/',
             'cypress': 'https://www.cypress.com/',
             'mocha': 'https://mochajs.org/',
@@ -94,7 +95,7 @@ const skills: Array<Skill> = [
         summary: 'Cutting edge technology and previews.',
         tags: {
             'wasm': 'https://webassembly.org/',
-            'pwa': 'https://web.dev/tags/progressive-web-apps/'
+            'pwa\'s': 'https://web.dev/tags/progressive-web-apps/'
         },
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
