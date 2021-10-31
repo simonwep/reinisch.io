@@ -13,26 +13,26 @@
         "lint:fix": "eslint src/**/*.{js,ts,tsx} --fix"
     },
     "devDependencies": {
-        "@preact/preset-vite": "^2.1.0",
+        "@preact/preset-vite": "^2.1.5",
         "@types/ackee-tracker": "^5.0.1",
-        "@types/react": "^17.0.19",
-        "@typescript-eslint/eslint-plugin": "^4.30.0",
-        "@typescript-eslint/parser": "^4.30.0",
+        "@types/react": "^17.0.33",
+        "@typescript-eslint/eslint-plugin": "^5.2.0",
+        "@typescript-eslint/parser": "^5.2.0",
         "eslint": "^7.32.0",
         "eslint-config-simon": "^2.1.0",
-        "eslint-plugin-react": "^7.25.1",
-        "sass": "^1.39.0",
+        "eslint-plugin-react": "^7.26.1",
+        "sass": "^1.43.4",
         "sassyfication": "^1.0.3",
-        "typescript": "^4.4.2",
-        "vite": "^2.5.3",
-        "vite-plugin-pwa": "^0.11.2"
+        "typescript": "^4.4.4",
+        "vite": "^2.6.13",
+        "vite-plugin-pwa": "^0.11.3"
     },
     "dependencies": {
         "ackee-tracker": "^5.1.0",
-        "effector": "^22.0.6",
+        "effector": "^22.1.2",
         "effector-react": "^22.0.4",
         "normalize.css": "^8.0.1",
-        "preact": "10.5.14",
-        "rxjs": "^7.3.0"
+        "preact": "^10.5.15",
+        "rxjs": "^7.4.0"
     }
 }

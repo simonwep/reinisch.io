@@ -67,6 +67,7 @@ export const Navigation: FunctionalComponent = () => {
         track.general.navigated();
     };
 
+    /* eslint-disable @typescript-eslint/no-unsafe-argument */
     return (
         <div className={styles.navigation}
              style={{'--vis-in': clamp(visibility, 0, 1)}}

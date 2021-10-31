@@ -1,3 +1,5 @@
+// <reference types="vite/client" />
+
 /* eslint-disable */
 import JSX = preact.JSX
 
