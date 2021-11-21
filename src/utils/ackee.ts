@@ -6,6 +6,9 @@ export const ackee = create('https://ackee.reinisch.io', {
     ignoreOwnVisits: true
 });
 
+
+ackee.record('dc4e7440-8d17-428a-b9a6-b2e1ea4df260');
+
 const createEvent = (eventId: string) => {
     return (key = 'info', value = 1) => {
         ackee.action(eventId, {
