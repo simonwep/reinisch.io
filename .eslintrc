@@ -3,12 +3,11 @@
     "extends": [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:react/recommended",
-        "simon/lib/react"
+        "plugin:react/recommended"
     ],
     "settings": {
         "react": {
-            "version": "latest"
+            "version": "detect"
         }
     },
     "env": {
