@@ -40,7 +40,6 @@ export const PageSection: FunctionalComponent<Props> = props => {
              aria-label={props.title}
              id={props.id}
              style={{
-                 '--vis': visibility,
                  '--vis-in': clamp(visibility, 0, 1),
                  '--vis-out': (clamp(visibility, 1, 2) - 1)
              }}>

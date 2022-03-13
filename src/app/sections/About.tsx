@@ -6,7 +6,7 @@ import styles from './About.module.scss';
 const emailLinkUrl = 'NDM2LDM4OCw0MjAsNDMyLDQ2NCw0NDQsMjMyLDM5Niw0NDQsNDQwLDQ2NCwzODgsMzk2LDQ2NCwyNTYsNDU2LDQwNCw0MjAsNDQwLDQyMCw0NjAsMzk2LDQxNiwxODQsNDIwLDQ0NA==';
 export const About: FunctionalComponent = () => {
 
-    // I don't want my email getting detected by webscraper so I'm obfuscating the whole mailto stuff
+    // I don't want my email getting detected by webscraper, so I'm obfuscating the whole mailto stuff
     const openMailToLink = () => {
         const link = document.createElement('a');
         document.body.appendChild(link);
@@ -71,10 +71,10 @@ export const About: FunctionalComponent = () => {
                 </article>
 
                 <article>
-                    <h1>2021</h1>
+                    <h1>2022</h1>
                     <p>
-                        I&apos;m currently part of a team responsible for the migration of a large application written using
-                        <Link href="https://www.oracle.com/java/technologies/javaserverfaces.html">Java Server Faces</Link> to a modern tech stack
+                        I&apos;m currently part of a team responsible for the migration of a large application made
+                        using <Link href="https://www.oracle.com/java/technologies/javaserverfaces.html"> Java Server Faces</Link> to a modern tech stack
                         including <Link href="https://v3.vuejs.org/">Vue3</Link>.
                         This includes the evaluation of technologies to facilitate the transition and team-building.
                     </p>
