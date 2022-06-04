@@ -57,10 +57,10 @@
                 "link": "https://github.com/Simonwep/openvpn-pihole"
             },
             {
-                "title": "Beam.Cafe",
-                "description": "Blazing fast file-transfer app. Share files without uploading them.",
-                "tags": ["preact", "ui", "app", "pwa"],
-                "link": "https://github.com/dot-cafe/beam.cafe"
+                "title": "Ocular",
+                "description": "Simplistic budget planner with google drive synchronization.",
+                "tags": ["pwa", "ts", "app"],
+                "link": "https://github.com/Simonwep/ocular"
             },
             {
                 "title": "Java Express",
@@ -105,6 +105,12 @@
                 "description": "Interactive demo of the ECMAScript Internationalization API.",
                 "tags": ["preact", "ui", "demo", "app", "pwa"],
                 "link": "https://github.com/Simonwep/intl-demo"
+            },
+            {
+                "title": "Beam.Cafe",
+                "description": "Blazing fast file-transfer app. Share files without uploading them.",
+                "tags": ["preact", "ui", "app", "pwa"],
+                "link": "https://github.com/dot-cafe/beam.cafe"
             },
             {
                 "title": "OpenVPN Access",
