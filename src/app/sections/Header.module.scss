@@ -3,6 +3,13 @@
     padding-top: 12.5vh;
     z-index: 1;
 
+    &.pride > h1 {
+        background: var(--c-rainbow);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
     > h1 {
         @include font(200, 6em);
         margin-bottom: 0.25em;

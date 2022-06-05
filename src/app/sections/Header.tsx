@@ -1,6 +1,7 @@
 import {Slogan, SpinningHeadline} from '@components/SpinningHeadline';
 import {config} from '@config';
 import {sections} from '@store/sections';
+import {cn} from '@utils/preact-utils';
 import {FunctionalComponent} from 'preact';
 import {useEffect} from 'preact/hooks';
 import styles from './Header.module.scss';
@@ -55,7 +56,9 @@ export const Header: FunctionalComponent = () => {
     }, []);
 
     return (
-        <header className={styles.header} id="home">
+        <header className={cn(styles.header, {
+            [styles.pride]: (new Date()).getMonth() === 5
+        })} id="home">
             <h1>{config.name}</h1>
             <SpinningHeadline interval={2000}
                               speed={350}
