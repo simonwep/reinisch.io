@@ -4,7 +4,7 @@ declare let self: ServiceWorkerGlobalScope & {
     __WB_MANIFEST: {revision: string; url: string;}[];
 };
 
-const CACHE_NAME = `cache-${env.BUILD_TIME}`;
+const CACHE_NAME = `cache-${import.meta.env.BUILD_TIME}`;
 const PRECACHE_URLS = self.__WB_MANIFEST.map(v => v.url);
 
 self.addEventListener('install', event => {
@@ -42,7 +42,7 @@ self.addEventListener('fetch', ev => {
     if (
         ev.request.method !== 'GET' ||
         !ev.request.url.startsWith(self.location.origin) ||
-        env.NODE_ENV === 'development'
+        import.meta.env.DEV
     ) {
         return;
     }

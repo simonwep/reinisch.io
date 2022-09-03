@@ -3,7 +3,6 @@
     "private": true,
     "version": "0.0.0",
     "description": "Simon Reinisch's portfolio",
-    "main": "src/index.jsx",
     "author": "Simon Reinisch <trash@reinisch.io>",
     "license": "MIT",
     "scripts": {

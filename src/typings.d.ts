@@ -9,10 +9,13 @@ declare module '*.png';
 declare module '*.jpg';
 declare module '*.webp';
 
-declare let env: {
-    NODE_ENV: 'production' | 'development';
-    BUILD_TIME: number;
-};
+interface ImportMetaEnv {
+   readonly BUILD_TIME: number;
+}
+
+interface ImportMeta {
+    readonly env: ImportMetaEnv
+}
 
 /**
  * The BeforeInstallPromptEvent is fired at the Window.onbeforeinstallprompt handler

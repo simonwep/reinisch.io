@@ -1,69 +1,23 @@
-import {Cursor} from '@components/Cursor';
 import {LoadingScreen} from '@components/LoadingScreen';
-import {PWAInstallPrompt} from '@components/PWAInstallPrompt';
-import {useMedia} from '@hooks/useMedia';
-import {sections} from '@store/sections';
-import {calculateScrollProgress} from '@utils/scroll-progress';
-import {useEffect} from 'preact/hooks';
-import {fromEvent} from 'rxjs';
-import styles from './App.module.scss';
-import {scp} from './rx';
-import {ScrollIndicator} from './ScrollIndicator';
-import {About} from './sections/About';
-import {ActiveProjects} from './sections/ActiveProjects';
-import {Archive} from './sections/Archive';
-import {Footer} from './sections/Footer';
-import {Header} from './sections/Header';
-import {Navigation} from './sections/Navigation';
-import {Presentations} from './sections/Presentations';
-import {Skills} from './sections/Skills';
+import {FunctionalComponent} from 'preact';
+import {useEffect, useState} from 'preact/hooks';
+import {JSXInternal} from 'preact/src/jsx';
 
-export default () => {
-    const touchDevice = 'ontouchstart' in window;
-    const media = useMedia();
+export const App: FunctionalComponent = () => {
+    const [Content, setContentComponent] = useState<JSXInternal.Element>();
 
     useEffect(() => {
-        const subscription = fromEvent(window, 'scroll')
-            .subscribe(() => {
-                scp.next(
-                    calculateScrollProgress(
-                        sections.store.getState()
-                            .slice(1)
-                            .map(v => v.id)
-                    )
-                );
-            });
-        return () => subscription.unsubscribe();
+        void import('./Content')
+            .then(module => setContentComponent(<module.Content/>));
     }, []);
 
     return (
-        <div className={styles.app}>
+        <>
+            {/* Loading screen */}
+            <LoadingScreen loaded={!!Content}/>
 
-            {/* Custom desktop-cursor */}
-            {((media !== 'tablets' && media !== 'phones') || !touchDevice) && <Cursor/>}
-
-            {/* Custom PWA Install prompt */}
-            <PWAInstallPrompt/>
-
-            {/* Loading screen for slow devices */}
-            <LoadingScreen/>
-
-            {/* Header and navigation */}
-            <Header/>
-            <Navigation/>
-
-            {/* Actual content split up into sections */}
-            <div className={styles.content}>
-                {media !== 'phones' && <ScrollIndicator/>}
-                <div className={styles.sections} role="main">
-                    <ActiveProjects/>
-                    <Archive/>
-                    <Skills/>
-                    <Presentations/>
-                    <About/>
-                    <Footer/>
-                </div>
-            </div>
-        </div>
+            {/* Actual content */}
+            {Content}
+        </>
     );
 };

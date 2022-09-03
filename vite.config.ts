@@ -53,9 +53,6 @@ export default defineConfig({
     },
 
     define: {
-        'env': {
-            'NODE_ENV': process.env.NODE_ENV,
-            'BUILD_TIME': Date.now()
-        }
+        'import.meta.env.BUILD_TIME': Date.now()
     }
 });

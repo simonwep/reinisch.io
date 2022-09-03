@@ -43,6 +43,7 @@
         "react/react-in-jsx-scope": "off",
         "react/prop-types": "off",
         "react/display-name": "off",
+        "react/no-unknown-property": "off",
         "react/jsx-indent": [2, 4, {"checkAttributes": true, "indentLogicalExpressions": true}],
         "no-unused-vars": "off",
         "no-use-before-define": "off",

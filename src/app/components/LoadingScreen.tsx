@@ -1,24 +1,26 @@
 import {FunctionalComponent} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
-import {pageLoaded} from '../rx';
 import styles from './LoadingScreen.module.scss';
 
-export const LoadingScreen: FunctionalComponent = () => {
-    if (env.NODE_ENV === 'development') {
+type Props = {
+   loaded: boolean;
+}
+
+export const LoadingScreen: FunctionalComponent<Props> = props => {
+    if (import.meta.env.DEV) {
         return <></>;
     }
 
     const [progress, setProgress] = useState(0);
+
     useEffect(() => {
         const frame = requestAnimationFrame(() => setProgress(0.85));
 
-        const subscription = pageLoaded.subscribe(loaded => {
+        if (props.loaded) {
             cancelAnimationFrame(frame);
-            loaded && setProgress(1);
-        });
-
-        return () => subscription.unsubscribe();
-    }, []);
+            setProgress(1);
+        }
+    }, [props.loaded]);
 
     return (
         <div className={styles.loadingScreen}
