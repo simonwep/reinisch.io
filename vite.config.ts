@@ -43,7 +43,8 @@ export default defineConfig({
         target: 'esnext',
         jsxInject: '',
         jsxFactory: 'preact',
-        jsxFragment: 'Fragment'
+        jsxFragment: 'Fragment',
+        logOverride: {'this-is-undefined-in-esm': 'silent'}
     },
 
     server: {
