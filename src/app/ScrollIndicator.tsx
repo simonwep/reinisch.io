@@ -1,7 +1,7 @@
-import {clamp} from '@utils/math';
-import {FunctionalComponent} from 'preact';
-import {useEffect, useState} from 'preact/hooks';
-import {scp} from './rx';
+import { clamp } from '@utils/math';
+import { FunctionalComponent } from 'preact';
+import { useEffect, useState } from 'preact/hooks';
+import { scp } from './rx';
 import styles from './ScrollIndicator.module.scss';
 
 export const ScrollIndicator: FunctionalComponent = () => {
@@ -16,12 +16,14 @@ export const ScrollIndicator: FunctionalComponent = () => {
     });
 
     return (
-        <div className={styles.scrollIndicator}
-             style={{
-                 '--progress': progress,
-                 '--fadeout': Math.max(0, (progress - 0.5) / 0.5)
-             }}>
-            <div/>
+        <div
+            className={styles.scrollIndicator}
+            style={{
+                '--progress': progress,
+                '--fadeout': Math.max(0, (progress - 0.5) / 0.5),
+            }}
+        >
+            <div />
         </div>
     );
 };

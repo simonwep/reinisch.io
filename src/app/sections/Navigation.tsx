@@ -1,28 +1,27 @@
-import {Link} from '@components/Link';
-import {RunningBanner} from '@components/RunningBanner';
-import {sections} from '@store/sections';
-import {track} from '@utils/ackee';
-import {clamp} from '@utils/math';
-import {useStore} from 'effector-react';
-import {createRef, FunctionalComponent} from 'preact';
-import {useEffect, useState} from 'preact/hooks';
-import {fromEvent} from 'rxjs';
-import {scp} from '../rx';
+import { Link } from '@components/Link';
+import { RunningBanner } from '@components/RunningBanner';
+import { sections } from '@store/sections';
+import { track } from '@utils/ackee';
+import { clamp } from '@utils/math';
+import { useStore } from 'effector-react';
+import { createRef, FunctionalComponent, RefObject } from 'preact';
+import { useEffect, useState } from 'preact/hooks';
+import { fromEvent } from 'rxjs';
+import { scp } from '../rx';
 import styles from './Navigation.module.scss';
 
 export const Navigation: FunctionalComponent = () => {
     const [visibility, setVisibility] = useState(0);
     const [navOpen, setNavOpen] = useState(false);
     const pageSections = useStore(sections.store);
-    const navItems: Array<HTMLAnchorElement | null> = [];
+    const navItems: Array<RefObject<HTMLAnchorElement>> = [];
     const bar = createRef<HTMLDivElement>();
 
     const updateBar = (offset = 0, partial = 0): void => {
         if (bar.current) {
-
             // Current element and next item
-            const cel = navItems[offset];
-            const nel = navItems[offset + 1];
+            const cel = navItems[offset].current;
+            const nel = navItems[offset + 1].current;
 
             if (!cel) {
                 return;
@@ -69,39 +68,46 @@ export const Navigation: FunctionalComponent = () => {
 
     /* eslint-disable @typescript-eslint/no-unsafe-argument */
     return (
-        <div className={styles.navigation}
-             style={{'--vis-in': clamp(visibility, 0, 1)}}
-             role="navigation"
-             aria-label="Main navigation">
-
-            <div className={styles.wrapper}
-                 data-open={navOpen}>
-                <div className={styles.burger}
-                     onClick={() => setNavOpen(!navOpen)}>
-                    <div/>
-                    <div/>
-                    <div/>
+        <div
+            className={styles.navigation}
+            style={{ '--vis-in': clamp(visibility, 0, 1) }}
+            role="navigation"
+            aria-label="Main navigation"
+        >
+            <div className={styles.wrapper} data-open={navOpen}>
+                <div className={styles.burger} onClick={() => setNavOpen(!navOpen)}>
+                    <div />
+                    <div />
+                    <div />
                 </div>
 
-                <div className={styles.links}
-                     style={{'--progress': visibility}}>
+                <div className={styles.links} style={{ '--progress': visibility }}>
                     {pageSections
-                        .filter(v => !v.hideNavigationItem)
-                        .map((section, index) => (
-                            <Link href={`#${section.id}`}
-                                  onClick={onNavigation}
-                                  key={section.id}
-                                  ref={instance => navItems.push(instance)}
-                                  style={{'--clip': `inset(0 0 calc((${index + 1} - var(--progress)) * 100%) 0)`}}>
-                                {section.title}
-                            </Link>
-                        ))}
+                        .filter((v) => !v.hideNavigationItem)
+                        .map((section, index) => {
+                            const element = createRef<HTMLAnchorElement>();
+                            navItems.push(element);
+
+                            return (
+                                <Link
+                                    href={`#${section.id}`}
+                                    onClick={onNavigation}
+                                    key={section.id}
+                                    ref={element}
+                                    style={{
+                                        '--clip': `inset(0 0 calc((${index + 1} - var(--progress)) * 100%) 0)`,
+                                    }}
+                                >
+                                    {section.title}
+                                </Link>
+                            );
+                        })}
                 </div>
 
-                <div className={styles.scrollBar} ref={bar}/>
+                <div className={styles.scrollBar} ref={bar} />
             </div>
 
-            <RunningBanner text="START SCROLLING" className={styles.banner}/>
+            <RunningBanner text="START SCROLLING" className={styles.banner} />
         </div>
     );
 };

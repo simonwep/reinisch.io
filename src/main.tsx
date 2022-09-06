@@ -1,7 +1,7 @@
 import '@utils/ackee';
-import {render} from 'preact';
-import {registerSW} from 'virtual:pwa-register';
-import {App} from './app/App';
+import { render } from 'preact';
+import { registerSW } from 'virtual:pwa-register';
+import { App } from './app/App';
 import './styles/_global.scss';
 
 /* eslint-disable no-console */
@@ -18,7 +18,7 @@ if (import.meta.env.DEV) {
 
 registerSW({
     onOfflineReady: () => logStyled('[APP] Service worker registered.'),
-    onNeedRefresh: () => logStyled('[APP] New content available.')
+    onNeedRefresh: () => logStyled('[APP] New content available.'),
 });
 
-render(<App/>, document.getElementById('app') as HTMLElement);
+render(<App />, document.getElementById('app') as HTMLElement);

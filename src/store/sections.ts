@@ -1,4 +1,4 @@
-import {createEvent, createStore} from 'effector';
+import { createEvent, createStore } from 'effector';
 
 export interface Section {
     hideNavigationItem?: boolean;
@@ -7,14 +7,12 @@ export interface Section {
 }
 
 const sync = createEvent<Section>('sync');
-const store = createStore<Section[]>([])
-    .on(sync, (state, payload) => {
-        const index = state.findIndex(v => v.id === payload.id);
-        return ~index ? state.splice(index, 1, payload) :
-            [...state, payload];
-    });
+const store = createStore<Section[]>([]).on(sync, (state, payload) => {
+    const index = state.findIndex((v) => v.id === payload.id);
+    return ~index ? state.splice(index, 1, payload) : [...state, payload];
+});
 
 export const sections = {
     store,
-    sync
+    sync,
 };

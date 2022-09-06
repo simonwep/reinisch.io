@@ -2,7 +2,7 @@
  * Utility to create a single class-name based on an object or array.
  * @param values
  */
-export function cn(...values: Array<string | undefined | {[key: string]: boolean}>): string {
+export function cn(...values: Array<string | undefined | { [key: string]: boolean }>): string {
     const classNames: Array<string> = [];
 
     for (const item of values) {

@@ -3,8 +3,8 @@
  * @param ids Element ids
  */
 export const calculateScrollProgress = (ids: string[]): [number, number] => {
-    const {scrollHeight, scrollTop} = document.scrollingElement || document.documentElement;
-    const {innerHeight} = window;
+    const { scrollHeight, scrollTop } = document.scrollingElement || document.documentElement;
+    const { innerHeight } = window;
     let offset = 0;
     let index = 0;
 
@@ -32,8 +32,8 @@ export const calculateScrollProgress = (ids: string[]): [number, number] => {
         }
 
         // Element will never reach the top, use bottom as reference
-        if ((scrollHeight - scrollTop - rect.top) < innerHeight) {
-            index += Math.min(1, 1 - ((rect.bottom - innerHeight) / rect.height));
+        if (scrollHeight - scrollTop - rect.top < innerHeight) {
+            index += Math.min(1, 1 - (rect.bottom - innerHeight) / rect.height);
             break;
         }
 

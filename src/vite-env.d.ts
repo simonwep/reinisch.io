@@ -1,7 +1,4 @@
-// <reference types="vite/client" />
-
-/* eslint-disable */
-import JSX = preact.JSX
+/// <reference types="vite/client" />
 
 declare module '*.scss';
 declare module '*.svg';
@@ -10,11 +7,11 @@ declare module '*.jpg';
 declare module '*.webp';
 
 interface ImportMetaEnv {
-   readonly BUILD_TIME: number;
+    readonly BUILD_TIME: number;
 }
 
 interface ImportMeta {
-    readonly env: ImportMetaEnv
+    readonly env: ImportMetaEnv;
 }
 
 /**
@@ -25,7 +22,6 @@ interface ImportMeta {
  * @deprecated Only supported on Chrome and Android Webview.
  */
 interface BeforeInstallPromptEvent extends Event {
-
     /**
      * Returns an array of DOMString items containing the platforms on which the event was dispatched.
      * This is provided for user agents that want to present a choice of versions to the user such as,
@@ -38,8 +34,8 @@ interface BeforeInstallPromptEvent extends Event {
      * Returns a Promise that resolves to a DOMString containing either "accepted" or "dismissed".
      */
     readonly userChoice: Promise<{
-        outcome: 'accepted' | 'dismissed',
-        platform: string
+        outcome: 'accepted' | 'dismissed';
+        platform: string;
     }>;
 
     /**
@@ -51,6 +47,6 @@ interface BeforeInstallPromptEvent extends Event {
 
 declare namespace JSXInternal {
     interface HTMLAttributes {
-        style: Record<string, string>
+        style: Record<string, string>;
     }
 }

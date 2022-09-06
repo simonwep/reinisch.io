@@ -1,21 +1,22 @@
-import {clamp} from '@utils/math';
-import {cn} from '@utils/preact-utils';
-import {FunctionalComponent} from 'preact';
-import {useEffect, useRef, useState} from 'preact/hooks';
+import { clamp } from '@utils/math';
+import { cn } from '@utils/preact-utils';
+import { FunctionalComponent } from 'preact';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import styles from './VirtualCard.module.scss';
 
-type Props = {
+interface Props {
     className?: string;
     intensity?: number;
     link?: string;
-};
+}
 
-export const VirtualCard: FunctionalComponent<Props> = props => {
+export const VirtualCard: FunctionalComponent<Props> = (props) => {
     const [rotation, setRotation] = useState<[number, number]>([0, 0]);
     const [transition, setTransition] = useState<boolean>(false);
-    const element = useRef<HTMLDivElement>();
+    const element = useRef<HTMLDivElement>(null);
 
     const open = () => window.open(props.link, '__blank', 'noopener,noreferrer');
+
     const mouseLeave = () => setRotation([0, 0]);
     const mouseEnter = () => setTransition(true);
     const mouseMove = (evt: MouseEvent) => {
@@ -33,19 +34,21 @@ export const VirtualCard: FunctionalComponent<Props> = props => {
     }, [transition]);
 
     return (
-        <div className={cn(styles.virtualCard, props.className)}
-             data-cursor-focus={!!props.link}
-             ref={element}
-             onClick={props.link ? open : undefined}
-             onMouseEnter={mouseEnter}
-             onMouseLeave={mouseLeave}
-             onMouseMove={mouseMove}
-             style={{
-                 '--base-transition': transition ? 'none' : 'all 0.5s',
-                 '--hover-transition': transition ? 'all 100ms' : 'none',
-                 '--rotation-x': rotation[0] * (props.intensity || 1),
-                 '--rotation-y': rotation[1] * (props.intensity || 1)
-             }}>
+        <div
+            className={cn(styles.virtualCard, props.className)}
+            data-cursor-focus={!!props.link}
+            ref={element}
+            onClick={props.link ? open : undefined}
+            onMouseEnter={mouseEnter}
+            onMouseLeave={mouseLeave}
+            onMouseMove={mouseMove}
+            style={{
+                '--base-transition': transition ? 'none' : 'all 0.5s',
+                '--hover-transition': transition ? 'all 100ms' : 'none',
+                '--rotation-x': rotation[0] * (props.intensity || 1),
+                '--rotation-y': rotation[1] * (props.intensity || 1),
+            }}
+        >
             {props.children}
         </div>
     );

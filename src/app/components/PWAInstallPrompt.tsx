@@ -1,9 +1,9 @@
-import {useMedia} from '@hooks/useMedia';
-import {track} from '@utils/ackee';
-import {uid} from '@utils/uid';
-import {FunctionalComponent} from 'preact';
-import {useEffect, useState} from 'preact/hooks';
-import {fromEvent} from 'rxjs';
+import { useMedia } from '@hooks/useMedia';
+import { track } from '@utils/ackee';
+import { uid } from '@utils/uid';
+import { FunctionalComponent } from 'preact';
+import { useEffect, useState } from 'preact/hooks';
+import { fromEvent } from 'rxjs';
 import styles from './PWAInstallPrompt.module.scss';
 
 export const PWAInstallPrompt: FunctionalComponent = () => {
@@ -11,7 +11,7 @@ export const PWAInstallPrompt: FunctionalComponent = () => {
     const [installTimeout, setInstallTimeout] = useState(-1);
     const media = useMedia();
 
-    const submit = ({outcome}: {outcome: 'accepted' | 'dismissed'}) => {
+    const submit = ({ outcome }: { outcome: 'accepted' | 'dismissed' }) => {
         const accepted = outcome === 'accepted';
         track.pwa[accepted ? 'accepted' : 'dismissed']();
 
@@ -25,15 +25,17 @@ export const PWAInstallPrompt: FunctionalComponent = () => {
         const timestamp = rawTimestamp ? JSON.parse(rawTimestamp) : null;
 
         // If the user previously dismissed the installation and a day hasn't passed yet ignore the event
-        if (timestamp && (Date.now() - timestamp) < 86400000) {
+        if (timestamp && Date.now() - timestamp < 86400000) {
             return;
         }
 
         // Wait at least 30 seconds before interrupting the users experience.
-        setInstallTimeout(setTimeout(() => {
-            setEvent(evt);
-            void evt.userChoice.then(submit);
-        }, 15000) as unknown as number);
+        setInstallTimeout(
+            setTimeout(() => {
+                setEvent(evt);
+                void evt.userChoice.then(submit);
+            }, 15000) as unknown as number
+        );
 
         track.pwa.prompted();
     };
@@ -53,25 +55,21 @@ export const PWAInstallPrompt: FunctionalComponent = () => {
 
     const descriptionId = uid('aria');
     return (
-        <div className={styles.pwaInstallPrompt}
-             data-visible={!!event}
-             role="dialog"
-             aria-labelledby={descriptionId}>
+        <div className={styles.pwaInstallPrompt} data-visible={!!event} role="dialog" aria-labelledby={descriptionId}>
             <p id={descriptionId}>Add to {media === 'tablets' || media === 'phones' ? 'Homescreen' : 'Desktop'}?</p>
 
-            <button className={styles.addBtn}
-                    data-cursor-focus={true}
-                    aria-label="Install website"
-                    onClick={prompt}>
+            <button className={styles.addBtn} data-cursor-focus={true} aria-label="Install website" onClick={prompt}>
                 Yes, please
             </button>
 
-            <button className={styles.closeBtn}
-                    data-cursor-focus={true}
-                    aria-label="Dismiss installation"
-                    onClick={() => submit({outcome: 'dismissed'})}>
+            <button
+                className={styles.closeBtn}
+                data-cursor-focus={true}
+                aria-label="Dismiss installation"
+                onClick={() => submit({ outcome: 'dismissed' })}
+            >
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-                    <path d="M16,15L16,15c-0.4,0.4-0.4,1,0,1.4l6.9,6.9c0.4,0.4,0.4,1,0,1.4L16,31.6c-0.4,0.4-0.4,1,0,1.4h0c0.4,0.4,1,0.4,1.4,0l6.9-6.9c0.4-0.4,1-0.4,1.4,0l6.9,6.9c0.4,0.4,1,0.4,1.4,0l0,0c0.4-0.4,0.4-1,0-1.4l-6.9-6.9c-0.4-0.4-0.4-1,0-1.4l6.9-6.9c0.4-0.4,0.4-1,0-1.4v0c-0.4-0.4-1-0.4-1.4,0l-6.9,6.9c-0.4,0.4-1,0.4-1.4,0L17.4,15C17,14.6,16.4,14.6,16,15z"/>
+                    <path d="M16,15L16,15c-0.4,0.4-0.4,1,0,1.4l6.9,6.9c0.4,0.4,0.4,1,0,1.4L16,31.6c-0.4,0.4-0.4,1,0,1.4h0c0.4,0.4,1,0.4,1.4,0l6.9-6.9c0.4-0.4,1-0.4,1.4,0l6.9,6.9c0.4,0.4,1,0.4,1.4,0l0,0c0.4-0.4,0.4-1,0-1.4l-6.9-6.9c-0.4-0.4-0.4-1,0-1.4l6.9-6.9c0.4-0.4,0.4-1,0-1.4v0c-0.4-0.4-1-0.4-1.4,0l-6.9,6.9c-0.4,0.4-1,0.4-1.4,0L17.4,15C17,14.6,16.4,14.6,16,15z" />
                 </svg>
             </button>
         </div>
