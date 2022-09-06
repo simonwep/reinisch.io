@@ -15,7 +15,6 @@ import { Archive } from './sections/Archive';
 import { Footer } from './sections/Footer';
 import { Header } from './sections/Header';
 import { Navigation } from './sections/Navigation';
-import { Presentations } from './sections/Presentations';
 import { Skills } from './sections/Skills';
 
 export const Content: FunctionalComponent = () => {
@@ -55,7 +54,6 @@ export const Content: FunctionalComponent = () => {
                     <ActiveProjects />
                     <Archive />
                     <Skills />
-                    <Presentations />
                     <About />
                     <Footer />
                 </div>
