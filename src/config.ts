@@ -1,4 +1,4 @@
-import rawConfig from '../config/config.json';
+import rawProjects from '../config/projects.json';
 
 export interface Project {
     title: string;
@@ -8,12 +8,7 @@ export interface Project {
     created: string;
 }
 
-export interface Config {
-    name: string;
-    projects: {
-        current: Project[];
-        archive: Project[];
-    };
-}
-
-export const config = rawConfig as Config;
+export const projects = rawProjects as {
+    current: Project[];
+    archive: Project[];
+};

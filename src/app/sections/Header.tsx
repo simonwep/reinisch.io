@@ -1,5 +1,4 @@
 import { Slogan, SpinningHeadline } from '@components/SpinningHeadline';
-import { config } from '@config';
 import { sections } from '@store/sections';
 import { cn } from '@utils/preact-utils';
 import { FunctionalComponent } from 'preact';
@@ -110,7 +109,7 @@ export const Header: FunctionalComponent = () => {
             })}
             id="home"
         >
-            <h1>{config.name}</h1>
+            <h1>Simon Reinisch</h1>
             <SpinningHeadline interval={2000} speed={350} slogans={slogans} className={styles.spinner} />
         </header>
     );
