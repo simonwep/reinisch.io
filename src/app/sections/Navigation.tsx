@@ -20,8 +20,8 @@ export const Navigation: FunctionalComponent = () => {
     const updateBar = (offset = 0, partial = 0): void => {
         if (bar.current) {
             // Current element and next item
-            const cel = navItems[offset].current;
-            const nel = navItems[offset + 1].current;
+            const cel = navItems[offset]?.current;
+            const nel = navItems[offset + 1]?.current;
 
             if (!cel) {
                 return;
