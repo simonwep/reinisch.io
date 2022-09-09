@@ -1,22 +1,24 @@
 import { Link } from '@components/Link';
 import { PageSection } from '@components/PageSection';
 import { FunctionalComponent } from 'preact';
+import { useState } from 'preact/hooks';
 import styles from './About.module.scss';
 
 const emailLinkUrl =
     'NDM2LDM4OCw0MjAsNDMyLDQ2NCw0NDQsMjMyLDM5Niw0NDQsNDQwLDQ2NCwzODgsMzk2LDQ2NCwyNTYsNDU2LDQwNCw0MjAsNDQwLDQyMCw0NjAsMzk2LDQxNiwxODQsNDIwLDQ0NA==';
-export const About: FunctionalComponent = () => {
-    // I don't want my email getting detected by webscraper, so I'm obfuscating the whole mailto stuff
-    const openMailToLink = () => {
-        const link = document.createElement('a');
-        document.body.appendChild(link);
-        link.href = atob(emailLinkUrl)
-            .split(',')
-            .map((v) => String.fromCharCode(Number(v) >> 2))
-            .join('');
 
-        link.click();
-        document.body.removeChild(link);
+export const About: FunctionalComponent = () => {
+    const [email, setEmail] = useState('');
+
+    // I don't want my email getting detected by webscraper, so I'm obfuscating the whole mailto stuff
+    const hideEmail = () => setEmail('');
+    const showEmail = () => {
+        setEmail(
+            atob(emailLinkUrl)
+                .split(',')
+                .map((v) => String.fromCharCode(Number(v) >> 2))
+                .join('')
+        );
     };
 
     return (
@@ -96,7 +98,7 @@ export const About: FunctionalComponent = () => {
 
                 <p>
                     Questions? You can reach out to me over{' '}
-                    <a data-cursor-focus={true} onClick={openMailToLink}>
+                    <a data-cursor-focus={true} href={`mailto:${email}`} onBlur={hideEmail} onFocus={showEmail}>
                         e&#8203;m&#8203;a&#8203;i&#8203;l
                     </a>{' '}
                     :)
