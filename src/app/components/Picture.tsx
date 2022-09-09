@@ -11,6 +11,6 @@ export const Picture: FunctionalComponent<Props> = (props) => (
         {props.images.map((url, index) => (
             <source srcSet={url} type={`image/${url.replace(/.*\./, '')}`} key={index} />
         ))}
-        <img style="all: inherit;" src={props.images[props.images.length - 1]} alt={props.alt} />
+        <img loading="lazy" style="all: inherit;" src={props.images[props.images.length - 1]} alt={props.alt} />
     </picture>
 );
