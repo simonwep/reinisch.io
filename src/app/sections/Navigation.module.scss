@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .navigation {
     @include flex(column, center, center);
     margin-top: 5vh;

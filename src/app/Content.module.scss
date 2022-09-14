@@ -1,17 +1,12 @@
 .content {
     @include flex(column, center);
+    @include width(var(--page-width), var(--page-width-min), var(--page-width-max));
     position: relative;
     font-family: $font-family;
     color: var(--c-text);
     margin: auto;
     cursor: none;
     user-select: none;
-}
-
-.content {
-    @include width(var(--page-width), var(--page-width-min), var(--page-width-max));
-    @include flex(column, center);
-    position: relative;
     height: 100%;
     z-index: 1;
 }

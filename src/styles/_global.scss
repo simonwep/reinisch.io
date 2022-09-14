@@ -1,8 +1,8 @@
 @import 'normalize.css';
-@import './variables';
-@import './global/reset';
-@import './global/fonts';
-@import './global/noscript';
+@import 'injected';
+@import 'global/reset';
+@import 'global/fonts';
+@import 'global/noscript';
 
 * {
     margin: 0;

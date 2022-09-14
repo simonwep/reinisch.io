@@ -1,7 +1,7 @@
 import preact from '@preact/preset-vite';
-import {resolve} from 'path';
-import {defineConfig} from 'vite';
-import {VitePWA} from 'vite-plugin-pwa';
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
 import manifest from './public/manifest.json';
 
 export default defineConfig({
@@ -12,8 +12,8 @@ export default defineConfig({
             registerType: 'autoUpdate',
             manifest: manifest as any,
             filename: 'sw.ts',
-            srcDir: 'src'
-        })
+            srcDir: 'src',
+        }),
     ],
 
     resolve: {
@@ -23,20 +23,17 @@ export default defineConfig({
             '@config': resolve('./src/config.ts'),
             '@hooks': resolve('./src/hooks'),
             '@utils': resolve('./src/utils'),
-            '@store': resolve('./src/store')
-        }
+            '@store': resolve('./src/store'),
+        },
     },
 
     css: {
         modules: {},
         preprocessorOptions: {
             scss: {
-                additionalData: `
-                    @use 'sass:math';
-                    @import './src/styles/variables.scss';
-                `
-            }
-        }
+                additionalData: `@use './src/styles/injected.scss' as *;`,
+            },
+        },
     },
 
     esbuild: {
@@ -44,15 +41,15 @@ export default defineConfig({
         jsxInject: '',
         jsxFactory: 'preact',
         jsxFragment: 'Fragment',
-        logOverride: {'this-is-undefined-in-esm': 'silent'}
+        logOverride: { 'this-is-undefined-in-esm': 'silent' },
     },
 
     server: {
         port: 3010,
-        host: '0.0.0.0'
+        host: '0.0.0.0',
     },
 
     define: {
-        'import.meta.env.BUILD_TIME': Date.now()
-    }
+        'import.meta.env.BUILD_TIME': Date.now(),
+    },
 });
