@@ -2,11 +2,13 @@ import preact from '@preact/preset-vite';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import manifest from './public/manifest.json';
 
 export default defineConfig({
     plugins: [
         preact(),
+        optimizeCssModules(),
         VitePWA({
             strategies: 'injectManifest',
             registerType: 'autoUpdate',
