@@ -1,7 +1,7 @@
 import { Cursor } from '@components/Cursor';
 import { PWAInstallPrompt } from '@components/PWAInstallPrompt';
 import { useMedia } from '@hooks/useMedia';
-import { sections } from '@store/sections';
+import { useSections } from '@hooks/useSections';
 import { calculateScrollProgress } from '@utils/scroll-progress';
 import { FunctionalComponent } from 'preact';
 import { useEffect } from 'preact/hooks';
@@ -19,19 +19,14 @@ import { Skills } from './sections/Skills';
 
 export const Content: FunctionalComponent = () => {
     const touchDevice = 'ontouchstart' in window;
+    const sections = useSections();
     const media = useMedia();
 
     useEffect(() => {
         const subscription = fromEvent(window, 'scroll').subscribe(() => {
-            scp.next(
-                calculateScrollProgress(
-                    sections.store
-                        .getState()
-                        .slice(1)
-                        .map((v) => v.id)
-                )
-            );
+            scp.next(calculateScrollProgress(sections.data.slice(1).map((v) => v.id)));
         });
+
         return () => subscription.unsubscribe();
     }, []);
 

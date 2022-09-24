@@ -1,9 +1,8 @@
 import { Link } from '@components/Link';
 import { RunningBanner } from '@components/RunningBanner';
-import { sections } from '@store/sections';
+import { useSections } from '@hooks/useSections';
 import { track } from '@utils/ackee';
 import { clamp } from '@utils/math';
-import { useStore } from 'effector-react';
 import { createRef, FunctionalComponent, RefObject } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { fromEvent } from 'rxjs';
@@ -13,9 +12,9 @@ import styles from './Navigation.module.scss';
 export const Navigation: FunctionalComponent = () => {
     const [visibility, setVisibility] = useState(0);
     const [navOpen, setNavOpen] = useState(false);
-    const pageSections = useStore(sections.store);
     const navItems: Array<RefObject<HTMLAnchorElement>> = [];
     const bar = createRef<HTMLDivElement>();
+    const sections = useSections();
 
     const updateBar = (offset = 0, partial = 0): void => {
         if (bar.current) {
@@ -82,7 +81,7 @@ export const Navigation: FunctionalComponent = () => {
                 </div>
 
                 <div className={styles.links} style={{ '--progress': visibility }}>
-                    {pageSections
+                    {sections.data
                         .filter((v) => !v.hideNavigationItem)
                         .map((section, index) => {
                             const element = createRef<HTMLAnchorElement>();

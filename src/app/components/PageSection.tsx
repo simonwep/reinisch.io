@@ -1,5 +1,5 @@
 import { Link } from '@components/Link';
-import { sections } from '@store/sections';
+import { useSections } from '@hooks/useSections';
 import { clamp } from '@utils/math';
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
@@ -17,17 +17,15 @@ interface Props {
 
 export const PageSection: FunctionalComponent<Props> = (props) => {
     const [visibility, setVisibility] = useState(0);
+    const sections = useSections({
+        id: props.id,
+        title: props.title,
+        hideNavigationItem: props.hideNavigationItem,
+    });
 
     useEffect(() => {
-        sections.sync({
-            id: props.id,
-            title: props.title,
-            hideNavigationItem: props.hideNavigationItem,
-        });
-
         const subscription = scp.subscribe(([step, subStep]) => {
-            const index = sections.store.getState().findIndex((v) => v.id === props.id) - 1;
-
+            const index = sections.data.findIndex((v) => v.id === props.id) - 1;
             setVisibility(clamp(step - index + subStep, 0, 2));
         });
 

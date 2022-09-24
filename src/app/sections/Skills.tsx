@@ -139,7 +139,7 @@ export const Skills: FunctionalComponent = () => {
     };
 
     return (
-        <PageSection title="Skills" id="skills" intro="Tap a card to learn more about it :)">
+        <PageSection title="Skills" id="skills" intro="Tools, frameworks and more I work / have worked with">
             <div className={styles.skills}>
                 {skills.map((value, index) => (
                     <div key={value.name} style={{ '--open-color': colors[index] }}>

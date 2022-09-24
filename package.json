@@ -30,8 +30,6 @@
     },
     "dependencies": {
         "ackee-tracker": "^5.1.0",
-        "effector": "^22.3.0",
-        "effector-react": "^22.1.6",
         "normalize.css": "^8.0.1",
         "preact": "^10.10.6",
         "rxjs": "^7.5.6"
