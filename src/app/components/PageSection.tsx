@@ -1,10 +1,9 @@
 import { Link } from '@components/Link';
-import { useSections } from '@hooks/useSections';
+import { useStore } from '@hooks/useStore';
 import { clamp } from '@utils/math';
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { JSXInternal } from 'preact/src/jsx';
-import { scp } from '../rx';
 import styles from './PageSection.module.scss';
 
 interface Props {
@@ -17,20 +16,21 @@ interface Props {
 
 export const PageSection: FunctionalComponent<Props> = (props) => {
     const [visibility, setVisibility] = useState(0);
-    const sections = useSections({
-        id: props.id,
-        title: props.title,
-        hideNavigationItem: props.hideNavigationItem,
-    });
+    const store = useStore();
 
     useEffect(() => {
-        const subscription = scp.subscribe(([step, subStep]) => {
-            const index = sections.data.findIndex((v) => v.id === props.id) - 1;
-            setVisibility(clamp(step - index + subStep, 0, 2));
+        store.addSection({
+            id: props.id,
+            title: props.title,
+            hideNavigationItem: props.hideNavigationItem,
         });
-
-        return () => subscription.unsubscribe();
     }, []);
+
+    useEffect(() => {
+        const index = store.sections.findIndex((section) => section.id === props.id) - 1;
+        const [offset, partial] = store.scrollOffset;
+        setVisibility(clamp(offset - index + partial, 0, 2));
+    }, [store.scrollOffset]);
 
     return (
         <div

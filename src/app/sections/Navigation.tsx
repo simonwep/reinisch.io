@@ -1,12 +1,10 @@
 import { Link } from '@components/Link';
 import { RunningBanner } from '@components/RunningBanner';
-import { useSections } from '@hooks/useSections';
+import { useStore } from '@hooks/useStore';
 import { track } from '@utils/ackee';
 import { clamp } from '@utils/math';
 import { createRef, FunctionalComponent, RefObject } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { fromEvent } from 'rxjs';
-import { scp } from '../rx';
 import styles from './Navigation.module.scss';
 
 export const Navigation: FunctionalComponent = () => {
@@ -14,7 +12,9 @@ export const Navigation: FunctionalComponent = () => {
     const [navOpen, setNavOpen] = useState(false);
     const navItems: Array<RefObject<HTMLAnchorElement>> = [];
     const bar = createRef<HTMLDivElement>();
-    const sections = useSections();
+    const store = useStore();
+
+    const closeNav = () => setNavOpen(false);
 
     const updateBar = (offset = 0, partial = 0): void => {
         if (bar.current) {
@@ -47,19 +47,16 @@ export const Navigation: FunctionalComponent = () => {
 
     // Burger menu
     useEffect(() => {
-        const closeBurger = navOpen ? fromEvent(window, 'click').subscribe(() => setNavOpen(false)) : null;
-        return () => closeBurger?.unsubscribe();
+        navOpen && window.addEventListener('click', closeNav);
+        return () => window.removeEventListener('click', closeNav);
     }, [navOpen]);
 
     // Nav-items bar
     useEffect(() => {
-        const subscription = scp.subscribe(([offset, partial]) => {
-            setVisibility(offset + partial);
-            updateBar(offset, partial);
-        });
-
-        return () => subscription.unsubscribe();
-    }, [bar.current, navItems]);
+        const [offset, partial] = store.scrollOffset;
+        setVisibility(offset + partial);
+        updateBar(offset, partial);
+    }, [store.scrollOffset]);
 
     const onNavigation = (): void => {
         track.general.navigated();
@@ -81,7 +78,7 @@ export const Navigation: FunctionalComponent = () => {
                 </div>
 
                 <div className={styles.links} style={{ '--progress': visibility }}>
-                    {sections.data
+                    {store.sections
                         .filter((v) => !v.hideNavigationItem)
                         .map((section, index) => {
                             const element = createRef<HTMLAnchorElement>();

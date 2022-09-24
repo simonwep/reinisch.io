@@ -1,19 +1,17 @@
+import { useStore } from '@hooks/useStore';
 import { clamp } from '@utils/math';
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { scp } from './rx';
 import styles from './ScrollIndicator.module.scss';
 
 export const ScrollIndicator: FunctionalComponent = () => {
     const [progress, setProgress] = useState(0);
+    const store = useStore();
 
     useEffect(() => {
-        const subscription = scp.subscribe(([full, sub]) => {
-            setProgress(clamp(full + sub, 0, 2));
-        });
-
-        return () => subscription.unsubscribe();
-    });
+        const [offset, partial] = store.scrollOffset;
+        setProgress(clamp(offset + partial, 0, 2));
+    }, [store.scrollOffset]);
 
     return (
         <div

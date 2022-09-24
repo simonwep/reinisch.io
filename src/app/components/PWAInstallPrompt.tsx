@@ -3,7 +3,6 @@ import { track } from '@utils/ackee';
 import { uid } from '@utils/uid';
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { fromEvent } from 'rxjs';
 import styles from './PWAInstallPrompt.module.scss';
 
 export const PWAInstallPrompt: FunctionalComponent = () => {
@@ -45,10 +44,11 @@ export const PWAInstallPrompt: FunctionalComponent = () => {
         setEvent(null);
     };
 
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     useEffect(() => {
-        const subscription = fromEvent<BeforeInstallPromptEvent>(window, 'beforeinstallprompt').subscribe(installEvent);
+        window.addEventListener('beforeinstallprompt' as any, installEvent);
         return () => {
-            subscription.unsubscribe();
+            window.removeEventListener('beforeinstallprompt' as any, installEvent);
             clearTimeout(installTimeout);
         };
     }, []);

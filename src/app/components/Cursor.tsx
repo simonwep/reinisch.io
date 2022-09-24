@@ -1,6 +1,5 @@
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { fromEvent, merge } from 'rxjs';
 import styles from './Cursor.module.scss';
 
 type State = {
@@ -11,13 +10,6 @@ type State = {
     focus: boolean;
 };
 
-const mouseEvents = merge(
-    fromEvent<MouseEvent>(document, 'mouseup'),
-    fromEvent<MouseEvent>(document, 'mousedown'),
-    fromEvent<MouseEvent>(document, 'mousemove'),
-    fromEvent<MouseEvent>(document, 'mouseleave')
-);
-
 export const Cursor: FunctionalComponent = () => {
     const [cursor, setCursor] = useState<State>({
         x: 0,
@@ -27,37 +19,46 @@ export const Cursor: FunctionalComponent = () => {
         focus: false,
     });
 
-    useEffect(() => {
-        const subscription = mouseEvents.subscribe((event: MouseEvent) => {
-            switch (event.type) {
-                case 'mouseup': {
-                    setCursor({ ...cursor, pressed: false });
-                    break;
-                }
-                case 'mousedown': {
-                    setCursor({ ...cursor, pressed: true });
-                    break;
-                }
-                case 'mousemove': {
-                    setCursor({
-                        x: event.clientX,
-                        y: event.clientY,
-                        visible: true,
-                        pressed: cursor.pressed,
-                        focus: event
-                            .composedPath()
-                            .some((el) => el instanceof HTMLElement && el.getAttribute('data-cursor-focus')),
-                    });
-                    break;
-                }
-                case 'mouseleave': {
-                    setCursor({ ...cursor, visible: false });
-                    break;
-                }
+    const handleMouseEvent = (event: MouseEvent) => {
+        switch (event.type) {
+            case 'mouseup': {
+                setCursor({ ...cursor, pressed: false });
+                break;
             }
-        });
+            case 'mousedown': {
+                setCursor({ ...cursor, pressed: true });
+                break;
+            }
+            case 'mousemove': {
+                setCursor({
+                    x: event.clientX,
+                    y: event.clientY,
+                    visible: true,
+                    pressed: cursor.pressed,
+                    focus: event
+                        .composedPath()
+                        .some((el) => el instanceof HTMLElement && el.getAttribute('data-cursor-focus')),
+                });
+                break;
+            }
+            case 'mouseleave': {
+                setCursor({ ...cursor, visible: false });
+                break;
+            }
+        }
+    };
 
-        return () => subscription.unsubscribe();
+    useEffect(() => {
+        document.addEventListener('mouseup', handleMouseEvent);
+        document.addEventListener('mousedown', handleMouseEvent);
+        document.addEventListener('mousemove', handleMouseEvent);
+        document.addEventListener('mouseleave', handleMouseEvent);
+        return () => {
+            document.removeEventListener('mouseup', handleMouseEvent);
+            document.removeEventListener('mousedown', handleMouseEvent);
+            document.removeEventListener('mousemove', handleMouseEvent);
+            document.removeEventListener('mouseleave', handleMouseEvent);
+        };
     });
 
     return (

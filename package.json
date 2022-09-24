@@ -31,7 +31,6 @@
     "dependencies": {
         "ackee-tracker": "^5.1.0",
         "normalize.css": "^8.0.1",
-        "preact": "^10.10.6",
-        "rxjs": "^7.5.6"
+        "preact": "^10.10.6"
     }
 }

@@ -1,7 +1,8 @@
 import { Slogan, SpinningHeadline } from '@components/SpinningHeadline';
-import { useSections } from '@hooks/useSections';
+import { useStore } from '@hooks/useStore';
 import { cn } from '@utils/preact-utils';
 import { FunctionalComponent } from 'preact';
+import { useEffect } from 'preact/hooks';
 import styles from './Header.module.scss';
 
 const slogans: Array<Slogan> = [
@@ -97,7 +98,11 @@ const slogans: Array<Slogan> = [
 ];
 
 export const Header: FunctionalComponent = () => {
-    useSections({ id: 'home', title: 'Home' });
+    const store = useStore();
+
+    useEffect(() => {
+        store.addSection({ id: 'home', title: 'Home' });
+    }, []);
 
     return (
         <header
