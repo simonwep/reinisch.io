@@ -1,0 +1,10 @@
+{
+    "include": ["vite.config.ts", "public/*.json"],
+    "compilerOptions": {
+        "composite": true,
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true
+    }
+}

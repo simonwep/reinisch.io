@@ -1,26 +1,16 @@
-/**
- * Utility to create a single class-name based on an object or array.
- * @param values
- */
-export function cn(...values: Array<string | undefined | { [key: string]: boolean }>): string {
-    const classNames: Array<string> = [];
+type ClassRecord = Record<string, unknown>;
 
-    for (const item of values) {
-        switch (typeof item) {
-            case 'object': {
-                for (const [key, val] of Object.entries(item)) {
-                    if (val) {
-                        classNames.push(key);
-                    }
-                }
+export type ClassNames = string | undefined | ClassRecord | (string | undefined | boolean | ClassRecord | ClassNames)[];
 
-                break;
-            }
-            case 'string': {
-                classNames.push(item);
-            }
-        }
-    }
-
-    return classNames.join(' ');
-}
+export const c = (...values: ClassNames[]): string =>
+    values
+        .flat(20) // https://github.com/microsoft/TypeScript/issues/36554#ref-issue-573235851
+        .filter(Boolean)
+        .flatMap((value) => {
+            return typeof value === 'object'
+                ? Object.entries(value)
+                      .filter(([, value]) => value)
+                      .map(([key]) => String(key))
+                : String(value);
+        })
+        .join(' ');

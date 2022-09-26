@@ -2,7 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 a {
@@ -21,7 +25,8 @@ button {
 
 html,
 body {
-    @include size(100%);
+    width: 100%;
+    height: 100%;
     scrollbar-width: none;
     background: var(--c-background);
 }

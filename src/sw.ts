@@ -1,5 +1,3 @@
-// eslint-disable @typescript-eslint/no-misused-promises
-// See https://github.com/Microsoft/TypeScript/issues/11781
 declare let self: ServiceWorkerGlobalScope & {
     __WB_MANIFEST: { revision: string; url: string }[];
 };
@@ -59,11 +57,7 @@ self.addEventListener('fetch', (ev) => {
                     await cache.put(ev.request, res.clone());
                     return res;
                 })
-                .catch(() => {
-                    return fetch('/');
-                });
+                .catch(() => fetch('/'));
         })
     );
 });
-
-export {};
