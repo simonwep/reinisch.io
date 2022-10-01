@@ -1,0 +1,44 @@
+.backToTopButton {
+    --size: 75px;
+    --thickness: 2px;
+    --margin: 25px;
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: var(--size);
+    height: var(--size);
+    margin-bottom: var(--margin);
+
+    .line,
+    .link {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: var(--c-primary);
+    }
+
+    .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        writing-mode: vertical-rl;
+        width: calc(var(--thickness) + var(--step-2) * var(--margin));
+        height: calc(50% + var(--step-1) * 50%);
+        margin-right: calc(var(--margin) - var(--step-2) * var(--margin));
+
+        .text {
+            opacity: var(--step-3);
+            color: var(--c-background);
+            font-family: var(--font-family-monospace);
+            font-weight: 800;
+        }
+    }
+
+    .line {
+        height: var(--thickness);
+        width: calc(50% - var(--step-1) * 50%);
+        margin-right: var(--margin);
+    }
+}

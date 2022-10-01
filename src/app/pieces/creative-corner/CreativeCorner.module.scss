@@ -1,11 +1,11 @@
 $letterSpacing: 3px;
 
 .creativeCorner {
-    color: var(--c-primary);
     position: fixed;
+    color: var(--c-primary);
     font-family: var(--font-family-monospace);
-    margin: 25px;
     font-size: var(--font-size-xl);
+    margin: 25px;
 
     > span {
         position: absolute;
