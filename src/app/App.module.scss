@@ -1,0 +1,10 @@
+.app {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+.content {
+    margin: 0 var(--app-margin);
+    height: 100%;
+}

@@ -1,0 +1,27 @@
+$letterSpacing: 3px;
+
+.creativeCorner {
+    color: var(--c-primary);
+    position: fixed;
+    font-family: var(--font-family-monospace);
+    margin: 25px;
+    font-size: var(--font-size-xl);
+
+    > span {
+        position: absolute;
+        letter-spacing: #{$letterSpacing};
+
+        &:first-child {
+            top: calc(0.2em + #{$letterSpacing} / 2);
+        }
+
+        &:last-child {
+            left: calc(0.85em + #{$letterSpacing} * 2);
+            writing-mode: vertical-lr;
+
+            > span {
+                opacity: 0;
+            }
+        }
+    }
+}

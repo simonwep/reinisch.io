@@ -1,0 +1,39 @@
+.greeting {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family-monospace);
+    color: var(--c-primary);
+    padding-bottom: 100px;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 115px;
+    width: 80vw;
+
+    .title {
+        font-size: 140px;
+        margin-left: -1ch;
+    }
+
+    .subTitle {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 50% {
+        visibility: visible;
+    }
+    51%, 100% {
+        visibility: hidden;
+    }
+}
+
+.cursor {
+    animation: blink 1.5s infinite;
+}

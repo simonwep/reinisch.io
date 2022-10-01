@@ -7,11 +7,11 @@ declare module '*.jpg';
 declare module '*.webp';
 
 interface ImportMetaEnv {
-    readonly BUILD_TIME: number;
+  readonly BUILD_TIME: number;
 }
 
 interface ImportMeta {
-    readonly env: ImportMetaEnv;
+  readonly env: ImportMetaEnv;
 }
 
 /**
@@ -22,31 +22,31 @@ interface ImportMeta {
  * @deprecated Only supported on Chrome and Android Webview.
  */
 interface BeforeInstallPromptEvent extends Event {
-    /**
-     * Returns an array of DOMString items containing the platforms on which the event was dispatched.
-     * This is provided for user agents that want to present a choice of versions to the user such as,
-     * for example, "web" or "play" which would allow the user to chose between a web version or
-     * an Android version.
-     */
-    readonly platforms: Array<string>;
+  /**
+   * Returns an array of DOMString items containing the platforms on which the event was dispatched.
+   * This is provided for user agents that want to present a choice of versions to the user such as,
+   * for example, "web" or "play" which would allow the user to chose between a web version or
+   * an Android version.
+   */
+  readonly platforms: Array<string>;
 
-    /**
-     * Returns a Promise that resolves to a DOMString containing either "accepted" or "dismissed".
-     */
-    readonly userChoice: Promise<{
-        outcome: 'accepted' | 'dismissed';
-        platform: string;
-    }>;
+  /**
+   * Returns a Promise that resolves to a DOMString containing either "accepted" or "dismissed".
+   */
+  readonly userChoice: Promise<{
+    outcome: 'accepted' | 'dismissed';
+    platform: string;
+  }>;
 
-    /**
-     * Allows a developer to show the installation prompt at a time of their own choosing.
-     * This method returns a Promise.
-     */
-    prompt(): Promise<void>;
+  /**
+   * Allows a developer to show the installation prompt at a time of their own choosing.
+   * This method returns a Promise.
+   */
+  prompt(): Promise<void>;
 }
 
 declare namespace JSXInternal {
-    interface HTMLAttributes {
-        style: Record<string, string>;
-    }
+  interface HTMLAttributes {
+    style: Record<string, string>;
+  }
 }

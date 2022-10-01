@@ -4,4 +4,16 @@
 
 :root {
 
+    // Text
+    --font-family-monospace: 'Noto Sans Mono', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+    --font-family-sans-serif: 'Noto Sans', Constantia, 'Lucida Bright', Lucidabright, 'Lucida Serif', Lucida, 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', Georgia, serif;
+
+    --font-size-xl: 24px;
+
+    // Colors
+    --c-background: #0c0f13;
+    --c-primary: #39ffd4;
+
+    // Layout
+    --app-margin: clamp(100px, 15%, 250px);
 }

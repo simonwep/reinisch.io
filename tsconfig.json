@@ -18,6 +18,15 @@
         "noEmit": true,
         "jsx": "preserve",
         "jsxFactory": "h",
-        "jsxFragmentFactory": "Fragment"
+        "jsxFragmentFactory": "Fragment",
+        "baseUrl": ".",
+        "types": [
+            "vite-plugin-pwa/client"
+        ],
+        "paths": {
+            "@components": ["src/components/index.ts"],
+            "@hooks": ["src/hooks/index.ts"],
+            "@utils/*": ["src/utils/*"]
+        }
     }
 }

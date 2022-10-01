@@ -1,5 +1,5 @@
 import preact from '@preact/preset-vite';
-import { resolve } from 'path';
+import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
@@ -9,6 +9,7 @@ export default defineConfig({
     plugins: [
         preact(),
         optimizeCssModules(),
+        tsconfigPaths(),
         VitePWA({
             strategies: 'injectManifest',
             registerType: 'autoUpdate',
@@ -17,17 +18,6 @@ export default defineConfig({
             srcDir: 'src',
         }),
     ],
-
-    resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.scss'],
-        alias: {
-            '@components': resolve('./src/app/components'),
-            '@config': resolve('./src/config.ts'),
-            '@hooks': resolve('./src/hooks'),
-            '@utils': resolve('./src/utils'),
-            '@store': resolve('./src/store'),
-        },
-    },
 
     css: {
         modules: {},
