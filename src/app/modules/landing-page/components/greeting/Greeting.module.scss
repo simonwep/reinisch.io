@@ -7,13 +7,17 @@
     padding-bottom: 100px;
     height: 100%;
     width: 100%;
+
+    .shadow {
+        color: var(--c-primary-accent);
+    }
 }
 
 .header {
     display: inline-flex;
     flex-direction: column;
     line-height: 115px;
-    width: 80vw;
+    width: 60%;
 
     .title {
         font-size: 140px;

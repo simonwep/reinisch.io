@@ -1,0 +1,25 @@
+.dynamicBackground {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    background-size: 150%;
+    background-position: 70% center;
+    background-image: radial-gradient(var(--c-background-secondary), var(--c-background-primary));
+
+    &,
+    &::after {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        background-repeat: repeat;
+        background-size: 10vw 10vw;
+        background: var(--c-background-secondary);
+        opacity: var(--offset);
+    }
+}

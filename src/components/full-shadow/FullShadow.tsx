@@ -5,6 +5,7 @@ import styles from './FullShadow.module.scss';
 interface Props {
   is?: keyof JSX.IntrinsicElements;
   className?: ClassNames;
+  shadowClassName?: ClassNames;
 }
 
 export const FullShadow: FunctionalComponent<Props> = (props) => {
@@ -13,7 +14,7 @@ export const FullShadow: FunctionalComponent<Props> = (props) => {
   return (
     <Tag className={c(props.className, styles.container)}>
       {props.children}
-      <div className={styles.shadow}>{props.children}</div>
+      <div className={c(props.shadowClassName, styles.shadow)}>{props.children}</div>
     </Tag>
   );
 };

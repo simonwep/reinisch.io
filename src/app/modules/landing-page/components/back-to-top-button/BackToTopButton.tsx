@@ -1,6 +1,6 @@
 import { step } from '@utils/math';
 import { FunctionalComponent } from 'preact';
-import { useScrollOffset } from '../../../hooks/useScrollOffset';
+import { useScrollOffset } from '@hooks';
 import styles from './BackToTopButton.module.scss';
 
 export const BackToTopButton: FunctionalComponent = () => {
@@ -24,7 +24,11 @@ export const BackToTopButton: FunctionalComponent = () => {
       }}
     >
       <div class={styles.line} />
-      <a class={styles.link} href="#top" onClick={backToTop}>
+      <a
+        class={styles.link}
+        href="src/app/modules/landing-page/components/back-to-top-button/BackToTopButton#top"
+        onClick={backToTop}
+      >
         <span class={styles.text}>BACK</span>
       </a>
     </div>

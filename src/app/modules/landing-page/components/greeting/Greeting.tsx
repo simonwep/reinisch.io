@@ -4,7 +4,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { AutoFontSize, FullShadow } from '@components';
 import styles from './Greeting.module.scss';
 
-const phrases: string[] = ['Simon Reinisch', 'a Frontent Magician', 'a Fullstack Wizard'];
+const phrases: string[] = ['Simon :)', 'a Frontent Magician', 'a Fullstack Wizard', 'an Open Sourcerer'];
 
 export const Greeting: FunctionalComponent = () => {
   const [phrase, setPhrase] = useState('');
@@ -37,7 +37,7 @@ export const Greeting: FunctionalComponent = () => {
 
   return (
     <div className={styles.greeting}>
-      <FullShadow className={styles.header} is="header">
+      <FullShadow className={styles.header} shadowClassName={styles.shadow} is="header">
         <h1 className={styles.title}>&lt;Hi!&#47;&gt;</h1>
         <AutoFontSize class={styles.subTitle} is="h2" maxFontSize={68} factor={1.4}>
           I&apos;m {phrase}

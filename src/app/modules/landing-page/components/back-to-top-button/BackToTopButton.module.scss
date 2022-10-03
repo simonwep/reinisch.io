@@ -9,6 +9,7 @@
     width: var(--size);
     height: var(--size);
     margin-bottom: var(--margin);
+    z-index: 10;
 
     .line,
     .link {
@@ -30,7 +31,7 @@
 
         .text {
             opacity: var(--step-3);
-            color: var(--c-background);
+            color: var(--c-background-primary);
             font-family: var(--font-family-monospace);
             font-weight: 800;
         }

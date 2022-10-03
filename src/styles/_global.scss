@@ -11,8 +11,11 @@
     --font-size-xl: 24px;
 
     // Colors
-    --c-background: #0c0f13;
+    --c-background-primary: #080a0d;
+    --c-background-secondary: #1d1c29;
+
     --c-primary: #39ffd4;
+    --c-primary-accent: #252633;
 
     // Layout
     --app-margin: clamp(100px, 15%, 250px);
