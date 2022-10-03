@@ -1,10 +1,10 @@
 import { step } from '@utils/math';
 import { FunctionalComponent } from 'preact';
-import { useScrollOffset } from '@hooks';
+import { usePageSegmentOffset } from '@hooks';
 import styles from './BackToTopButton.module.scss';
 
 export const BackToTopButton: FunctionalComponent = () => {
-  const scrollOffset = useScrollOffset({ factor: 2 });
+  const offset = usePageSegmentOffset();
 
   const backToTop = (evt: MouseEvent) => {
     evt.preventDefault();
@@ -18,9 +18,9 @@ export const BackToTopButton: FunctionalComponent = () => {
     <div
       class={styles.backToTopButton}
       style={{
-        '--step-1': step(scrollOffset, 0, 0.25),
-        '--step-2': step(scrollOffset, 0.25, 0.5),
-        '--step-3': step(scrollOffset, 0.5, 0.75),
+        '--step-1': step(offset, 0, 0.25),
+        '--step-2': step(offset, 0.5, 0.75),
+        '--step-3': step(offset, 0.75),
       }}
     >
       <div class={styles.line} />

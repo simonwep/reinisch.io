@@ -1,3 +1,4 @@
+import { usePageSegmentOffset } from '@hooks';
 import { createTicks } from '@utils/ticks';
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
@@ -8,6 +9,7 @@ const phrases: string[] = ['Simon :)', 'a Frontent Magician', 'a Fullstack Wizar
 
 export const Greeting: FunctionalComponent = () => {
   const [phrase, setPhrase] = useState('');
+  const offset = usePageSegmentOffset();
 
   useEffect(() => {
     let phraseIndex = 0;
@@ -36,7 +38,7 @@ export const Greeting: FunctionalComponent = () => {
   }, []);
 
   return (
-    <div className={styles.greeting}>
+    <div className={styles.greeting} style={{ '--offset': offset }}>
       <FullShadow className={styles.header} shadowClassName={styles.shadow} is="header">
         <h1 className={styles.title}>&lt;Hi!&#47;&gt;</h1>
         <AutoFontSize class={styles.subTitle} is="h2" maxFontSize={68} factor={1.4}>

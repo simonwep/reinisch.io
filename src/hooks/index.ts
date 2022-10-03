@@ -1,2 +1,2 @@
 export * from './useResizeObserver';
-export * from './useScrollOffset';
+export * from './usePageSegmentOffset';

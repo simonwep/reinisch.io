@@ -1,10 +1,10 @@
-import { useScrollOffset } from '@hooks';
+import { usePageSegmentOffset } from '@hooks';
 import { step } from '@utils/math';
 import { FunctionalComponent } from 'preact';
 import styles from './DynamicBackground.module.scss';
 
 export const DynamicBackground: FunctionalComponent = () => {
-  const offset = useScrollOffset();
+  const offset = usePageSegmentOffset();
 
   return (
     <div

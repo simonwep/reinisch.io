@@ -7,9 +7,15 @@
     padding-bottom: 100px;
     height: 100%;
     width: 100%;
+    opacity: calc(1 - var(--offset));
+    transform: translate(
+            calc(var(--offset) * -50px),
+            calc(var(--offset) * -50px)
+    );
 
     .shadow {
         color: var(--c-primary-accent);
+        transform: translateX(calc(var(--offset) * 100px));
     }
 }
 
@@ -18,6 +24,11 @@
     flex-direction: column;
     line-height: 115px;
     width: 60%;
+
+    .title,
+    .subTitle {
+        font-weight: var(--font-weight-m);
+    }
 
     .title {
         font-size: 140px;
