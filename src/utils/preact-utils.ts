@@ -1,5 +1,7 @@
 type ClassRecord = Record<string, unknown>;
 
+export type Styles = Record<string, undefined | string | number>;
+
 export type ClassNames = string | undefined | ClassRecord | (string | undefined | boolean | ClassRecord | ClassNames)[];
 
 export const c = (...values: ClassNames[]): string =>

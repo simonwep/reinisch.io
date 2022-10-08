@@ -1,18 +1,25 @@
 import { FunctionalComponent } from 'preact';
 import { useContext } from 'preact/compat';
-import { PageSegmentRange, PageSegmentRangeData } from './PageSegmentRange';
+import { PageSegmentContext, PageSegmentData } from './PageSegmentContext';
+import styles from './PageSegment.module.scss';
 
-export const PageSegment: FunctionalComponent<PageSegmentRangeData> = (props) => {
-  const parent = useContext(PageSegmentRange);
+interface Props extends PageSegmentData {
+  component: FunctionalComponent;
+}
+
+export const PageSegment: FunctionalComponent<Props> = (props) => {
+  const parent = useContext(PageSegmentContext);
 
   return (
-    <PageSegmentRange.Provider
+    <PageSegmentContext.Provider
       value={{
         offset: parent.offset + parent.length + props.offset,
         length: props.length,
       }}
     >
-      {props.children}
-    </PageSegmentRange.Provider>
+      <div class={styles.pageSegment}>
+        <props.component />
+      </div>
+    </PageSegmentContext.Provider>
   );
 };

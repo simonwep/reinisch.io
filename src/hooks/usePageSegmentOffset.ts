@@ -1,4 +1,4 @@
-import { PageSegmentRange } from '@components';
+import { PageSegmentContext } from '@components';
 import { step } from '@utils/math';
 import { useContext } from 'preact/compat';
 import { useEffect, useState } from 'preact/hooks';
@@ -9,7 +9,7 @@ interface Options {
 }
 
 export const usePageSegmentOffset = (options?: Options) => {
-  const segment = useContext(PageSegmentRange);
+  const segment = useContext(PageSegmentContext);
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
