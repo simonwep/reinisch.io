@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     font-size: var(--font-size-l);
-    font-weight: var(--font-sans-serif-weight-m);
+    font-weight: var(--font-sans-serif-weight-s);
     line-height: var(--line-height-l);
     opacity: var(--visibility);
 
@@ -22,21 +22,21 @@
     }
 
     .switchButton {
+        --hue: calc(var(--percentage) * 360deg);
+
         all: unset;
         cursor: pointer;
         margin-top: auto;
         margin-right: auto;
-        background: var(--c-purple);
-        color: var(--c-purple-text);
-        box-shadow: var(--c-purple-shadow);
+        background: hsl(var(--hue), var(--c-dynamic));
+        color: hsl(var(--hue), var(--c-dynamic-text));
         padding: 8px 16px;
-        border-radius: var(--border-radius-m);
         font-size: var(--font-size-s);
+        transition: all var(--transition-l);
 
         &:hover {
-            background: var(--c-purple-hover);
-            color: var(--c-purple-hover-text);
-            box-shadow: var(--c-purple-hover-shadow);
+            background: hsl(var(--hue), var(--c-dynamic-hover));
+            color: hsl(var(--hue), var(--c-dynamic-text-hover));
         }
     }
 }

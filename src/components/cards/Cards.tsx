@@ -7,6 +7,8 @@ import { CardsContext } from './context';
 interface Props {
   className?: ClassNames;
   closed?: boolean;
+
+  onCardChange?: (index: number) => void;
 }
 
 export const Cards: FunctionalComponent<Props> = (props) => {
@@ -17,7 +19,11 @@ export const Cards: FunctionalComponent<Props> = (props) => {
   const cardsCount = root?.childElementCount ?? 0;
 
   const nextCard = () => {
-    setVisibleCardIndex((index) => (index + 1 > cardsCount ? 0 : index + 1));
+    setVisibleCardIndex((index) => {
+      const next = index + 1 > cardsCount ? 0 : index + 1;
+      props.onCardChange?.(next);
+      return next;
+    });
   };
 
   return (

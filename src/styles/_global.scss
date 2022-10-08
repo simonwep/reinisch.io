@@ -8,6 +8,7 @@
     --font-family-monospace: 'Noto Sans Mono', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
     --font-family-sans-serif: 'Noto Sans', Constantia, 'Lucida Bright', Lucidabright, 'Lucida Serif', Lucida, 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', Georgia, serif;
 
+    --font-size-xxs: 8px;
     --font-size-xs: 12px;
     --font-size-s: 14px;
     --font-size-m: 16px;
@@ -15,7 +16,7 @@
     --font-size-xl: 24px;
 
     --font-monospace-weight-s: 300;
-    --font-monospace-weight-m: 600;
+    --font-monospace-weight-m: 400;
 
     --font-sans-serif-weight-s: 300;
     --font-sans-serif-weight-m: 600;
@@ -24,6 +25,7 @@
     --line-height-l: 1.65;
 
     // General
+    --border-radius-s: 3px;
     --border-radius-m: 6px;
     --border-radius-l: 12px;
     --border-radius-xl: 16px;
@@ -35,6 +37,14 @@
     // Theme colors
     --c-primary: #39ffd4;
     --c-primary-accent: #252633;
+
+    // Dynamic colors ([hue], saturation, lightness, alpha)
+    --c-dynamic: 25%, 50%;
+    --c-dynamic-shadow: 25%, 60%, 60%;
+    --c-dynamic-hover: 30%, 60%;
+    --c-dynamic-shadow-hover: 25%, 60%, 45%;
+    --c-dynamic-text: 60%, 90%;
+    --c-dynamic-text-hover: 70%, 95%;
 
     // Base colors
     --c-dark: #080a0d;

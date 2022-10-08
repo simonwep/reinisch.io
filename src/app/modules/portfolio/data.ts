@@ -22,7 +22,7 @@ export const portfolio: Portfolio = {
     },
     {
       title: 'Viselect',
-      description: 'Powerful, visual element-selection engine.\n Select elements just like on your desktop!',
+      description: 'Powerful, visual element-selection engine. Select elements just like on your desktop!',
       homepage: 'https://simonwep.github.io/selection',
       tags: ['ts', 'ui', 'ux', 'library'],
       link: 'https://github.com/Simonwep/selection',
@@ -42,7 +42,7 @@ export const portfolio: Portfolio = {
     },
     {
       title: 'Nason',
-      description: 'Ultra tiny serializer / encoder with plugin-support.',
+      description: 'Ultra tiny serializer / encoder with plugin-support for complex JavaScript values.',
       tags: ['ts', 'json', 'binary', 'serialization'],
       link: 'https://github.com/Simonwep/nason',
     },
@@ -54,14 +54,16 @@ export const portfolio: Portfolio = {
     },
     {
       title: 'Spectrum',
-      description: 'A web-based audio spectrum analyzer.',
+      description:
+        'A web-based audio spectrum analyzer. Can be used to render the spectrum of an audio-file or using a live audio device!',
       homepage: 'https://spectrum.reinisch.io',
       tags: ['pwa', 'ts'],
       link: 'https://github.com/Simonwep/spectrum',
     },
     {
       title: 'OpenVPN Pihole',
-      description: 'OpenVPN and Pihole wrapped up in a docker-compose setup.',
+      description:
+        'OpenVPN and PiHole wrapped up in a docker-compose setup. Useful if you want to use PiHole with mobile data.',
       tags: ['docker', 'openvpn', 'pihole'],
       link: 'https://github.com/Simonwep/openvpn-pihole',
     },
@@ -69,63 +71,64 @@ export const portfolio: Portfolio = {
   archived: [
     {
       title: 'Pickr',
-      description: 'Flat, simple, multi-themed, responsive and hackable colorpicker.',
+      description: 'Flat, simple, multi-themed, responsive and hackable color-picker.',
       homepage: 'https://simonwep.github.io/pickr',
       tags: ['js', 'ui', 'ux', 'widget'],
       link: 'https://github.com/Simonwep/pickr',
     },
     {
       title: 'Conway',
-      description: 'Supercharged version of conways game of life build with wasm and web-workers.',
+      description: 'Supercharged version of conways game of life build with wasm, rust and web-workers.',
       homepage: 'https://conway.reinisch.io',
       tags: ['preact', 'ts', 'game', 'wasm', 'pwa'],
       link: 'https://github.com/Simonwep/conway',
     },
     {
       title: 'Bavary',
-      description: 'Regular expressions on steroids. A custom language which can be used to parse sytax.',
+      description: 'Regular expressions on steroids. A custom language which can be used to parse syntax.',
       tags: ['ts', 'regex', 'language'],
       link: 'https://github.com/Simonwep/bavary',
     },
     {
       title: 'Candy',
-      description: 'Cross platform youtube downloader and converter using ffmpeg.',
+      description: 'Cross-platform youtube-downloader and converter using ffmpeg and electron.',
       tags: ['electron', 'vue', 'youtube', 'downloader', 'app'],
       link: 'https://github.com/Simonwep/candy',
     },
     {
       title: 'Vue Cloudfront',
-      description: 'A PWA cloudfront to manage all your files in real time.',
+      description: 'A self-hosted google-drive clone with real-time synchronization capabilities.',
       tags: ['vue', 'app', 'pwa', 'cloud'],
       link: 'https://github.com/ovanta/vue-cloudfront',
     },
     {
       title: 'Vue Blogfront',
-      description: 'An self-hosted blog app, wrapped up in a PWA.',
+      description: 'An self-hosted blog application.',
       tags: ['vue', 'app', 'pwa', 'blog'],
       link: 'https://github.com/ambrest/vue-blogfront',
     },
     {
       title: 'Intl Demo',
-      description: 'Interactive demo of the ECMAScript Internationalization API.',
+      description: 'Interactive demo of the (previously new) ECMAScript Internationalization API.',
       tags: ['preact', 'ui', 'demo', 'app', 'pwa'],
       link: 'https://github.com/Simonwep/intl-demo',
     },
     {
       title: 'Beam Cafe',
-      description: 'Blazing fast file-transfer app. Share files without uploading them.',
+      description: 'Blazing fast, self-hosted (almost peer-to-peer) file-sharing app.',
       tags: ['preact', 'ui', 'app', 'pwa'],
       link: 'https://github.com/dot-cafe/beam.cafe',
     },
     {
       title: 'OpenVPN Access',
-      description: "Free, open-source alternative to OpenVPN's access service.",
+      description:
+        "Free, open-source alternative to OpenVPN's access service. Used to manage and orchestrate an OpenVPN network.",
       tags: ['openvpn', 'docker', 'app', 'pwa'],
       link: 'https://github.com/openvpn-access/openvpn-access',
     },
     {
       title: 'Presentr',
-      description: 'Simple, tiny, presentation framework I created for high school presentations.',
+      description: 'Simple and tiny vanilla-js presentation framework.',
       tags: ['js', 'presentation', 'framework'],
       link: 'https://github.com/Simonwep/presentr',
     },

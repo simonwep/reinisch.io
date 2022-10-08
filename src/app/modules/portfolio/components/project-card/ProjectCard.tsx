@@ -24,6 +24,12 @@ export const ProjectCard: FunctionalComponent<Props> = (props) => {
 
       <article class={styles.description}>{props.project.description}</article>
 
+      <p class={styles.tags}>
+        {props.project.tags.map((value, index) => (
+          <span key={index}>{value}</span>
+        ))}
+      </p>
+
       <div class={styles.actions}>
         {props.project.homepage && (
           <Link href={props.project.homepage}>
