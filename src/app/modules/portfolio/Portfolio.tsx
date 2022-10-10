@@ -1,4 +1,4 @@
-import { Cards } from '@components';
+import { Cards, DynamicText } from '@components';
 import { usePageSegmentOffset } from '@hooks';
 import { clamp } from '@utils/math';
 import { c } from '@utils/preact-utils';
@@ -40,9 +40,13 @@ export const Portfolio: FunctionalComponent = () => {
           style={{ '--percentage': (cardCount - activeCardIndex - 1) / cardCount }}
           onClick={toggleView}
         >
-          {view === 'active'
-            ? `Show me the archive (${portfolio.archived.length} Projects)`
-            : `Switch to latest (${portfolio.active.length} Projects)`}
+          <DynamicText
+            text={
+              view === 'active'
+                ? `Show me the archive (${portfolio.archived.length} Projects)`
+                : `Switch to latest (${portfolio.active.length} Projects)`
+            }
+          />
         </button>
       </div>
 

@@ -2,6 +2,7 @@
     position: fixed;
     color: var(--c-primary);
     font-family: var(--font-family-monospace);
+    font-weight: var(--font-monospace-weight-s);
     font-size: var(--font-size-xl);
     margin: 25px;
 
@@ -10,11 +11,11 @@
         letter-spacing: 3px;
 
         &:first-child {
-            top: calc(0.2em + 6px / 2);
+            top: calc(0.1em + 6px / 2);
         }
 
         &:last-child {
-            left: calc(0.85em + 8px);
+            left: calc(0.8em + 8px);
             writing-mode: vertical-lr;
 
             > span {

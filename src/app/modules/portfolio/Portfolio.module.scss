@@ -28,6 +28,7 @@
         cursor: pointer;
         margin-top: auto;
         margin-right: auto;
+        overflow: hidden;
         background: hsl(var(--hue), var(--c-dynamic));
         color: hsl(var(--hue), var(--c-dynamic-text));
         padding: 8px 16px;

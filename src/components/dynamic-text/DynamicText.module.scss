@@ -1,0 +1,47 @@
+.dynamicText {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+        transform: translateY(calc(-100% - 1ch));
+    }
+}
+
+.oldText {
+    position: absolute;
+    white-space: nowrap;
+    left: 0;
+    top: 0;
+
+    .letter {
+        animation: fade-out var(--transition-m) ease-out forwards;
+        animation-delay: calc(var(--offset) * var(--transition-m));
+    }
+}
+
+.newText {
+    .letter {
+        animation: fade-in var(--transition-m) ease-out forwards;
+        animation-delay: calc(var(--offset) * var(--transition-m));
+        transform: translateY(calc(100% + 1ch));
+        opacity: 0;
+    }
+}
+
+.letter {
+    display: inline-block;
+    white-space: pre;
+}
+
