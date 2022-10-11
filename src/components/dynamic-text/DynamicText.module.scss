@@ -15,7 +15,7 @@
 @keyframes fade-out {
     to {
         opacity: 0;
-        transform: translateY(calc(-100% - 1ch));
+        transform: translateY(calc(-100% - 1ch)) rotateX(-180deg);
     }
 }
 
@@ -35,7 +35,7 @@
     .letter {
         animation: fade-in var(--transition-m) ease-out forwards;
         animation-delay: calc(var(--offset) * var(--transition-m));
-        transform: translateY(calc(100% + 1ch));
+        transform: translateY(calc(100% + 1ch)) rotateX(180deg);
         opacity: 0;
     }
 }

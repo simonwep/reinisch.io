@@ -2,12 +2,12 @@
     --padding-x: 10px;
     --padding-y: 16px;
     --padding: var(--padding-y) var(--padding-x);
-    --hue: calc(var(--percentage) * 360deg);
+    --hue: calc(180deg + var(--percentage) * 160deg);
 
     display: flex;
     flex-direction: column;
     background: var(--c-light);
-    box-shadow: 0 0 15px 0 black;
+    box-shadow: 0 0 15px 0 var(--c-theme-background);
     font-weight: var(--font-sans-serif-weight-s);
     color: var(--c-light-text);
 }
@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     background: hsl(var(--hue), var(--c-dynamic));
-    color: var(--c-purple-text);
+    color: var(--c-light-pure);
     padding: 0 16px;
     height: 40px;
 

@@ -2,7 +2,7 @@ import { c, ClassNames, Styles } from '@utils/preact-utils';
 import { FunctionalComponent } from 'preact';
 import { useContext } from 'preact/compat';
 import { useLayoutEffect, useState } from 'preact/hooks';
-import { useAnimationSteps } from '../../hooks/useAnimationSteps';
+import { useAnimationSteps } from '@hooks';
 import { CardsContext } from './context';
 import styles from './Card.module.scss';
 

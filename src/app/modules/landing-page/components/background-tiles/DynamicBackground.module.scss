@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     background-size: 150%;
     background-position: 70% center;
-    background-image: radial-gradient(var(--c-dark-accent), var(--c-dark));
+    background-image: radial-gradient(var(--c-theme-background-accent), var(--c-theme-background));
 
     &,
     &::after {
@@ -19,7 +19,7 @@
         position: absolute;
         background-repeat: repeat;
         background-size: 10vw 10vw;
-        background: var(--c-dark-accent);
+        background: var(--c-theme-background-accent);
         opacity: var(--offset);
     }
 }

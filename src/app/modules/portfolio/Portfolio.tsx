@@ -4,7 +4,7 @@ import { clamp } from '@utils/math';
 import { c } from '@utils/preact-utils';
 import { FunctionalComponent } from 'preact';
 import { useState } from 'preact/hooks';
-import { useAnimationSteps } from '../../../hooks/useAnimationSteps';
+import { useAnimationSteps } from '@hooks';
 import { ProjectCard } from './components';
 import { portfolio } from './data';
 import styles from './Portfolio.module.scss';
@@ -27,7 +27,10 @@ export const Portfolio: FunctionalComponent = () => {
   };
 
   return (
-    <div className={styles.projects} style={{ '--visibility': offset }}>
+    <div
+      className={styles.projects}
+      style={{ '--visibility': offset, '--percentage': (cardCount - activeCardIndex - 1) / cardCount }}
+    >
       <div class={styles.sideBar}>
         <article className={styles.introduction}>
           This is a curated list of projects I&apos;m currently working on and / or still actively maintaining.
@@ -35,11 +38,7 @@ export const Portfolio: FunctionalComponent = () => {
           over 30 projects - this is a selection of the most notable ones I&apos;ve been working one.
         </article>
 
-        <button
-          class={styles.switchButton}
-          style={{ '--percentage': (cardCount - activeCardIndex - 1) / cardCount }}
-          onClick={toggleView}
-        >
+        <button class={styles.switchButton} onClick={toggleView}>
           <DynamicText
             text={
               view === 'active'

@@ -34,10 +34,6 @@
     --transition-l: 450ms;
     --transition-xl: 750ms;
 
-    // Theme colors
-    --c-primary: #39ffd4;
-    --c-primary-accent: #252633;
-
     // Dynamic colors ([hue], saturation, lightness, alpha)
     --c-dynamic: 25%, 50%;
     --c-dynamic-shadow: 25%, 60%, 60%;
@@ -46,20 +42,17 @@
     --c-dynamic-text: 60%, 90%;
     --c-dynamic-text-hover: 70%, 95%;
 
+    // Theme colors
+    --c-primary: #c97fff;
+    --c-primary-accent: #2a2231;
+    --c-primary-text: #e7cefd;
+    --c-primary-shadow: #502b69;
+
     // Base colors
-    --c-dark: #080a0d;
-    --c-dark-accent: #1d1c29;
-    --c-dark-text: #ebf1ff;
-    --c-dark-accent-text: var(--c-dark-text);
+    --c-theme-background: #080a0d;
+    --c-theme-background-accent: #1d1c29;
 
     --c-light: #e6e6ff;
+    --c-light-pure: #ebf1ff;
     --c-light-text: #3a3a41;
-
-    --c-purple: #7638da;
-    --c-purple-shadow: 2px 3px 6px 0px #7638daa3;
-    --c-purple-text: #e6e6ff;
-
-    --c-purple-hover: #8043e1;
-    --c-purple-hover-shadow: 2px 3px 6px 0px #9a5bffa3;
-    --c-purple-hover-text: var(--c-purple-text);
 }

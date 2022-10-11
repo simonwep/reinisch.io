@@ -1,3 +1,3 @@
 .dynamicResize {
-    transition: all var(--transition-m);
+    transition: all var(--dynamic-resize-duration, var(--transition-m));
 }

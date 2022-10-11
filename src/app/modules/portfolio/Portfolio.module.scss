@@ -1,4 +1,6 @@
 .projects {
+    --hue: calc(180deg + var(--percentage) * 160deg);
+
     display: flex;
     position: relative;
     grid-gap: 100px;
@@ -18,12 +20,24 @@
     opacity: var(--visibility);
 
     .introduction {
-        color: var(--c-dark-text);
+        position: relative;
+        color: var(--c-primary-text);
+        transition: all var(--transition-m);
+        text-shadow: 2px 4px 0 var(--c-primary-shadow);
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 0;
+            width: 5px;
+            height: calc(var(--visibility) * 100%);
+            background: var(--c-primary-shadow);
+            transition: background var(--transition-m);
+        }
     }
 
     .switchButton {
-        --hue: calc(var(--percentage) * 360deg);
-
         all: unset;
         cursor: pointer;
         margin-top: auto;
