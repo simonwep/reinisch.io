@@ -1,41 +1,15 @@
-import { usePageSegmentOffset } from '@hooks';
-import { createTicks } from '@utils/ticks';
+import { usePageSegmentControls, usePageSegmentOffset } from '@hooks';
 import { FunctionalComponent } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
-import { AutoFontSize, FullShadow } from '@components';
+import { AutoFontSize, Button, FullShadow } from '@components';
+import { useTypingAnimation } from '@hooks';
 import styles from './Greeting.module.scss';
 
 const phrases: string[] = ['Simon :)', 'a Frontent Magician', 'a Fullstack Wizard', 'an Open Sourcerer'];
 
 export const Greeting: FunctionalComponent = () => {
-  const [phrase, setPhrase] = useState('');
+  const phrase = useTypingAnimation(phrases);
   const offset = usePageSegmentOffset();
-
-  useEffect(() => {
-    let phraseIndex = 0;
-    let charIndex = 0;
-
-    return createTicks(() => {
-      const phrase = phrases[phraseIndex];
-      let delayNext = false;
-
-      setPhrase(phrase.slice(0, charIndex));
-      charIndex++;
-
-      if (charIndex > phrase.length) {
-        charIndex = 0;
-        phraseIndex++;
-        delayNext = true;
-      }
-
-      if (phraseIndex > phrases.length - 1) {
-        phraseIndex = 0;
-        delayNext = true;
-      }
-
-      return delayNext ? [2000, 2500] : undefined;
-    }, [50, 75]);
-  }, []);
+  const controls = usePageSegmentControls();
 
   return (
     <div className={styles.greeting} style={{ '--offset': offset }}>
@@ -46,6 +20,10 @@ export const Greeting: FunctionalComponent = () => {
           <span className={styles.cursor}>_</span>
         </AutoFontSize>
       </FullShadow>
+
+      <Button className={styles.nextButton} onClick={controls.next}>
+        NEXT /// PROJECTS
+      </Button>
     </div>
   );
 };

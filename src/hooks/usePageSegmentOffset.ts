@@ -1,5 +1,6 @@
 import { PageSegmentContext } from '@components';
 import { step } from '@utils/math';
+import { scrollTop } from '@utils/scrolling';
 import { useContext } from 'preact/compat';
 import { useEffect, useState } from 'preact/hooks';
 
@@ -31,4 +32,13 @@ export const usePageSegmentOffset = (options?: Options) => {
   }, [segment, options?.range]);
 
   return offset * (options?.factor ?? 1);
+};
+
+export const usePageSegmentControls = () => {
+  const segment = useContext(PageSegmentContext);
+
+  const top = () => scrollTop(0);
+  const next = () => segment.next && scrollTop(segment.next * window.innerHeight);
+
+  return { top, next };
 };

@@ -1,18 +1,12 @@
+import { Button } from '@components';
 import { step } from '@utils/math';
 import { FunctionalComponent } from 'preact';
-import { usePageSegmentOffset } from '@hooks';
+import { usePageSegmentControls, usePageSegmentOffset } from '@hooks';
 import styles from './BackToTopButton.module.scss';
 
 export const BackToTopButton: FunctionalComponent = () => {
   const offset = usePageSegmentOffset();
-
-  const backToTop = (evt: MouseEvent) => {
-    evt.preventDefault();
-    document.scrollingElement?.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
+  const controls = usePageSegmentControls();
 
   return (
     <div
@@ -24,13 +18,9 @@ export const BackToTopButton: FunctionalComponent = () => {
       }}
     >
       <div class={styles.line} />
-      <a
-        class={styles.link}
-        href="src/app/modules/landing-page/components/back-to-top-button/BackToTopButton#top"
-        onClick={backToTop}
-      >
+      <Button className={styles.button} onClick={controls.top}>
         <span class={styles.text}>BACK</span>
-      </a>
+      </Button>
     </div>
   );
 };

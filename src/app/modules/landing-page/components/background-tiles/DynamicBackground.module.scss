@@ -1,3 +1,9 @@
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+}
+
 .dynamicBackground {
     position: fixed;
     display: flex;
@@ -5,6 +11,7 @@
     background-size: 150%;
     background-position: 70% center;
     background-image: radial-gradient(var(--c-theme-background-accent), var(--c-theme-background));
+    animation: fade-in var(--transition-m);
 
     &,
     &::after {

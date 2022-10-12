@@ -35,7 +35,7 @@ export const Portfolio: FunctionalComponent = () => {
         <article className={styles.introduction}>
           This is a curated list of projects I&apos;m currently working on and / or still actively maintaining.
           <br /> I&apos;ve been actively working on FOSS software since 2015, and over the course of the years I started
-          over 30 projects - this is a selection of the most notable ones I&apos;ve been working one.
+          over 30 (public) projects!
         </article>
 
         <button class={styles.switchButton} onClick={toggleView}>

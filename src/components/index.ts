@@ -4,6 +4,7 @@ export * from './dynamic-resize/DynamicResize';
 export * from './dynamic-text/DynamicText';
 export * from './page-segment/PageSegment';
 export * from './page-segment/PageSegmentContext';
+export * from './button/Button';
 export * from './cards/Card';
 export * from './cards/Cards';
 export * from './link/Link';

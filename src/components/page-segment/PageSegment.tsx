@@ -15,6 +15,7 @@ export const PageSegment: FunctionalComponent<Props> = (props) => {
       value={{
         offset: parent.offset + parent.length + props.offset,
         length: props.length,
+        next: props.next,
       }}
     >
       <div class={styles.pageSegment}>
