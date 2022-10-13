@@ -5,7 +5,7 @@ import { useEffect, useState } from 'preact/hooks';
 
 interface Props {
   is?: keyof JSX.IntrinsicElements;
-  class?: ClassNames;
+  className?: ClassNames;
   maxFontSize?: number;
   factor: number;
 }
@@ -25,7 +25,7 @@ export const AutoFontSize: FunctionalComponent<Props> = (props) => {
   }, [props.children, props.maxFontSize, props.factor, container, elementSize]);
 
   return (
-    <Tag className={c(props.class)} style={{ fontSize: `${fontSize}px` }} ref={setContainer}>
+    <Tag className={c(props.className)} style={{ fontSize: `${fontSize}px` }} ref={setContainer}>
       {props.children}
     </Tag>
   );

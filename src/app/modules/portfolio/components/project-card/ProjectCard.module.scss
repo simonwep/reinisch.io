@@ -71,8 +71,8 @@
         color: hsl(var(--hue), var(--c-dynamic-text));
         font-size: var(--font-size-xs);
         box-shadow: 1px 1px 4px hsla(var(--hue), var(--c-dynamic-shadow));
-        transition: var(--transition-m);
-        padding: 6px 0;
+        transition: all var(--transition-m);
+        padding: 8px 0;
 
         &:hover {
             background: hsl(var(--hue), var(--c-dynamic-hover));

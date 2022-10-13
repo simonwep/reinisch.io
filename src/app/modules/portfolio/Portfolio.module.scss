@@ -1,3 +1,5 @@
+@use 'src/styles/functions';
+
 .projects {
     --hue: calc(180deg + var(--percentage) * 160deg);
 
@@ -22,7 +24,6 @@
     .introduction {
         position: relative;
         color: var(--c-primary-text);
-        transition: all var(--transition-m);
         text-shadow: 2px 4px 0 var(--c-primary-shadow);
 
         &::after {
@@ -48,10 +49,12 @@
         padding: 8px 16px;
         font-size: var(--font-size-s);
         transition: all var(--transition-l);
+        clip-path: functions.corner-polygon(bottom-left, s);
 
         &:hover {
             background: hsl(var(--hue), var(--c-dynamic-hover));
             color: hsl(var(--hue), var(--c-dynamic-text-hover));
+            clip-path: functions.corner-polygon(bottom-left, m);
         }
     }
 }

@@ -1,6 +1,5 @@
 @import 'global/reset';
 @import 'global/fonts';
-@import 'injected';
 
 :root {
 
@@ -33,6 +32,10 @@
     --transition-m: 300ms;
     --transition-l: 450ms;
     --transition-xl: 750ms;
+
+    --corner-cutout-s: 8px;
+    --corner-cutout-m: 10px;
+    --corner-cutout-l: 14px;
 
     // Dynamic colors ([hue], saturation, lightness, alpha)
     --c-dynamic: 25%, 50%;

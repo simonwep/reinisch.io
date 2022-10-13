@@ -1,0 +1,13 @@
+@function corner-polygon($position, $size) {
+    $size: var(--corner-cutout-#{$size});
+
+    @if $position == top-left {
+        @return polygon($size 0, 100% 0, 100% 100%, $size 100%, 0 $size);
+    } @else if $position == top-right {
+        @return polygon(0 0, calc(100% - $size) 0, 100% $size, 100% 100%, 0 100%);
+    } @else if $position == bottom-right {
+        @return polygon(0 0, 100% 0, 100% calc(100% - $size), calc(100% - $size) 100%, 0 100%);
+    } @else if $position == bottom-left {
+        @return polygon(0 0, 100% 0, 100% 100%, $size 100%, 0 calc(100% - $size));
+    }
+}

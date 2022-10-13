@@ -1,3 +1,5 @@
+@use 'src/styles/functions';
+
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -68,6 +70,12 @@
     font-size: var(--font-size-m);
     font-weight: var(--font-monospace-weight-m);
     transform: translateX(calc(var(--offset) * 100px));
+    transition: clip-path var(--transition-m);
+    clip-path: functions.corner-polygon(bottom-right, s);
+
+    &:hover {
+        clip-path: functions.corner-polygon(bottom-right, m);
+    }
 }
 
 @keyframes blink {
