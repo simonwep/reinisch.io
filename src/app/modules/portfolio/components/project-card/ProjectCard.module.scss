@@ -1,15 +1,13 @@
 .projectCard {
-    --padding-x: 10px;
-    --padding-y: 16px;
-    --padding: var(--padding-y) var(--padding-x);
+    --padding: 16px;
     --hue: calc(180deg + var(--percentage) * 160deg);
 
     display: flex;
     flex-direction: column;
-    background: var(--c-light);
-    box-shadow: 0 0 15px 0 var(--c-theme-background);
+    background: var(--c-background-secondary);
+    box-shadow: 0 0 8px 0 var(--c-background-primary);
     font-weight: var(--font-sans-serif-weight-s);
-    color: var(--c-light-text);
+    color: var(--c-light);
 }
 
 .title {
@@ -44,7 +42,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 3px;
-    padding: 0 var(--padding-x) var(--padding-y);
+    padding: 0 var(--padding) var(--padding);
 
     > span {
         background: hsl(var(--hue), var(--c-dynamic));
@@ -67,17 +65,16 @@
         align-items: center;
         justify-content: center;
         flex-grow: 1;
-        background: hsl(var(--hue), var(--c-dynamic));
-        color: hsl(var(--hue), var(--c-dynamic-text));
+        color: hsl(var(--hue), var(--c-dynamic));
         font-size: var(--font-size-xs);
-        box-shadow: 1px 1px 4px hsla(var(--hue), var(--c-dynamic-shadow));
+        font-weight: var(--font-sans-serif-weight-m);
         transition: all var(--transition-m);
         padding: 8px 0;
 
         &:hover {
+            border-color: hsl(var(--hue), var(--c-dynamic-hover));
             background: hsl(var(--hue), var(--c-dynamic-hover));
             color: hsl(var(--hue), var(--c-dynamic-text-hover));
-            box-shadow: 1px 1px 4px hsla(var(--hue), var(--c-dynamic-shadow-hover));
         }
     }
 }

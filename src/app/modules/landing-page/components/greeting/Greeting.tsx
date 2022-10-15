@@ -15,8 +15,8 @@ export const Greeting: FunctionalComponent = () => {
     <div className={styles.greeting} style={{ '--offset': offset }}>
       <FullShadow className={styles.header} shadowClassName={styles.shadow} is="header">
         <h1 className={styles.title}>&lt;Hi!&#47;&gt;</h1>
-        <AutoFontSize className={styles.subTitle} is="h2" maxFontSize={68} factor={1.4}>
-          I&apos;m {phrase}
+        <AutoFontSize className={styles.subTitle} is="h2" maxFontSize={68}>
+          <span>I&apos;m {phrase}</span>
           <span className={styles.cursor}>_</span>
         </AutoFontSize>
       </FullShadow>

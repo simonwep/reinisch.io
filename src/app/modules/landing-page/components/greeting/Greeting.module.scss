@@ -33,10 +33,7 @@
     line-height: 115px;
     width: 60%;
     color: var(--c-primary-text);
-    transform: translate(
-            calc(var(--offset) * -50px),
-            calc(var(--offset) * -50px)
-    );
+    transform: translateX(calc(var(--offset) * -50px));
 
     .title,
     .subTitle {
@@ -49,6 +46,7 @@
     }
 
     .subTitle {
+        white-space: nowrap;
         width: 100%;
     }
 
@@ -63,7 +61,7 @@
     cursor: pointer;
     padding: 6px 14px;
     background: var(--c-primary);
-    color: var(--c-theme-background);
+    color: var(--c-background-primary);
     margin-top: auto;
     margin-left: 20vw;
     z-index: 1;

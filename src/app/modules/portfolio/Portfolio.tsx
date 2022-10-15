@@ -1,4 +1,4 @@
-import { Cards, DynamicText } from '@components';
+import { AutoFontSize, Cards, DynamicText } from '@components';
 import { usePageSegmentOffset } from '@hooks';
 import { clamp } from '@utils/math';
 import { c } from '@utils/preact-utils';
@@ -31,6 +31,9 @@ export const Portfolio: FunctionalComponent = () => {
       className={styles.projects}
       style={{ '--visibility': offset, '--percentage': (cardCount - activeCardIndex - 1) / cardCount }}
     >
+      <AutoFontSize className={styles.backgroundText} maxFontSize={225}>
+        PROJECTS
+      </AutoFontSize>
       <div class={styles.sideBar}>
         <article className={styles.introduction}>
           This is a curated list of projects I&apos;m currently working on and / or still actively maintaining.

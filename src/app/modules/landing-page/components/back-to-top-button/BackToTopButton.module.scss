@@ -9,7 +9,6 @@
     width: var(--size);
     height: var(--size);
     margin-bottom: var(--margin);
-    z-index: 10;
 
     .line,
     .button {
@@ -30,7 +29,7 @@
 
         .text {
             opacity: var(--step-3);
-            color: var(--c-theme-background);
+            color: var(--c-background-primary);
             font-family: var(--font-family-monospace);
             font-weight: var(--font-monospace-weight-m);
             writing-mode: vertical-rl;

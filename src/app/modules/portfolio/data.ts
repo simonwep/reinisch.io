@@ -22,7 +22,7 @@ export const portfolio: Portfolio = {
     },
     {
       title: 'Viselect',
-      description: 'Powerful, visual element-selection engine. Select elements just like on your desktop!',
+      description: 'Powerful, visual element-selection engine. Select elements.ts just like on your desktop!',
       homepage: 'https://simonwep.github.io/selection',
       tags: ['ts', 'ui', 'ux', 'library'],
       link: 'https://github.com/Simonwep/selection',
