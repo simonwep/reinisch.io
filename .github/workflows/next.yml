@@ -1,8 +1,8 @@
-name: CI
+name: Next
 
 on:
   push:
-    branches: [master]
+    branches: [next]
 
 jobs:
   build:
@@ -10,6 +10,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: 'next'
       - name: Install dependencies
         run: npm ci
 
@@ -44,4 +46,4 @@ jobs:
           path: ./dist
 
       - name: Upload build files
-        run: rsync -rv --delete ./dist/ ubuntu@reinisch.io:/home/ubuntu/www/home
+        run: rsync -rv --delete ./dist/ ubuntu@reinisch.io:/home/ubuntu/www/home-next
