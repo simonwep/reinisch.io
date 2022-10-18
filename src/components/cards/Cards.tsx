@@ -1,6 +1,6 @@
 import { c, ClassNames } from '@utils/preact-utils';
 import { FunctionalComponent } from 'preact';
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import styles from './Cards.module.scss';
 import { CardsContext } from './context';
 
@@ -19,12 +19,12 @@ export const Cards: FunctionalComponent<Props> = (props) => {
   const cardsCount = root?.childElementCount ?? 0;
 
   const nextCard = () => {
-    setVisibleCardIndex((index) => {
-      const next = index + 1 > cardsCount ? 0 : index + 1;
-      props.onCardChange?.(next);
-      return next;
-    });
+    setVisibleCardIndex((index) => (index + 1 > cardsCount ? 0 : index + 1));
   };
+
+  useEffect(() => {
+    props.onCardChange?.(visibleCardIndex);
+  }, [props, visibleCardIndex]);
 
   return (
     <CardsContext.Provider value={{ nextCard, visibleCardIndex, closed }}>

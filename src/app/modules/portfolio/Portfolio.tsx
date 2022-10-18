@@ -5,7 +5,7 @@ import { c } from '@utils/preact-utils';
 import { FunctionalComponent } from 'preact';
 import { useState } from 'preact/hooks';
 import { useAnimationSteps } from '@hooks';
-import { ProjectCard } from './components';
+import { CurtainText, ProjectCard } from './components';
 import { portfolio } from './data';
 import styles from './Portfolio.module.scss';
 
@@ -26,6 +26,12 @@ export const Portfolio: FunctionalComponent = () => {
     }
   };
 
+  const introduction =
+    view === 'active'
+      ? "This is a curated list of projects I'm currently working on and / or still actively maintaining." +
+        "I've been actively working on FOSS software since 2015, and over the course of the years I started over 30 (public) projects!"
+      : 'Although all of these projects are retired, I once spent a great amount of time working on them.';
+
   return (
     <div
       className={styles.projects}
@@ -35,11 +41,7 @@ export const Portfolio: FunctionalComponent = () => {
         PROJECTS
       </AutoFontSize>
       <div class={styles.sideBar}>
-        <article className={styles.introduction}>
-          This is a curated list of projects I&apos;m currently working on and / or still actively maintaining.
-          <br /> I&apos;ve been actively working on FOSS software since 2015, and over the course of the years I started
-          over 30 (public) projects!
-        </article>
+        <CurtainText text={introduction} />
 
         <button class={styles.switchButton} onClick={toggleView}>
           <DynamicText

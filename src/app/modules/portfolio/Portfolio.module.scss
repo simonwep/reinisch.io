@@ -15,6 +15,7 @@
 
 .backgroundText {
     font-family: var(--font-family-sans-serif);
+    line-height: 1.3;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -32,23 +33,7 @@
     font-weight: var(--font-sans-serif-weight-s);
     line-height: var(--line-height-l);
     opacity: var(--visibility);
-
-    .introduction {
-        position: relative;
-        color: var(--c-primary-text);
-        text-shadow: 2px 4px 0 var(--c-primary-shadow);
-
-        &::after {
-            content: '';
-            position: absolute;
-            left: -15px;
-            top: 0;
-            width: 5px;
-            height: calc(var(--visibility) * 100%);
-            background: var(--c-primary-shadow);
-            transition: background var(--transition-m);
-        }
-    }
+    flex-grow: 1;
 
     .switchButton {
         all: unset;

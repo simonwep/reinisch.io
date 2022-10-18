@@ -1,0 +1,23 @@
+.curtainText {
+    transition: all var(--transition-l);
+    clip-path: inset(0 0 0 -20px);
+    position: relative;
+    color: var(--c-primary-text);
+    text-shadow: 1px 2px 0 var(--c-primary-shadow);
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: -15px;
+        top: 0;
+        width: 5px;
+        height: calc(var(--visibility) * 100%);
+        background: var(--c-primary-shadow);
+        transition: background var(--transition-m);
+    }
+
+    &.collapsed {
+        clip-path: inset(0 0 100% -20px);
+        opacity: 0;
+    }
+}
