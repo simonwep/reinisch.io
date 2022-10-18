@@ -13,9 +13,7 @@ export const CurtainText: FunctionalComponent<Props> = (props) => {
   const [content, setContent] = useState(props.text);
 
   const onTransitionEnd = () => {
-    console.log('end', collapsed);
     if (collapsed) {
-      console.log('reset');
       setContent(props.text);
       setCollapsed(false);
     }
@@ -24,7 +22,6 @@ export const CurtainText: FunctionalComponent<Props> = (props) => {
   useEffect(() => {
     if (props.text !== content) {
       setCollapsed(true);
-      console.log('start');
     }
   }, [props.text, content]);
 

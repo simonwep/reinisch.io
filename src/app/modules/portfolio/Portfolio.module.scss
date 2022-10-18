@@ -9,7 +9,7 @@ $minWidth: 700px;
     position: relative;
     grid-gap: 100px;
     font-family: var(--font-family-sans-serif);
-    width: clamp(500px, 75%, 1600px);
+    width: clamp(500px, 75%, 850px);
     height: 350px;
 
     @media (max-width: $minWidth) {
