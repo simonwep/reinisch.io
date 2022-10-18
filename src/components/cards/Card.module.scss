@@ -4,11 +4,6 @@
     width: 100%;
     z-index: var(--z-index);
 
-    &.closed:not(:last-child) .content {
-        box-shadow: none;
-        opacity: 0;
-    }
-
     .content {
         height: 100%;
         width: 100%;

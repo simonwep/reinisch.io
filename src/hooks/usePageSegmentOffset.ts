@@ -14,13 +14,20 @@ export const usePageSegmentOffset = (options?: Options) => {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
+    let frame = -1;
+
     const update = () => {
-      if (!document.scrollingElement) return;
-      const { clientHeight, scrollHeight, scrollTop } = document.scrollingElement;
-      const percentage = scrollTop ? scrollTop / (scrollHeight - clientHeight) : 0;
-      const newOffset = step(percentage, segment.offset, segment.offset + segment.length);
-      const [start, end] = options?.range ?? [0, 1];
-      setOffset(step(newOffset, start, end));
+      if (frame !== -1) return;
+
+      frame = requestAnimationFrame(() => {
+        if (!document.scrollingElement) return;
+        const { clientHeight, scrollHeight, scrollTop } = document.scrollingElement;
+        const percentage = scrollTop ? scrollTop / (scrollHeight - clientHeight) : 0;
+        const newOffset = step(percentage, segment.offset, segment.offset + segment.length);
+        const [start, end] = options?.range ?? [0, 1];
+        setOffset(step(newOffset, start, end));
+        frame = -1;
+      });
     };
 
     window.addEventListener('scroll', update);
@@ -28,6 +35,7 @@ export const usePageSegmentOffset = (options?: Options) => {
     return () => {
       window.removeEventListener('scroll', update);
       window.removeEventListener('resize', update);
+      cancelAnimationFrame(frame);
     };
   }, [segment, options?.range]);
 

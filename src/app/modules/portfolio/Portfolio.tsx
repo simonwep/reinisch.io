@@ -30,7 +30,7 @@ export const Portfolio: FunctionalComponent = () => {
     view === 'active'
       ? "This is a curated list of projects I'm currently working on and / or still actively maintaining." +
         "I've been actively working on FOSS software since 2015, and over the course of the years I started over 30 (public) projects!"
-      : 'Although all of these projects are retired, I once spent a great amount of time working on them.';
+      : 'Although all of these projects are retired, I once a great amount of time developing them and gained a lot of experience through them.';
 
   return (
     <div
@@ -41,7 +41,7 @@ export const Portfolio: FunctionalComponent = () => {
         PROJECTS
       </AutoFontSize>
       <div class={styles.sideBar}>
-        <CurtainText text={introduction} />
+        <CurtainText className={styles.introduction} text={introduction} />
 
         <button class={styles.switchButton} onClick={toggleView}>
           <DynamicText
@@ -58,7 +58,6 @@ export const Portfolio: FunctionalComponent = () => {
         <Cards
           onCardChange={setActiveCardIndex}
           className={c(styles.list, { [styles.hidden]: step === 1 || view === 'archived' })}
-          closed={step === 0}
         >
           {portfolio.active.map((value, index, list) => (
             <ProjectCard
@@ -75,7 +74,6 @@ export const Portfolio: FunctionalComponent = () => {
         <Cards
           onCardChange={setActiveCardIndex}
           className={c(styles.list, { [styles.hidden]: step === 1 || view === 'active' })}
-          closed={step === 0}
         >
           {portfolio.archived.map((value, index, list) => (
             <ProjectCard

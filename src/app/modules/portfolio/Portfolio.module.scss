@@ -1,5 +1,7 @@
 @use 'src/styles/functions';
 
+$minWidth: 700px;
+
 .projects {
     --hue: calc(180deg + var(--percentage) * 160deg);
 
@@ -7,10 +9,14 @@
     position: relative;
     grid-gap: 100px;
     font-family: var(--font-family-sans-serif);
-    width: 50vw;
-    min-width: 800px;
-    max-width: 1600px;
+    width: clamp(500px, 75%, 1600px);
     height: 350px;
+
+    @media (max-width: $minWidth) {
+        flex-direction: column-reverse;
+        align-items: center;
+        height: 75%;
+    }
 }
 
 .backgroundText {
@@ -22,7 +28,6 @@
     right: 0;
     background: var(--c-background-secondary-accent);
     color: var(--c-background-secondary);
-    z-index: -1;
     transform: translateY(calc((1 - var(--visibility)) * 100%));
 }
 
@@ -34,6 +39,14 @@
     line-height: var(--line-height-l);
     opacity: var(--visibility);
     flex-grow: 1;
+
+    @media (max-width: $minWidth) {
+        flex-grow: unset;
+
+        .introduction {
+            display: none;
+        }
+    }
 
     .switchButton {
         all: unset;
@@ -60,8 +73,13 @@
     position: relative;
     opacity: var(--visibility);
     width: 225px;
-    height: 100%;
+    height: 350px;
     flex-shrink: 0;
+
+    @media (max-width: $minWidth) {
+        width: 65vw;
+        height: 55vh;
+    }
 
     .list {
         position: absolute;

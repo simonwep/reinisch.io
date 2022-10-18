@@ -15,7 +15,7 @@ interface Props {
 export const Card: FunctionalComponent<Props> = (props) => {
   const [root, setRoot] = useState<HTMLDivElement | null>();
   const { step, start, stop } = useAnimationSteps([450, 450]);
-  const { visibleCardIndex, closed, nextCard } = useContext(CardsContext);
+  const { visibleCardIndex, nextCard } = useContext(CardsContext);
 
   const cardsElementList = Array.from(root?.parentElement?.children ?? []);
   const cardsCount = cardsElementList.length;
@@ -29,7 +29,7 @@ export const Card: FunctionalComponent<Props> = (props) => {
     <div
       ref={setRoot}
       onClick={nextCard}
-      class={c(styles.card, props.containerClassName, { [styles.closed]: closed })}
+      class={c(styles.card, props.containerClassName)}
       style={{
         '--z-index': step === 0 ? cardsCount : (cardIndex + visibleCardIndex) % cardsCount,
         ...props.styles,
@@ -37,7 +37,7 @@ export const Card: FunctionalComponent<Props> = (props) => {
     >
       <div
         class={c(styles.content, props.className, { [styles.shuffleOut]: isShuffled && step === 0 })}
-        style={{ '--distance': closed ? 1 : (((cardIndex + visibleCardIndex) % cardsCount) + 1) / cardsCount }}
+        style={{ '--distance': (((cardIndex + visibleCardIndex) % cardsCount) + 1) / cardsCount }}
       >
         {props.children}
       </div>

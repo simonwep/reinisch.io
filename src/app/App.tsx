@@ -3,6 +3,7 @@ import { FunctionalComponent } from 'preact';
 import styles from './App.module.scss';
 import { LandingPage } from './modules';
 import { Portfolio } from './modules';
+import { Fixtures } from './modules/fixtures/Fixtures';
 
 interface Section {
   component: FunctionalComponent;
@@ -19,22 +20,26 @@ const totalLength = (sections: Section[]) => sections.reduce((total, v) => total
 export const App: FunctionalComponent = () => {
   return (
     <div className={styles.app} style={`height: ${(totalLength(sections) + 1) * 100}vh`}>
-      {sections
-        .filter((v) => v.component)
-        .map((value, index) => {
-          const nextSection = sections[index + 1];
-          const offset = totalLength(sections.slice(0, index));
+      <div className={styles.content}>
+        <PageSegment component={Fixtures} offset={0} length={0.5} next={1} />
 
-          return (
-            <PageSegment
-              length={value.length}
-              offset={offset}
-              next={nextSection ? offset + value.length + nextSection.length : undefined}
-              key={offset}
-              component={value.component as FunctionalComponent}
-            />
-          );
-        })}
+        {sections
+          .filter((v) => v.component)
+          .map((value, index) => {
+            const nextSection = sections[index + 1];
+            const offset = totalLength(sections.slice(0, index));
+
+            return (
+              <PageSegment
+                length={value.length}
+                offset={offset}
+                next={nextSection ? offset + value.length + nextSection.length : undefined}
+                key={offset}
+                component={value.component as FunctionalComponent}
+              />
+            );
+          })}
+      </div>
     </div>
   );
 };

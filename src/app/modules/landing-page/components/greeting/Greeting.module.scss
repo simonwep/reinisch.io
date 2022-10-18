@@ -30,7 +30,7 @@
     position: absolute;
     display: inline-flex;
     flex-direction: column;
-    line-height: 115px;
+    line-height: min(20vw, 110px);
     width: 60%;
     color: var(--c-primary-text);
     transform: translateX(calc(var(--offset) * -50px));
@@ -41,7 +41,7 @@
     }
 
     .title {
-        font-size: 140px;
+        font-size: min(20vw, 140px);
         margin-left: -1ch;
     }
 
