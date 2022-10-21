@@ -1,0 +1,29 @@
+.cursor {
+    position: fixed;
+    border: 2px solid var(--c-text);
+    width: calc(var(--size) * 1px);
+    height: calc(var(--size) * 1px);
+    top: calc((var(--y) - var(--size) / 2) * 1px);
+    left: calc((var(--x) - var(--size) / 2) * 1px);
+    z-index: 20;
+    pointer-events: none;
+
+    &::before {
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        background: var(--c-text);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        width: 0;
+        height: 0;
+    }
+
+    &.pointer::before {
+        width: calc(var(--size) / 2 * 1px);
+        height: calc(var(--size) / 2 * 1px);
+    }
+}

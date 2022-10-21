@@ -4,18 +4,17 @@
 :root {
 
     // Text
-    --font-family-monospace: 'Noto Sans Mono', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+    --font-family-display: 'Press Start 2P', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
     --font-family-sans-serif: 'Noto Sans', Constantia, 'Lucida Bright', Lucidabright, 'Lucida Serif', Lucida, 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', Georgia, serif;
 
-    --font-size-xxs: 8px;
-    --font-size-xs: 12px;
-    --font-size-s: 14px;
-    --font-size-m: 16px;
-    --font-size-l: 18px;
-    --font-size-xl: 24px;
+    --font-size-xxs: 0.9vw;
+    --font-size-xs: 1vw;
+    --font-size-s: 1.2vw;
+    --font-size-m: 1.3vw;
+    --font-size-l: 1.5vw;
+    --font-size-xl: 2vw;
 
-    --font-monospace-weight-s: 300;
-    --font-monospace-weight-m: 400;
+    --font-display-weight-m: 400;
 
     --font-sans-serif-weight-s: 300;
     --font-sans-serif-weight-m: 600;
@@ -46,17 +45,16 @@
     --c-dynamic-text-hover: 70%, 95%;
 
     // Theme colors
-    --c-primary: #c97fff;
-    --c-primary-accent: #2a2231;
-    --c-primary-text: #e7cefd;
-    --c-primary-shadow: #502b69;
+    --c-primary: #00ffd8;
+    --c-primary-accent: #23bea7;
+    --c-primary-text: #00ffd8;
+    --c-primary-shadow: #1b2826;
 
     // Base colors
-    --c-background-primary: #080a0d;
+    --c-background-primary: #000;
     --c-background-secondary: #1d1c29;
     --c-background-secondary-accent: #15151e;
 
-    --c-light: #e6e6ff;
-    --c-light-pure: #ebf1ff;
-    --c-light-text: #3a3a41;
+    --c-text: #fff;
+    --c-text-shadow: #232323;
 }

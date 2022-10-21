@@ -1,6 +1,6 @@
 .backToTopButton {
-    --size: 75px;
-    --thickness: 2px;
+    --size: 10vw;
+    --thickness: 0.25vw;
     --margin: 25px;
 
     position: fixed;
@@ -17,7 +17,7 @@
         position: absolute;
         bottom: 0;
         right: 0;
-        background: var(--c-primary);
+        background: var(--c-text);
     }
 
     .button {
@@ -31,8 +31,9 @@
         .text {
             opacity: var(--step-3);
             color: var(--c-background-primary);
-            font-family: var(--font-family-monospace);
-            font-weight: var(--font-monospace-weight-m);
+            font-size: var(--font-size-xxs);
+            font-family: var(--font-family-display);
+            font-weight: var(--font-display-weight-m);
             writing-mode: vertical-rl;
         }
     }

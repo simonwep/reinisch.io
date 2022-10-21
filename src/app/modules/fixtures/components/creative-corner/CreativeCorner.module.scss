@@ -1,9 +1,9 @@
 .creativeCorner {
     position: fixed;
-    color: var(--c-primary);
-    font-family: var(--font-family-monospace);
-    font-weight: var(--font-monospace-weight-s);
-    font-size: var(--font-size-xl);
+    color: var(--c-text);
+    font-family: var(--font-family-display);
+    font-weight: var(--font-display-weight-m);
+    font-size: var(--font-size-s);
     margin: 25px;
 
     > span {
@@ -11,11 +11,11 @@
         letter-spacing: 3px;
 
         &:first-child {
-            top: calc(0.1em + 6px / 2);
+            top: calc(0.9em + 6px / 2);
         }
 
         &:last-child {
-            left: calc(0.8em + 8px);
+            left: calc(1.8em + 8px);
             writing-mode: vertical-lr;
 
             > span {

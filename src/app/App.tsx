@@ -2,7 +2,6 @@ import { PageSegment } from '@components';
 import { FunctionalComponent } from 'preact';
 import styles from './App.module.scss';
 import { LandingPage } from './modules';
-import { Portfolio } from './modules';
 import { Fixtures } from './modules/fixtures/Fixtures';
 
 interface Section {
@@ -10,10 +9,7 @@ interface Section {
   length: number;
 }
 
-const sections: Section[] = [
-  { length: 0.5, component: LandingPage },
-  { length: 0.5, component: Portfolio },
-];
+const sections: Section[] = [{ length: 0.5, component: LandingPage }];
 
 const totalLength = (sections: Section[]) => sections.reduce((total, v) => total + v.length, 0);
 

@@ -1,5 +1,5 @@
 import { FunctionalComponent } from 'preact';
-import { BackToTopButton, CreativeCorner, DynamicBackground } from './components';
+import { BackToTopButton, CreativeCorner, Cursor, DynamicBackground } from './components';
 import styles from './Fixtures.module.scss';
 
 export const Fixtures: FunctionalComponent = () => (
@@ -7,5 +7,6 @@ export const Fixtures: FunctionalComponent = () => (
     <DynamicBackground />
     <CreativeCorner />
     <BackToTopButton />
+    <Cursor />
   </div>
 );

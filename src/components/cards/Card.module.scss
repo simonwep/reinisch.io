@@ -7,7 +7,6 @@
     .content {
         height: 100%;
         width: 100%;
-        cursor: pointer;
         transform-origin: bottom right;
         filter: brightness(calc((var(--distance)) * 0.4 + 0.6));
         transform: scale(calc((var(--distance)) * 0.2 + 0.8)) rotateZ(calc((1 - var(--distance)) * 10deg)) translateY(var(--card-transform-translate-y, 0));

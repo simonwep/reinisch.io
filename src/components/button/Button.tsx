@@ -9,7 +9,7 @@ interface Props {
 
 export const Button: FunctionalComponent<Props> = (props) => {
   return (
-    <button onClick={props.onClick} class={c(styles.button, props.className)}>
+    <button data-cursor="pointer" onClick={props.onClick} class={c(styles.button, props.className)}>
       {props.children}
     </button>
   );
