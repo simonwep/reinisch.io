@@ -17,11 +17,11 @@ export const Cursor: FunctionalComponent = () => {
   const [pointerPosition, setPointerPosition] = useState<PointerPosition>();
 
   useEffect(() => {
-    const update = ({ pageX, pageY, target }: PointerEvent) => {
+    const update = ({ clientX, clientY, target }: PointerEvent) => {
       setPointerPosition({
         type: ((target as HTMLElement)?.getAttribute('data-cursor') ?? 'normal') as CursorType,
-        x: pageX,
-        y: pageY,
+        x: clientX,
+        y: clientY,
       });
     };
 

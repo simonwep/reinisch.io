@@ -5,8 +5,8 @@
     height: calc(var(--size) * 1px);
     top: calc((var(--y) - var(--size) / 2) * 1px);
     left: calc((var(--x) - var(--size) / 2) * 1px);
-    z-index: 20;
     pointer-events: none;
+    z-index: 20;
 
     &::before {
         content: '';

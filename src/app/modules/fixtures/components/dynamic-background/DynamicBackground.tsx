@@ -1,11 +1,12 @@
 import { useScreenSize } from '@hooks';
 import { resolveRealCanvasSize } from '@utils/canvas';
+import { getPosition } from '@utils/events';
 import { createAnimationLoop } from '@utils/rendering';
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import styles from './DynamicBackground.module.scss';
 
-const PIXEL_SIZE = window.innerWidth / 10;
+const PIXEL_SIZE = window.innerWidth / 15;
 const PIXEL_MAX_AGE = 1_000;
 
 interface Pixel {
@@ -45,16 +46,17 @@ export const DynamicBackground: FunctionalComponent = () => {
       });
     });
 
-    const move = (evt: PointerEvent) => {
-      const rx = evt.clientX * devicePixelRatio;
-      const ry = evt.clientY * devicePixelRatio;
+    const move = (evt: PointerEvent | TouchEvent) => {
+      const { x: rx, y: ry } = getPosition(evt);
       const x = rx - (rx % PIXEL_SIZE);
       const y = ry - (ry % PIXEL_SIZE);
       pixels.add({ x, y, created: performance.now() });
     };
 
+    window.addEventListener('touchmove', move);
     window.addEventListener('pointermove', move);
     return () => {
+      window.removeEventListener('touchmove', move);
       window.removeEventListener('pointermove', move);
       stopLoop();
     };

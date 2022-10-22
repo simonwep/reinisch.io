@@ -1,4 +1,4 @@
-import { PageSegment } from '@components';
+import { PageSegment, Scrollbar } from '@components';
 import { FunctionalComponent } from 'preact';
 import styles from './App.module.scss';
 import { LandingPage } from './modules';
@@ -15,27 +15,14 @@ const totalLength = (sections: Section[]) => sections.reduce((total, v) => total
 
 export const App: FunctionalComponent = () => {
   return (
-    <div className={styles.app} style={`height: ${(totalLength(sections) + 1) * 100}vh`}>
+    <div className={styles.app}>
       <div className={styles.content}>
-        <PageSegment component={Fixtures} offset={0} length={0.5} next={1} />
-
-        {sections
-          .filter((v) => v.component)
-          .map((value, index) => {
-            const nextSection = sections[index + 1];
-            const offset = totalLength(sections.slice(0, index));
-
-            return (
-              <PageSegment
-                length={value.length}
-                offset={offset}
-                next={nextSection ? offset + value.length + nextSection.length : undefined}
-                key={offset}
-                component={value.component as FunctionalComponent}
-              />
-            );
-          })}
+        <Fixtures />
+        <LandingPage />
+        <div style="height: 200vh" />
       </div>
+
+      <Scrollbar />
     </div>
   );
 };

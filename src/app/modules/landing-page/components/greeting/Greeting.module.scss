@@ -6,12 +6,6 @@
     }
 }
 
-@keyframes fade-out-shadow {
-    to {
-        transform: translateX(calc(var(--offset) * 100px - 10px)) translateY(-10px);
-    }
-}
-
 .greeting {
     display: flex;
     flex-direction: column;
@@ -20,9 +14,8 @@
     font-family: var(--font-family-display);
     color: var(--c-text);
     padding-bottom: 100px;
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    opacity: calc(1 - var(--offset));
     animation: fade-in var(--transition-m);
 }
 
@@ -30,10 +23,9 @@
     position: absolute;
     display: inline-flex;
     flex-direction: column;
-    line-height: 7vw;
+    line-height: 8vw;
     width: 60%;
     color: var(--c-text);
-    transform: translateX(calc(var(--offset) * -50px));
 
     .title,
     .subTitle {
@@ -41,7 +33,7 @@
     }
 
     .title {
-        font-size: 5vw;
+        font-size: var(--font-size-xxl);
         margin-left: -0.9em;
     }
 
@@ -51,7 +43,7 @@
     }
 
     .shadow {
-        animation: fade-out-shadow var(--transition-m) forwards;
+        transform: translate(-10px, -10px);
         color: var(--c-text-shadow);
     }
 }
@@ -67,7 +59,7 @@
 
     .nextButton {
         all: unset;
-        padding: 1vw 1.5vw;
+        padding: var(--space-s) var(--space-m);
         background: var(--c-primary-text);
         color: var(--c-background-primary);
         font-size: var(--font-size-xs);

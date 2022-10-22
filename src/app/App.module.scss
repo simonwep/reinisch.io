@@ -1,12 +1,11 @@
 .app {
-    width: 100%;
+    display: flex;
     cursor: none;
+    width: 100vw;
+    min-height: 100vh;
 }
 
-.content {
-    display: grid;
-    grid-template: 100vh / 100vw;
-    position: fixed;
+.content  {
+    position: relative;
     width: 100%;
-    height: 100%;
 }

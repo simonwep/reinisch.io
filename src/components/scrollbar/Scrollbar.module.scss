@@ -1,0 +1,47 @@
+$width: 20px;
+$margin: 4px;
+$border: 2px;
+
+.scrollbar {
+    position: sticky;
+    top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    width: $width;
+    height: calc(100vh - 20px);
+    z-index: 1;
+}
+
+.bar {
+    position: relative;
+    border: $border solid var(--c-text);
+    height: 100%;
+
+    .knob {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 40px;
+        width: #{$width - $border * 2 - $margin * 2};
+        background: var(--c-text);
+    }
+}
+
+.backButton {
+    background: var(--c-text);
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+
+    .text {
+        color: var(--c-background-primary);
+        font-size: var(--font-size-xxs);
+        font-family: var(--font-family-display);
+        font-weight: var(--font-display-weight-m);
+        writing-mode: vertical-rl;
+    }
+}

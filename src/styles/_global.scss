@@ -7,12 +7,13 @@
     --font-family-display: 'Press Start 2P', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
     --font-family-sans-serif: 'Noto Sans', Constantia, 'Lucida Bright', Lucidabright, 'Lucida Serif', Lucida, 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', Georgia, serif;
 
-    --font-size-xxs: 0.9vw;
-    --font-size-xs: 1vw;
-    --font-size-s: 1.2vw;
-    --font-size-m: 1.3vw;
-    --font-size-l: 1.5vw;
-    --font-size-xl: 2vw;
+    --font-size-xxs: max(0.9vw, 8px);
+    --font-size-xs: max(1vw, 9px);
+    --font-size-s: max(1.25vw, 10px);
+    --font-size-m: max(1.5vw, 11px);
+    --font-size-l: max(2.5vw, 12px);
+    --font-size-xl: max(3.5vw, 13px);
+    --font-size-xxl: max(5vw, 13px);
 
     --font-display-weight-m: 400;
 
@@ -23,26 +24,18 @@
     --line-height-l: 1.65;
 
     // General
-    --border-radius-s: 3px;
-    --border-radius-m: 6px;
-    --border-radius-l: 12px;
-    --border-radius-xl: 16px;
-
     --transition-m: 300ms;
     --transition-l: 450ms;
     --transition-xl: 750ms;
 
-    --corner-cutout-s: 8px;
-    --corner-cutout-m: 10px;
-    --corner-cutout-l: 14px;
+    --corner-cutout-s: 1vw;
+    --corner-cutout-m: 1.5vw;
+    --corner-cutout-l: 2vw;
 
-    // Dynamic colors ([hue], saturation, lightness, alpha)
-    --c-dynamic: 25%, 50%;
-    --c-dynamic-shadow: 25%, 60%, 60%;
-    --c-dynamic-hover: 30%, 60%;
-    --c-dynamic-shadow-hover: 25%, 60%, 45%;
-    --c-dynamic-text: 60%, 90%;
-    --c-dynamic-text-hover: 70%, 95%;
+    // Sizing
+    --space-s: max(1vw, 10px);
+    --space-m: max(1.5vw, 14px);
+
 
     // Theme colors
     --c-primary: #00ffd8;
