@@ -13,6 +13,12 @@
             "link": "https://github.com/Simonwep/selection"
         },
         {
+            "title": "Cinematic",
+            "description": "Add a cinematic background to a HTML5 video.",
+            "tags": ["ts", "library", "video"],
+            "link": "https://github.com/Simonwep/cinematic"
+        },
+        {
             "title": "Nanopop",
             "description": "Minimalistic, high performant positioning engine for maximum control.",
             "tags": ["ts", "popper", "engine"],
