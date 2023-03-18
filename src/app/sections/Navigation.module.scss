@@ -29,7 +29,7 @@
     margin: 0 auto;
 
     .links {
-        > a {
+        .link {
             @include font(400, 1.5em);
             text-shadow: font-stroke(2, black);
 
@@ -101,14 +101,14 @@
             pointer-events: all;
             padding: $padding;
 
-            > div {
+            .line {
                 @include size(100%, $line-height);
                 background: var(--c-text);
                 transition: all 0.3s;
             }
         }
 
-        &[data-open] {
+        &.open {
             pointer-events: all;
             backdrop-filter: brightness(0.35);
 
@@ -119,21 +119,21 @@
             .burger {
                 $ty: math.div($height, 2) -  math.div($line-height, 2) - $padding;
 
-                > div:nth-child(2) {
+                .line:nth-child(2) {
                     opacity: 0;
                     transform: scale(0);
                 }
 
-                > div:nth-child(1) {
+                .line:nth-child(1) {
                     transform: translateY($ty) rotate(45deg);
                 }
 
-                > div:nth-child(3) {
+                .line:nth-child(3) {
                     transform: translateY(-$ty) rotate(-45deg);
                 }
             }
 
-            .links > a {
+            .links .link {
                 transform: none;
                 opacity: 1;
 
@@ -150,7 +150,7 @@
             @include flex(column);
             margin-top: auto;
 
-            > a {
+            .link {
                 @include font(200, 1.35em);
                 position: relative;
                 transition: transform 0.3s, opacity 0.3s, clip-path 0s 0s;

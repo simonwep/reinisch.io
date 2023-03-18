@@ -12,17 +12,18 @@
     visibility: hidden;
     opacity: 0;
 
-    > p {
+    .text {
         margin-right: 1em;
     }
 
-    > button {
+    .addBtn,
+    .closeBtn {
         background: var(--c-text);
         border-radius: 0.3em;
         height: 100%;
     }
 
-    &[data-visible] {
+    &.visible {
         transition: all 0.3s, visibility 0s 0s;
         transform: none;
         visibility: visible;

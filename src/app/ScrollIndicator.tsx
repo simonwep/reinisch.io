@@ -21,7 +21,7 @@ export const ScrollIndicator: FunctionalComponent = () => {
                 '--fadeout': Math.max(0, (progress - 0.5) / 0.5),
             }}
         >
-            <div />
+            <div class={styles.knob} />
         </div>
     );
 };

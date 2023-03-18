@@ -10,7 +10,7 @@
     top: 0;
     position: absolute;
 
-    > span {
+    .letter {
         display: inline-block;
         white-space: pre;
         opacity: 0;
@@ -23,7 +23,7 @@
         }
     }
 
-    &[data-fadeout] > span {
+    &.fadeOut .letter {
         @include animate('0.5s forwards') {
             from {
                 opacity: 1;
@@ -35,7 +35,7 @@
         }
     }
 
-    &[data-fadein] > span {
+    &.fadeIn .letter {
         @include animate('0.5s forwards') {
             from {
                 transform: translateY(85%);
@@ -48,7 +48,7 @@
     }
 
     @media (prefers-reduced-motion) {
-        &[data-fadeout] > span {
+        &.fadeOut .letter {
             @include animate('0.5s forwards') {
                 from {
                     opacity: 1;
@@ -59,7 +59,7 @@
             }
         }
 
-        &[data-fadein] > span {
+        &.fadeIn .letter {
             @include animate('0.5s forwards') {
                 from {
                     opacity: 0;

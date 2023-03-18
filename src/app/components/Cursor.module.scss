@@ -11,43 +11,43 @@
             0
     );
 
-    &[data-pressed] {
-        &:not([data-focused]) > div:first-child {
+    &.pressed {
+        &:not(.focused) .outer {
             transform: scale(1.25);
         }
 
-        &[data-focused] > div:last-child {
+        &.focused .inner {
             transform: scale(1.25);
         }
     }
 
-    &[data-visible] > div {
+    &.visible .outer {
         opacity: 1;
     }
 
-    &[data-focused] > div {
-        &:first-child {
+    &.focused {
+        .outer {
             @include size(8px);
             background: var(--c-text);
         }
 
-        &:last-child {
+        .inner {
             transform: none;
             opacity: 1;
         }
     }
 
-    > div {
+    .outer,
+    .inner {
         @include size(16px);
         transition: all 0.3s;
         border: 2px solid var(--c-text);
         border-radius: 100%;
         position: absolute;
         opacity: 0;
+    }
 
-        &:last-child {
-            transform: scale(0.5);
-            opacity: 0;
-        }
+    .inner {
+        transform: scale(0.5);
     }
 }

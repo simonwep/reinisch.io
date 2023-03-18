@@ -37,11 +37,11 @@
     padding: 1.5em 2em;
     transition: all 0.3s;
 
-    &[data-state='close'] {
+    &:not(.opened) {
         animation: close-card var(--spin-duration) ease-in-out forwards;
     }
 
-    &[data-state='open'] {
+    &.opened {
         animation: open-card var(--spin-duration) ease-in-out forwards;
 
         .front {

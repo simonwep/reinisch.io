@@ -1,3 +1,4 @@
+import { cn } from '@utils/preact-utils';
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import styles from './LoadingScreen.module.scss';
@@ -24,14 +25,15 @@ export const LoadingScreen: FunctionalComponent<Props> = (props) => {
 
     return (
         <div
-            className={styles.loadingScreen}
-            data-loaded={progress === 1}
+            className={cn(styles.loadingScreen, {
+                [styles.loaded]: progress === 1,
+            })}
             style={{ '--progress': progress }}
-            aria-valuemin="0"
-            aria-valuemax="100"
+            aria-valuemin={0}
+            aria-valuemax={100}
             role="progressbar"
         >
-            <span>Loading...</span>
+            <span class={styles.text}>Loading...</span>
             <div className={styles.loadingBar} />
         </div>
     );

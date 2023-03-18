@@ -1,5 +1,6 @@
 import { useMedia } from '@hooks/useMedia';
 import { track } from '@utils/ackee';
+import { cn } from '@utils/preact-utils';
 import { uid } from '@utils/uid';
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
@@ -55,8 +56,16 @@ export const PWAInstallPrompt: FunctionalComponent = () => {
 
     const descriptionId = uid('aria');
     return (
-        <div className={styles.pwaInstallPrompt} data-visible={!!event} role="dialog" aria-labelledby={descriptionId}>
-            <p id={descriptionId}>Add to {media === 'tablets' || media === 'phones' ? 'Homescreen' : 'Desktop'}?</p>
+        <div
+            className={cn(styles.pwaInstallPrompt, {
+                [styles.visible]: !!event,
+            })}
+            role="dialog"
+            aria-labelledby={descriptionId}
+        >
+            <p class={styles.text} id={descriptionId}>
+                Add to {media === 'tablets' || media === 'phones' ? 'Homescreen' : 'Desktop'}?
+            </p>
 
             <button className={styles.addBtn} data-cursor-focus={true} aria-label="Install website" onClick={prompt}>
                 Yes, please

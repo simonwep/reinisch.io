@@ -3,6 +3,7 @@ import { RunningBanner } from '@components/RunningBanner';
 import { useStore } from '@hooks/useStore';
 import { track } from '@utils/ackee';
 import { clamp } from '@utils/math';
+import { cn } from '@utils/preact-utils';
 import { createRef, FunctionalComponent, RefObject } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import styles from './Navigation.module.scss';
@@ -70,11 +71,15 @@ export const Navigation: FunctionalComponent = () => {
             role="navigation"
             aria-label="Main navigation"
         >
-            <div className={styles.wrapper} data-open={navOpen}>
+            <div
+                className={cn(styles.wrapper, {
+                    [styles.open]: navOpen,
+                })}
+            >
                 <div className={styles.burger} onClick={() => setNavOpen(!navOpen)}>
-                    <div />
-                    <div />
-                    <div />
+                    <div class={styles.line} />
+                    <div class={styles.line} />
+                    <div class={styles.line} />
                 </div>
 
                 <div className={styles.links} style={{ '--progress': visibility }}>
@@ -90,6 +95,7 @@ export const Navigation: FunctionalComponent = () => {
                                     onClick={onNavigation}
                                     key={section.id}
                                     ref={element}
+                                    className={styles.link}
                                     style={{
                                         '--clip': `inset(0 0 calc((${index + 1} - var(--progress)) * 100%) 0)`,
                                     }}

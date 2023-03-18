@@ -43,18 +43,20 @@ export const SpinningHeadline: FunctionalComponent<Props> = (props) => {
                 {props.slogans.map(({ text, icon }, index) => (
                     <p
                         key={index}
-                        className={styles.word}
-                        data-fadein={index === currentWord}
-                        data-fadeout={index === fadeOutIndex}
+                        className={cn(styles.word, {
+                            [styles.fadeIn]: index === currentWord,
+                            [styles.fadeOut]: index === fadeOutIndex,
+                        })}
                     >
                         {media.reducedMotion ? (
-                            <span>
+                            <span class={styles.letter}>
                                 {text} {icon}
                             </span>
                         ) : (
                             <>
                                 {[...text].map((c, i) => (
                                     <span
+                                        class={styles.letter}
                                         key={i}
                                         style={{
                                             animationDelay:
@@ -67,6 +69,7 @@ export const SpinningHeadline: FunctionalComponent<Props> = (props) => {
 
                                 {icon && (
                                     <span
+                                        class={styles.letter}
                                         style={{
                                             animationDelay: index === currentWord ? `${speed}ms` : 'unset',
                                         }}

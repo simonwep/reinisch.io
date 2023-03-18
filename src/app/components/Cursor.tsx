@@ -1,3 +1,4 @@
+import { cn } from '@utils/preact-utils';
 import { FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import styles from './Cursor.module.scss';
@@ -63,17 +64,18 @@ export const Cursor: FunctionalComponent = () => {
 
     return (
         <div
-            className={styles.circle}
-            data-pressed={cursor.pressed}
-            data-visible={cursor.visible}
-            data-focused={cursor.focus}
+            className={cn(styles.circle, {
+                [styles.pressed]: cursor.pressed,
+                [styles.visible]: cursor.visible,
+                [styles.focused]: cursor.focus,
+            })}
             style={{
                 '--pos-x': cursor.x,
                 '--pos-y': cursor.y,
             }}
         >
-            <div />
-            <div />
+            <div class={styles.inner} />
+            <div class={styles.outer} />
         </div>
     );
 };

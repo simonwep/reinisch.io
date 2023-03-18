@@ -37,9 +37,10 @@ export const Card: FunctionalComponent<Props> = (props) => {
 
     return (
         <div
-            className={cn(props.className, styles.card)}
+            className={cn(props.className, styles.card, {
+                [styles.opened]: open,
+            })}
             data-cursor-focus={!open}
-            data-state={open ? 'open' : 'close'}
             onClick={cardClick}
             onAnimationEnd={showPulse}
         >

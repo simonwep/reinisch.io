@@ -9,7 +9,7 @@
     transform: translateX(calc(var(--fadeout) * -0.5em));
     opacity: calc(1 - var(--fadeout));
 
-    > div {
+    .knob {
         @include size(15px, 35px);
         position: absolute;
         left: 50%;
