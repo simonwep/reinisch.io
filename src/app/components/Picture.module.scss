@@ -1,0 +1,8 @@
+.picture {
+    @include flex(row, center);
+}
+
+.fallback {
+    width: inherit;
+    height: inherit;
+}

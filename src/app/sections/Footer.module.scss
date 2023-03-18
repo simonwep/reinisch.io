@@ -5,16 +5,14 @@
     width: 100%;
 }
 
-.faceWrapper {
-    @include flex(row, center, center);
-    @include size(8em);
+.face {
+    width: 125px;
+    height: 125px;
     border-radius: 100%;
-    background: var(--c-text);
-
-    > picture {
-        @include size(calc(8em - 6px));
-        border-radius: 100%;
-    }
+    overflow: hidden;
+    border: 3px solid var(--c-text);
+    background: red;
+    flex-shrink: 0;
 }
 
 .text {
