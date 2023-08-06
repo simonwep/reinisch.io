@@ -32,7 +32,7 @@ devDependencies:
     specifier: 8.46.0
     version: 8.46.0
   eslint-config-prettier:
-    specifier: ^9.0.0
+    specifier: 9.0.0
     version: 9.0.0(eslint@8.46.0)
   eslint-plugin-prettier:
     specifier: 5.0.0
@@ -61,6 +61,9 @@ devDependencies:
   vite-plugin-pwa:
     specifier: 0.16.4
     version: 0.16.4(vite@4.4.8)(workbox-build@7.0.0)(workbox-window@7.0.0)
+  workbox-window:
+    specifier: 7.0.0
+    version: 7.0.0
 
 packages:
 

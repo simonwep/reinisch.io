@@ -19,7 +19,7 @@
         "@typescript-eslint/eslint-plugin": "6.2.1",
         "@typescript-eslint/parser": "6.2.1",
         "eslint": "8.46.0",
-        "eslint-config-prettier": "^9.0.0",
+        "eslint-config-prettier": "9.0.0",
         "eslint-plugin-prettier": "5.0.0",
         "eslint-plugin-react": "7.33.1",
         "prettier": "3.0.1",
@@ -28,7 +28,8 @@
         "typescript": "5.1.6",
         "vite": "4.4.8",
         "vite-plugin-optimize-css-modules": "1.0.4",
-        "vite-plugin-pwa": "0.16.4"
+        "vite-plugin-pwa": "0.16.4",
+        "workbox-window": "7.0.0"
     },
     "dependencies": {
         "ackee-tracker": "5.1.0",

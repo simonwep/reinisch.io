@@ -7,8 +7,14 @@
             "link": "https://github.com/Simonwep/ocular"
         },
         {
+            "title": "Genesis",
+            "description": "Ultra lightweight, generic go backend for tiny frontend apps.",
+            "tags": ["go", "api"],
+            "link": "https://github.com/simonwep/genesis"
+        },
+        {
             "title": "Viselect",
-            "description": "Powerful, visual element-selection engine.\n Select elements just like on your desktop!",
+            "description": "Powerful, visual element-selection engine.",
             "tags": ["ts", "ui", "ux", "library"],
             "link": "https://github.com/Simonwep/selection"
         },
@@ -38,7 +44,7 @@
         },
         {
             "title": "Li18nt",
-            "description": "Opinionated, small linter for i18n locale files. Prettifies, validates and finds duplicates.",
+            "description": "Opinionated, small linter for i18n locale files.",
             "tags": ["ts", "json", "linting", "cli"],
             "link": "https://github.com/Simonwep/li18nt"
         },
