@@ -4,13 +4,14 @@
     "version": "0.0.0",
     "description": "Simon Reinisch's portfolio",
     "author": "Simon Reinisch <trash@reinisch.io>",
+  "packageManager": "pnpm@8.0.0",
     "license": "MIT",
     "scripts": {
         "dev": "vite",
         "build": "tsc --noEmit && vite build",
         "lint": "eslint 'src/**/*.{js,ts,tsx}'",
-        "lint:fix": "npm run lint -- --fix",
-        "test:ci": "npm run lint:fix && npm run build"
+        "lint:fix": "pnpm run lint --fix",
+        "test:ci": "pnpm run lint:fix && pnpm run build"
     },
     "devDependencies": {
         "@preact/preset-vite": "^2.5.0",
