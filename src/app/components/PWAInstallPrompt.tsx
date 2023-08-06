@@ -34,7 +34,7 @@ export const PWAInstallPrompt: FunctionalComponent = () => {
             setTimeout(() => {
                 setEvent(evt);
                 void evt.userChoice.then(submit);
-            }, 15000) as unknown as number
+            }, 15000) as unknown as number,
         );
 
         track.pwa.prompted();

@@ -14,7 +14,7 @@ self.addEventListener('install', (event) => {
             const cache = await caches.open(CACHE_NAME);
             await cache.addAll(PRECACHE_URLS);
             await self.skipWaiting();
-        })()
+        })(),
     );
 });
 
@@ -26,13 +26,13 @@ self.addEventListener('activate', (event) => {
                 Promise.all(
                     names
                         .filter((name) => name !== CACHE_NAME) // Keep current cache
-                        .map((name) => caches.delete(name))
-                )
+                        .map((name) => caches.delete(name)),
+                ),
             );
 
             // Claim clients
             await self.clients.claim();
-        })()
+        })(),
     );
 });
 
@@ -62,7 +62,7 @@ self.addEventListener('fetch', (ev) => {
                 .catch(() => {
                     return fetch('/');
                 });
-        })
+        }),
     );
 });
 

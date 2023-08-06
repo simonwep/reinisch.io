@@ -4,7 +4,7 @@
     "version": "0.0.0",
     "description": "Simon Reinisch's portfolio",
     "author": "Simon Reinisch <trash@reinisch.io>",
-  "packageManager": "pnpm@8.0.0",
+    "packageManager": "pnpm@8.0.0",
     "license": "MIT",
     "scripts": {
         "dev": "vite",
@@ -14,24 +14,25 @@
         "test:ci": "pnpm run lint:fix && pnpm run build"
     },
     "devDependencies": {
-        "@preact/preset-vite": "^2.5.0",
-        "@types/ackee-tracker": "^5.0.2",
-        "@typescript-eslint/eslint-plugin": "^5.55.0",
-        "@typescript-eslint/parser": "^5.55.0",
-        "eslint": "^8.36.0",
-        "eslint-plugin-prettier": "^4.2.1",
-        "eslint-plugin-react": "^7.32.2",
-        "prettier": "^2.8.4",
-        "sass": "^1.59.3",
-        "sassyfication": "^1.0.3",
-        "typescript": "^5.0.2",
-        "vite": "^4.2.0",
-        "vite-plugin-pwa": "^0.14.4",
-        "vite-plugin-optimize-css-modules": "^1.0.4"
+        "@preact/preset-vite": "2.5.0",
+        "@types/ackee-tracker": "5.0.2",
+        "@typescript-eslint/eslint-plugin": "6.2.1",
+        "@typescript-eslint/parser": "6.2.1",
+        "eslint": "8.46.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-prettier": "5.0.0",
+        "eslint-plugin-react": "7.33.1",
+        "prettier": "3.0.1",
+        "sass": "1.64.2",
+        "sassyfication": "1.0.3",
+        "typescript": "5.1.6",
+        "vite": "4.4.8",
+        "vite-plugin-optimize-css-modules": "1.0.4",
+        "vite-plugin-pwa": "0.16.4"
     },
     "dependencies": {
-        "ackee-tracker": "^5.1.0",
-        "normalize.css": "^8.0.1",
-        "preact": "^10.13.1"
+        "ackee-tracker": "5.1.0",
+        "normalize.css": "8.0.1",
+        "preact": "10.16.0"
     }
 }

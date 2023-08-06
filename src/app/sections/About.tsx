@@ -17,7 +17,7 @@ export const About: FunctionalComponent = () => {
             atob(emailLinkUrl)
                 .split(',')
                 .map((v) => String.fromCharCode(Number(v) >> 2))
-                .join('')
+                .join(''),
         );
     };
 
