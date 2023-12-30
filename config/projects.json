@@ -2,9 +2,9 @@
     "current": [
         {
             "title": "Ocular",
-            "description": "Simplistic budget planner with google drive synchronization.",
-            "tags": ["pwa", "ts", "app"],
-            "link": "https://github.com/Simonwep/ocular"
+            "description": "Simplistic, self hosted budget planner.",
+            "tags": ["vue", "ts", "pwa", "app", "docker"],
+            "link": "https://github.com/simonwep/ocular"
         },
         {
             "title": "Genesis",
@@ -16,49 +16,55 @@
             "title": "Viselect",
             "description": "Powerful, visual element-selection engine.",
             "tags": ["ts", "ui", "ux", "library"],
-            "link": "https://github.com/Simonwep/selection"
+            "link": "https://github.com/simonwep/selection"
+        },
+        {
+            "title": "Hue Scheduler",
+            "description": "Better philips hue automation when using physical switches.",
+            "tags": ["rust", "iot", "philips hue"],
+            "link": "https://github.com/simonwep/hue-scheduler"
+        },
+        {
+            "title": "Spectrum",
+            "description": "A web-based audio spectrum analyzer.",
+            "tags": ["pwa", "ts", "preact"],
+            "link": "https://github.com/simonwep/spectrum"
         },
         {
             "title": "Cinematic",
             "description": "Add a cinematic background to a HTML5 video.",
             "tags": ["ts", "library", "video"],
-            "link": "https://github.com/Simonwep/cinematic"
+            "link": "https://github.com/simonwep/cinematic"
         },
         {
             "title": "Nanopop",
             "description": "Minimalistic, high performant positioning engine for maximum control.",
             "tags": ["ts", "popper", "engine"],
-            "link": "https://github.com/Simonwep/nanopop"
+            "link": "https://github.com/simonwep/nanopop"
         },
         {
             "title": "Graceful WebSockets",
             "description": "A graceful websocket wrapper with connection re-establishment capabilities.",
             "tags": ["ts", "websocket", "library"],
-            "link": "https://github.com/Simonwep/graceful-ws"
+            "link": "https://github.com/simonwep/graceful-ws"
         },
         {
             "title": "Nason",
             "description": "Ultra tiny serializer / encoder with plugin-support.",
             "tags": ["ts", "json", "binary", "serialization"],
-            "link": "https://github.com/Simonwep/nason"
+            "link": "https://github.com/simonwep/nason"
         },
         {
             "title": "Li18nt",
             "description": "Opinionated, small linter for i18n locale files.",
             "tags": ["ts", "json", "linting", "cli"],
-            "link": "https://github.com/Simonwep/li18nt"
-        },
-        {
-            "title": "Spectrum",
-            "description": "A web-based audio spectrum analyzer.",
-            "tags": ["pwa", "ts"],
-            "link": "https://github.com/Simonwep/spectrum"
+            "link": "https://github.com/simonwep/li18nt"
         },
         {
             "title": "OpenVPN Pihole",
             "description": "OpenVPN and Pihole wrapped up in a docker-compose setup.",
             "tags": ["docker", "openvpn", "pihole"],
-            "link": "https://github.com/Simonwep/openvpn-pihole"
+            "link": "https://github.com/simonwep/openvpn-pihole"
         }
     ],
     "archive": [
@@ -66,25 +72,25 @@
             "title": "Pickr",
             "description": "Flat, simple, multi-themed, responsive and hackable colorpicker.",
             "tags": ["js", "ui", "ux", "widget"],
-            "link": "https://github.com/Simonwep/pickr"
+            "link": "https://github.com/simonwep/pickr"
         },
         {
             "title": "Conway",
             "description": "Supercharged version of conways game of life build with wasm and web-workers.",
             "tags": ["preact", "ts", "game", "wasm", "pwa"],
-            "link": "https://github.com/Simonwep/conway"
+            "link": "https://github.com/simonwep/conway"
         },
         {
             "title": "Bavary",
             "description": "Regular expressions on steroids. A custom language which can be used to parse sytax.",
             "tags": ["ts", "regex", "language"],
-            "link": "https://github.com/Simonwep/bavary"
+            "link": "https://github.com/simonwep/bavary"
         },
         {
             "title": "Candy",
             "description": "Cross platform youtube downloader and converter using ffmpeg.",
             "tags": ["electron", "vue", "youtube", "downloader", "app"],
-            "link": "https://github.com/Simonwep/candy"
+            "link": "https://github.com/simonwep/candy"
         },
         {
             "title": "Vue Cloudfront",
@@ -102,7 +108,7 @@
             "title": "Intl Demo",
             "description": "Interactive demo of the ECMAScript Internationalization API.",
             "tags": ["preact", "ui", "demo", "app", "pwa"],
-            "link": "https://github.com/Simonwep/intl-demo"
+            "link": "https://github.com/simonwep/intl-demo"
         },
         {
             "title": "Beam.Cafe",
@@ -120,19 +126,19 @@
             "title": "Presentr",
             "description": "Simple, tiny, presentation framework I made and used during high school.",
             "tags": ["js", "presentation", "framework"],
-            "link": "https://github.com/Simonwep/presentr"
+            "link": "https://github.com/simonwep/presentr"
         },
         {
             "title": "Java Express",
             "description": "HTTP Framework based on expressjs with the same easy-to-use API.",
             "tags": ["java", "http", "framework"],
-            "link": "https://github.com/Simonwep/java-express"
+            "link": "https://github.com/simonwep/java-express"
         },
         {
             "title": "Sassyfication",
             "description": "A sassy sass library to speed up your css workflow.",
             "tags": ["scss", "css", "styles"],
-            "link": "https://github.com/Simonwep/sassyfication"
+            "link": "https://github.com/simonwep/sassyfication"
         }
     ]
 }

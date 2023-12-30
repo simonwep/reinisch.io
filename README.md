@@ -3,15 +3,15 @@
 </h3>
 
 <h3 align="center">
-    Portfolio from <a href="https://reinisch.io">Simon Reinisch</a> aka <a href="https://github.com/Simonwep">Simonwep</a>.
+    Portfolio from <a href="https://reinisch.io">Simon Reinisch</a> aka <a href="https://github.com/simonwep">simonwep</a>.
 </h3>
 
 <br/>
 
 <p align="center">
-  <a href="https://github.com/Simonwep/reinisch.io/actions?query=workflow%3ACI"><img
+  <a href="https://github.com/simonwep/reinisch.io/actions?query=workflow%3ACI"><img
      alt="CI Status"
-     src="https://github.com/Simonwep/reinisch.io/workflows/CI/badge.svg"/></a>
+     src="https://github.com/simonwep/reinisch.io/workflows/CI/badge.svg"/></a>
   <a href="https://hstspreload.org/?domain=reinisch.io"><img
      alt="HSTS Preloaded"
      src="https://img.shields.io/hsts/preload/reinisch.io?label=HSTS%20Preloaded"/></a>

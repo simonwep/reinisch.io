@@ -13,7 +13,7 @@ export const ActiveProjects: FunctionalComponent = () => (
     >
         <Projects projects={projects.current} />
         <p className={styles.bottomText}>
-            ...and of course <Link href="https://github.com/Simonwep/reinisch.io">reinisch.io itself</Link>.
+            ...and of course <Link href="https://github.com/simonwep/reinisch.io">reinisch.io itself</Link>.
         </p>
     </PageSection>
 );

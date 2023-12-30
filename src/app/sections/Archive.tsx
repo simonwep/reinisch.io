@@ -14,7 +14,7 @@ export const Archive: FunctionalComponent = () => {
         >
             <Projects projects={projects.archive} mobileLimitBase={3} />
             <p className={styles.bottomText}>
-                ...any <Link href="https://github.com/Simonwep?tab=repositories">many more</Link>.
+                ...any <Link href="https://github.com/simonwep?tab=repositories">many more</Link>.
             </p>
         </PageSection>
     );

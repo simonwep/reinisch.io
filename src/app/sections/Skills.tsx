@@ -34,18 +34,18 @@ const skills: Array<Skill> = [
         content: (
             <div>
                 I worked{' '}
-                <Link href="https://github.com/search?q=user%3ASimonwep+filename%3Arollup.js+filename%3Awebpack.config&type=code">
+                <Link href="https://github.com/search?q=user%3Asimonwep+filename%3Arollup.js+filename%3Awebpack.config&type=code">
                     extensively{' '}
                 </Link>
                 with bundlers like <Link href="https://webpack.js.org">webpack</Link> and{' '}
                 <Link href="https://rollupjs.org/guide/en">rollup</Link>, while working on{' '}
-                <Link href="https://github.com/Simonwep/nanopop">small</Link> or{' '}
+                <Link href="https://github.com/simonwep/nanopop">small</Link> or{' '}
                 <Link href="https://github.com/dot-cafe/beam.cafe">medium-sized</Link> projects.
                 <br />
                 <br />
                 I&apos;m also very familiar with transpiler and linter such as{' '}
                 <Link href="https://babeljs.io/">Babel</Link> and <Link href="https://eslint.org/">ESLint</Link>. For
-                example, an ESLint <Link href="https://github.com/Simonwep/eslint-plugin-align-import">plugin</Link> to
+                example, an ESLint <Link href="https://github.com/simonwep/eslint-plugin-align-import">plugin</Link> to
                 align import statements.
             </div>
         ),
@@ -116,7 +116,7 @@ const skills: Array<Skill> = [
         content: (
             <div>
                 I have experience with <Link href="https://webassembly.org">webassembly</Link> (e.g.{' '}
-                <Link href="https://github.com/Simonwep/conway">conway</Link>),
+                <Link href="https://github.com/simonwep/conway">conway</Link>),
                 <Link href="https://web.dev/progressive-web-apps/"> PWAs</Link>,{' '}
                 <Link href="https://web.dev/workers-overview/">WebWorkers</Link> (or multi-threaded web-apps) and{' '}
                 <Link href="https://web.dev/tags/service-worker/"> Service workers</Link>. I&apos;m also interested on

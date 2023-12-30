@@ -1,5 +1,5 @@
 .about {
-    @include font(300, 1.6em);
+    @include font(300, 1.2em);
     position: relative;
     opacity: var(--vis-in);
     transform: translateY(calc(10vh - var(--vis-in) * 10vh));
@@ -20,8 +20,8 @@
 
     article {
         position: relative;
-        margin: 1em 0 1em -2em;
-        padding-left: 2em;
+        margin: 1em 0 1em 0;
+        padding-left: 50px;
         color: var(--c-text-accent);
 
         b, a {
@@ -40,7 +40,7 @@
 
             &::after {
                 @include pseudo();
-                @include size(2px, calc(100% - 0.75em));
+                @include size(2px, calc(100% - 2px));
                 transform-origin: bottom center;
                 transform: scaleY(var(--vis-in));
                 background: var(--c-text);
