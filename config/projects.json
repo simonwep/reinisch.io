@@ -7,22 +7,16 @@
             "link": "https://github.com/simonwep/ocular"
         },
         {
-            "title": "Genesis",
-            "description": "Ultra lightweight, generic go backend for tiny frontend apps.",
-            "tags": ["go", "api"],
-            "link": "https://github.com/simonwep/genesis"
-        },
-        {
             "title": "Viselect",
             "description": "Powerful, visual element-selection engine.",
             "tags": ["ts", "ui", "ux", "library"],
             "link": "https://github.com/simonwep/selection"
         },
         {
-            "title": "Hue Scheduler",
-            "description": "Better philips hue automation when using physical switches.",
-            "tags": ["rust", "iot", "philips hue"],
-            "link": "https://github.com/simonwep/hue-scheduler"
+            "title": "Genesis",
+            "description": "Ultra lightweight, generic go backend for tiny frontend apps.",
+            "tags": ["go", "api"],
+            "link": "https://github.com/simonwep/genesis"
         },
         {
             "title": "Spectrum",
@@ -55,16 +49,16 @@
             "link": "https://github.com/simonwep/nason"
         },
         {
-            "title": "Li18nt",
-            "description": "Opinionated, small linter for i18n locale files.",
-            "tags": ["ts", "json", "linting", "cli"],
-            "link": "https://github.com/simonwep/li18nt"
-        },
-        {
             "title": "OpenVPN Pihole",
             "description": "OpenVPN and Pihole wrapped up in a docker-compose setup.",
             "tags": ["docker", "openvpn", "pihole"],
             "link": "https://github.com/simonwep/openvpn-pihole"
+        },
+        {
+            "title": "Hue Scheduler",
+            "description": "Better philips hue automation when using physical switches.",
+            "tags": ["rust", "iot", "philips hue"],
+            "link": "https://github.com/simonwep/hue-scheduler"
         }
     ],
     "archive": [
@@ -139,6 +133,12 @@
             "description": "A sassy sass library to speed up your css workflow.",
             "tags": ["scss", "css", "styles"],
             "link": "https://github.com/simonwep/sassyfication"
+        },
+        {
+            "title": "Li18nt",
+            "description": "Opinionated, small linter for i18n locale files.",
+            "tags": ["ts", "json", "linting", "cli"],
+            "link": "https://github.com/simonwep/li18nt"
         }
     ]
 }
