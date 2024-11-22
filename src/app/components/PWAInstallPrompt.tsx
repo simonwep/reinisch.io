@@ -1,5 +1,4 @@
 import { useMedia } from '@hooks/useMedia';
-import { track } from '@utils/ackee';
 import { cn } from '@utils/preact-utils';
 import { uid } from '@utils/uid';
 import { FunctionalComponent } from 'preact';
@@ -11,10 +10,7 @@ export const PWAInstallPrompt: FunctionalComponent = () => {
     const [installTimeout, setInstallTimeout] = useState(-1);
     const media = useMedia();
 
-    const submit = ({ outcome }: { outcome: 'accepted' | 'dismissed' }) => {
-        const accepted = outcome === 'accepted';
-        track.pwa[accepted ? 'accepted' : 'dismissed']();
-
+    const submit = () => {
         // Permanently remember user choice
         localStorage.setItem('pwa-prompt-timestamp', JSON.stringify(Date.now()));
         setEvent(null);
@@ -36,8 +32,6 @@ export const PWAInstallPrompt: FunctionalComponent = () => {
                 void evt.userChoice.then(submit);
             }, 15000) as unknown as number,
         );
-
-        track.pwa.prompted();
     };
 
     const prompt = () => {
@@ -75,7 +69,7 @@ export const PWAInstallPrompt: FunctionalComponent = () => {
                 className={styles.closeBtn}
                 data-cursor-focus={true}
                 aria-label="Dismiss installation"
-                onClick={() => submit({ outcome: 'dismissed' })}
+                onClick={submit}
             >
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                     <path d="M16,15L16,15c-0.4,0.4-0.4,1,0,1.4l6.9,6.9c0.4,0.4,0.4,1,0,1.4L16,31.6c-0.4,0.4-0.4,1,0,1.4h0c0.4,0.4,1,0.4,1.4,0l6.9-6.9c0.4-0.4,1-0.4,1.4,0l6.9,6.9c0.4,0.4,1,0.4,1.4,0l0,0c0.4-0.4,0.4-1,0-1.4l-6.9-6.9c-0.4-0.4-0.4-1,0-1.4l6.9-6.9c0.4-0.4,0.4-1,0-1.4v0c-0.4-0.4-1-0.4-1.4,0l-6.9,6.9c-0.4,0.4-1,0.4-1.4,0L17.4,15C17,14.6,16.4,14.6,16,15z" />

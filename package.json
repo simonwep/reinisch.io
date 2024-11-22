@@ -1,10 +1,10 @@
 {
     "name": "reinisch.io",
     "private": true,
-    "version": "0.0.0",
+    "version": "9.11.0",
     "description": "Simon Reinisch's portfolio",
     "author": "Simon Reinisch <trash@reinisch.io>",
-    "packageManager": "pnpm@8.0.0",
+    "packageManager": "pnpm@9.11.0",
     "license": "MIT",
     "scripts": {
         "dev": "vite",
@@ -15,7 +15,6 @@
     },
     "devDependencies": {
         "@preact/preset-vite": "2.7.0",
-        "@types/ackee-tracker": "5.0.4",
         "@typescript-eslint/eslint-plugin": "6.16.0",
         "@typescript-eslint/parser": "6.16.0",
         "eslint": "8.56.0",
@@ -32,7 +31,6 @@
         "workbox-window": "7.0.0"
     },
     "dependencies": {
-        "ackee-tracker": "5.1.0",
         "normalize.css": "8.0.1",
         "preact": "10.19.3"
     }

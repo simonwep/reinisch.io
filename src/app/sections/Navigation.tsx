@@ -1,7 +1,6 @@
 import { Link } from '@components/Link';
 import { RunningBanner } from '@components/RunningBanner';
 import { useStore } from '@hooks/useStore';
-import { track } from '@utils/ackee';
 import { clamp } from '@utils/math';
 import { cn } from '@utils/preact-utils';
 import { createRef, FunctionalComponent, RefObject } from 'preact';
@@ -59,10 +58,6 @@ export const Navigation: FunctionalComponent = () => {
         updateBar(offset, partial);
     }, [store.scrollOffset]);
 
-    const onNavigation = (): void => {
-        track.general.navigated();
-    };
-
     /* eslint-disable @typescript-eslint/no-unsafe-argument */
     return (
         <div
@@ -92,7 +87,6 @@ export const Navigation: FunctionalComponent = () => {
                             return (
                                 <Link
                                     href={`#${section.id}`}
-                                    onClick={onNavigation}
                                     key={section.id}
                                     ref={element}
                                     className={styles.link}

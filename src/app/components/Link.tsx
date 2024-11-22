@@ -1,4 +1,3 @@
-import { track } from '@utils/ackee';
 import { cn } from '@utils/preact-utils';
 import { RenderableProps } from 'preact';
 import { forwardRef } from 'preact/compat';
@@ -22,13 +21,12 @@ export const Link = forwardRef<HTMLAnchorElement, RenderableProps<Props>>((props
         e.preventDefault();
     };
 
-    const trackNavigation = (): void => {
-        track.general.pageLeft();
-    };
-
     const onClick = (e: MouseEvent): void => {
         props.onClick?.(e);
-        (props.href.startsWith('#') ? handleHashLink : trackNavigation)(e);
+
+        if (props.href.startsWith('#')) {
+            handleHashLink(e);
+        }
     };
 
     return (
