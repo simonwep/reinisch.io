@@ -7,15 +7,15 @@ jobs:
         name: Lint and build
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v3
-            -   uses: pnpm/action-setup@v2
+            -   uses: actions/checkout@v4
+            -   uses: pnpm/action-setup@v4
                 with:
-                    version: 8
+                    version: 9
 
             -   name: Set up Node.js
-                uses: actions/setup-node@v3
+                uses: actions/setup-node@v4
                 with:
-                    node-version: 20
+                    node-version: 22
                     cache: 'pnpm'
 
             -   name: Install dependencies
@@ -35,7 +35,7 @@ jobs:
         needs: build
         if: github.ref == 'refs/heads/master'
         steps:
-            -   uses: actions/checkout@v2
+            -   uses: actions/checkout@v4
             -   name: Setup SSH Keys and known_hosts
                 run: |
                     mkdir -p ~/.ssh
