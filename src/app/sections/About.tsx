@@ -24,8 +24,8 @@ export const About: FunctionalComponent = () => {
         <PageSection id="about" title="About me">
             <div className={styles.about}>
                 <p>
-                    Hi! My name is Simon, and I&apos;m a Software Architect currently living in Mannheim, Germany. I
-                    display passion through perfectionism.
+                    Hi! I&apos;m Simon and I&apos;m a Software Architect seated in Mannheim, Germany. I have a passion
+                    for building software and have been doing so for almost a decade now.
                 </p>
 
                 <article>
@@ -113,10 +113,11 @@ export const About: FunctionalComponent = () => {
                 <article>
                     <h1>2024</h1>
                     <p>
-                        After my first working on our product <Link href="https://www.tagideasy.de/">TagIDeasy</Link>, I
-                        switched over to the role of a software architect. I am now responsible for the development of
-                        the entire frontend architecture and the implementation of the frontend itself. I am also taking
-                        care of the offline-first approach of our mobile app.
+                        After my first year working on our product{' '}
+                        <Link href="https://www.tagideasy.de/">TagIDeasy</Link>, I switched over to the role of a
+                        software architect. I am responsible for the development of the frontend architecture and the
+                        implementation of the frontend itself. I am also taking care of the offline-first approach of
+                        our mobile app as well as making everything accessible and easy to work with for developers.
                     </p>
                 </article>
 

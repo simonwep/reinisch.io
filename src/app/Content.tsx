@@ -3,6 +3,7 @@ import { PWAInstallPrompt } from '@components/PWAInstallPrompt';
 import { useMedia } from '@hooks/useMedia';
 import { FunctionalComponent } from 'preact';
 import styles from './Content.module.scss';
+import { EstBanner } from './EstBanner';
 import { ScrollIndicator } from './ScrollIndicator';
 import { About } from './sections/About';
 import { ActiveProjects } from './sections/ActiveProjects';
@@ -23,6 +24,9 @@ export const Content: FunctionalComponent = () => {
 
             {/* Custom PWA Install prompt */}
             <PWAInstallPrompt />
+
+            {/* Banner for new homepage */}
+            <EstBanner />
 
             {/* Header and navigation */}
             <Header />
