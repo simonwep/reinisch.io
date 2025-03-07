@@ -3,52 +3,33 @@ name: Main
 on: push
 
 jobs:
-    build:
-        name: Lint and build
-        runs-on: ubuntu-latest
-        steps:
-            -   uses: actions/checkout@v4
-            -   uses: pnpm/action-setup@v4
-                with:
-                    version: 9.11.0
+  build:
+    name: Lint, build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.11.0
 
-            -   name: Set up Node.js
-                uses: actions/setup-node@v4
-                with:
-                    node-version: 22
-                    cache: 'pnpm'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
 
-            -   name: Install dependencies
-                run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
 
-            -   name: Build
-                run: pnpm run build
+      - name: Build
+        run: pnpm run build
 
-            -   uses: actions/upload-artifact@master
-                with:
-                    name: build
-                    path: ./dist
-
-    deploy:
-        name: Deploy
-        runs-on: ubuntu-latest
-        needs: build
+      - name: Deploy to AWS
         if: github.ref == 'refs/heads/master'
-        steps:
-            -   uses: actions/checkout@v4
-            -   name: Setup SSH Keys and known_hosts
-                run: |
-                    mkdir -p ~/.ssh
-                    eval `ssh-agent -s`
-                    echo "IdentityFile ~/.ssh/server_key" >> ~/.ssh/config
-                    echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/server_key
-                    chmod 400 ~/.ssh/server_key
-                    ssh-keyscan reinisch.io >> ~/.ssh/known_hosts
-
-            -   uses: actions/download-artifact@master
-                with:
-                    name: build
-                    path: ./dist
-
-            -   name: Upload build files
-                run: rsync -rv --delete ./dist/ ubuntu@reinisch.io:/home/ubuntu/www/home
+        run: |
+            aws s3 sync ./dist s3://legacy.reinisch.io
+            aws cloudfront create-invalidation --distribution-id E2MEZZMMO9W01C --paths "/*"
+        env:
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_DEFAULT_REGION: 'eu-central-1'
